@@ -9,6 +9,7 @@
     "express": "3.2.6",
     "jade": "*",
     "underscore": "*",
-    "handlebars": "*"
+    "handlebars": "*",
+    "mongoose": "*"
   }
 }
