@@ -3,6 +3,7 @@
     Views: {},
     Models: {},
     Collections: {},
+    Templates: {},
     Vent: _.extend({}, Backbone.Events),
     Router: {},
     initialize: function() {
