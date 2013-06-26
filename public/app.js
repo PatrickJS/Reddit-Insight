@@ -29,42 +29,15 @@ Redd.Router = Backbone.Router.extend({
   }
 });
 
+//login, dashboard, prediction, user, post
+
 Redd.Models.App = Backbone.Model.extend({});
 
-Redd.Models.Login = Backbone.Model.extend({});
 
-Redd.Models.Dashboard = Backbone.Model.extend({});
-
-Redd.Models.Prediction = Backbone.Model.extend({});
-
-Redd.Models.User = Backbone.Model.extend({});
-
-Redd.Models.Post = Backbone.Model.extend({});
-
-Redd.Collections.Users = Backbone.Collection.extend({
-  model: Redd.Models.User
-});
-
-Redd.Collections.Posts = Backbone.Collection.extend({
-  model: Redd.Models.Post
-});
 
 Redd.Views.App = Backbone.View.extend({
   initialize: function() {},
-  render: function() {}
-});
+  render: function() {
 
-Redd.Views.Login = Backbone.View.extend({
-  initialize: function() {},
-  render: function() {}
-});
-
-Redd.Views.Dashboard = Backbone.View.extend({
-  initialize: function() {},
-  render: function() {}
-});
-
-Redd.Views.Prediction = Backbone.View.extend({
-  initialize: function() {},
-  render: function() {}
+  }
 });
