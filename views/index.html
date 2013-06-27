@@ -10,12 +10,20 @@
   <link href='/stylesheets/bootstrap-responsive.min.css' rel='stylesheet' type="text/css">
 
   <title>Reddit Insight</title>
+  <style>
+    .chart-container svg{  height: 400px;}
+    .chart-container svg text{font-size: 10px;}
+  </style>
 </head>
 <body>
 
 <header></header>
 
-<section></section>
+<section>
+  <div class="chart-container">
+    <svg></svg>
+  </div>
+</section>
 
 <footer></footer>
 
@@ -81,6 +89,10 @@
 <script src='/views/app.js'></script>
 
 <script src='/router.js'></script>
+
+<script src='/lib/d3.min.js'></script>
+<script src='/lib/nv.d3.min.js'></script>
+<script src='/lib/d3Logic.js'></script>
 
 <script>
   Redd.initialize();
