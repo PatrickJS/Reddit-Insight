@@ -7,9 +7,11 @@
     Vent: _.extend({}, Backbone.Events),
     Router: {},
     initialize: function() {
-      new Redd.Views.App({model: new Redd.Models.App()});
+      new Redd.Views.App({model: new Redd.Models.App()}).render();
       new Redd.Router();
-     Backbone.history.start({pushState: true});
+      var Reddit = new Backbone.OAuth(Backbone.OAuth.configs.Reddit);
+      Reddit.auth();
+      Backbone.history.start();
     }
   };
 })();
