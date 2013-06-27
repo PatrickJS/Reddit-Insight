@@ -4,7 +4,7 @@ Redd.Views.Dashboard = Backbone.View.extend({
     console.log('in dashboard view');
   },
   el: 'section',
-  template: Handlebars.compile($('#dashboard-template').html()),
+  template: Redd.Template('dashboard'),
   render: function() {
     this.$el.html(this.template());
     return this;

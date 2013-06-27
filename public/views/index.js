@@ -1,7 +1,7 @@
 Redd.Views.Index = Backbone.View.extend({
-  el: $('section'),
   initialize: function(){
   },
+  el: 'section',
   render: function() {
 
   }
