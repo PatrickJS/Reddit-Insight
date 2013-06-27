@@ -1,6 +1,6 @@
 Redd.Router = Backbone.Router.extend({
   routes: {
-    '':'login',
+    '':'dashboard',
     'dashboard':'dashboard',
     'prediction':'prediction'
   },
@@ -9,9 +9,9 @@ Redd.Router = Backbone.Router.extend({
     Redd.Vent.trigger('login');
   },
   dashboard: function(){
-    Redd.Vent.trigger('navbar');
-    Redd.Vent.trigger('dashboard');
     console.log('in dashboard route');
+    Redd.Vent.trigger('dashboard');
+    Redd.Vent.trigger('navbar');
   },
   prediction: function(){
     console.log('in prediction route');
