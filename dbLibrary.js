@@ -12,7 +12,7 @@ exports.allPostsCollection = {
 
   _options: {
     host: 'www.reddit.com',
-    path: '/r/all/top.json?t=all&limit=2',
+    path: '/r/all/top.json?t=all&limit=100',
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -85,7 +85,7 @@ exports.allPostsCollection = {
       //database has been run before
       var self = this;
       this._lastNameModel = mongoose.model('LastName', this._nameSchema);
-      this._lastNameModel.find({},function(err,name){
+      this._lastNameModel.findOne({},function(err,name){
         if(err){
           console.log('from findOne error:', JSON.stringify(err));
           clearInterval(intervalId);
@@ -96,22 +96,26 @@ exports.allPostsCollection = {
           debugger
           self._nameOfLastPost = name.lastName;
           afterString = "&after=" + self._nameOfLastPost;
+          var originalPath = self._options.path;
           self._options.path = self._options.path + afterString;
           console.log('using url: ', self._options.path);
           self._throttledPullData(self._options, self._saveResult, self);
+          self._options.path = originalPath;
         } else {
           console.log('first time access with no data');
-          console.log('using url: ', self.options.path);
+          console.log('using url: ', self._options.path);
           self._throttledPullData(self._options, self._saveResult, self);
         }
       });
     } else {
-      debugger
       //database has something in it, last name is known
       afterString = "&after=" + this._nameOfLastPost;
+      var originalPath = this._options.path;
       this._options.path = this._options.path + afterString;
-      console.log('using url: ', this.options.path);
+      console.log("_nameOfLastPost exists: ", this._nameOfLastPost);
+      console.log('using url: ', this._options.path);
       this._throttledPullData(this._options, this._saveResult, this);
+      this._options.path = originalPath;
     }
   },
   _saveResult: function(statusCode, result, self){
@@ -123,6 +127,7 @@ exports.allPostsCollection = {
       });
     }
     self._nameOfLastPost = result.data.children[result.data.children.length-1].data.name;
+    self._lastNameModel.find().remove();
     self._lastNameModel({lastName: self._nameOfLastPost}).save(function(err, lastName){
       if(!err){
         console.log(lastName + 'saved successfuly');
