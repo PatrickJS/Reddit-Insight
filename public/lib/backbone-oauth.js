@@ -1,5 +1,11 @@
-(function(window, Backbone, $, _) {
+(function(window) {
   "use strict";
+
+  // Alias backbone, underscore and jQuery.
+  var Backbone = window.Backbone,
+      _        = window._,
+      $        = window.$;
+
   // Parse hash helper method used for parsing location.hash.
   var parseHash = function(hash) {
     var params = {},
@@ -36,8 +42,8 @@
     // Configures the auth dialog url.
     setupAuthUrl: function() {
       var url = this.auth_url + '?client_id=' + this.client_id +
-        + '&redirect_uri=' + this.redirect_url +
-        + '&response_type=token';
+                '&redirect_uri=' + this.redirect_url +
+                '&response_type=token';
       if (this.scope) url += '&scope=' + this.scope;
       if (this.state) url += '&state=' + this.state;
       return url;
@@ -92,4 +98,4 @@
 
   //============================================================================
 
-})(window, Backbone, jQuery, _);
+})(this);
