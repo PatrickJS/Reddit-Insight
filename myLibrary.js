@@ -5,7 +5,7 @@ var https = require('https');
  * @param options: http options object
  * @param callback: callback to pass the results JSON object(s) back
  */
-exports.getJSON = function(options, onResult)
+exports.getJSON = function(options, onResult, self)
 {
     // console.log("rest::getJSON", JSON.stringify(options), onResult);
 
@@ -24,7 +24,7 @@ exports.getJSON = function(options, onResult)
 
         res.on('end', function() {
             var obj = JSON.parse(output);
-            onResult(res.statusCode, obj);
+            onResult(res.statusCode, obj, self);
         });
     });
 
