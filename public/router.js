@@ -1,23 +1,26 @@
 Redd.Router = Backbone.Router.extend({
+  initialize: function(control) { this.controller = control; },
   routes: {
     '':'dashboard',
     '#':'dashboard',
     'prediction':'prediction',
-    'trackpost':'trackPost'
+    'trackpost':'trackpost'
   },
+  pushState: true,
   login: function() {
     console.log('in login route');
-    Redd.Vent.trigger('login');
+    this.controller.show('login');
   },
   dashboard: function(){
     console.log('in dashboard route');
-    Redd.Vent.trigger('dashboard');
+    this.controller.show('dashboard');
   },
   prediction: function(){
     console.log('in prediction route');
+    this.controller.show('prediction');
   },
-  trackPost: function(){
+  trackpost: function(url){
     console.log('in trackPost route');
-    Redd.Vent.trigger('trackpost');
+    this.controller.show('trackpost');
   }
 });
