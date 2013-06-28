@@ -5,9 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href='/stylesheets/style.css' rel='stylesheet' type="text/css">
   <link href='/stylesheets/bootstrap.min.css' rel='stylesheet' type="text/css">
   <link href='/stylesheets/bootstrap-responsive.min.css' rel='stylesheet' type="text/css">
+  <link href='/stylesheets/rickshaw.css' rel='stylesheet' type='text/css'>
+  <link href='/stylesheets/jquery.ui.slider.css' rel='stylesheet' type='text/css'>
+  <link href='/stylesheets/style.css' rel='stylesheet' type="text/css">
 
   <title>Reddit Insight</title>
 
@@ -27,10 +29,24 @@
 </body>
 <script id="dashboard-template" type="text/x-handlebars-template">
 
-    <div class="chart-container">
-      <svg></svg>
+    <div id="chart_container">
+        <div id="y_axis"></div>
+        <div id="chart"></div>
+        <div id="legend"></div>
+        <form id="offset_form" class="toggler">
+                <input type="radio" name="offset" id="lines" value="lines" checked>
+                <label class="lines" for="lines">lines</label><br>
+                <input type="radio" name="offset" id="stack" value="zero">
+                <label class="stack" for="stack">stack</label>
+        </form>
+        <div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+          <div class="ui-slider-range ui-widget-header"></div>
+          <a class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a>
+          <a class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a>
+        </div>
     </div>
-  </script>
+
+</script>
 
 <script id="nav-template" type="text/x-handlebars-template">
   <div class="navbar">
@@ -85,7 +101,9 @@
 <script src='/lib/backbone-min.js'></script>
 <script src='/lib/handlebars.js'></script>
 <script src='/lib/backbone-oauth.js'></script>
-
+<script arc='/lib/jquery.ui.slider.js'></script>
+<script src='/lib/d3.min.js'></script>
+<script src='/lib/rickshaw.js'></script>
 <script src='/redd.js'></script>
 <script src='/jsonp.js'></script>
 
@@ -107,9 +125,8 @@
 <script src='/views/app.js'></script>
 <script src='/router.js'></script>
 
-<script src='/lib/d3.min.js'></script>
-<script src='/lib/nv.d3.min.js'></script>
-<script src='/lib/d3Logic.js'></script>
+
+<script src='/d3Logic.js'></script>
 
 <script>
   Redd.initialize();
