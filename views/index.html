@@ -73,7 +73,11 @@
 
 <script id="track-post-template" type="text/x-handlebars-template">
   <div>
-    <h3>Track Post View</h3>
+    <h2>Track Post View</h2>
+    <form>
+      <label for="tracking-url">Tracking URL</label>
+      <input id="tracking-url" type="text" value="http://"autofocus>
+    </form>
   </div>
 </script>
 
@@ -89,7 +93,7 @@
 
 <script src='/models/app.js'></script>
 <script src='/models/login.js'></script>
-<script src='/models/post.js'></script>
+<script src='/models/yolo.js'></script>
 
 <script src='/collections/posts.js'></script>
 
@@ -100,8 +104,9 @@
 <script src='/views/navbar.js'></script>
 <script src='/views/dashboard.js'></script>
 <script src='/views/index.js'></script>
-<script src='/views/app.js'></script>
+<script src='/views/trackpost.js'></script>
 
+<script src='/views/app.js'></script>
 <script src='/router.js'></script>
 
 <script src='/lib/d3.min.js'></script>

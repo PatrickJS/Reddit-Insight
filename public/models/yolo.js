@@ -1,4 +1,4 @@
-Redd.Models.Post = Backbone.Model.extend({
+Redd.Models.TrackingData = Backbone.Model.extend({
   url: function() {
     return 'http://www.reddit.com/user/'+ self.get('id') +'.json';
   },

@@ -19,5 +19,7 @@ Redd.Router = Backbone.Router.extend({
   },
   trackPost: function(){
     console.log('in trackPost route');
+    Redd.Vent.trigger('trackpost');
+    Redd.Vent.trigger('navbar');
   }
 });
