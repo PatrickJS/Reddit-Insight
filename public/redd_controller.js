@@ -9,6 +9,7 @@ Redd.Controller = Backbone.View.extend({
     this.dashboard = new Redd.Views.Dashboard();
     this.index     = new Redd.Views.Index();
   },
+  el: 'html',
   show: function(action) {
     this[action].render();
     return this;

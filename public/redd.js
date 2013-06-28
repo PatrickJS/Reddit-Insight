@@ -12,7 +12,7 @@
       var controller = new Redd.Controller({model: new Redd.Models.App()});
       controller.show('navbar');
       new Redd.Router(controller);
-      Backbone.history.start();
+      Backbone.history.start(/*{pushState: true}*/);
     }
   };
 })();
