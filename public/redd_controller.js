@@ -5,7 +5,7 @@ Redd.Controller = Backbone.View.extend({
     this.navbar    = new Redd.Views.Navbar();
     this.index     = new Redd.Views.Index();
     this.login     = new Redd.Views.Login();
-    this.trackpost = new Redd.Views.TrackPost({model: new Redd.Models.TrackData()});
+    this.trackpost = new Redd.Views.TrackPost({model: new Redd.Models.TrackPost()});
     this.dashboard = new Redd.Views.Dashboard();
   },
   el: 'html',

@@ -4,12 +4,12 @@
     Models: {},
     Collections: {},
     Templates: {},
-    Router: {},
     Controller: {},
+    Router: {},
     JSONP: {},
     Vent: _.extend({}, Backbone.Events),
     initialize: function() {
-      var controller = new Redd.Controller({model: new Redd.Models.App()});
+      var controller = new Redd.Controller();
       controller.show('navbar');
       new Redd.Router(controller);
       Backbone.history.start(/*{pushState: true}*/);
