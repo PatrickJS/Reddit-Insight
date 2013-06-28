@@ -5,33 +5,113 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link href='/stylesheets/style.css' rel='stylesheet' type="text/css">
+  <link href='/stylesheets/bootstrap.min.css' rel='stylesheet' type="text/css">
+  <link href='/stylesheets/bootstrap-responsive.min.css' rel='stylesheet' type="text/css">
 
   <title>Reddit Insight</title>
+  <style>
+    .chart-container svg{  height: 400px;}
+    .chart-container svg text{font-size: 10px;}
+  </style>
 </head>
 <body>
 
+<header></header>
 
+<div class="container-fluid">
+  <section>
+    <div class="chart-container">
+      <svg></svg>
+    </div>
+  </section>
+</div>
+
+<footer></footer>
 
 </body>
+<script id="dashboard-template" type="text/x-handlebars-template">
+    ur dashboard
+</script>
+
+<script id="nav-template" type="text/x-handlebars-template">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container" style="width: auto;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">Reddit Insight</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class=""><a href="#">Home</a></li>
+            <li class=""><a href="#trackpost">Track Post</a></li>
+          </ul>
+          <ul class="nav pull-right">
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>User<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script id="login-template" type="text/x-handlebars-template">
+  <div>
+    yolo
+  </div>
+</script>
+
+<script id="track-post-template" type="text/x-handlebars-template">
+  <div>
+    <h3>Track Post View</h3>
+  </div>
+</script>
 
 <script src='/lib/jquery-2.0.2.js'></script>
+<script src='/lib/bootstrap.min.js'></script>
 <script src='/lib/underscore.js'></script>
 <script src='/lib/backbone-min.js'></script>
 <script src='/lib/handlebars.js'></script>
+<script src='/lib/backbone-oauth.js'></script>
 
-<script src='/app.js'></script>
+<script src='/redd.js'></script>
+<script src='/jsonp.js'></script>
 
 <script src='/models/app.js'></script>
+<script src='/models/login.js'></script>
+<script src='/models/post.js'></script>
 
-<!-- <script src='/collection/app.js'></script> -->
+<script src='/collections/posts.js'></script>
 
+<script src='/templates/template.js'></script>
+
+<script src='/views/login.js'></script>
+<script src='/views/post.js'></script>
+<script src='/views/navbar.js'></script>
+<script src='/views/dashboard.js'></script>
+<script src='/views/index.js'></script>
 <script src='/views/app.js'></script>
 
 <script src='/router.js'></script>
 
+<script src='/lib/d3.min.js'></script>
+<script src='/lib/nv.d3.min.js'></script>
+<script src='/lib/d3Logic.js'></script>
+
 <script>
   Redd.initialize();
 </script>
+
+
+
 </html>

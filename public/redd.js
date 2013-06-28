@@ -4,12 +4,13 @@
     Models: {},
     Collections: {},
     Templates: {},
-    Vent: _.extend({}, Backbone.Events),
     Router: {},
+    JSONP: {},
+    Vent: _.extend({}, Backbone.Events),
     initialize: function() {
-      new Redd.Views.App({model: new Redd.Models.App()});
+      new Redd.Views.App({model: new Redd.Models.App()}).render();
       new Redd.Router();
-     Backbone.history.start({pushState: true});
+      Backbone.history.start();
     }
   };
 })();
