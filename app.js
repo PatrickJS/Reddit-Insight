@@ -40,7 +40,7 @@ http.createServer(app).listen(app.get('port'), function(){
   // allPostsCollection.start();
   // var intervalId = setInterval( function(intervalId){
   //   allPostsCollection.pullData(intervalId);
-  // }, 3000);
+  // }, 10000);
 });
 
 

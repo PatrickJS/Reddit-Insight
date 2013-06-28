@@ -44,7 +44,8 @@
         <a class="brand" href="#">Reddit Insight</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class=""><a href="#">Home</a></li>
+            <li class=""><a href="#trackpost">Track Post</a></li>
           </ul>
           <ul class="nav pull-right">
             <li class="divider-vertical"></li>
@@ -68,6 +69,12 @@
   </div>
 </script>
 
+<script id="track-post-template" type="text/x-handlebars-template">
+  <div>
+    <h3>Track Post View</h3>
+  </div>
+</script>
+
 <script src='/lib/jquery-2.0.2.js'></script>
 <script src='/lib/bootstrap.min.js'></script>
 <script src='/lib/underscore.js'></script>
@@ -76,6 +83,7 @@
 <script src='/lib/backbone-oauth.js'></script>
 
 <script src='/redd.js'></script>
+<script src='/jsonp.js'></script>
 
 <script src='/models/app.js'></script>
 <script src='/models/login.js'></script>
