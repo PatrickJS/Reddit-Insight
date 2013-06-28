@@ -13,9 +13,11 @@ Redd.Views.TrackUser = Backbone.View.extend({
   },
 
   enterUsername: function(e) {
-    var url = $('#tracking-username').val();
-    // Redd.Models.trackpost.set({url: url});
-    // Redd.Vent.trigger('loopin', model);
+    var username = $('#tracking-username').val();
+    this.model.set({username: username});
+    console.log('username submitted', username);
+    Redd.Vent.trigger('loopin');
+    $('#tracking-username').val('');
     return false;
   }
 });
