@@ -11,8 +11,10 @@ Redd.Views.Navbar = Backbone.View.extend({
     this.$el.html(this.template());
     return this;
   },
-  activeNav: function(event) {
+
+  activeNav: function(e) {
     $('.navbar li').removeClass("active");
-    $(event.currentTarget).addClass("active");
+    $(e.currentTarget).addClass("active");
+    return false;
   }
 });

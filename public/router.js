@@ -8,7 +8,6 @@ Redd.Router = Backbone.Router.extend({
     'trackpost':'trackpost',
     'dashboard':'dashboard'
   },
-  pushState: true,
   login: function() {
     this.controller.hide();
     console.log('in login route');
