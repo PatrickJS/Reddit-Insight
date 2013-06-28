@@ -1,8 +1,8 @@
 Redd.Views.TrackPost = Backbone.View.extend({
   initialize: function() {
-    console.log('in trackPost view');
+    console.log('in TrackPost view');
   },
-  el: 'section',
+  el: '#trackpost',
   template: Redd.Templates('track-post'),
 
   render: function(){
