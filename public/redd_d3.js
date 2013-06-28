@@ -1,5 +1,7 @@
-
-$(document).ready(function(){
+/*
+namespace Redd.d3
+*/
+$(function(){
   var tv = 250;
 
 
