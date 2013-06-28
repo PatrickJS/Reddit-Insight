@@ -3,18 +3,19 @@ Redd.Views.App = Backbone.View.extend({
 
   initialize: function() {
     console.log('in app view');
-  },
-  render: function() {
     var my_model = {
       attributes: {
         userName:'Patrick'
       }
     };
-    new Redd.Views.Navbar({model: my_model});
-    new Redd.Views.TrackPost({model: new Redd.Models.TrackData()});
-    new Redd.Views.Login();
-    new Redd.Views.Dashboard();
-    new Redd.Views.Index();
+    this.navBar = new Redd.Views.Navbar({model: my_model});
+    this.trackPost = new Redd.Views.TrackPost({model: new Redd.Models.TrackData()});
+    this.login = new Redd.Views.Login();
+    this.dashboard = new Redd.Views.Dashboard();
+    this.index = new Redd.Views.Index();
+  },
+  render: function() {
+    // this.navBar.setElement(this.$('.navBar'));
   }
 
 });
