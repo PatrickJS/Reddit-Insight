@@ -1,7 +1,7 @@
 Redd.Router = Backbone.Router.extend({
   routes: {
     '':'dashboard',
-    'dashboard':'dashboard',
+    '#':'dashboard',
     'prediction':'prediction',
     'trackpost':'trackPost'
   },
@@ -12,7 +12,6 @@ Redd.Router = Backbone.Router.extend({
   dashboard: function(){
     console.log('in dashboard route');
     Redd.Vent.trigger('dashboard');
-    Redd.Vent.trigger('navbar');
   },
   prediction: function(){
     console.log('in prediction route');
@@ -20,6 +19,5 @@ Redd.Router = Backbone.Router.extend({
   trackPost: function(){
     console.log('in trackPost route');
     Redd.Vent.trigger('trackpost');
-    Redd.Vent.trigger('navbar');
   }
 });
