@@ -37,10 +37,7 @@ app.get('/', routes.index);
 //start server
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
-  // allPostsCollection.start();
-  // var intervalId = setInterval( function(intervalId){
-  //   allPostsCollection.pullData(intervalId);
-  // }, 10000);
+  allPostsCollection.start(5000);
 });
 
 

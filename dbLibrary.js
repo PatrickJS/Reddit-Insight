@@ -5,12 +5,8 @@ var mongoose = require('mongoose')
 
 exports.allPostsCollection = {
   _postModel: null,
-  _lastNameModel: null,
-  _nameOfLastPost: "",
   _postsSchema: null,
   _throttledPullData: null,
-
-  _count: 0,
 
   _options: {
     host: 'www.reddit.com',
@@ -19,11 +15,6 @@ exports.allPostsCollection = {
     headers: {
       'Content-Type': 'application/json'
     }
-  },
-  _createLastNameSchema: function(){
-    return new mongoose.Schema({
-      lastName:String,
-    });
   },
 
   _createPostsSchema: function(){
@@ -53,7 +44,7 @@ exports.allPostsCollection = {
       saved:Boolean,
       is_self: Boolean,
       permalink: String,
-      name: String,
+      name: {type: String, index: {unique: true, dropDups: true}},
       created: Number,
       url: String,
       author_flair_text: Schema.Types.Mixed,
@@ -65,84 +56,61 @@ exports.allPostsCollection = {
       distinguished: Schema.Types.Mixed
     }, { autoIndex: true });
   },
-  start: function(){
+  start: function(interval){
     this._throttledPullData = _.throttle(lib.getJSON, 2000);
 
     if( !this._postsSchema ){
       this._postsSchema = this._createPostsSchema();
     }
-    if( !this._nameSchema ){
-      this._nameSchema = this._createLastNameSchema();
-    }
-
     mongoose.connect("mongodb://localhost/RedditInsight");
-    this._postModel = mongoose.model('AllTopPosts', this._postsSchema);
+    var db = mongoose.connection;
 
+    db.on('err', console.error.bind(console, 'connection error:'));
+
+    var self = this;
+    db.once('open', function(){
+      console.log('connected to db: ', db.db.databaseName);
+      self._postModel = mongoose.model('AllTopPosts', self._postsSchema);
+      var intervalId = setInterval( function(intervalId){
+        self.pullData(intervalId);
+      }, interval);
+    });
     //pulling data
   },
   pullData: function(intervalId){
-
-    var afterString = null;
-    if( !this._nameOfLastPost ){
-      //database has been run before
-      var self = this;
-      this._lastNameModel = mongoose.model('LastName', this._nameSchema);
-      this._lastNameModel.findOne({},function(err,name){
-        if(err){
-          console.log('from findOne error:', JSON.stringify(err));
-          clearInterval(intervalId);
-          console.log('Stopped intervalId: ', intervalId);
-          throw JSON.stringify(err);
-        } else if(name) {
-          self._nameOfLastPost = name.lastName;
-          afterString = "&after=" + self._nameOfLastPost;
-          var originalPath = self._options.path;
-          self._options.path = self._options.path + afterString;
-          console.log('pulling name ' + name + ' from database, using url: ', self._options.path);
-          self._throttledPullData(self._options, self._saveResult, self);
-          self._options.path = originalPath;
-        } else {
-          console.log('first time access with no data, using url: ', self._options.path);
-          self._throttledPullData(self._options, self._saveResult, self);
-        }
-      });
-    } else {
-      //database has something in it, last name is known
-      if(this.previousLastPost && this.previousLastPost === this._nameOfLastPost){  // stop duplicates once and for all!! work on this!
-        return;
+    var self = this;
+    this._postModel.count({},function(err, count){
+      if(err){
+        console.log('from count error: ', JSON.stringify(err));
+        clearInterval(intervalId);
+        console.log('Stopped intervalId: ', intervalId);
+        throw JSON.stringify(err);
+      } else if(count){
+        self._postModel.findOne({}, {name: 1}, {sort:{_id : -1}}, function (err, post) {
+          if(err){
+            console.log('from find error: ', JSON.stringify(err));
+            clearInterval(intervalId);
+            console.log('Stopped intervalId: ', intervalId);
+            throw JSON.stringify(err);
+          }
+          var afterString = "&after=" + post.name;
+          var editedOptions = _.clone(self._options);
+          editedOptions.path = editedOptions.path + afterString;
+          console.log('total count is ' + count  + ', name is ' + post.name + ', using url: ', editedOptions.path);
+          self._throttledPullData(editedOptions, self._saveResult, self);
+        });
+      } else if(count === 0){
+        console.log('first time access with no data, using url: ', self._options.path);
+        self._throttledPullData(self._options, self._saveResult, self);
       }
-      afterString = "&after=" + this._nameOfLastPost;
-      var originalPath = this._options.path;
-      this._options.path = this._options.path + afterString;
-      console.log("_nameOfLastPost exists: ", this._nameOfLastPost);
-      console.log('using url: ', this._options.path);
-      this._throttledPullData(this._options, this._saveResult, this);
-      this._options.path = originalPath;
-    }
+    });
   },
   _saveResult: function(statusCode, result, self){
-
     for(var i = 0; i < result.data.children.length; i++){
       var postObj = result.data.children[i].data;
       new self._postModel(postObj).save(function(err, docs){
         if(err){console.log("\n\nerror saving: ", postObj, "error: ", err)}
       });
     }
-    self._nameOfLastPost = result.data.children[result.data.children.length-1].data.name;
-    self._lastNameModel.find().remove();
-    self._lastNameModel({lastName: self._nameOfLastPost}).save(function(err, lastName){
-      if(!err){
-        console.log(lastName + 'saved successfuly');
-      }
-      console.log("document count: ", self._count += result.data.children.length);
-    })
   }
 }
-
-
-
-
-
-
-
-
