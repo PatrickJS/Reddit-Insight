@@ -20,6 +20,7 @@
 
 <div class="container-fluid">
   <section id="trackpost"></section>
+  <section id="trackuser"></section>
   <section id="login"></section>
   <section id="dashboard"></section>
   <section id="index"></section>
@@ -61,6 +62,7 @@
           <ul class="nav">
             <li class=""><a href="#/">Home</a></li>
             <li class=""><a href="#/trackpost">Track Post</a></li>
+            <li class=""><a href="#/trackuser">Track User</a></li>
             <li class=""><a href="#/dashboard">Dashboard</a></li>
           </ul>
           <ul class="nav pull-right">
@@ -95,6 +97,16 @@
   </div>
 </script>
 
+<script id="track-user-template" type="text/x-handlebars-template">
+  <div>
+    <h2>Track User View</h2>
+    <form>
+      <label for="tracking-username">Track Username</label>
+      <input id="tracking-username" type="text" value="" autofocus>
+    </form>
+  </div>
+</script>
+
 <script src='/lib/jquery-2.0.2.js'></script>
 <script src='/lib/bootstrap.min.js'></script>
 <script src='/lib/underscore.js'></script>
@@ -111,6 +123,7 @@
 
 <script src='/models/login.js'></script>
 <script src='/models/trackpost.js'></script>
+<script src='/models/trackuser.js'></script>
 
 <script src='/collections/posts.js'></script>
 
@@ -122,6 +135,7 @@
 <script src='/views/dashboard.js'></script>
 <script src='/views/index.js'></script>
 <script src='/views/trackpost.js'></script>
+<script src='/views/trackuser.js'></script>
 
 <script src='/redd_controller.js'></script>
 <script src='/router.js'></script>
