@@ -15,6 +15,7 @@ Redd.Views.App = Backbone.View.extend({
     new Redd.Views.Login();
     new Redd.Views.Dashboard();
     new Redd.Views.Index();
+    Redd.Vent.trigger('navbar');
   }
 
 });
