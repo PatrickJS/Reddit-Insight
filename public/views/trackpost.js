@@ -1,15 +1,21 @@
 Redd.Views.TrackPost = Backbone.View.extend({
-  el: 'section',
-
   initialize: function() {
-    console.log('in trackPost view');
-    Redd.Vent.on('trackpost', this.render, this);
+    console.log('in TrackPost view');
   },
-
+  el: '#trackpost',
   template: Redd.Templates('track-post'),
-
+  events: {
+    'submit form': 'enterURL'
+  },
   render: function(){
     this.$el.html(this.template(this.model.attributes));
     return this;
+  },
+
+  enterURL: function(e) {
+    var url = $('#tracking-url').val();
+    Redd.Models.trackpost.set({url: url});
+    Redd.Vent.trigger('loopin', model);
+    return false;
   }
 });

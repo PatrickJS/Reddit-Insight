@@ -1,12 +1,20 @@
 Redd.Views.Navbar = Backbone.View.extend({
   initialize: function() {
-    Redd.Vent.on('navbar', this.render, this);
-    console.log('in navbar view');
+    console.log('in Navbar view');
   },
   el: 'header',
   template: Redd.Templates('nav'),
+  events: {
+    'click li': 'activeNav'
+  },
   render: function(){
-    this.$el.html(this.template(this.model.attributes));
+    this.$el.html(this.template());
     return this;
+  },
+
+  activeNav: function(e) {
+    $('.navbar li').removeClass("active");
+    $(e.currentTarget).addClass("active");
+    return false;
   }
 });

@@ -19,16 +19,16 @@
 <header></header>
 
 <div class="container-fluid">
-  <section>
-
-  </section>
+  <section id="trackpost"></section>
+  <section id="login"></section>
+  <section id="dashboard"></section>
+  <section id="index"></section>
 </div>
 
 <footer></footer>
 
 </body>
 <script id="dashboard-template" type="text/x-handlebars-template">
-
     <div id="chart_container">
         <div id="y_axis"></div>
         <div id="chart"></div>
@@ -45,7 +45,6 @@
           <a class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a>
         </div>
     </div>
-
 </script>
 
 <script id="nav-template" type="text/x-handlebars-template">
@@ -57,11 +56,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Reddit Insight</a>
+        <a class="brand" href="">Reddit Insight</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li class=""><a href="#">Home</a></li>
-            <li class=""><a href="#trackpost">Track Post</a></li>
+            <li class=""><a href="#/">Home</a></li>
+            <li class=""><a href="#/trackpost">Track Post</a></li>
+            <li class=""><a href="#/dashboard">Dashboard</a></li>
           </ul>
           <ul class="nav pull-right">
             <li class="divider-vertical"></li>
@@ -90,7 +90,7 @@
     <h2>Track Post View</h2>
     <form>
       <label for="tracking-url">Tracking URL</label>
-      <input id="tracking-url" type="text" value="http://"autofocus>
+      <input id="tracking-url" type="text" value="http://" autofocus>
     </form>
   </div>
 </script>
@@ -109,7 +109,7 @@
 
 <script src='/models/app.js'></script>
 <script src='/models/login.js'></script>
-<script src='/models/yolo.js'></script>
+<script src='/models/trackdata.js'></script>
 
 <script src='/collections/posts.js'></script>
 
@@ -122,7 +122,7 @@
 <script src='/views/index.js'></script>
 <script src='/views/trackpost.js'></script>
 
-<script src='/views/app.js'></script>
+<script src='/redd_controller.js'></script>
 <script src='/router.js'></script>
 
 

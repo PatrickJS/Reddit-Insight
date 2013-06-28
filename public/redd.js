@@ -5,13 +5,14 @@
     Collections: {},
     Templates: {},
     Router: {},
+    Controller: {},
     JSONP: {},
     Vent: _.extend({}, Backbone.Events),
     initialize: function() {
-      new Redd.Views.App({model: new Redd.Models.App()}).render();
-      new Redd.Router();
-      new Redd.Views.TrackPost({model: new Redd.Models.TrackingData()});
-      Backbone.history.start();
+      var controller = new Redd.Controller({model: new Redd.Models.App()});
+      controller.show('navbar');
+      new Redd.Router(controller);
+      Backbone.history.start(/*{pushState: true}*/);
     }
   };
 })();

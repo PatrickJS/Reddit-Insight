@@ -1,9 +1,8 @@
 Redd.Views.Login = Backbone.View.extend({
   initialize: function() {
-    Redd.Vent.on('login', this.render, this);
-    console.log('in login view');
+    console.log('in Login view');
   },
-  el: 'section',
+  el: '#login',
   template: Redd.Templates('login'),
   render: function() {
     this.$el.html(this.template());
