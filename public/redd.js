@@ -6,7 +6,6 @@
     Templates: {},
     Controller: {},
     Router: {},
-    JSONP: {},
     d3: {},
     Vent: _.extend({}, Backbone.Events),
     initialize: function() {
