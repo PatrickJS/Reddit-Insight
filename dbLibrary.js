@@ -10,6 +10,8 @@ exports.allPostsCollection = {
   _postsSchema: null,
   _throttledPullData: null,
 
+  _count: 0,
+
   _options: {
     host: 'www.reddit.com',
     path: '/r/all/top.json?t=all&limit=100',
@@ -92,23 +94,23 @@ exports.allPostsCollection = {
           console.log('Stopped intervalId: ', intervalId);
           throw JSON.stringify(err);
         } else if(name) {
-          console.log('pulling name ' + name + ' from database')
-          debugger
           self._nameOfLastPost = name.lastName;
           afterString = "&after=" + self._nameOfLastPost;
           var originalPath = self._options.path;
           self._options.path = self._options.path + afterString;
-          console.log('using url: ', self._options.path);
+          console.log('pulling name ' + name + ' from database, using url: ', self._options.path);
           self._throttledPullData(self._options, self._saveResult, self);
           self._options.path = originalPath;
         } else {
-          console.log('first time access with no data');
-          console.log('using url: ', self._options.path);
+          console.log('first time access with no data, using url: ', self._options.path);
           self._throttledPullData(self._options, self._saveResult, self);
         }
       });
     } else {
       //database has something in it, last name is known
+      if(this.previousLastPost && this.previousLastPost === this._nameOfLastPost){  // stop duplicates once and for all!! work on this!
+        return;
+      }
       afterString = "&after=" + this._nameOfLastPost;
       var originalPath = this._options.path;
       this._options.path = this._options.path + afterString;
@@ -132,6 +134,7 @@ exports.allPostsCollection = {
       if(!err){
         console.log(lastName + 'saved successfuly');
       }
+      console.log("document count: ", self._count += result.data.children.length);
     })
   }
 }
