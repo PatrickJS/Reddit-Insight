@@ -130,7 +130,7 @@
   Comments: <h4 style="display:inline">{{ num_comments }}</h4>
 </script>
 
-<script id="track-user-template" type="text/x-handlebars-template">
+<script id="trackuser-template" type="text/x-handlebars-template">
   <div>
     <h2>Track User View</h2>
     <form>
@@ -138,6 +138,11 @@
       <input id="tracking-username" type="text" value="" autofocus>
     </form>
   </div>
+  <div id="trackuser-data"></div>
+  <div id="trackuser-posts"></div>
+</script>
+
+<script id="trackuser-data-template" type="text/x-handlebars-template">
   {{#if name }}
     name: {{ name }} <br>
     {{#if created }}
@@ -173,6 +178,11 @@
   {{/if}}
 </script>
 
+<script id="trackuser-posts-template" type="text/x-handlebars-template">
+    yo
+    {{debug }}
+</script>
+
 <script id="wordcloud-template" type="text/x-handlebars-template">
     word cloud
 </script>
@@ -195,6 +205,7 @@
 <script src='/models/wordcloud_model.js'></script>
 
 <script src='/collections/posts.js'></script>
+<script src='/collections/trackuser_posts_collection.js'></script>
 
 <script src='/templates/template.js'></script>
 
@@ -206,7 +217,11 @@
 <script src='/views/trackpost_view.js'></script>
 <script src='/views/trackpoststats_view.js'></script>
 <script src='/views/trackpostchart_view.js'></script>
-<script src='/views/trackuser_view.js'></script>
+
+<script src='/views/trackusers/trackuser_view.js'></script>
+<script src='/views/trackusers/trackuser-data_view.js'></script>
+<script src='/views/trackusers/trackuser-posts_view.js'></script>
+
 <script src='/views/wordcloud_view.js'></script>
 
 <script src='/redd_d3.js'></script>
