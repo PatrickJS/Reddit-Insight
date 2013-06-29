@@ -6,6 +6,7 @@ Redd.Controller = Backbone.View.extend({
     this.index     = new Redd.Views.Index();
     this.trackpost = new Redd.Views.TrackPost({model: new Redd.Models.TrackPost(), collection: new Redd.Collections.Posts()});
     this.trackuser = new Redd.Views.TrackUser({model: new Redd.Models.TrackUser()});
+    this.wordcloud = new Redd.Views.WordCloud({model: new Redd.Models.WordCloud()});
     this.dashboard = new Redd.Views.Dashboard();
   },
   el: 'html',

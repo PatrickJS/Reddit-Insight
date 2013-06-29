@@ -1,6 +1,7 @@
 Redd.Views.TrackUser = Backbone.View.extend({
   initialize: function() {
     console.log('in TrackUser view');
+    this.model.on('sync', this.render, this);
   },
   el: '#trackuser',
   template: Redd.Templates('track-user'),
@@ -8,6 +9,7 @@ Redd.Views.TrackUser = Backbone.View.extend({
     'submit form': 'enterUsername'
   },
   render: function(){
+    this.debug = this.model.attributes;
     this.$el.html(this.template(this.model.attributes));
     return this;
   },
@@ -16,7 +18,7 @@ Redd.Views.TrackUser = Backbone.View.extend({
     var username = $('#tracking-username').val();
     Redd.Data.usernameSubmit = username;
     console.log('username submitted', username);
-    Redd.Vent.trigger('loopin');
+    Redd.Vent.trigger('usernameSubmitChange');
     $('#tracking-username').val('');
     return false;
   }

@@ -5,7 +5,8 @@ Redd.Router = Backbone.Router.extend({
     '#/':'dashboard',
     'prediction':'prediction',
     'trackpost':'trackpost',
-    'trackuser':'trackuser'
+    'trackuser':'trackuser',
+    'wordcloud':'wordcloud'
   },
   dashboard: function(){
     this.controller.hide();
@@ -26,5 +27,10 @@ Redd.Router = Backbone.Router.extend({
     this.controller.hide();
     console.log('in trackUser route');
     this.controller.show('trackuser');
+  },
+  wordcloud: function(url){
+    this.controller.hide();
+    console.log('in wordcloud route');
+    this.controller.show('wordcloud');
   }
 });
