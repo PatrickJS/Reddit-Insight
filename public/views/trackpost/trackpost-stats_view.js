@@ -1,8 +1,8 @@
 Redd.Views.TrackPostStats = Backbone.View.extend({
-  el: '#trackpoststats',
+  el: '#trackpost-stats',
   template: Redd.Templates('trackpost-stats'),
   render: function(){
-    $('#trackpoststats').html(this.template(this.model.attributes));
+    $('#trackpost-stats').html(this.template(this.model.attributes));
     return this;
   }
 });

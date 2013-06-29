@@ -3,7 +3,7 @@ Redd.Views.TrackUser = Backbone.View.extend({
     console.log('in TrackUser view');
     self = this;
     self.trackuser_data = new Redd.Views.TrackUserData({model: self.model});
-    self.trackuser_posts = new Redd.Views.TrackUserPosts({model: self.model});
+    self.trackuser_posts = new Redd.Views.TrackUserPosts();
   },
   el: '#trackuser',
   template: Redd.Templates('trackuser'),
