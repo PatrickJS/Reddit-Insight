@@ -6,6 +6,10 @@ Redd.Models.TrackPost = Backbone.Model.extend({
       var timer = setInterval(function(){
         self.fetch();
       }, 5000);
+      //clear timer after 10 minutes
+      setTimeout(function( ) {
+        clearInterval( timer );
+      }, 600000);
     }, this);
   },
   url: function() {
