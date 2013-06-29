@@ -2,17 +2,10 @@ Redd.Router = Backbone.Router.extend({
   initialize: function(control) { this.controller = control; },
   routes: {
     '':'dashboard',
-    '#':'dashboard',
     '#/':'dashboard',
     'prediction':'prediction',
     'trackpost':'trackpost',
-    'trackuser':'trackuser',
-    'dashboard':'dashboard'
-  },
-  login: function() {
-    this.controller.hide();
-    console.log('in login route');
-    this.controller.show('login');
+    'trackuser':'trackuser'
   },
   dashboard: function(){
     this.controller.hide();

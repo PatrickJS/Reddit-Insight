@@ -2,48 +2,48 @@
 namespace Redd.d3
 */
 $(function(){
-  var tv = 250;
+  Redd.d3.tv = 250;
 
 
-  var palette = new Rickshaw.Color.Palette();
+  Redd.d3.palette = new Rickshaw.Color.Palette();
 
-  var graph = new Rickshaw.Graph( {
+  Redd.d3.graph = new Rickshaw.Graph( {
           element: document.querySelector("#chart"),
           width: 540,
           height: 240,
           renderer: 'line',
           series: new Rickshaw.Series.ExpandingDuration([{ name: 'Karma' }], undefined, {
-            timeInterval: tv,
+            timeInterval: Redd.d3.tv,
             maxDataPoints: 100,
             timeBase: new Date().getTime() / 1000
           })
   });
 
-  var legend = new Rickshaw.Graph.Legend( {
+  Redd.d3.legend = new Rickshaw.Graph.Legend( {
           element: document.querySelector('#legend'),
-          graph: graph
+          graph: Redd.d3.graph
   } );
 
-  var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-    graph: graph
+  Redd.d3.hoverDetail = new Rickshaw.Graph.HoverDetail( {
+    graph: Redd.d3.graph
   } );
 
   var ticksTreatment = 'glow';
 
-  var xAxis = new Rickshaw.Graph.Axis.Time( {
-    graph: graph,
+  Redd.d3.xAxis = new Rickshaw.Graph.Axis.Time( {
+    graph: Redd.d3.graph,
     ticksTreatment: ticksTreatment
   } );
 
-  xAxis.render();
+  Redd.d3.xAxis.render();
 
-  var yAxis = new Rickshaw.Graph.Axis.Y( {
-    graph: graph,
+  Redd.d3.yAxis = new Rickshaw.Graph.Axis.Y( {
+    graph: Redd.d3.graph,
     tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
     ticksTreatment: ticksTreatment
   } );
 
-  yAxis.render();
+  Redd.d3.yAxis.render();
 
   // var slider = new Rickshaw.Graph.RangeSlider( {
   //   graph: graph,
@@ -53,39 +53,39 @@ $(function(){
   var offsetForm = document.getElementById('offset_form');
 
 
-  graph.render();
+  Redd.d3.graph.render();
 
-  var i = 0;
-  var iv = setInterval( function() {
+  // var i = 0;
+  Redd.d3.iv = setInterval( function() {
 
     //updated data pushed to this variable:
-    var data = { Karma: Math.floor(Math.random() * 200)+200};
-    //additional data dilineated by .two .three ...
+    Redd.d3.data = { Karma: Math.floor(Math.random() * 200)+200};
+    //additional data set dilineated by .two .three ...
 
     // var randInt = Math.floor(Math.random()*100);
     // data.two = (Math.sin(i++/40) + 4) * (randInt + 400);
     // data.three = randInt + 300;
 
     //add the data to the series
-    graph.series.addData(data);
+    Redd.d3.graph.series.addData(Redd.d3.data);
     //re render
-    graph.render();
+    Redd.d3.graph.render();
 
   //time offset:
-  }, tv );
+  }, Redd.d3.tv );
 
   //add toggles
   offsetForm.addEventListener('change', function(e) {
         var offsetMode = e.target.value;
 
         if (offsetMode == 'lines') {
-                graph.setRenderer('line');
-                graph.offset = 'zero';
+                Redd.d3.graph.setRenderer('line');
+                Redd.d3.graph.offset = 'zero';
         } else {
-                graph.setRenderer('stack');
-                graph.offset = offsetMode;
+                Redd.d3.graph.setRenderer('stack');
+                Redd.d3.graph.offset = offsetMode;
         }
-        graph.render();
+        Redd.d3.graph.render();
 
   }, false);
 
