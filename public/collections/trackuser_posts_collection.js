@@ -1,3 +1,2 @@
-Redd.Collections.UserPosts = Backbone.Collection.extend({
-  model: Redd.Models.TrackUserPosts
+Redd.Collections.TrackUserPosts = Backbone.Collection.extend({
 });
