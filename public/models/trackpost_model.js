@@ -3,13 +3,11 @@ Redd.Models.TrackPost = Backbone.Model.extend({
     Redd.Vent.on('urlSubmitChange', function(){
       var self = this;
       self.fetch();
-      var timer = setInterval(function(){
+      clearInterval(self.timer);
+      self.timer = setInterval(function(){
+        console.log('yo');
         self.fetch();
-      }, 5000);
-      //clear timer after 10 minutes
-      setTimeout(function( ) {
-        clearInterval( timer );
-      }, 600000);
+      }, 2000);
     }, this);
   },
   url: function() {

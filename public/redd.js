@@ -9,10 +9,12 @@
     d3: {},
     Data: {},
     Vent: _.extend({}, Backbone.Events),
+    Debug: {},
     initialize: function() {
-      var controller = new Redd.Controller();
-      controller.show('navbar');
-      new Redd.Router(controller);
+      // remove debug
+      Redd.Debug.Controller = new Redd.Controller();
+      Redd.Debug.Controller.show('navbar');
+      Redd.Debug.Router = new Redd.Router(Redd.Debug.Controller);
       Backbone.history.start(/*{pushState: true}*/);
     }
   };
