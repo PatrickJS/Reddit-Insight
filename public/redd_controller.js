@@ -4,9 +4,14 @@ Redd.Controller = Backbone.View.extend({
     console.log('in controller');
     this.navbar    = new Redd.Views.Navbar();
     this.index     = new Redd.Views.Index();
-    this.trackpost = new Redd.Views.TrackPost({model: new Redd.Models.TrackPost(), collection: new Redd.Collections.TrackPosts()});
-    this.trackuser = new Redd.Views.TrackUser({model: new Redd.Models.TrackUser(), collection: new Redd.Collections.TrackUserPosts()});
-    this.wordcloud = new Redd.Views.WordCloud({model: new Redd.Models.WordCloud()});
+    this.trackpost = new Redd.Views.TrackPost({
+      model: new Redd.Models.TrackPost(),
+      collection: new Redd.Collections.TrackPosts()});
+    this.trackuser = new Redd.Views.TrackUser({
+      model: new Redd.Models.TrackUser(),
+      collection: new Redd.Collections.TrackUserPosts()});
+    this.wordcloud = new Redd.Views.WordCloud({
+      model: new Redd.Models.WordCloud()});
     this.dashboard = new Redd.Views.Dashboard();
   },
   el: 'html',
