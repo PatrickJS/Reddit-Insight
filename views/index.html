@@ -19,7 +19,22 @@
 <header></header>
 
 <div class="container-fluid">
-  <section id="trackpost"></section>
+      <div id="chart_container">
+        <div id="y_axis"></div>
+        <span class="y-axis">Karma</span>
+        <span class="x-axis">Time (s)</span>
+        <div id="chart"></div>
+        <div id="legend"></div>
+        <form id="offset_form" class="toggler">
+                <input type="radio" name="offset" id="lines" value="lines" checked>
+                <label class="lines" for="lines">lines</label><br>
+                <input type="radio" name="offset" id="stack" value="zero">
+                <label class="stack" for="stack">stack</label>
+        </form>
+    </div>
+
+  <section id="trackpost">
+  </section>
   <section id="trackuser"></section>
   <section id="login"></section>
   <section id="dashboard"></section>
@@ -91,7 +106,7 @@
     <h2>Track Post View</h2>
     <form>
       <label for="tracking-url">Tracking URL</label>
-      <input id="tracking-url" type="text" value="http://" autofocus>
+      <input id="tracking-url" type="text" value="" autofocus>
     </form>
     <a href="{{ url }}"><img src="{{ thumbnail }}" target="_blank"></a> <a href="http://www.reddit.com{{ permalink }}" target="_blank"><h4 style="display:inline">{{ title }}</h4></a>
     <br>

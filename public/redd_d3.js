@@ -2,7 +2,7 @@
 namespace Redd.d3
 */
 $(function(){
-  Redd.d3.tv = 250;
+  Redd.d3.tv = 3500;
 
 
   Redd.d3.palette = new Rickshaw.Color.Palette();
@@ -57,9 +57,10 @@ $(function(){
 
   // var i = 0;
   Redd.d3.iv = setInterval( function() {
+    Redd.d3.score = Debug.Controller.trackpost.collection.last().attributes.score;
 
     //updated data pushed to this variable:
-    Redd.d3.data = { Karma: Math.floor(Math.random() * 200)+200};
+    Redd.d3.data = { Karma: Redd.d3.score};
     //additional data set dilineated by .two .three ...
 
     // var randInt = Math.floor(Math.random()*100);
