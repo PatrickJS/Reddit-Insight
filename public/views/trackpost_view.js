@@ -18,6 +18,7 @@ Redd.Views.TrackPost = Backbone.View.extend({
     var url = $('#tracking-url').val();
     Redd.Data.urlSubmit = url;
     console.log('url submitted', url);
+    this.model.fetch();
     Redd.Vent.trigger('urlSubmitChange');
     $('#tracking-url').val('');
     return false;

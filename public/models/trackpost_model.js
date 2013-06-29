@@ -6,7 +6,7 @@ Redd.Models.TrackPost = Backbone.Model.extend({
       var timer = setInterval(function(){
         console.log('inside the timer yo, trackpost fetch');
         self.fetch();
-      }, 3000);
+      }, 5000);
     }, this);
   },
   url: function() {

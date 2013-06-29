@@ -93,9 +93,17 @@
       <label for="tracking-url">Tracking URL</label>
       <input id="tracking-url" type="text" value="http://" autofocus>
     </form>
-    <h3>Title: {{ title }}</h3>
-    <h3>Score: {{ score }}</h3>
-    <h3>Comments: {{ num_comments }}</h3>
+    <a href="{{ url }}"><img src="{{ thumbnail }}" target="_blank"></a> <a href="http://www.reddit.com{{ permalink }}" target="_blank"><h4 style="display:inline">{{ title }}</h4></a>
+    <br>
+    Author: <h4 style="display:inline">{{ author }}</h4>
+    <br>
+    Score: <h4 style="display:inline">{{ score }}</h4>
+    <br>
+    <i class="icon-arrow-up"></i>: <h4 style="display:inline">{{ ups }}</h4>
+    <br>
+    <i class="icon-arrow-down"></i>: <h4 style="display:inline">{{ downs }}</h4>
+    <br>
+    Comments: <h4 style="display:inline">{{ num_comments }}</h4>
   </div>
 </script>
 
