@@ -1,8 +1,10 @@
 Redd.Views.TrackPost = Backbone.View.extend({
   initialize: function() {
     console.log('in TrackPost view');
+    this.trackpoststats = new Redd.Views.TrackPostStats({model: this.model});
     this.model.on('sync', function() {
-      this.render();
+      console.log('trackpost sync');
+      this.trackpoststats.render();
       var obj = this.model.attributes;
       var currentObj = {ups: obj.ups, downs: obj.downs, score: obj.score};
       this.collection.add(currentObj);

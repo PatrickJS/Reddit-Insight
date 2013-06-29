@@ -108,18 +108,22 @@
       <label for="tracking-url">Tracking URL</label>
       <input id="tracking-url" type="text" value="" autofocus>
     </form>
-    <a href="{{ url }}"><img src="{{ thumbnail }}" target="_blank"></a> <a href="http://www.reddit.com{{ permalink }}" target="_blank"><h4 style="display:inline">{{ title }}</h4></a>
-    <br>
-    Author: <h4 style="display:inline">{{ author }}</h4>
-    <br>
-    Score: <h4 style="display:inline">{{ score }}</h4>
-    <br>
-    <i class="icon-arrow-up"></i>: <h4 style="display:inline">{{ ups }}</h4>
-    <br>
-    <i class="icon-arrow-down"></i>: <h4 style="display:inline">{{ downs }}</h4>
-    <br>
-    Comments: <h4 style="display:inline">{{ num_comments }}</h4>
+    <article id="trackpoststats"></article>
   </div>
+</script>
+
+<script id="track-post-stats-template" type="text/x-handlebars-template">
+  <a href="{{ url }}"><img src="{{ thumbnail }}" target="_blank"></a> <a href="http://www.reddit.com{{ permalink }}" target="_blank"><h4 style="display:inline">{{ title }}</h4></a>
+  <br>
+  Author: <h4 style="display:inline">{{ author }}</h4>
+  <br>
+  Score: <h4 style="display:inline">{{ score }}</h4>
+  <br>
+  <i class="icon-arrow-up"></i>: <h4 style="display:inline">{{ ups }}</h4>
+  <br>
+  <i class="icon-arrow-down"></i>: <h4 style="display:inline">{{ downs }}</h4>
+  <br>
+  Comments: <h4 style="display:inline">{{ num_comments }}</h4>
 </script>
 
 <script id="track-user-template" type="text/x-handlebars-template">
@@ -158,6 +162,7 @@
 <script src='/views/dashboard_view.js'></script>
 <script src='/views/index_view.js'></script>
 <script src='/views/trackpost_view.js'></script>
+<script src='/views/trackpoststats_view.js'></script>
 <script src='/views/trackuser_view.js'></script>
 
 <script src='/redd_d3.js'></script>

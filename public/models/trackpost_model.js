@@ -4,13 +4,15 @@ Redd.Models.TrackPost = Backbone.Model.extend({
       var self = this;
       self.fetch();
       clearInterval(self.timer);
+      Redd.Data.urlLimit = 100;
       self.timer = setInterval(function(){
+        Redd.Data.urlLimit = 1;
         self.fetch();
       }, 4000);
     }, this);
   },
   url: function() {
-    return Redd.Data.urlSubmit +'.json?limit=100';
+    return Redd.Data.urlSubmit +'.json?limit='+Redd.Data.urlLimit+'';
   },
   sync: Backbone.JSONP.Sync,
   parse: function(data) {
