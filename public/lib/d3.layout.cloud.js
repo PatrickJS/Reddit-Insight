@@ -399,4 +399,3 @@
 
   exports.cloud = cloud;
 })(typeof exports === "undefined" ? d3.layout || (d3.layout = {}) : exports);
-Status Developer Training Shop Blog About © 2013 GitHub, Inc. Terms Privacy Security Contact 
