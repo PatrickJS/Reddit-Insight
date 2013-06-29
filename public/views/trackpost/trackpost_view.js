@@ -13,7 +13,7 @@ Redd.Views.TrackPost = Backbone.View.extend({
     }, this);
   },
   el: '#trackpost',
-  template: Redd.Templates('track-post'),
+  template: Redd.Templates('trackpost'),
   events: {
     'submit form': 'enterURL'
   },
@@ -23,9 +23,13 @@ Redd.Views.TrackPost = Backbone.View.extend({
   },
 
   enterURL: function(e) {
+    if(Redd.Data.urlSubmit) {
+      this.trackpostchart.render();
+    }
+    this.collection.reset();
     var url = $('#tracking-url').val();
-    Redd.Data.urlSubmit = url;
     console.log('url submitted', url);
+    Redd.Data.urlSubmit = url;
     this.model.fetch();
     Redd.Vent.trigger('urlSubmitChange');
     $('#tracking-url').val('');

@@ -66,16 +66,6 @@
             <li class=""><a href="#/trackuser">Track User</a></li>
             <li class=""><a href="#/wordcloud">Word Cloud</a></li>
           </ul>
-          <ul class="nav pull-right">
-            <li class="divider-vertical"></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>User<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
@@ -88,7 +78,7 @@
   </div>
 </script>
 
-<script id="track-post-template" type="text/x-handlebars-template">
+<script id="trackpost-template" type="text/x-handlebars-template">
   <div>
     <h2>Track Post View</h2>
     <form>
@@ -100,7 +90,7 @@
   </div>
 </script>
 
-<script id="track-post-chart-template" type="text/x-handlebars-template">
+<script id="trackpost-chart-template" type="text/x-handlebars-template">
   <div id="chart_container">
     <div id="y_axis"></div>
     <span class="y-axis">Karma</span>
@@ -116,8 +106,11 @@
   </div>
 </script>
 
-<script id="track-post-stats-template" type="text/x-handlebars-template">
-  <a href="{{ url }}"><img src="{{ thumbnail }}" target="_blank"></a> <a href="http://www.reddit.com{{ permalink }}" target="_blank"><h4 style="display:inline">{{ title }}</h4></a>
+<script id="trackpost-stats-template" type="text/x-handlebars-template">
+  <a href="{{ url }}">
+    <h4>{{ title }}</h4>
+    <img src="{{ thumbnail }}" target="_blank"></a> <a href="http://www.reddit.com{{ permalink }}" target="_blank">
+  </a>
   <br>
   Author: <h4 style="display:inline">{{ author }}</h4>
   <br>
@@ -214,13 +207,14 @@
 <script src='/views/navbar_view.js'></script>
 <script src='/views/dashboard_view.js'></script>
 <script src='/views/index_view.js'></script>
-<script src='/views/trackpost_view.js'></script>
-<script src='/views/trackpoststats_view.js'></script>
-<script src='/views/trackpostchart_view.js'></script>
 
 <script src='/views/trackusers/trackuser_view.js'></script>
 <script src='/views/trackusers/trackuser-data_view.js'></script>
 <script src='/views/trackusers/trackuser-posts_view.js'></script>
+
+<script src='/views/trackpost/trackpost_view.js'></script>
+<script src='/views/trackpost/trackpoststats_view.js'></script>
+<script src='/views/trackpost/trackpostchart_view.js'></script>
 
 <script src='/views/wordcloud_view.js'></script>
 
