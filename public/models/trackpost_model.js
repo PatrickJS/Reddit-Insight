@@ -8,7 +8,7 @@ Redd.Models.TrackPost = Backbone.Model.extend({
       self.timer = setInterval(function(){
         Redd.Data.urlLimit = 1;
         self.fetch();
-      }, 3000);
+      }, 4000);
     }, this);
   },
   url: function() {

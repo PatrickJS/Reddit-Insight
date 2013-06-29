@@ -1,0 +1,10 @@
+.y-axis{
+  margin:100px 10px 10px 10px;
+  float:left;
+}
+.x-axis{
+  margin-top:265px;
+  float:left;
+  position:relative;
+  left:300px;
+}
