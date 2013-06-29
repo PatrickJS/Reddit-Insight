@@ -4,17 +4,38 @@ var mongoose = require('mongoose')
   , Schema = mongoose.Schema;
 
 exports.allPostsCollection = {
-  _postModel: null,
   _postsSchema: null,
+  _subsSchema: null,
+  _moodel: null,
   _throttledPullData: null,
 
   _options: {
     host: 'www.reddit.com',
-    path: '/r/all/top.json?t=all&limit=100',
+    //path, see start()
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
+  },
+  _createSubsSchema: function(){
+    return new mongoose.Schema({
+      header_img: String,
+      header_title: String,
+      description: String,
+      description_html: String,
+      title: String,
+      url: String,
+      created: Number,
+      created_utc: Number,
+      public_description: String,
+      accounts_active: String,
+      over18: Boolean,
+      header_size: Schema.Types.Mixed,
+      subscribers: Number,
+      display_name: String,
+      id: String,
+      name: {type: String, index: {unique: true, dropDups: true}},
+    }, { autoIndex: true });
   },
 
   _createPostsSchema: function(){
@@ -56,47 +77,56 @@ exports.allPostsCollection = {
       distinguished: Schema.Types.Mixed
     }, { autoIndex: true });
   },
-  start: function(interval){
+  start: function(interval, path, schema){
+    //schema posts, subs
     this._throttledPullData = _.throttle(lib.getJSON, 2000);
 
-    if( !this._postsSchema ){
-      this._postsSchema = this._createPostsSchema();
-    }
     mongoose.connect("mongodb://localhost/RedditInsight");
-    var db = mongoose.connection;
-
-    db.on('err', console.error.bind(console, 'connection error:'));
 
     var self = this;
-    db.once('open', function(){
-      console.log('connected to db: ', db.db.databaseName);
-      self._postModel = mongoose.model('AllTopPosts', self._postsSchema);
+    debugger
+    var dataBase = mongoose.connection;
+
+    dataBase.on('err', console.error.bind(console, 'connection error:'));
+
+    dataBase.once('open', function(){
+      console.log('connected to dataBase: ', dataBase.db.databaseName);
+      if(schema === 'posts'){
+        self._postsSchema = self._createPostsSchema();
+        self._moodel = mongoose.model('AllTopPosts', self._postsSchema);
+      } else if(schema === 'subs'){
+        self._subsSchema = self._createSubsSchema();
+        self._moodel = mongoose.model('allsubs', self._subsSchema);
+      } else {
+        throw "Unknown schema!: '"+ schema + "', should be posts or subs";
+      }
+
+      self._options.path = path;
       var intervalId = setInterval( function(intervalId){
         self.pullData(intervalId);
       }, interval);
     });
-    //pulling data
   },
   pullData: function(intervalId){
     var self = this;
-    this._postModel.count({},function(err, count){
+    this._moodel.count({},function(err, count){
       if(err){
         console.log('from count error: ', JSON.stringify(err));
         clearInterval(intervalId);
         console.log('Stopped intervalId: ', intervalId);
         throw JSON.stringify(err);
       } else if(count){
-        self._postModel.findOne({}, {name: 1}, {sort:{_id : -1}}, function (err, post) {
+        self._moodel.findOne({}, {name: 1}, {sort:{_id : -1}}, function (err, doc) {
           if(err){
             console.log('from find error: ', JSON.stringify(err));
             clearInterval(intervalId);
             console.log('Stopped intervalId: ', intervalId);
             throw JSON.stringify(err);
           }
-          var afterString = "&after=" + post.name;
+          var afterString = "&after=" + doc.name;
           var editedOptions = _.clone(self._options);
           editedOptions.path = editedOptions.path + afterString;
-          console.log('total count is ' + count  + ', name is ' + post.name + ', using url: ', editedOptions.path);
+          console.log('total count is ' + count  + ', name is ' + doc.name + ', using url: ', editedOptions.path);
           self._throttledPullData(editedOptions, self._saveResult, self);
         });
       } else if(count === 0){
@@ -107,9 +137,9 @@ exports.allPostsCollection = {
   },
   _saveResult: function(statusCode, result, self){
     for(var i = 0; i < result.data.children.length; i++){
-      var postObj = result.data.children[i].data;
-      new self._postModel(postObj).save(function(err, docs){
-        if(err){console.log("\n\nerror saving: ", postObj, "error: ", err)}
+      var data = result.data.children[i].data;
+      new self._moodel(data).save(function(err, docs){
+        if(err){console.log("\n\nerror saving: ", data, "error: ", err)}
       });
     }
   }
