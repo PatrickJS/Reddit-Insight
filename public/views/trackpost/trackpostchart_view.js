@@ -1,6 +1,6 @@
 Redd.Views.TrackPostChart = Backbone.View.extend({
   el: '#trackpostchart',
-  template: Redd.Templates('track-post-chart'),
+  template: Redd.Templates('trackpost-chart'),
   initialize: function() {
     this.listenToOnce(Redd.Vent, 'trackpostSync', this.render);
   },
