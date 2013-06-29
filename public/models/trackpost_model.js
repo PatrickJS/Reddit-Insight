@@ -1,7 +1,19 @@
 Redd.Models.TrackPost = Backbone.Model.extend({
-  url: function() {
-    return this.get('url') +'.json';
+  initialize: function() {
+    Redd.Vent.on('urlSubmitChange', function(){
+      var self = this;
+      self.fetch();
+      var timer = setInterval(function(){
+        console.log('inside the timer yo, trackpost fetch');
+        self.fetch();
+      }, 3000);
+    }, this);
   },
-  sync: Backbone.JSONP.Sync
-
+  url: function() {
+    return Redd.Data.urlSubmit +'.json?limit=100';
+  },
+  sync: Backbone.JSONP.Sync,
+  parse: function(data) {
+    return data[0].data.children[0].data;
+  }
 });

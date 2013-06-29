@@ -7,6 +7,7 @@
     Controller: {},
     Router: {},
     d3: {},
+    Data: {},
     Vent: _.extend({}, Backbone.Events),
     initialize: function() {
       var controller = new Redd.Controller();
