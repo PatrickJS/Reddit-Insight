@@ -19,22 +19,7 @@
 <header></header>
 
 <div class="container-fluid">
-      <div id="chart_container">
-        <div id="y_axis"></div>
-        <span class="y-axis">Karma</span>
-        <span class="x-axis">Time (s)</span>
-        <div id="chart"></div>
-        <div id="legend"></div>
-        <form id="offset_form" class="toggler">
-                <input type="radio" name="offset" id="lines" value="lines" checked>
-                <label class="lines" for="lines">lines</label><br>
-                <input type="radio" name="offset" id="stack" value="zero">
-                <label class="stack" for="stack">stack</label>
-        </form>
-    </div>
-
-  <section id="trackpost">
-  </section>
+  <section id="trackpost"></section>
   <section id="trackuser"></section>
   <section id="login"></section>
   <section id="dashboard"></section>
@@ -45,22 +30,22 @@
 
 </body>
 <script id="dashboard-template" type="text/x-handlebars-template">
-    <div id="chart_container">
-        <div id="y_axis"></div>
-        <div id="chart"></div>
-        <div id="legend"></div>
-        <form id="offset_form" class="toggler">
-                <input type="radio" name="offset" id="lines" value="lines" checked>
-                <label class="lines" for="lines">lines</label><br>
-                <input type="radio" name="offset" id="stack" value="zero">
-                <label class="stack" for="stack">stack</label>
-        </form>
-        <div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
-          <div class="ui-slider-range ui-widget-header"></div>
-          <a class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a>
-          <a class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a>
-        </div>
+  <div id="chart_container">
+    <div id="y_axis"></div>
+    <div id="chart"></div>
+    <div id="legend"></div>
+    <form id="offset_form" class="toggler">
+      <input type="radio" name="offset" id="lines" value="lines" checked>
+      <label class="lines" for="lines">lines</label><br>
+      <input type="radio" name="offset" id="stack" value="zero">
+      <label class="stack" for="stack">stack</label>
+    </form>
+    <div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+      <div class="ui-slider-range ui-widget-header"></div>
+      <a class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a>
+      <a class="ui-slider-handle ui-state-default ui-corner-all" href="#"></a>
     </div>
+  </div>
 </script>
 
 <script id="nav-template" type="text/x-handlebars-template">
@@ -109,6 +94,23 @@
       <input id="tracking-url" type="text" value="" autofocus>
     </form>
     <article id="trackpoststats"></article>
+    <article id="trackpostchart"></article>
+  </div>
+</script>
+
+<script id="track-post-chart-template" type="text/x-handlebars-template">
+  <div id="chart_container">
+    <div id="y_axis"></div>
+    <span class="y-axis">Karma</span>
+    <span class="x-axis">Time (s)</span>
+    <div id="chart"></div>
+    <div id="legend"></div>
+    <form id="offset_form" class="toggler">
+      <input type="radio" name="offset" id="lines" value="lines" checked>
+      <label class="lines" for="lines">lines</label><br>
+      <input type="radio" name="offset" id="stack" value="zero">
+      <label class="stack" for="stack">stack</label>
+    </form>
   </div>
 </script>
 
@@ -163,6 +165,7 @@
 <script src='/views/index_view.js'></script>
 <script src='/views/trackpost_view.js'></script>
 <script src='/views/trackpoststats_view.js'></script>
+<script src='/views/trackpostchart_view.js'></script>
 <script src='/views/trackuser_view.js'></script>
 
 <script src='/redd_d3.js'></script>
