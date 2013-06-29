@@ -7,7 +7,7 @@ Redd.Views.TrackUserData = Backbone.View.extend({
   template: Redd.Templates('trackuser-data'),
   events: {},
   render: function(){
-    this.$el.html(this.template(this.model.attributes));
+    $('#trackuser-data').html(this.template(this.model.attributes));
     return this;
   }
 });
