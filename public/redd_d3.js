@@ -3,8 +3,10 @@ namespace Redd.d3
 */
 Redd.Vent.on('initPostChart', function() {
   Redd.d3.tv = 3500;
-
-  Redd.d3.scaleRange = [0, 200];
+  //inject these values into the graph, with arguments (see below)
+  var bottomRange = Debug.Controller.trackpost.collection.first().attributes.score - 50;
+  var topRange = Debug.Controller.trackpost.collection.first().attributes.score + 50;
+  Redd.d3.scaleRange = [bottomRange,topRange];
 
   Redd.d3.scale = [d3.scale.linear().domain(Redd.d3.scaleRange).nice()];
 
@@ -48,11 +50,6 @@ Redd.Vent.on('initPostChart', function() {
   } );
 
   Redd.d3.yAxis.render();
-
-  // var slider = new Rickshaw.Graph.RangeSlider( {
-  //   graph: graph,
-  //   element: $('#slider')
-  // } );
 
   var offsetForm = document.getElementById('offset_form');
 
