@@ -3,14 +3,15 @@ Redd.Templates = function(id) {
 };
 
 Handlebars.registerHelper("debug", function(optionalValue) {
-  console.log("Current Context");
-  console.log("====================");
+  console.log("=====-Current-Context-=====");
   console.log(this);
 
   if (optionalValue) {
-    console.log("Value");
-    console.log("====================");
+    console.log("==========-Value-==========");
     console.log(optionalValue);
+    console.log("===========================");
+  } else {
+    console.log("===========================");
   }
 });
 

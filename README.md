@@ -15,14 +15,15 @@ Reddit Insight - Reddit Analytics
 
 <pre>
 Handlebars.registerHelper("debug", function(optionalValue) {
-  console.log("Current Context");
-  console.log("====================");
+  console.log("=====-Current-Context-=====");
   console.log(this);
 
   if (optionalValue) {
-    console.log("Value");
-    console.log("====================");
+    console.log("==========-Value-==========");
     console.log(optionalValue);
+    console.log("===========================");
+  } else {
+    console.log("===========================");
   }
 });
 </pre>
@@ -38,8 +39,9 @@ or
 </pre>
 You’ll see output in the JavaScript console letting you know what’s going on:
 
-##Current Context
+#####Current Context
 <pre>
+=====-Current-Context-=====
 email: "alan@test.com"
 first_name: "Alan"
 last_name: "Johnson"
@@ -47,10 +49,9 @@ member_since: "Mar 25, 2011"
 phone: "1234567890"
 stripeClass: "even"
 __proto__: Object
-</pre>
-##Value
-<pre>
+==========-Value-==========
 Alan
+===========================
 </pre>
 
 ===
