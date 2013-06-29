@@ -2,7 +2,7 @@ Redd.Views.Navbar = Backbone.View.extend({
   initialize: function() {
     console.log('in Navbar view');
   },
-  el: 'header',
+  el: 'nav',
   template: Redd.Templates('nav'),
   events: {
     'click li': 'activeNav'
