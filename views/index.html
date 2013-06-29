@@ -21,6 +21,7 @@
 <div class="container-fluid">
   <section id="trackpost"></section>
   <section id="trackuser"></section>
+  <section id="wordcloud"></section>
   <section id="login"></section>
   <section id="dashboard"></section>
   <section id="index"></section>
@@ -119,6 +120,43 @@
       <input id="tracking-username" type="text" value="" autofocus>
     </form>
   </div>
+  {{#if name }}
+    name: {{ name }} <br>
+    {{#if created }}
+    created: {{ created }} <br>
+    {{/if}}
+    {{#if created_utc }}
+    created_utc: {{ created_utc }} <br>
+    {{/if}}
+    {{#if link_karama }}
+    link karma {{ link_karama }} <br>
+    {{/if}}
+    {{#if comment_karma}}
+    comment karma {{ comment_karma }} <br>
+    {{/if}}
+    {{#if over_18 }}
+    over 18?: {{ over_18 }} <br>
+    {{/if}}
+    {{#if is_gold }}
+    is gold?: {{ is_gold }} <br>
+    {{/if}}
+    {{#if is_mod }}
+    is mod?: {{ is_mod }} <br>
+    {{/if}}
+    {{#if has_verified_email }}
+    has verified email?: {{ has_verified_email }} <br>
+    {{/if}}
+    {{#if id}}
+    id: {{ id }} <br>
+    {{/if}}
+    {{#if has_mod_mail }}
+    has mod mail: {{ has_mod_mail }} <br>
+    {{/if}}
+  {{/if}}
+</script>
+
+<script id="wordcloud-template" type="text/x-handlebars-template">
+    word cloud
 </script>
 
 <script src='/lib/jquery-2.0.2.js'></script>
@@ -136,6 +174,7 @@
 
 <script src='/models/trackpost_model.js'></script>
 <script src='/models/trackuser_model.js'></script>
+<script src='/models/wordcloud_model.js'></script>
 
 <script src='/collections/posts.js'></script>
 
@@ -149,6 +188,7 @@
 <script src='/views/trackpost_view.js'></script>
 <script src='/views/trackpoststats_view.js'></script>
 <script src='/views/trackuser_view.js'></script>
+<script src='/views/wordcloud_view.js'></script>
 
 <script src='/redd_d3.js'></script>
 <script src='/redd_controller.js'></script>

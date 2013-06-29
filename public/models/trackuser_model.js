@@ -1,7 +1,14 @@
 Redd.Models.TrackUser = Backbone.Model.extend({
-  url: function() {
-    return 'http://www.reddit.com/user/'+ Redd.Data.usernameSubmit +'.json';
+  initialize: function() {
+    Redd.Vent.on('usernameSubmitChange', this.fetch, this);
   },
-  sync: Backbone.JSONP.Sync
+  url: function() {
+    return 'http://www.reddit.com/user/'+ Redd.Data.usernameSubmit +'/about.json';
+  },
+  sync: Backbone.JSONP.Sync,
+  parse: function(data) {
+    return data.data;
+  }
 
 });
+
