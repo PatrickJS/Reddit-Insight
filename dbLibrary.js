@@ -84,7 +84,6 @@ exports.allPostsCollection = {
     mongoose.connect("mongodb://localhost/RedditInsight");
 
     var self = this;
-    debugger
     var dataBase = mongoose.connection;
 
     dataBase.on('err', console.error.bind(console, 'connection error:'));

@@ -116,7 +116,7 @@ window.GLOBALWordCloudTestData =
 }, {
     "frequency": 92,
     "nouns": "new"
-}, {
+},{
     "frequency": 91,
     "nouns": "sony"
 }, {

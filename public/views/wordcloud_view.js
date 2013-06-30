@@ -1,8 +1,11 @@
 Redd.Views.WordCloud = Backbone.View.extend({
+  //ADD ABILITY TO INTERACT WITH COUNTER, SIZE, AND ROTATOR TYPE - ALEX
+  // can test with "Debug.Controller.wordcloud.model.attributes.switchRotateFuncChoice.call(Debug.Controller.wordcloud.model)"
   initialize: function() {
     console.log('in WordCloud view');
     // render on sync
     this.model.on('sync', this.render, this);
+    this.model.on('change', this.render, this);
   },
   el: '#wordcloud',
   template: Redd.Templates('wordcloud'),
@@ -10,10 +13,10 @@ Redd.Views.WordCloud = Backbone.View.extend({
     'click': 'clickEvent'
   },
   render: function(){
-
     this.$el.html(this.template());
     this.d3Stuff('#wordcloud')
     this.$('svg').css('background-color', 'black');
+    console.log('WordCloudView has been rendered ' + (this.model.renderCounter += 1) + " times");
 
     return this;
   },
@@ -26,15 +29,14 @@ Redd.Views.WordCloud = Backbone.View.extend({
       var self = this;
       var fill = d3.scale.category20();
 
-      var dynWidth = document.body.clientWidth * .8;
+      var dynWidth = document.body.clientWidth * .75;
       var dynHeight = dynWidth * 0.5;
       d3.layout.cloud().size([dynWidth, dynHeight])
           .words(this.model.get('wordArray').map(function(d) {  //change wordArray should have list of words
             return {text: d, size: self.model.get('frequency')[d]}; // changed d should be name of word
           }))
           .padding(5)
-          // .rotate(function() { return ~~(Math.random() * 180) * 1 - 90; })
-          .rotate(function() { return ~~(Math.random() * 2) * 90; })
+          .rotate(this.model.get('rotateFunc'))
           .font("Impact")
           .fontSize(function(d) { return d.size; })
           .on("end", draw)
