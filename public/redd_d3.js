@@ -1,9 +1,14 @@
 /*
 namespace Redd.d3
 */
-$(function(){
+Redd.Vent.on('initPostChart', function() {
   Redd.d3.tv = 3500;
+  //inject these values into the graph, with arguments (see below)
+  var bottomRange = Debug.Controller.trackpost.collection.first().attributes.score - 50;
+  var topRange = Debug.Controller.trackpost.collection.first().attributes.score + 50;
+  Redd.d3.scaleRange = [bottomRange,topRange];
 
+  Redd.d3.scale = [d3.scale.linear().domain(Redd.d3.scaleRange).nice()];
 
   Redd.d3.palette = new Rickshaw.Color.Palette();
 
@@ -37,18 +42,14 @@ $(function(){
 
   Redd.d3.xAxis.render();
 
-  Redd.d3.yAxis = new Rickshaw.Graph.Axis.Y( {
+  Redd.d3.yAxis = new Rickshaw.Graph.Axis.Y.Scaled( {
+    scale: Redd.d3.scale[0],
     graph: Redd.d3.graph,
     tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
     ticksTreatment: ticksTreatment
   } );
 
   Redd.d3.yAxis.render();
-
-  // var slider = new Rickshaw.Graph.RangeSlider( {
-  //   graph: graph,
-  //   element: $('#slider')
-  // } );
 
   var offsetForm = document.getElementById('offset_form');
 
@@ -62,10 +63,6 @@ $(function(){
     //updated data pushed to this variable:
     Redd.d3.data = { Karma: Redd.d3.score};
     //additional data set dilineated by .two .three ...
-
-    // var randInt = Math.floor(Math.random()*100);
-    // data.two = (Math.sin(i++/40) + 4) * (randInt + 400);
-    // data.three = randInt + 300;
 
     //add the data to the series
     Redd.d3.graph.series.addData(Redd.d3.data);
