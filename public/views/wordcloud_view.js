@@ -13,6 +13,7 @@ Redd.Views.WordCloud = Backbone.View.extend({
 
     this.$el.html(this.template());
     this.d3Stuff('#wordcloud')
+    this.$('svg').css('background-color', 'black');
 
     return this;
   },
@@ -25,12 +26,15 @@ Redd.Views.WordCloud = Backbone.View.extend({
       var self = this;
       var fill = d3.scale.category20();
 
-      d3.layout.cloud().size([1000, 500])
+      var dynWidth = document.body.clientWidth * .8;
+      var dynHeight = dynWidth * 0.5;
+      d3.layout.cloud().size([dynWidth, dynHeight])
           .words(this.model.get('wordArray').map(function(d) {  //change wordArray should have list of words
-            return {text: d, size: self.model.get('frequencyOf')[d]}; // changed d should be name of word
+            return {text: d, size: self.model.get('frequency')[d]}; // changed d should be name of word
           }))
           .padding(5)
-          .rotate(function() { return ~~(Math.random() * 180) * 1 - 90; })
+          // .rotate(function() { return ~~(Math.random() * 180) * 1 - 90; })
+          .rotate(function() { return ~~(Math.random() * 2) * 90; })
           .font("Impact")
           .fontSize(function(d) { return d.size; })
           .on("end", draw)
@@ -38,10 +42,10 @@ Redd.Views.WordCloud = Backbone.View.extend({
 
       function draw(words) {
         d3.select(parentEl).append("svg")
-            .attr("width", 1000)
-            .attr("height", 500)
+            .attr("width", dynWidth)
+            .attr("height", dynHeight)
           .append("g")
-            .attr("transform", "translate(500,250)")
+            .attr("transform", "translate("+ dynWidth / 2 +"," + dynHeight / 2 + ")")
           .selectAll("text")
             .data(words)
           .enter().append("text")
