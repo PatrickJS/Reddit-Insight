@@ -11,6 +11,4 @@ Redd.Models.TrackUser = Backbone.Model.extend({
   parse: function(data) {
     return data.data;
   }
-
 });
-
