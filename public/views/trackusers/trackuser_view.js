@@ -6,6 +6,15 @@ Redd.Views.TrackUser = Backbone.View.extend({
     this.model.on('sync', function() {
       this.trackuser_data.render();
     }, this);
+
+//TODO: figure out 2nd model
+    // this.model2.on('sync', function() {
+    //   console.log('$$$$$$$$$ model2 sync')
+    //   var posts = data.data.children;
+    //   _.each(posts, function(post){
+    //     this.collection.add(post);
+    //   });
+    // });
   },
   el: '#trackuser',
   template: Redd.Templates('trackuser'),
