@@ -16,6 +16,7 @@ body{
   margin:0 10%;
   background-color: rgba(255,255,255,0.8);
   border: 20px solid #fff;
+  padding:1%;
 }
 header{
   height:150px;
