@@ -12,7 +12,7 @@ Redd.Models.TrackPost = Backbone.Model.extend({
     }, this);
   },
   url: function() {
-    return Redd.Data.urlSubmit +'.json?limit='+Redd.Data.urlLimit+'';
+    return Redd.Data.urlSubmit.replace('www.', 'pay.') +'.json?limit='+Redd.Data.urlLimit+'';
   },
   sync: Backbone.JSONP.Sync,
   parse: function(data) {

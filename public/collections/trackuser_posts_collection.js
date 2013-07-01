@@ -7,11 +7,11 @@ Redd.Collections.TrackUserPosts = Backbone.Collection.extend({
     }, this);
   },
   url: function() {
-    return 'http://www.reddit.com/user/'+ Redd.Data.usernameSubmit +'/overview.json?limit=100';
+    return 'https://pay.reddit.com/user/'+ Redd.Data.usernameSubmit +'/overview.json?limit=100';
   },
   sync: Backbone.JSONP.Sync,
   parse: function(data) {
-    console.log(data.data.children)
+    console.log(data.data.children);
     return data.data.children;
   }
 });

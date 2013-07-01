@@ -5,7 +5,7 @@ Redd.Models.TrackUser = Backbone.Model.extend({
     }, this);
   },
   url: function() {
-    return 'http://www.reddit.com/user/'+ Redd.Data.usernameSubmit +'/about.json';
+    return 'https://pay.reddit.com/user/'+ Redd.Data.usernameSubmit +'/about.json';
   },
   sync: Backbone.JSONP.Sync,
   parse: function(data) {
