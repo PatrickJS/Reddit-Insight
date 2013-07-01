@@ -10,7 +10,6 @@ TODO:
 
 #Debug Helpers
 
-===
 ####Global Debug
 <pre>
   Debug.[Controller/Router].[action].[view].[model/collection].[method]
