@@ -1,13 +1,19 @@
 Reddit Insight - Reddit Analytics
 =============
-
+TODO:
+* better d3 charts
+* refactor design and UX
+* refactor Trackuser/Trackposts
+* add Users
+* allow Users to save data
+* keep history of charts for Users
 
 #Debug Helpers
 
 ===
 ####Global Debug
 <pre>
-  Debug.Controller.[view].[action or model/collection].[action]
+  Debug.[Controller/Router].[action].[view].[model/collection].[method]
 </pre>
 
 ===
