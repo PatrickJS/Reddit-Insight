@@ -1,4 +1,4 @@
-Reddit Insight - Reddit Analytics
+Reddit Insight - Reddit Analytics [![Build Status](https://travis-ci.org/gdi2290/RedditInsight.png?branch=master)](https://travis-ci.org/gdi2290/RedditInsight)
 =============
 TODO:
 * better d3 charts
