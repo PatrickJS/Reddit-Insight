@@ -98,8 +98,11 @@
       <button id="trackpost-submit" class="ladda-button" data-style="contract" data-size="s">
         <span class="ladda-label">Submit</span>
       </button>
-      <div class="loader"></div>
     </form>
+    <button class="submit-another ladda-button" data-size="s">
+      <span class="ladda-label">View Another Url</span>
+    </button>
+    <div class="loader"></div>
     <article id="trackpost-stats"></article>
     <article id="trackpost-chart"></article>
   </div>
@@ -122,6 +125,9 @@
 </script>
 
 <script id="trackpost-stats-template" type="text/x-handlebars-template">
+  <div class="submitted-url">
+    <h5>Submitted Url: {{ urlSubmit }}</h5>
+  </div>
   <a href="http://www.reddit.com{{ permalink }}" target="_blank">
     <h4>{{ title }}</h4>
   </a>

@@ -64,17 +64,18 @@ footer li a:hover{
   color: #333;
 }
 
-/************
-  * Loader *
- ************/
+/*********************
+  * Submit & Loader *
+ *********************/
 .ladda-button{
   background-color: rgba(239,97,36,1);
   margin: -10px 0 0 10px;;
 }
+.submit-another{
+  display: none;
+  margin: 15px 0 20px 0;
+}
 .loader {
-  position: relative;
-  top: 11px;
-  left: 9px;
   width: 24px;
   height: 24px;
   border: 8px solid #aaa;
