@@ -13,14 +13,21 @@ Redd.Views.WordCloud = Backbone.View.extend({
     'click': 'clickEvent'
   },
   render: function(){
-    this.$el.html(this.template());
+    this.$el.html(this.template({
+      limit: this.model.get('count'),
+      sizeMultiple: this.model.get('sizeMultiple'),
+      display_type: this.forView[this.model.get('_rotateFuncChoice')]
+    }));
     this.d3Stuff('#wordcloud')
     this.$('svg').css('background-color', 'black');
     console.log('WordCloudView has been rendered ' + (this.model.renderCounter += 1) + " times");
 
     return this;
   },
-
+  forView: {
+    _rotate90discrete: "Horizontal and Vertical",
+    _rotate180continuous: "All angles"
+  },
   clickEvent: function(e) {
     console.log('made an event');
     return false;

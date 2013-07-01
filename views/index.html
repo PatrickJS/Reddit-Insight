@@ -188,6 +188,20 @@
 </script>
 
 <script id="wordcloud-template" type="text/x-handlebars-template">
+  <form>
+    <p for='subreddit'>Subreddit:</p>
+    <select name="subreddit" id="selectSubreddit">
+      <option selected='selected'>Gaming</option>
+      <option>WIP-Funny</option>
+      <option>WIP-Cabbage</option>
+    </select>
+    <p for='limit'>Number of Items pulled:</p>
+    <input type='input' name='limit' value="{{ limit }}">
+    <p for='size'>Size Multiplyer</p>
+    <input type='input' name='size' value="{{ sizeMultiple }}">
+    <input type='radio' name='viewType' checked value={{display_type}}>
+    <input type='radio' name='viewType'>
+  </form>
 </script>
 
 <script src='/lib/jquery-2.0.2.js'></script>
