@@ -7,39 +7,36 @@ Redd.Models.WordCloud = Backbone.Model.extend({
     'count': 400,
     'multiple': 2,
     'rotateFunc': null,
-    '_rotatFuncChoice': '_rotate90discrete',
+    '_rotateFuncChoice': '_rotate90discrete',
     '_rotate180continuous': function() { return ~~(Math.random() * 180) - 90;},
     '_rotate90discrete': function() { return ~~(Math.random() * 2) * 90; },
     'switchRotateFuncChoice': function(){
-      // debugger
-      if( this.get('_rotatFuncChoice') === '_rotate180continuous'){
+
+      if( this.get('_rotateFuncChoice') === '_rotate180continuous'){
         this.set('rotateFunc', this.get('_rotate90discrete'), {silent: true});
-        this.set('_rotatFuncChoice', '_rotate90discrete');
-      } else if( this.get('_rotatFuncChoice') === '_rotate90discrete'){
+        this.set('_rotateFuncChoice', '_rotate90discrete');
+      } else if( this.get('_rotateFuncChoice') === '_rotate90discrete'){
         this.set('rotateFunc', this.get('_rotate180continuous'), {silent: true});
-        this.set('_rotatFuncChoice', '_rotate180continuous');
+        this.set('_rotateFuncChoice', '_rotate180continuous');
       } else { throw "internal error: unexpected rotation functino selected"}
     }
   },
   initialize: function() {
-    this.set('rotateFunc', this.get(this.get('_rotatFuncChoice')),{silent: true});
-    // this.attributes = this.parse(window.GLOBALWordCloudTestData, this.get('count'));
-    // this.set('data', this.fetch());
-    this.fetch(
-      function success(model, res, options){
-        console.log('fetch success - model: ', model);
-        console.log('fetch success - res: ', res);
-        console.log('fetch success - options: ', options);
-    }, function error(model, res, options){
-        console.log('fetch error - model: ', model);
-        console.log('fetch error - res: ', res);
-        console.log('fetch error - options: ', options);
-    });
+    this.set('rotateFunc', this.get(this.get('_rotateFuncChoice')),{silent: true});
+    console.log('initializing');
+    this.url += "?limit="+ this.get('count');
 
+    this.fetch({
+      success: function(model, res, options){
+        console.log('fetch success - res: ', res);
+      },
+      error: function(model, res, options){
+          console.log('fetch error - res: ', res);
+      }
+    });
   },
-  url: '/api/wordClouds/GamingAllNouns',
+  url: '/api/wordClouds/Noun',
   parse: function(data) {
-    debugger
     // overwrite parse to reformat the data before backbone handles it
     var updatedAttributes = _.extend(this.attributes);
     updatedAttributes.wordArray = [];

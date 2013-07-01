@@ -52,19 +52,13 @@ promises.dataBase.once('open', function(){
 
 
   app.get('/api/wordClouds/:collectionName', function(req, res, next) {
-    var collectionName = req.params.collectionName;
-    var model = mongoose.model('GamingNoun');
-
-    // console.log('Collection: ', model.collection);
-    // console.log('DB: ', model.db);
-
-    model.find({}, 'noun frequency', {lean: true}, function (err, docs) {
+    var model = mongoose.model(req.params.collectionName);
+    console.log(req.query.limit);
+    model.find({}, 'noun frequency', {lean: true, limit: req.query.limit }, function (err, docs) {
       if(err){
         console.log('from find error: ', JSON.stringify(err));
         throw err;
       }
-
-      // console.log('last doc, nouns:', doc.nouns, " frequency: ", doc.frequency, 'doc', doc);
       res.send(docs);
     });
   });

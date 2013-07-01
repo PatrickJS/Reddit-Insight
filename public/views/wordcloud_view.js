@@ -3,7 +3,7 @@ Redd.Views.WordCloud = Backbone.View.extend({
   // can test with "Debug.Controller.wordcloud.model.attributes.switchRotateFuncChoice.call(Debug.Controller.wordcloud.model)"
   initialize: function() {
     console.log('in WordCloud view');
-    // render on sync
+    // render on change
     this.model.on('sync', this.render, this);
     this.model.on('change', this.render, this);
   },
