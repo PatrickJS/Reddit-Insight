@@ -10,6 +10,7 @@
   <link href='/stylesheets/bootstrap-responsive.min.css' rel='stylesheet' type="text/css">
   <link href='/stylesheets/rickshaw.css' rel='stylesheet' type='text/css'>
   <link href='/stylesheets/jquery.ui.slider.css' rel='stylesheet' type='text/css'>
+  <link href='/lib/ladda.min.css' rel='stylesheet' type='text/css'>
   <link href='/stylesheets/style.css' rel='stylesheet' type="text/css">
 
   <title>Reddit Insight</title>
@@ -94,6 +95,10 @@
     <form>
       <label for="tracking-url">Tracking URL</label>
       <input id="tracking-url" type="text" value="" autofocus>
+      <button id="trackpost-submit" class="ladda-button" data-style="contract" data-size="s">
+        <span class="ladda-label">Submit</span>
+      </button>
+      <div class="loader"></div>
     </form>
     <article id="trackpost-stats"></article>
     <article id="trackpost-chart"></article>
@@ -251,6 +256,8 @@
 <script src='/lib/d3.min.js'></script>
 <script src='/lib/d3.layout.cloud.js'></script>
 <script src='/lib/rickshaw.js'></script>
+<script src='/lib/ladda.min.js'></script>
+<script src='/lib/spin.min.js'></script>
 
 <script src='/redd.js'></script>
 

@@ -5,6 +5,7 @@ Redd.Views.TrackPost = Backbone.View.extend({
       model: this.model});
     this.trackpost_chart = new Redd.Views.TrackPostChart();
     this.model.on('sync', function() { console.log('trackpost sync');
+      $('.loader').hide();
       this.trackpost_stats.render();
       var obj = this.model.attributes;
       this.collection.add({ups: obj.ups, downs: obj.downs, score: obj.score});
@@ -22,6 +23,7 @@ Redd.Views.TrackPost = Backbone.View.extend({
   },
 
   enterURL: function(e) {
+    $('.loader').css('display', 'inline-block');
     if(this.model.urlSubmit) {
       this.trackpost_chart.render();
     }
