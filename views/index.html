@@ -82,8 +82,8 @@
       <li><a href="https://github.com/gdi2290">Patrick Stapleton</a></li>
       <li><a href="https://github.com/ebeal">Elle Beal</a></li>
       <li><a href="https://github.com/googamanga">Alex Gaputin</a></li>
-      <li><a href="https://github.com/sheltowt">Bill Shelton</a></li>   
-      <li><a href="https://github.com/kevinhamiltonsmith">Kevin Smith</a></li>   
+      <li><a href="https://github.com/sheltowt">Bill Shelton</a></li>
+      <li><a href="https://github.com/kevinhamiltonsmith">Kevin Smith</a></li>
     </ul>
   </div>
 </script>
@@ -183,16 +183,18 @@
   {{/if}}
 </script>
 
-<!-- TODO: filter out posts/comments -->
-<script id="trackuser-posts-template" type="text/x-handlebars-template">
+<!-- TODO: filter out posts/comments
 <ul class="nav nav-tabs" id="myTab">
   <li class="active"><a href="#posts">Posts</a></li>
   <li><a href="#comments">Comments</a></li>
 </ul>
-
+-->
+<script id="trackuser-posts-template" type="text/x-handlebars-template">
+<hr>
   <div class="tab-content">
+  {{debug}}
   {{#each this}}
-    {{#compare kind 't3'}}
+  {{#compare kind "t3"}}
       <div class="tab-pane active" id="posts">
           <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
           <h4>{{ data.title }}</h4>
@@ -212,7 +214,7 @@
         Comments: <h4 style="display:inline">{{ data.num_comments }}</h4>
         <hr>
       </div>
-    {{else}}
+  {{else}}
       <div class="tab-pane" id="comments">
         <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
           <h4>{{ data.title }}</h4>
