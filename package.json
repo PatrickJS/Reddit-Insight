@@ -9,6 +9,7 @@
     "express": "3.2.6",
     "underscore": "*",
     "mongoose": "*",
-    "ejs": "*"
+    "ejs": "*",
+    "nodetime": "*"
   }
 }
