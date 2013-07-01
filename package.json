@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "NODE_ENV=development nodemon server.js",
+    "test": "NODE_ENV=reddit nodemon server.js"
   },
   "dependencies": {
     "express": "3.2.6",
@@ -11,5 +12,8 @@
     "mongoose": "*",
     "ejs": "*",
     "nodetime": "*"
+  },
+  "engines": {
+    "node": ">=0.10"
   }
 }
