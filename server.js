@@ -51,25 +51,21 @@ promises.dataBase.once('open', function(){
   });
 
 
-  app.get('/wordClouds/:collectionName', function(req, res, next) {
-    console.log('hi from reqHandler');
+  app.get('/api/wordClouds/:collectionName', function(req, res, next) {
     var collectionName = req.params.collectionName;
-
-    var model = mongoose.model('Noun');
+    var model = mongoose.model('GamingNoun');
 
     // console.log('Collection: ', model.collection);
     // console.log('DB: ', model.db);
 
-    model.count({}, function (err, count) {
+    model.find({}, 'noun frequency', {lean: true}, function (err, docs) {
       if(err){
         console.log('from find error: ', JSON.stringify(err));
-        next(err);
+        throw err;
       }
 
-      console.log(arguments);
-
       // console.log('last doc, nouns:', doc.nouns, " frequency: ", doc.frequency, 'doc', doc);
-      res.send('Hello! "' + count + '".');
+      res.send(docs);
     });
   });
 

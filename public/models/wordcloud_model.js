@@ -23,19 +23,30 @@ Redd.Models.WordCloud = Backbone.Model.extend({
   },
   initialize: function() {
     this.set('rotateFunc', this.get(this.get('_rotatFuncChoice')),{silent: true});
-    this.attributes = this.parse(window.GLOBALWordCloudTestData, this.get('count'));
+    // this.attributes = this.parse(window.GLOBALWordCloudTestData, this.get('count'));
     // this.set('data', this.fetch());
+    this.fetch(
+      function success(model, res, options){
+        console.log('fetch success - model: ', model);
+        console.log('fetch success - res: ', res);
+        console.log('fetch success - options: ', options);
+    }, function error(model, res, options){
+        console.log('fetch error - model: ', model);
+        console.log('fetch error - res: ', res);
+        console.log('fetch error - options: ', options);
+    });
 
   },
-  url: 'api/wordcloud',
-  parse: function(data, count) {
+  url: '/api/wordClouds/GamingAllNouns',
+  parse: function(data) {
+    debugger
     // overwrite parse to reformat the data before backbone handles it
     var updatedAttributes = _.extend(this.attributes);
     updatedAttributes.wordArray = [];
     updatedAttributes.frequency = {};
-    for(var i = 0; i <= count && i < data.length; i++){
-      updatedAttributes.wordArray.push(data[i].nouns);
-      updatedAttributes.frequency[data[i].nouns] = Math.sqrt(+data[i].frequency) * this.get('multiple')
+    for(var i = 0; i <= updatedAttributes.count && i < data.length; i++){
+      updatedAttributes.wordArray.push(data[i].noun);
+      updatedAttributes.frequency[data[i].noun] = Math.sqrt(+data[i].frequency) * this.get('multiple')
     };
     return updatedAttributes;
   }
