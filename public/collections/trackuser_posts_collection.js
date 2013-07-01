@@ -1,4 +1,3 @@
-//TODO: add all of these items to the collection
 Redd.Collections.TrackUserPosts = Backbone.Collection.extend({
   model: Redd.Models.TrackUserPosts,
   initialize: function() {
@@ -11,7 +10,6 @@ Redd.Collections.TrackUserPosts = Backbone.Collection.extend({
   },
   sync: Backbone.JSONP.Sync,
   parse: function(data) {
-    console.log(data.data.children);
-    return data.data.children;
+    return _(data.data.children).map(function(obj) { return obj.data; });
   }
 });

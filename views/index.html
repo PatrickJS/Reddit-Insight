@@ -125,8 +125,8 @@
       <input id="tracking-username" type="text" value="" autofocus>
     </form>
   </div>
-  <article id="trackuser-data"></article>
-  <article id="trackuser-posts"></article>
+  <div id="trackuser-data"></div>
+  <div id="trackuser-posts"></div>
 </script>
 
 <script id="trackuser-data-template" type="text/x-handlebars-template">
@@ -166,8 +166,24 @@
 </script>
 
 <script id="trackuser-posts-template" type="text/x-handlebars-template">
-    yo
-    {{debug }}
+  <hr>
+  {{#each this}}
+    <a href="{{ url }}">
+      <h4>{{ title }}</h4>
+      <img src="{{ thumbnail }}" target="_blank"></a> <a href="http://www.reddit.com{{ permalink }}" target="_blank">
+    </a>
+    <br>
+    Author: <h4 style="display:inline">{{ author }}</h4>
+    <br>
+    Score: <h4 style="display:inline">{{ score }}</h4>
+    <br>
+    <i class="icon-arrow-up"></i>: <h4 style="display:inline">{{ ups }}</h4>
+    <br>
+    <i class="icon-arrow-down"></i>: <h4 style="display:inline">{{ downs }}</h4>
+    <br>
+    Comments: <h4 style="display:inline">{{ num_comments }}</h4>
+    <hr>
+  {{/each}}
 </script>
 
 <script id="wordcloud-template" type="text/x-handlebars-template">

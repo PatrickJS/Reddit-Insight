@@ -9,7 +9,6 @@ Redd.Controller = Backbone.View.extend({
       collection: new Redd.Collections.TrackPosts()});
     this.trackuser = new Redd.Views.TrackUser({
       model: new Redd.Models.TrackUser(),
-      // model2: new Redd.Models.TrackUserPosts(),
       collection: new Redd.Collections.TrackUserPosts()});
     this.wordcloud = new Redd.Views.WordCloud({
       model: new Redd.Models.WordCloud()});

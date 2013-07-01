@@ -1,20 +1,13 @@
 Redd.Views.TrackUser = Backbone.View.extend({
   initialize: function() {
     console.log('in TrackUser view');
-    this.trackuser_data = new Redd.Views.TrackUserData({model: this.model});
-    this.trackuser_posts = new Redd.Views.TrackUserPosts({model: this.model});
+    this.trackuser_data = new Redd.Views.TrackUserData({
+      model: this.model });
+    this.trackuser_posts = new Redd.Views.TrackUserPosts({
+      collection: new Redd.Collections.TrackUserPosts() });
     this.model.on('sync', function() {
       this.trackuser_data.render();
     }, this);
-
-//TODO: figure out 2nd model
-    // this.model2.on('sync', function() {
-    //   console.log('$$$$$$$$$ model2 sync')
-    //   var posts = data.data.children;
-    //   _.each(posts, function(post){
-    //     this.collection.add(post);
-    //   });
-    // });
   },
   el: '#trackuser',
   template: Redd.Templates('trackuser'),
