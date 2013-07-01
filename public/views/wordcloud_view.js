@@ -10,13 +10,13 @@ Redd.Views.WordCloud = Backbone.View.extend({
   el: '#wordcloud',
   template: Redd.Templates('wordcloud'),
   events: {
-    'click': 'clickEvent'
+    'submit': 'formHandler'
   },
   render: function(){
     //quick hack, refactor to fit structure
     if(this.model.get('wordArray')){
       this.$el.html(this.template({
-        limit: this.model.get('count'),
+        limit: this.model.get('limit'),
         sizeMultiple: this.model.get('sizeMultiple'),
         display_type: this.forView[this.model.get('_rotateFuncChoice')]
       }));
@@ -30,9 +30,20 @@ Redd.Views.WordCloud = Backbone.View.extend({
     _rotate90discrete: "Horizontal and Vertical",
     _rotate180continuous: "All angles"
   },
-  clickEvent: function(e) {
-    console.log('made an event');
-    return false;
+  formHandler: function(e) {
+    e.preventDefault();
+    console.log('handling form');
+    var obj ={};
+    $('#wordCloudForm').find('input').each(function(index, data){
+      debugger
+      if($(data).attr('type') !== 'radio'){
+        obj[$(data).attr('name')] = $(data).val();
+      }
+      if($(data).is(':checked')){
+        obj[$(data).attr('name')] = $(data).val(); 
+      }
+      console.log(obj);
+    });
   },
   d3Stuff: function(parentEl){
       var self = this;
