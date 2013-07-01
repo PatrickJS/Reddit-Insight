@@ -12,13 +12,19 @@ Redd.Views.TrackUser = Backbone.View.extend({
   el: '#trackuser',
   template: Redd.Templates('trackuser'),
   events: {
-    'submit form': 'enterUsername'
+    'submit form': 'enterUsername',
+    'click #myTab a': 'clickTabs'
   },
   render: function(){
     this.$el.html(this.template());
     return this;
   },
 
+  clickTabs: function(e) {
+    e.preventDefault();
+    $(e.currentTarget).tab('show');
+    return false;
+  },
   enterUsername: function(e) {
     var username = $('#tracking-username').val();
     console.log('username submitted', username);

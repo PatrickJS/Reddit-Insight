@@ -1,3 +1,6 @@
+html, body {
+  height: 100%;
+}
 .y-axis{
   margin:100px 10px 10px 10px;
   float:left;
@@ -17,6 +20,8 @@ body{
   background-color: rgba(255,255,255,0.8);
   border: 20px solid #fff;
   padding: 1%;
+  min-height: 70%;
+  position: relative;
 }
 header{
   height:150px;
@@ -79,3 +84,26 @@ nav{
   font-weight: bold;
 
 }
+
+footer{
+  margin-top: 30px;
+  min-height: 40px;
+  background-color: #fafafa;
+  position: relative;
+}
+.footer-inner{
+  margin: 0 10%;
+  padding: 5px 20px 0;
+}
+footer .footer-inner .nav{
+  margin: 0;
+}
+footer li a {
+  color: #777;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #fff;
+}
+footer li a:hover{
+  color: #333;
+}
+
