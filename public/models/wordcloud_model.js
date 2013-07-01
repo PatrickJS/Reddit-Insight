@@ -25,7 +25,6 @@ Redd.Models.WordCloud = Backbone.Model.extend({
     this.set('rotateFunc', this.get(this.get('_rotatFuncChoice')),{silent: true});
     this.attributes = this.parse(window.GLOBALWordCloudTestData, this.get('count'));
     // this.set('data', this.fetch());
-    // this.set('data', read from TestWordCloudGamingAllNouns.txt)
 
   },
   url: 'api/wordcloud',
