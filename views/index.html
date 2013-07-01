@@ -102,9 +102,11 @@
 </script>
 
 <script id="trackpost-stats-template" type="text/x-handlebars-template">
-  <a href="{{ url }}">
+  <a href="http://www.reddit.com{{ permalink }}" target="_blank">
     <h4>{{ title }}</h4>
-    <img src="{{ thumbnail }}" target="_blank"></a> <a href="http://www.reddit.com{{ permalink }}" target="_blank">
+  </a>
+  <a href="{{ data.url }}" target="_blank">
+    <img src="{{ thumbnail }}">
   </a>
   <br>
   Author: <h4 style="display:inline">{{ author }}</h4>
@@ -166,25 +168,58 @@
   {{/if}}
 </script>
 
+<!-- TODO: filter out posts/comments -->
 <script id="trackuser-posts-template" type="text/x-handlebars-template">
-  <hr>
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#posts">Posts</a></li>
+  <li><a href="#comments">Comments</a></li>
+</ul>
+
+  <div class="tab-content">
   {{#each this}}
-    <a href="{{ url }}">
-      <h4>{{ title }}</h4>
-      <img src="{{ thumbnail }}" target="_blank"></a> <a href="http://www.reddit.com{{ permalink }}" target="_blank">
-    </a>
-    <br>
-    Author: <h4 style="display:inline">{{ author }}</h4>
-    <br>
-    Score: <h4 style="display:inline">{{ score }}</h4>
-    <br>
-    <i class="icon-arrow-up"></i>: <h4 style="display:inline">{{ ups }}</h4>
-    <br>
-    <i class="icon-arrow-down"></i>: <h4 style="display:inline">{{ downs }}</h4>
-    <br>
-    Comments: <h4 style="display:inline">{{ num_comments }}</h4>
-    <hr>
+    {{#compare kind 't3'}}
+      <div class="tab-pane active" id="posts">
+          <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
+          <h4>{{ data.title }}</h4>
+          </a>
+        <a href="{{ data.url }}" target="_blank">
+          <img src="{{ data.thumbnail }}">
+        </a>
+        <br>
+        Author: <h4 style="display:inline">{{ data.author }}</h4>
+        <br>
+        Score: <h4 style="display:inline">{{ data.score }}</h4>
+        <br>
+        <i class="icon-arrow-up"></i>: <h4 style="display:inline">{{ data.ups }}</h4>
+        <br>
+        <i class="icon-arrow-down"></i>: <h4 style="display:inline">{{ data.downs }}</h4>
+        <br>
+        Comments: <h4 style="display:inline">{{ data.num_comments }}</h4>
+        <hr>
+      </div>
+    {{else}}
+      <div class="tab-pane" id="comments">
+        <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
+          <h4>{{ data.title }}</h4>
+          </a>
+        <a href="{{ data.url }}" target="_blank">
+          <img src="{{ data.thumbnail }}">
+        </a>
+        <br>
+        Author: <h4 style="display:inline">{{ data.author }}</h4>
+        <br>
+        Score: <h4 style="display:inline">{{ data.score }}</h4>
+        <br>
+        <i class="icon-arrow-up"></i>: <h4 style="display:inline">{{ data.ups }}</h4>
+        <br>
+        <i class="icon-arrow-down"></i>: <h4 style="display:inline">{{ data.downs }}</h4>
+        <br>
+        Comments: <h4 style="display:inline">{{ data.num_comments }}</h4>
+        <hr>
+      </div>
+    {{/compare}}
   {{/each}}
+  </div>
 </script>
 
 <script id="wordcloud-template" type="text/x-handlebars-template">
