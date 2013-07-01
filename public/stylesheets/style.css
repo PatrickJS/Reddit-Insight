@@ -24,6 +24,56 @@ nav{
   border-radius: 0;
   background: #fff;
 }
+.navbar .brand{
+  color:rgba(95,153,207,1);
+}
+.navbar .nav>.active>a, .navbar .nav>.active>a:hover, .navbar .nav>.active>a:focus{
+  color:rgba(95,153,207,1);
+}
+.container-fluid{
+  text-align: center;
+  height:1000px;
+  margin:0 0 1% 0;
+  border:none;
+  border-top:10px solid #fff;
+  padding-left:3%;
+}
+.container-fluid h2{
+  text-align: left;
+  color:rgba(95,153,207,1);
+  font-weight: 700;
+  font-size: 8em;
+  letter-spacing: -.1em;
+  position:relative;
+  top:-50px;
+  text-shadow:
+     -1px -1px 0 #fff,  
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+       1px 1px 0 #fff;
+}
+.container-fluid h3{
+  text-align:left;
+  color:rgba(50,50,50,0.8);
+  font-weight: bold;
+  font-size:1.6em;
+  position: relative;
+  top:-75px;
+}
+.container-fluid form, #trackpost{
+  text-align:left;
+}
+#trackpost-chart{
+  float:right;
+  margin-top:-100px;
+}
+#trackuser-data, #trackuser-posts{
+  text-align: left;
+}
+.stats-title{
+  font-weight: bold;
+
+}
 
 /************
   * Charts *
@@ -108,3 +158,4 @@ footer li a:hover{
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+=======
