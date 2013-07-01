@@ -34,16 +34,15 @@ Redd.Views.WordCloud = Backbone.View.extend({
     e.preventDefault();
     console.log('handling form');
     var obj ={};
+    var self = this;
     $('#wordCloudForm').find('input').each(function(index, data){
-      debugger
-      if($(data).attr('type') !== 'radio'){
+      if($(data).attr('name') !== undefined && (
+        $(data).attr('type') !== 'radio' || $(data).is(':checked'))
+      ){
         obj[$(data).attr('name')] = $(data).val();
       }
-      if($(data).is(':checked')){
-        obj[$(data).attr('name')] = $(data).val(); 
-      }
-      console.log(obj);
     });
+    self.model.update(obj);
   },
   d3Stuff: function(parentEl){
       var self = this;
