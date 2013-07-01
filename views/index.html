@@ -184,13 +184,12 @@
 </script>
 
 <!-- TODO: filter out posts/comments
-<ul class="nav nav-tabs" id="myTab">
-  <li class="active"><a href="#posts">Posts</a></li>
-  <li><a href="#comments">Comments</a></li>
-</ul>
 -->
 <script id="trackuser-posts-template" type="text/x-handlebars-template">
-<hr>
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#posts">Posts</a></li>
+    <li><a href="#comments">Comments</a></li>
+  </ul>
   <div class="tab-content">
   {{debug}}
   {{#each this}}
@@ -214,7 +213,8 @@
         Comments: <h4 style="display:inline">{{ data.num_comments }}</h4>
         <hr>
       </div>
-  {{else}}
+  {{/compare}}
+  {{#compare kind "t1"}}
       <div class="tab-pane" id="comments">
         <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
           <h4>{{ data.title }}</h4>
@@ -234,7 +234,7 @@
         Comments: <h4 style="display:inline">{{ data.num_comments }}</h4>
         <hr>
       </div>
-    {{/compare}}
+  {{/compare}}
   {{/each}}
   </div>
 </script>

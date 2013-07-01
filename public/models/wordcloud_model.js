@@ -41,11 +41,10 @@ Redd.Models.WordCloud = Backbone.Model.extend({
     var updatedAttributes = _.extend(this.attributes);
     updatedAttributes.wordArray = [];
     updatedAttributes.frequency = {};
-    debugger
     for(var i = 0; i <= updatedAttributes.count && i < data.length; i++){
       updatedAttributes.wordArray.push(data[i].noun);
-      updatedAttributes.frequency[data[i].noun] = Math.sqrt(+data[i].frequency) * this.get('sizeMultiple')
-    };
+      updatedAttributes.frequency[data[i].noun] = Math.sqrt(+data[i].frequency) * this.get('sizeMultiple');
+    }
     return updatedAttributes;
   }
 });
