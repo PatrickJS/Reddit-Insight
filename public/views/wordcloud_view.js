@@ -13,15 +13,17 @@ Redd.Views.WordCloud = Backbone.View.extend({
     'click': 'clickEvent'
   },
   render: function(){
-    this.$el.html(this.template({
-      limit: this.model.get('count'),
-      sizeMultiple: this.model.get('sizeMultiple'),
-      display_type: this.forView[this.model.get('_rotateFuncChoice')]
-    }));
-    this.d3Stuff('#wordcloud')
-    this.$('svg').css('background-color', 'black');
-    console.log('WordCloudView has been rendered ' + (this.model.renderCounter += 1) + " times");
-
+    //quick hack, refactor to fit structure
+    if(this.model.get('wordArray')){
+      this.$el.html(this.template({
+        limit: this.model.get('count'),
+        sizeMultiple: this.model.get('sizeMultiple'),
+        display_type: this.forView[this.model.get('_rotateFuncChoice')]
+      }));
+      this.d3Stuff('#wordcloud')
+      this.$('svg').css('background-color', 'black');
+      console.log('WordCloudView has been rendered ' + (this.model.renderCounter += 1) + " times");
+    }
     return this;
   },
   forView: {
