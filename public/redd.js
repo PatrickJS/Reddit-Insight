@@ -7,7 +7,6 @@
     Controller: {},
     Router: {},
     d3: {},
-    Data: {},
     Vent: _.extend({}, Backbone.Events),
     initialize: function() {
       // remove debug

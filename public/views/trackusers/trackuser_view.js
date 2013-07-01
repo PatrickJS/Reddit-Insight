@@ -21,9 +21,8 @@ Redd.Views.TrackUser = Backbone.View.extend({
 
   enterUsername: function(e) {
     var username = $('#tracking-username').val();
-    Redd.Data.usernameSubmit = username;
     console.log('username submitted', username);
-    Redd.Vent.trigger('usernameSubmitChange');
+    Redd.Vent.trigger('usernameSubmitChange', username);
     $('#tracking-username').val('');
     return false;
   }
