@@ -72,12 +72,6 @@
   </div>
 </script>
 
-<script id="login-template" type="text/x-handlebars-template">
-  <div>
-    yolo
-  </div>
-</script>
-
 <script id="trackpost-template" type="text/x-handlebars-template">
   <div>
     <h2>Track Post View</h2>
@@ -131,8 +125,8 @@
       <input id="tracking-username" type="text" value="" autofocus>
     </form>
   </div>
-  <article id="trackuser-data"></article>
-  <article id="trackuser-posts"></article>
+  <div id="trackuser-data"></div>
+  <div id="trackuser-posts"></div>
 </script>
 
 <script id="trackuser-data-template" type="text/x-handlebars-template">
@@ -172,29 +166,46 @@
 </script>
 
 <script id="trackuser-posts-template" type="text/x-handlebars-template">
-    yo
-    {{debug }}
+  <hr>
+  {{#each this}}
+    <a href="{{ url }}">
+      <h4>{{ title }}</h4>
+      <img src="{{ thumbnail }}" target="_blank"></a> <a href="http://www.reddit.com{{ permalink }}" target="_blank">
+    </a>
+    <br>
+    Author: <h4 style="display:inline">{{ author }}</h4>
+    <br>
+    Score: <h4 style="display:inline">{{ score }}</h4>
+    <br>
+    <i class="icon-arrow-up"></i>: <h4 style="display:inline">{{ ups }}</h4>
+    <br>
+    <i class="icon-arrow-down"></i>: <h4 style="display:inline">{{ downs }}</h4>
+    <br>
+    Comments: <h4 style="display:inline">{{ num_comments }}</h4>
+    <hr>
+  {{/each}}
 </script>
 
 <script id="wordcloud-template" type="text/x-handlebars-template">
-    word cloud
 </script>
 
 <script src='/lib/jquery-2.0.2.js'></script>
 <script src='/lib/bootstrap.min.js'></script>
 <script src='/lib/underscore.js'></script>
 <script src='/lib/handlebars.js'></script>
-<script src='/lib/backbone-min.js'></script>
+<script src='/lib/backbone.js'></script>
 <script src='/lib/backbone-oauth.js'></script>
 <script src='/lib/backbone-jsonp.js'></script>
 <script arc='/lib/jquery.ui.slider.js'></script>
 <script src='/lib/d3.min.js'></script>
+<script src='/lib/d3.layout.cloud.js'></script>
 <script src='/lib/rickshaw.js'></script>
 
 <script src='/redd.js'></script>
 
 <script src='/models/trackpost_model.js'></script>
 <script src='/models/trackuser_model.js'></script>
+<script src='/models/trackuserposts_model.js'></script>
 <script src='/models/wordcloud_model.js'></script>
 
 <script src='/collections/trackpost_posts_collection.js'></script>
@@ -222,8 +233,11 @@
 <script src='/redd_controller.js'></script>
 <script src='/router.js'></script>
 
+<!-- Test Data -->
+<script src='/lib/TestWordCloudGamingAllNouns.js'></script>
+
 <script>
-  Redd.initialize();
+    Redd.initialize();
 </script>
 
 

@@ -1,14 +1,24 @@
 {
   "name": "RedditInsight",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "NODE_ENV=development nodemon server.js",
+    "test": "NODE_ENV=reddit nodemon server.js"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "http://github.com/gdi2290/RedditInsight.git"
   },
   "dependencies": {
     "express": "3.2.6",
     "underscore": "*",
     "mongoose": "*",
-    "ejs": "*"
+    "ejs": "*",
+    "nodetime": "*"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
   }
 }

@@ -1,25 +1,15 @@
 Redd.Models.TrackUser = Backbone.Model.extend({
   initialize: function() {
-    Redd.Vent.on('usernameSubmitChange', function() {
-      self = this;
-      console.log(self);
-      Redd.Data.usernameWhere = 'about';
-      self.fetch();
-      self.trigger('userData', self);
-      // self.on('sync', function() {
-      //   Redd.Data.usernameWhere = '';
-      //   self.fetch();
-      //   self.trigger('userPosts', self);
-      // }, self);
+    Redd.Vent.on('usernameSubmitChange', function(username) {
+      this.usernameSubmit = username;
+      this.fetch();
     }, this);
   },
   url: function() {
-    return 'http://www.reddit.com/user/'+ Redd.Data.usernameSubmit +'/'+Redd.Data.usernameWhere+'.json';
+    return 'https://pay.reddit.com/user/'+ this.usernameSubmit +'/about.json';
   },
   sync: Backbone.JSONP.Sync,
   parse: function(data) {
     return data.data;
   }
-
 });
-

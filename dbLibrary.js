@@ -1,9 +1,9 @@
-var mongoose = require('mongoose')
-  , lib = require('./myLibrary')
-  , _ = require('underscore')
-  , Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+    lib = require('./myLibrary'),
+    _ = require('underscore'),
+    Schema = mongoose.Schema;
 
-exports.allPostsCollection = {
+module.exports = {
   _postsSchema: null,
   _subsSchema: null,
   _moodel: null,
@@ -34,7 +34,7 @@ exports.allPostsCollection = {
       subscribers: Number,
       display_name: String,
       id: String,
-      name: {type: String, index: {unique: true, dropDups: true}},
+      name: {type: String, index: {unique: true, dropDups: true}}
     }, { autoIndex: true });
   },
 
@@ -51,7 +51,7 @@ exports.allPostsCollection = {
       id: String,
       clicked:Boolean,
       title:String,
-      media:Schema.Types.Mixed, 
+      media:Schema.Types.Mixed,
       score:Number,
       approved_by:Schema.Types.Mixed,
       over_18:Boolean,
@@ -84,7 +84,6 @@ exports.allPostsCollection = {
     mongoose.connect("mongodb://localhost/RedditInsight");
 
     var self = this;
-    debugger
     var dataBase = mongoose.connection;
 
     dataBase.on('err', console.error.bind(console, 'connection error:'));
@@ -139,8 +138,8 @@ exports.allPostsCollection = {
     for(var i = 0; i < result.data.children.length; i++){
       var data = result.data.children[i].data;
       new self._moodel(data).save(function(err, docs){
-        if(err){console.log("\n\nerror saving: ", data, "error: ", err)}
+        if(err) {console.log("\n\nerror saving: ", data, "error: ", err);}
       });
     }
   }
-}
+};

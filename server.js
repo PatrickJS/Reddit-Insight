@@ -1,18 +1,17 @@
-
-/**
- * Module dependencies.
- */
-
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/index')
-  , http = require('http')
-  , path = require('path')
-  , _ = require('underscore')
-  , allPostsCollection = require('./dbLibrary.js').allPostsCollection  // why do I have to tdo this!?
-  , mongoose = require('mongoose')
-  , ejs = require('ejs');
-
+require('nodetime').profile({ // Nodetime Performance Analytics
+    accountKey: '3f592a5426efc7091fbef5140cf050952e47c5db',
+    appName: 'RedditInsight' // Email me for access @gdi2290
+  });
+// Module dependencies.
+var express = require('express'),
+    routes = require('./routes'),
+    user = require('./routes/index'),
+    http = require('http'),
+    path = require('path'),
+    _ = require('underscore'),
+    allPostsCollection = require('./dbLibrary.js'),  // why do I have to do this!?
+    mongoose = require('mongoose'),
+    ejs = require('ejs');
 var app = express();
 
 // all environments
@@ -37,7 +36,9 @@ app.get('/', routes.index);
 //start server
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
-  // allPostsCollection.start(5000, '/subreddits/popular.json?limit=100', 'subs');
+  if ('reddit' == app.get('env')) {
+    allPostsCollection.start(5000, '/subreddits/popular.json?limit=100', 'subs');
+  }
 
 });
 
