@@ -75,6 +75,9 @@ nav{
 #trackuser-posts{
   margin-top: 30px;
 }
+#trackuser-data{
+  margin-bottom: 20px;
+}
 #tracking-url{
   min-width: 25%;
 }
