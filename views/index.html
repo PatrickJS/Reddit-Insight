@@ -245,19 +245,26 @@
 
 <script id="wordcloud-template" type="text/x-handlebars-template">
 <h2>Word Clouds</h2>
-  <form>
-    <p for='subreddit'>Subreddit:</p>
+  <form id='wordCloudForm'>
+    <span for='subreddit'>Subreddit:</span>
     <select name="subreddit" id="selectSubreddit">
-      <option selected='selected'>Gaming</option>
+      <option>Gaming</option>
       <option>WIP-Funny</option>
       <option>WIP-Cabbage</option>
     </select>
-    <p for='limit'>Number of Items pulled:</p>
+    <br>
+    <span>Number of Items pulled:</span>
     <input type='input' name='limit' value="{{ limit }}">
-    <p for='size'>Size Multiplyer</p>
-    <input type='input' name='size' value="{{ sizeMultiple }}">
-    <input type='radio' name='viewType' checked value={{display_type}}>
-    <input type='radio' name='viewType'>
+    <br>
+
+    <span for='sizeMultiple'>Size Multiplyer</span>
+    <input type='input' name='sizeMultiple' value="{{ sizeMultiple }}">
+    <br>
+    <input type='radio' name='viewType' {{#if _rotate90discrete}} checked {{/if}} value="_rotate90discrete"> Horizontal and Vertical
+    <br>
+    <input type='radio' name='viewType' {{#if _rotate180continuous}} checked {{/if}} value='_rotate180continuous'> All Angles
+    <br>
+    <input class='btn' type='submit' value='submit'>
   </form>
 </script>
 
