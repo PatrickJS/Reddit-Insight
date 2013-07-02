@@ -5,16 +5,19 @@ Redd.Views.TrackPost = Backbone.View.extend({
       model: this.model});
     this.trackpost_chart = new Redd.Views.TrackPostChart();
     this.model.on('sync', function() { console.log('trackpost sync');
+      $('.loader').hide();
       this.trackpost_stats.render();
       var obj = this.model.attributes;
       this.collection.add({ups: obj.ups, downs: obj.downs, score: obj.score});
       Redd.Vent.trigger('trackpostSync');
+      $('.submit-another').show();
     }, this);
   },
   el: '#trackpost',
   template: Redd.Templates('trackpost'),
   events: {
-    'submit form': 'enterURL'
+    'submit form': 'enterURL',
+    'click .submit-another': 'addAnother'
   },
   render: function(){
     this.$el.html(this.template(this.model.attributes));
@@ -22,6 +25,9 @@ Redd.Views.TrackPost = Backbone.View.extend({
   },
 
   enterURL: function(e) {
+    $('.loader').fadeIn();
+    $('.submit-another').hide();
+    $('#trackpost form').slideUp('slow');
     if(this.model.urlSubmit) {
       this.trackpost_chart.render();
     }
@@ -33,5 +39,10 @@ Redd.Views.TrackPost = Backbone.View.extend({
     Redd.Vent.trigger('urlSubmitChange');
     $('#tracking-url').val('');
     return false;
+  },
+
+  addAnother: function(e) {
+    e.preventDefault();
+    $('#trackpost form').slideDown('slow');
   }
 });

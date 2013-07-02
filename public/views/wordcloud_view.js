@@ -27,7 +27,8 @@ Redd.Views.WordCloud = Backbone.View.extend({
     if(this.model.get('wordArray')){
       this.$el.html(this.template(obj));
       this.d3Stuff('#wordcloud')
-      this.$('svg').css('background-color', 'black');
+      // this.$('svg').css('background-color', 'black');
+      this.$('svg').addClass('word-cloud');
       console.log('WordCloudView has been rendered ' + (this.model.renderCounter += 1) + " times");
     }
     return this;
@@ -50,7 +51,7 @@ Redd.Views.WordCloud = Backbone.View.extend({
       var self = this;
       var fill = d3.scale.category20();
 
-      var dynWidth = document.body.clientWidth * .75;
+      var dynWidth = document.body.clientWidth * 0.9;
       var dynHeight = dynWidth * 0.5;
       d3.layout.cloud().size([dynWidth, dynHeight])
           .words(this.model.get('wordArray').map(function(d) {  //change wordArray should have list of words

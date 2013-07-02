@@ -1,0 +1,28 @@
+header{
+  height: 400px;
+  background-position: 50% 46%;
+}
+header h1{
+  margin:1% auto 0 auto;
+  width:100%;
+  
+  position: relative;
+  top:10%;
+  
+  text-align: center;
+  color:#fff;
+  font-weight: 700;
+  font-size: 14em;
+
+  line-height: 1.5em;
+  letter-spacing: -.05em;
+  word-spacing: .7em;
+  
+  text-shadow: 2px 2px 1px rgba(95,153,207,1);
+
+}
+
+section{
+  text-align: left;
+  width:100%;
+}

@@ -3,7 +3,7 @@ Redd.Models.WordCloud = Backbone.Model.extend({
   url: '/api/wordClouds',
   defaults: {
     'baseUrl': null,
-    'limit': 350,
+    'limit': 550,
     'sizeMultiple': 2,
     'rotateFunc': null,
     'selectedSubreddit': 'GamingNoun',
@@ -49,8 +49,8 @@ Redd.Models.WordCloud = Backbone.Model.extend({
     updatedAttributes.frequency = {};
     for(var i = 0; i <= updatedAttributes.limit && i < data.length; i++){
       updatedAttributes.wordArray.push(data[i].noun);
-      updatedAttributes.frequency[data[i].noun] = Math.sqrt(+data[i].frequency) * this.get('sizeMultiple')
-    };
+      updatedAttributes.frequency[data[i].noun] = Math.sqrt(+data[i].frequency) * this.get('sizeMultiple');
+    }
     return updatedAttributes;
   }
 });
