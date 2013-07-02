@@ -32,7 +32,7 @@ nav{
 }
 .container-fluid{
   text-align: center;
-  margin:0 0 1% 0;
+  margin:0;
   border:none;
   border-top:10px solid #fff;
   padding-left:3%;
@@ -75,6 +75,9 @@ nav{
 #trackuser-posts{
   margin-top: 30px;
 }
+#tracking-url{
+  min-width: 25%;
+}
 
 /************
   * Charts *
@@ -94,7 +97,6 @@ nav{
   * Footer *
  ************/
 footer{
-  margin-top: 30px;
   min-height: 40px;
   background-color: #fafafa;
   position: relative;
@@ -127,9 +129,9 @@ footer li a:hover{
   margin: 15px 0 20px 0;
 }
 .loader {
-  width: 24px;
-  height: 24px;
-  border: 8px solid #aaa;
+  width: 50px;
+  height: 50px;
+  border: 17px solid rgba(95,153,207,1);
   border-right-color: transparent;
   border-radius: 75%;
   display: none;
