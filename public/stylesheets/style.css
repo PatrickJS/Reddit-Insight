@@ -71,7 +71,9 @@ nav{
 }
 .stats-title{
   font-weight: bold;
-
+}
+#trackuser-posts{
+  margin-top: 30px;
 }
 
 /************
@@ -157,4 +159,3 @@ footer li a:hover{
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
-=======
