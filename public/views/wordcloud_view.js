@@ -10,35 +10,48 @@ Redd.Views.WordCloud = Backbone.View.extend({
   el: '#wordcloud',
   template: Redd.Templates('wordcloud'),
   events: {
-    'click': 'clickEvent'
+    'submit': 'formHandler'
   },
   render: function(){
     //quick hack, refactor to fit structure
+    var obj = {
+      limit: this.model.get('limit'),
+      sizeMultiple: this.model.get('sizeMultiple')
+    };
+    //no comparison operators in handlebars!!
+    if(this.model.get('_rotateFuncChoice') === '_rotate90discrete'){
+      obj._rotate90discrete = '_rotate90discrete';
+    } else if(this.model.get('_rotateFuncChoice') === '_rotate180continuous'){
+      obj._rotate180continuous = '_rotate180continuous';
+    }
     if(this.model.get('wordArray')){
-      this.$el.html(this.template({
-        limit: this.model.get('count'),
-        sizeMultiple: this.model.get('sizeMultiple'),
-        display_type: this.forView[this.model.get('_rotateFuncChoice')]
-      }));
+      this.$el.html(this.template(obj));
       this.d3Stuff('#wordcloud')
-      this.$('svg').css('background-color', 'black');
+      // this.$('svg').css('background-color', 'black');
+      this.$('svg').addClass('word-cloud');
       console.log('WordCloudView has been rendered ' + (this.model.renderCounter += 1) + " times");
     }
     return this;
   },
-  forView: {
-    _rotate90discrete: "Horizontal and Vertical",
-    _rotate180continuous: "All angles"
-  },
-  clickEvent: function(e) {
-    console.log('made an event');
-    return false;
+  formHandler: function(e) {
+    e.preventDefault();
+    console.log('handling form');
+    var obj ={};
+    var self = this;
+    $('#wordCloudForm').find('input').each(function(index, data){
+      if($(data).attr('name') !== undefined && (
+        $(data).attr('type') !== 'radio' || $(data).is(':checked'))
+      ){
+        obj[$(data).attr('name')] = $(data).val();
+      }
+    });
+    self.model.update(obj);
   },
   d3Stuff: function(parentEl){
       var self = this;
       var fill = d3.scale.category20();
 
-      var dynWidth = document.body.clientWidth * .75;
+      var dynWidth = document.body.clientWidth * 0.9;
       var dynHeight = dynWidth * 0.5;
       d3.layout.cloud().size([dynWidth, dynHeight])
           .words(this.model.get('wordArray').map(function(d) {  //change wordArray should have list of words

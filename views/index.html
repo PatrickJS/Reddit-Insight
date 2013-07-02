@@ -96,12 +96,19 @@
     <div class="row-fluid">
       <div class="span12">
         <form>
-          <label for="tracking-url"><h4>Enter Tracking URL:</h4></label>
-          <input id="tracking-url" type="text" value="" autofocus>
+          <label for="tracking-url"><h4>Track Post</h4></label>
+          <input id="tracking-url" type="text" value="http://" autofocus>
+          <button id="trackpost-submit" class="ladda-button" data-style="contract" data-size="s">
+            <span class="ladda-label">Submit</span>
+          </button>
         </form>
       </div>
     </div>
     <div class="row-fluid">
+      <button class="submit-another ladda-button" data-size="s">
+        <span class="ladda-label">Track Another Post</span>
+      </button>
+      <div class="loader"></div>
       <article id="trackpost-stats"></article>
       <article id="trackpost-chart"></article>
     </div>
@@ -149,10 +156,17 @@
   <h2>Track a User</h2>
     <form>
       <label for="tracking-username"><h4>Track Username</h4></label>
-      <input id="tracking-username" type="text" value="" autofocus>
+      <input id="tracking-username" type="text" value="keepsmilen" autofocus>
+      <button id="trackuser-submit" class="ladda-button" data-style="contract" data-size="s">
+        <span class="ladda-label">Submit</span>
+      </button>
     </form>
-  <div id="trackuser-data"></div>
-  <div id="trackuser-posts"></div>
+    <button class="submit-another ladda-button" data-size="s">
+      <span class="ladda-label">Track Another User</span>
+    </button>
+    <div id="trackuser-data"></div>
+    <div class="loader"></div>
+    <div id="trackuser-posts"></div>
 </script>
 
 <script id="trackuser-data-template" type="text/x-handlebars-template">
@@ -241,19 +255,20 @@
 
 <script id="wordcloud-template" type="text/x-handlebars-template">
 <h2>Word Clouds</h2>
-  <form class="wordcloud-form">
-    <p for='subreddit'>Subreddit:</p>
+  <form id='wordCloudForm'>
+    <span for='subreddit'>Subreddit:</span>
     <select name="subreddit" id="selectSubreddit">
-      <option selected='selected'>Gaming</option>
+      <option>Gaming</option>
       <option>WIP-Funny</option>
       <option>WIP-Cabbage</option>
     </select>
-    <p for='limit'>Number of Items pulled:</p>
+    <span>Number of Items pulled:</span>
     <input type='input' name='limit' value="{{ limit }}">
-    <p for='size'>Size Multiplyer</p>
-    <input type='input' name='size' value="{{ sizeMultiple }}">
-    <input type='radio' name='viewType' checked value={{display_type}}>
-    <input type='radio' name='viewType'>
+    <span for='sizeMultiple'>Size Multiplyer</span>
+    <input type='input' name='sizeMultiple' value="{{ sizeMultiple }}">
+    <input type='radio' name='viewType' {{#if _rotate90discrete}} checked {{/if}} value="_rotate90discrete"> Horizontal and Vertical
+    <input type='radio' name='viewType' {{#if _rotate180continuous}} checked {{/if}} value='_rotate180continuous'> All Angles
+    <input class='btn' type='submit' value='submit'>
   </form>
 </script>
 

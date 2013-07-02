@@ -32,7 +32,7 @@ nav{
 }
 .container-fluid{
   text-align: center;
-  margin:0 0 1% 0;
+  margin:0;
   border:none;
   border-top:10px solid #fff;
   padding-left:3%;
@@ -71,7 +71,15 @@ nav{
 }
 .stats-title{
   font-weight: bold;
-
+}
+#trackuser-posts{
+  margin-top: 30px;
+}
+#trackuser-data{
+  margin-bottom: 20px;
+}
+#tracking-url{
+  min-width: 25%;
 }
 
 /************
@@ -103,7 +111,6 @@ nav{
   * Footer *
  ************/
 footer{
-  margin-top: 30px;
   min-height: 40px;
   background-color: #fafafa;
   position: relative;
@@ -136,9 +143,9 @@ footer li a:hover{
   margin: 15px 0 20px 0;
 }
 .loader {
-  width: 24px;
-  height: 24px;
-  border: 8px solid #aaa;
+  width: 50px;
+  height: 50px;
+  border: 17px solid rgba(95,153,207,1);
   border-right-color: transparent;
   border-radius: 75%;
   display: none;
@@ -168,4 +175,3 @@ footer li a:hover{
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
-=======
