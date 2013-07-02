@@ -88,6 +88,17 @@ nav{
   left:300px;
 }
 
+/****************
+  * Word Cloud *
+ ***************/
+ .wordcloud-form{
+  margin:100px;
+ }
+
+.wordcloud-form p, .wordcloud-form select, .wordcloud-form input{
+  display:inline;
+  margin:10px;
+}
 /************
   * Footer *
  ************/
