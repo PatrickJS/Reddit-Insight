@@ -3,9 +3,6 @@ Redd.Views.Dashboard = Backbone.View.extend({
     console.log('in Dashboard view');
   },
   events: {
-    'click': function() {
-      alert("Clickified!");
-    }
   },
   el: '#dashboard',
   template: Redd.Templates('dashboard'),
