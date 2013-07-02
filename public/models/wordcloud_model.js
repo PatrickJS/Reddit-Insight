@@ -31,7 +31,7 @@ Redd.Models.WordCloud = Backbone.Model.extend({
   update: function(obj){
     this.set('limit', obj.limit,{silent:true});
     this.set('sizeMultiple', obj.sizeMultiple,{silent:true});
-    if(this.get('viewType') !== obj.viewType){
+    if(this.get('_rotateFuncChoice') !== obj.viewType){
       if( this.get('_rotateFuncChoice') === '_rotate180continuous'){
         this.set('rotateFunc', this.get('_rotate90discrete'), {silent: true});
         this.set('_rotateFuncChoice', '_rotate90discrete',{silent:true});

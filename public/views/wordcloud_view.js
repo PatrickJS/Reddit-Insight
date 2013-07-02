@@ -14,21 +14,23 @@ Redd.Views.WordCloud = Backbone.View.extend({
   },
   render: function(){
     //quick hack, refactor to fit structure
+    var obj = {
+      limit: this.model.get('limit'),
+      sizeMultiple: this.model.get('sizeMultiple')
+    };
+    //no comparison operators in handlebars!!
+    if(this.model.get('_rotateFuncChoice') === '_rotate90discrete'){
+      obj._rotate90discrete = '_rotate90discrete';
+    } else if(this.model.get('_rotateFuncChoice') === '_rotate180continuous'){
+      obj._rotate180continuous = '_rotate180continuous';
+    }
     if(this.model.get('wordArray')){
-      this.$el.html(this.template({
-        limit: this.model.get('limit'),
-        sizeMultiple: this.model.get('sizeMultiple'),
-        display_type: this.forView[this.model.get('_rotateFuncChoice')]
-      }));
+      this.$el.html(this.template(obj));
       this.d3Stuff('#wordcloud')
       this.$('svg').css('background-color', 'black');
       console.log('WordCloudView has been rendered ' + (this.model.renderCounter += 1) + " times");
     }
     return this;
-  },
-  forView: {
-    _rotate90discrete: "Horizontal and Vertical",
-    _rotate180continuous: "All angles"
   },
   formHandler: function(e) {
     e.preventDefault();

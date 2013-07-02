@@ -253,9 +253,9 @@
     <span for='sizeMultiple'>Size Multiplyer</span>
     <input type='input' name='sizeMultiple' value="{{ sizeMultiple }}">
     <br>
-    <input type='radio' name='viewType' checked value="_rotate90discrete"> Horizontal and Vertical
+    <input type='radio' name='viewType' {{#if _rotate90discrete}} checked {{/if}} value="_rotate90discrete"> Horizontal and Vertical
     <br>
-    <input type='radio' name='viewType' value='_rotate180continuous'> All Angles
+    <input type='radio' name='viewType' {{#if _rotate180continuous}} checked {{/if}} value='_rotate180continuous'> All Angles
     <br>
     <input class='btn' type='submit' value='submit'>
   </form>
