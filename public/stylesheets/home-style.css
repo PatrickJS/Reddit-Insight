@@ -21,3 +21,8 @@ header h1{
   text-shadow: 2px 2px 1px rgba(95,153,207,1);
 
 }
+
+section{
+  text-align: left;
+  width:100%;
+}
