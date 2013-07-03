@@ -19,19 +19,19 @@ Redd.Views.WordCloud = Backbone.View.extend({
       sizeMultiple: this.model.get('sizeMultiple')
     };
     //no comparison operators in handlebars!!
-    if(this.model.get('_rotateFuncChoice') === '_rotate90discrete'){
+    if (this.model.get('_rotateFuncChoice') === '_rotate90discrete') {
       obj._rotate90discrete = '_rotate90discrete';
-    } else if(this.model.get('_rotateFuncChoice') === '_rotate180continuous'){
+    } else if (this.model.get('_rotateFuncChoice') === '_rotate180continuous') {
       obj._rotate180continuous = '_rotate180continuous';
     }
-    if(this.model.get('selectedSubreddit') === 'TechnologyNoun'){
+    if (this.model.get('selectedSubreddit') === 'TechnologyNoun') {
       obj.TechnologyNoun = 'TechnologyNoun';
-    } else if(this.model.get('selectedSubreddit') === 'GamingNoun'){
+    } else if (this.model.get('selectedSubreddit') === 'GamingNoun') {
       obj.GamingNoun = 'GamingNoun';
     }
-    if(this.model.get('wordArray')){
+    if (this.model.get('wordArray') ) {
       this.$el.html(this.template(obj));
-      this.d3Stuff('#wordcloud')
+      this.d3Stuff('#wordcloud');
       // this.$('svg').css('background-color', 'black');
       this.$('svg').addClass('word-cloud');
       console.log('WordCloudView has been rendered ' + (this.model.renderCounter += 1) + " times");
@@ -42,21 +42,21 @@ Redd.Views.WordCloud = Backbone.View.extend({
     e.preventDefault();
     console.log('handling form');
     var obj ={};
-    var self = this;
     $('#wordCloudForm').find('input').each(function(index, data){
-      if($(data).attr('name') !== undefined && (
-        $(data).attr('type') !== 'radio' || $(data).is(':checked'))
-      ){
-        obj[$(data).attr('name')] = $(data).val();
+      var dataType    = $(data).attr('type'),
+          dataName    = $(data).attr('name'),
+          dataChecked = $(data).is(':checked');
+
+      if (dataName !== undefined && (dataType !== 'radio' || dataChecked) ) {
+        obj[dataName] = $(data).val();
       }
     });
     $('#wordCloudForm').find('option').each(function(index, data){
-      if ($(data).is(':selected')) {
+      if ( $(data).is(':selected') ) {
         obj.subreddit = $(data).val();
       };
     });
-
-    self.model.update(obj);
+    this.model.update(obj);
   },
   d3Stuff: function(parentEl){
       var self = this;

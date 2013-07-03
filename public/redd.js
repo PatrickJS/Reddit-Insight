@@ -1,21 +1,20 @@
 (function(){
-  Redd = {
+  Redd = _.extend({
     Views: {},
     Models: {},
     Collections: {},
     Templates: {},
     Controller: {},
     Router: {},
-    d3: {},
-    Vent: _.extend({}, Backbone.Events),
+    d3: _.extend({}, Backbone.Events),
     initialize: function() {
       // remove debug
-      window.Debug = {};
+      window.Debug = _.extend({}, Backbone.Events);
       Debug.Controller = new Redd.Controller();
       Debug.Controller.show('navbar');
       Debug.Controller.show('footer');
       Debug.Router = new Redd.Router(Debug.Controller);
       Backbone.history.start(/*{pushState: true}*/);
     }
-  };
+  }, Backbone.Events);
 })();

@@ -1,7 +1,7 @@
 /*
 namespace Redd.d3
 */
-Redd.Vent.on('initPostChart', function() {
+Redd.d3.on('initPostChart', function() {
   Redd.d3.tv = 3500;
   //inject these values into the graph, with arguments (see below)
   var bottomRange = Debug.Controller.trackpost.collection.first().attributes.score - 50;
