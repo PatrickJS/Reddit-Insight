@@ -1,7 +1,17 @@
 Redd.Models.WordCloud = Backbone.Model.extend({
-  renderCounter: 0,
-  parsedData: {
+  initialize: function() {
+    this.set('rotateFunc', this.get(this.get('_rotateFuncChoice')),{silent: true});
+    console.log('initializing');
+    this.url += "/GamingNoun?limit="+ this.get('count');
 
+    this.fetch({
+      success: function(model, res, options){
+        console.log('fetch success - res: ', res);
+      },
+      error: function(model, res, options){
+          console.log('fetch error - res: ', res);
+      }
+    });
   },
   defaults: {
     'count': 350,
@@ -18,22 +28,8 @@ Redd.Models.WordCloud = Backbone.Model.extend({
       } else if( this.get('_rotateFuncChoice') === '_rotate90discrete'){
         this.set('rotateFunc', this.get('_rotate180continuous'), {silent: true});
         this.set('_rotateFuncChoice', '_rotate180continuous');
-      } else { throw "internal error: unexpected rotation functino selected"}
+      } else { throw "internal error: unexpected rotation functino selected";}
     }
-  },
-  initialize: function() {
-    this.set('rotateFunc', this.get(this.get('_rotateFuncChoice')),{silent: true});
-    console.log('initializing');
-    this.url += "/GamingNoun?limit="+ this.get('count');
-
-    this.fetch({
-      success: function(model, res, options){
-        console.log('fetch success - res: ', res);
-      },
-      error: function(model, res, options){
-          console.log('fetch error - res: ', res);
-      }
-    });
   },
   url: '/api/wordClouds',
   parse: function(data) {
@@ -46,6 +42,11 @@ Redd.Models.WordCloud = Backbone.Model.extend({
       updatedAttributes.frequency[data[i].noun] = Math.sqrt(+data[i].frequency) * this.get('sizeMultiple');
     }
     return updatedAttributes;
-  }
+  },
+
+  renderCounter: 0,
+  parsedData: {
+
+  },
 });
 
