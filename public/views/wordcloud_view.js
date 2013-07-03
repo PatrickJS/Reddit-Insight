@@ -52,7 +52,6 @@ Redd.Views.WordCloud = Backbone.View.extend({
     });
     $('#wordCloudForm').find('option').each(function(index, data){
       if ($(data).is(':selected')) {
-        debugger
         obj.subreddit = $(data).val();
       };
     });
