@@ -1,9 +1,6 @@
 Redd.Views.TrackUserPosts = Backbone.View.extend({
   initialize: function() {
-    this.collection.on('sync', function(){
-      $('.loader').hide();
-      this.render();
-    }, this);
+    this.collection.on('sync', this.hideLoader, this);
   },
   el: '#trackuser-posts',
   template: Redd.Templates('trackuser-posts'),
@@ -13,5 +10,10 @@ Redd.Views.TrackUserPosts = Backbone.View.extend({
       return model.attributes;
     })));
     return this;
+  },
+
+  hideLoader: function() {
+    $('.loader').hide();
+    this.render();
   }
 });
