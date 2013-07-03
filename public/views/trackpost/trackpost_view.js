@@ -1,17 +1,12 @@
 Redd.Views.TrackPost = Backbone.View.extend({
   initialize: function() {
-    console.log('in TrackPost view');
     this.trackpost_stats = new Redd.Views.TrackPostStats({
-      model: this.model});
-    this.trackpost_chart = new Redd.Views.TrackPostChart();
-    this.model.on('sync', function() { console.log('trackpost sync');
-      $('.loader').hide();
-      this.trackpost_stats.render();
-      var obj = this.model.attributes;
-      this.collection.add({ups: obj.ups, downs: obj.downs, score: obj.score});
-      Redd.Vent.trigger('trackpostSync');
-      $('.submit-another').show();
-    }, this);
+      model: this.model,
+      collection: this.collection
+    });
+    this.trackpost_chart = new Redd.Views.TrackPostChart({
+      model: this.model
+    });
   },
   el: '#trackpost',
   template: Redd.Templates('trackpost'),
@@ -36,7 +31,7 @@ Redd.Views.TrackPost = Backbone.View.extend({
     console.log('url submitted', url);
     this.model.urlSubmit = url;
     this.model.fetch();
-    Redd.Vent.trigger('urlSubmitChange');
+    this.model.trigger('urlSubmitChange');
     $('#tracking-url').val('');
     return false;
   },
