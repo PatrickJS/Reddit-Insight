@@ -1,6 +1,6 @@
 Redd.Models.TrackUser = Backbone.Model.extend({
   initialize: function() {
-    Redd.Vent.on('usernameSubmitChange', function(username) {
+    this.on('usernameSubmitChange', function(username) {
       this.usernameSubmit = username;
       this.fetch();
     }, this);
