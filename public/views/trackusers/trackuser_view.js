@@ -11,6 +11,7 @@ Redd.Views.TrackUser = Backbone.View.extend({
   template: Redd.Templates('trackuser'),
   events: {
     'submit form': 'enterUsername',
+    'click .submit-another': 'addAnother',
     'click #myTab a': 'clickTabs'
   },
   render: function(){
@@ -24,11 +25,19 @@ Redd.Views.TrackUser = Backbone.View.extend({
     return false;
   },
   enterUsername: function(e) {
+    $('.loader').fadeIn();
+    $('.submit-another').hide();
+    $('#trackuser form').slideUp('slow');
     var username = $('#tracking-username').val();
     console.log('username submitted', username);
     this.model.trigger('usernameSubmitChange', username);
     this.collection.trigger('usernameSubmitChange', username);
     $('#tracking-username').val('');
     return false;
+  },
+
+  addAnother: function(e) {
+    e.preventDefault();
+    $('#trackuser form').slideDown('slow');
   }
 });
