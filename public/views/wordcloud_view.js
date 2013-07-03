@@ -24,6 +24,11 @@ Redd.Views.WordCloud = Backbone.View.extend({
     } else if(this.model.get('_rotateFuncChoice') === '_rotate180continuous'){
       obj._rotate180continuous = '_rotate180continuous';
     }
+    if(this.model.get('selectedSubreddit') === 'TechnologyNoun'){
+      obj.TechnologyNoun = 'TechnologyNoun';
+    } else if(this.model.get('selectedSubreddit') === 'GamingNoun'){
+      obj.GamingNoun = 'GamingNoun';
+    }
     if(this.model.get('wordArray')){
       this.$el.html(this.template(obj));
       this.d3Stuff('#wordcloud')
@@ -45,6 +50,13 @@ Redd.Views.WordCloud = Backbone.View.extend({
         obj[$(data).attr('name')] = $(data).val();
       }
     });
+    $('#wordCloudForm').find('option').each(function(index, data){
+      if ($(data).is(':selected')) {
+        debugger
+        obj.subreddit = $(data).val();
+      };
+    });
+
     self.model.update(obj);
   },
   d3Stuff: function(parentEl){

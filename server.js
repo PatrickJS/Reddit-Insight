@@ -45,12 +45,6 @@ promises.dataBase.once('open', function(){
   //routes
   app.get('/', routes.index);
 
-  var wordCloudsSchema = new mongoose.Schema({
-    nouns: String,
-    frequency: Number
-  });
-
-
   app.get('/api/wordClouds/:collectionName', function(req, res, next) {
     var model = mongoose.model(req.params.collectionName);
     console.log(req.query.limit);

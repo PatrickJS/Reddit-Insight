@@ -40,12 +40,12 @@
   <div class="inner-container">
     <h2>Data Nuggets</h2>
     <section>
-      <p class="cat">Dogs occurs more times in titles in r/aww then cats or kittens</p>
+      <p class="cat">"Dogs" occurs more times in titles in r/aww then "cats" or "kittens"</p>
       <p class="cat small">Despite their internet popularity cats are not subbmitted nearly as many times on this cuddly subreddit.</p>
       <img class="cat-img" src="/img/Cat_5.png" alt="cat">
     </section>
     <section>
-      <p class="nsfw">Beautiful occurs most frequently in the nsfw subreddit titles</p>
+      <p class="nsfw">"Perfect" occurs most frequently in the nsfw subreddit titles</p>
       <p class="nsfw small">This adjective is suprisingly in the lead for all words used in titles in this not safe for work subreddit</p>
       <img class="nsfw-img" src="/img/Woman_silhouette.png" alt="lady">
     </section>
@@ -256,9 +256,8 @@
   <form id='wordCloudForm'>
     <span for='subreddit'>Subreddit:</span>
     <select name="subreddit" id="selectSubreddit">
-      <option>Gaming</option>
-      <option>WIP-Funny</option>
-      <option>WIP-Cabbage</option>
+      <option value='GamingNoun' {{#if GamingNoun}} selected {{/if}}>Gaming</option>
+      <option value='TechnologyNoun' {{#if TechnologyNoun}} selected {{/if}}>Technology</option>
     </select>
     <span>Number of Items pulled:</span>
     <input type='input' name='limit' value="{{ limit }}">

@@ -18,7 +18,7 @@ Redd.Models.WordCloud = Backbone.Model.extend({
     this.pull(this);
   },
   pull: function(self){
-    self.url = self.base + "/GamingNoun?limit="+ self.get('limit');
+    self.url = self.base + "/"+this.get('selectedSubreddit')+"?limit="+ self.get('limit');
     self.fetch({
       success: function(model, res, options){
         console.log('fetch success - res: ', res);
@@ -31,6 +31,7 @@ Redd.Models.WordCloud = Backbone.Model.extend({
   update: function(obj){
     this.set('limit', obj.limit,{silent:true});
     this.set('sizeMultiple', obj.sizeMultiple,{silent:true});
+    this.set('selectedSubreddit', obj.subreddit,{silent:true});
     if(this.get('_rotateFuncChoice') !== obj.viewType){
       if( this.get('_rotateFuncChoice') === '_rotate180continuous'){
         this.set('rotateFunc', this.get('_rotate90discrete'), {silent: true});
