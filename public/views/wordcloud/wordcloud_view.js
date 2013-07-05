@@ -31,6 +31,32 @@ Redd.Views.WordCloud = Backbone.View.extend({
       obj.FunnyNoun = 'FunnyNoun';
     } else if (this.model.get('selectedSubreddit') === 'AdviceAnimalsNoun') {
       obj.AdviceAnimalsNoun = 'AdviceAnimalsNoun';
+    }else if (this.model.get('selectedSubreddit') === 'MineCraftNoun') {
+      obj.MineCraftNoun = 'MineCraftNoun';
+    }else if (this.model.get('selectedSubreddit') === 'WTFNoun') {
+      obj.WTFNoun = 'WTFNoun';
+    }else if (this.model.get('selectedSubreddit') === 'AwwNoun') {
+      obj.AwwNoun = 'AwwNoun';
+    }else if (this.model.get('selectedSubreddit') === 'GIFNoun') {
+      obj.GIFNoun = 'GIFNoun';
+    }else if (this.model.get('selectedSubreddit') === 'LeageOfLegendsNoun') {
+      obj.LeageOfLegendsNoun = 'LeageOfLegendsNoun';
+    }else if (this.model.get('selectedSubreddit') === 'PicsNoun') {
+      obj.PicsNoun = 'PicsNoun';
+    }else if (this.model.get('selectedSubreddit') === 'PoliticsNoun') {
+      obj.PoliticsNoun = 'PoliticsNoun';
+    }else if (this.model.get('selectedSubreddit') === 'ScienceNoun') {
+      obj.ScienceNoun = 'ScienceNoun';
+    }else if (this.model.get('selectedSubreddit') === 'TodayILearnedNoun') {
+      obj.TodayILearnedNoun = 'TodayILearnedNoun';
+    }else if (this.model.get('selectedSubreddit') === 'TreesNoun') {
+      obj.TreesNoun = 'TreesNoun';
+    }else if (this.model.get('selectedSubreddit') === 'VideosNoun') {
+      obj.VideosNoun = 'VideosNoun';
+    }else if (this.model.get('selectedSubreddit') === 'WorldNewsNoun') {
+      obj.WorldNewsNoun = 'WorldNewsNoun';
+    }else if (this.model.get('selectedSubreddit') === 'NSFWNoun') {
+      obj.NSFWNoun = 'NSFWNoun';
     }
     if (this.model.get('wordArray') ) {
       this.$el.html(this.template(obj));
