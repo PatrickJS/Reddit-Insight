@@ -11,6 +11,8 @@ Redd.Collections.TrackUserPosts = Backbone.Collection.extend({
   },
   sync: Backbone.JSONP.Sync,
   parse: function(data) {
-    return _(data.data.children).map(function(obj) { return obj; });
+    return _(data.data.children).map(function(obj) {
+      return obj;
+    });
   }
 });

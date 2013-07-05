@@ -2,6 +2,7 @@ Redd.Controller = Backbone.View.extend({
   initialize: function() {
     // this.navBar.setElement(this.$('.navBar'));
     this.navbar    = new Redd.Views.Navbar();
+    this.header    = new Redd.Views.Header();
     this.footer    = new Redd.Views.Footer();
     this.index     = new Redd.Views.Index();
     this.trackpost = new Redd.Views.TrackPost({

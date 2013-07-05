@@ -1,6 +1,6 @@
 header{
-  height: 400px;
-  background-position: 50% 46%;
+  height: 230px;
+  background-position: 50% 20%;
 }
 header h1{
   margin:1% auto 0 auto;
@@ -14,9 +14,9 @@ header h1{
   font-weight: 700;
   font-size: 14em;
 
-  line-height: 1.5em;
+  line-height: 1.1em;
   letter-spacing: -.05em;
-  word-spacing: .7em;
+  word-spacing: 1.2em;
   
   text-shadow: 0 0 1px rgba(95,153,207,1);
 
