@@ -1,5 +1,7 @@
 Redd.Router = Backbone.Router.extend({
-  initialize: function(control) { this.controller = control; },
+  initialize: function(control) {
+    this.controller = control;
+  },
   routes: {
     '':'dashboard',
     '#/':'dashboard',
