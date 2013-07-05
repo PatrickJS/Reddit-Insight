@@ -32,7 +32,8 @@ nav{
 }
 .container-fluid{
   text-align: center;
-  margin:0;
+  margin:0 auto;
+  max-width: 960px;
   border:none;
   border-top:10px solid #fff;
   padding-left:3%;
