@@ -1,5 +1,4 @@
 Redd.Views.WordCloud = Backbone.View.extend({
-  //ADD ABILITY TO INTERACT WITH COUNTER, SIZE, AND ROTATOR TYPE - ALEX
   // can test with "Debug.Controller.wordcloud.model.attributes.switchRotateFuncChoice.call(Debug.Controller.wordcloud.model)"
   initialize: function() {
     console.log('in WordCloud view');
@@ -19,14 +18,49 @@ Redd.Views.WordCloud = Backbone.View.extend({
       sizeMultiple: this.model.get('sizeMultiple')
     };
     //no comparison operators in handlebars!!
-    if(this.model.get('_rotateFuncChoice') === '_rotate90discrete'){
+    if (this.model.get('_rotateFuncChoice') === '_rotate90discrete') {
       obj._rotate90discrete = '_rotate90discrete';
-    } else if(this.model.get('_rotateFuncChoice') === '_rotate180continuous'){
+    } else if (this.model.get('_rotateFuncChoice') === '_rotate180continuous') {
       obj._rotate180continuous = '_rotate180continuous';
     }
-    if(this.model.get('wordArray')){
+    if (this.model.get('selectedSubreddit') === 'TechnologyNoun') {
+      obj.TechnologyNoun = 'TechnologyNoun';
+    } else if (this.model.get('selectedSubreddit') === 'GamingNoun') {
+      obj.GamingNoun = 'GamingNoun';
+    } else if (this.model.get('selectedSubreddit') === 'FunnyNoun') {
+      obj.FunnyNoun = 'FunnyNoun';
+    } else if (this.model.get('selectedSubreddit') === 'AdviceAnimalsNoun') {
+      obj.AdviceAnimalsNoun = 'AdviceAnimalsNoun';
+    }else if (this.model.get('selectedSubreddit') === 'MineCraftNoun') {
+      obj.MineCraftNoun = 'MineCraftNoun';
+    }else if (this.model.get('selectedSubreddit') === 'WTFNoun') {
+      obj.WTFNoun = 'WTFNoun';
+    }else if (this.model.get('selectedSubreddit') === 'AwwNoun') {
+      obj.AwwNoun = 'AwwNoun';
+    }else if (this.model.get('selectedSubreddit') === 'GIFNoun') {
+      obj.GIFNoun = 'GIFNoun';
+    }else if (this.model.get('selectedSubreddit') === 'LeageOfLegendsNoun') {
+      obj.LeageOfLegendsNoun = 'LeageOfLegendsNoun';
+    }else if (this.model.get('selectedSubreddit') === 'PicsNoun') {
+      obj.PicsNoun = 'PicsNoun';
+    }else if (this.model.get('selectedSubreddit') === 'PoliticsNoun') {
+      obj.PoliticsNoun = 'PoliticsNoun';
+    }else if (this.model.get('selectedSubreddit') === 'ScienceNoun') {
+      obj.ScienceNoun = 'ScienceNoun';
+    }else if (this.model.get('selectedSubreddit') === 'TodayILearnedNoun') {
+      obj.TodayILearnedNoun = 'TodayILearnedNoun';
+    }else if (this.model.get('selectedSubreddit') === 'TreesNoun') {
+      obj.TreesNoun = 'TreesNoun';
+    }else if (this.model.get('selectedSubreddit') === 'VideosNoun') {
+      obj.VideosNoun = 'VideosNoun';
+    }else if (this.model.get('selectedSubreddit') === 'WorldNewsNoun') {
+      obj.WorldNewsNoun = 'WorldNewsNoun';
+    }else if (this.model.get('selectedSubreddit') === 'NSFWNoun') {
+      obj.NSFWNoun = 'NSFWNoun';
+    }
+    if (this.model.get('wordArray') ) {
       this.$el.html(this.template(obj));
-      this.d3Stuff('#wordcloud')
+      this.d3Stuff('#wordcloud');
       // this.$('svg').css('background-color', 'black');
       this.$('svg').addClass('word-cloud');
       console.log('WordCloudView has been rendered ' + (this.model.renderCounter += 1) + " times");
@@ -37,15 +71,21 @@ Redd.Views.WordCloud = Backbone.View.extend({
     e.preventDefault();
     console.log('handling form');
     var obj ={};
-    var self = this;
     $('#wordCloudForm').find('input').each(function(index, data){
-      if($(data).attr('name') !== undefined && (
-        $(data).attr('type') !== 'radio' || $(data).is(':checked'))
-      ){
-        obj[$(data).attr('name')] = $(data).val();
+      var dataType    = $(data).attr('type'),
+          dataName    = $(data).attr('name'),
+          dataChecked = $(data).is(':checked');
+
+      if (dataName !== undefined && (dataType !== 'radio' || dataChecked) ) {
+        obj[dataName] = $(data).val();
       }
     });
-    self.model.update(obj);
+    $('#wordCloudForm').find('option').each(function(index, data){
+      if ( $(data).is(':selected') ) {
+        obj.subreddit = $(data).val();
+      };
+    });
+    this.model.update(obj);
   },
   d3Stuff: function(parentEl){
       var self = this;

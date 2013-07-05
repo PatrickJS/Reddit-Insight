@@ -1,7 +1,7 @@
 Redd.Collections.TrackUserPosts = Backbone.Collection.extend({
   model: Redd.Models.TrackUserPosts,
   initialize: function() {
-    Redd.Vent.on('usernameSubmitChange', function(data) {
+    this.on('usernameSubmitChange', function(data) {
       this.usernameSubmit = data;
       this.fetch();
     }, this);

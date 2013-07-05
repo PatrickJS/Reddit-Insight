@@ -31,6 +31,7 @@
   <section id="login"></section>
   <section id="dashboard"></section>
   <section id="index"></section>
+  <section id="subredditcluster"></section>
 </div>
 
 <footer></footer>
@@ -40,12 +41,12 @@
   <div class="inner-container">
     <h2>Data Nuggets</h2>
     <section>
-      <p class="cat">Dogs occurs more times in titles in r/aww then cats or kittens</p>
+      <p class="cat">"Dogs" occurs more times in titles in r/aww then "cats" or "kittens"</p>
       <p class="cat small">Despite their internet popularity cats are not subbmitted nearly as many times on this cuddly subreddit.</p>
       <img class="cat-img" src="/img/Cat_5.png" alt="cat">
     </section>
     <section>
-      <p class="nsfw">Beautiful occurs most frequently in the nsfw subreddit titles</p>
+      <p class="nsfw">"Perfect" occurs most frequently in the nsfw subreddit titles</p>
       <p class="nsfw small">This adjective is suprisingly in the lead for all words used in titles in this not safe for work subreddit</p>
       <img class="nsfw-img" src="/img/Woman_silhouette.png" alt="lady">
     </section>
@@ -66,6 +67,7 @@
             <li class=""><a href="#/trackpost">Track Post</a></li>
             <li class=""><a href="#/trackuser">Track User</a></li>
             <li class=""><a href="#/wordcloud">Word Clouds</a></li>
+            <li class=""><a href="#/subredditcluster">Subreddit Cluster</a></li>
           </ul>
         </div>
       </div>
@@ -256,9 +258,23 @@
   <form id='wordCloudForm'>
     <span for='subreddit'>Subreddit:</span>
     <select name="subreddit" id="selectSubreddit">
-      <option>Gaming</option>
-      <option>WIP-Funny</option>
-      <option>WIP-Cabbage</option>
+      <option value='GamingNoun' {{#if GamingNoun}} selected {{/if}}>Gaming</option>
+      <option value='TechnologyNoun' {{#if TechnologyNoun}} selected {{/if}}>Technology</option>
+      <option value='FunnyNoun' {{#if FunnyNoun}} selected {{/if}}>Funny</option>
+      <option value='AdviceAnimalsNoun' {{#if AdviceAnimalsNoun}} selected {{/if}}>Advice Animals</option>
+      <option value='MineCraftNoun' {{#if MineCraftNoun}} selected {{/if}}>Mine Craft</option>
+      <option value='WTFNoun' {{#if WTFNoun}} selected {{/if}}>WTF</option>
+      <option value='AwwNoun' {{#if AwwNoun}} selected {{/if}}>Aww</option>
+      <option value='GIFNoun' {{#if GIFNoun}} selected {{/if}}>GIF</option>
+      <option value='LeageOfLegendsNoun' {{#if LeageOfLegendsNoun}} selected {{/if}}>Leage Of Legends</option>
+      <option value='PicsNoun' {{#if PicsNoun}} selected {{/if}}>Pics</option>
+      <option value='PoliticsNoun' {{#if PoliticsNoun}} selected {{/if}}>Politics</option>
+      <option value='ScienceNoun' {{#if ScienceNoun}} selected {{/if}}>Science</option>
+      <option value='TodayILearnedNoun' {{#if TodayILearnedNoun}} selected {{/if}}>Today I Learned</option>
+      <option value='TreesNoun' {{#if TreesNoun}} selected {{/if}}>Trees</option>
+      <option value='VideosNoun' {{#if VideosNoun}} selected {{/if}}>Videos</option>
+      <option value='WorldNewsNoun' {{#if WorldNewsNoun}} selected {{/if}}>World News</option>
+      <option value='NSFWNoun' {{#if NSFWNoun}} selected {{/if}}>NSFW</option>
     </select>
     <span>Number of Items pulled:</span>
     <input type='input' name='limit' value="{{ limit }}">
@@ -268,6 +284,10 @@
     <input type='radio' name='viewType' {{#if _rotate180continuous}} checked {{/if}} value='_rotate180continuous'> All Angles
     <input class='btn' type='submit' value='submit'>
   </form>
+</script>
+
+<script id="subredditcluster-template" type="text/x-handlebars-template">
+  subredditcluster
 </script>
 
 <script src='/lib/jquery-2.0.2.js'></script>
@@ -288,6 +308,7 @@
 <script src='/models/trackuser_model.js'></script>
 <script src='/models/trackuserposts_model.js'></script>
 <script src='/models/wordcloud_model.js'></script>
+<script src='/models/subredditcluster_model.js'></script>
 
 <script src='/collections/trackpost_posts_collection.js'></script>
 <script src='/collections/trackuser_posts_collection.js'></script>
@@ -309,7 +330,9 @@
 <script src='/views/trackpost/trackpost-stats_view.js'></script>
 <script src='/views/trackpost/trackpost-chart_view.js'></script>
 
-<script src='/views/wordcloud_view.js'></script>
+<script src='/views/subredditcluster/subredditcluster_view.js'></script>
+
+<script src='/views/wordcloud/wordcloud_view.js'></script>
 
 <script src='/redd_d3.js'></script>
 <script src='/redd_controller.js'></script>
