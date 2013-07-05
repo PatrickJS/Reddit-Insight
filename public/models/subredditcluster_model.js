@@ -1,4 +1,4 @@
-Redd.Models.SubRedditCluster = Backbone.Model.extend({
+Redd.Models.SubredditCluster = Backbone.Model.extend({
   initialize: function() {
   },
   defaults: {

@@ -31,6 +31,7 @@
   <section id="login"></section>
   <section id="dashboard"></section>
   <section id="index"></section>
+  <section id="subredditcluster"></section>
 </div>
 
 <footer></footer>
@@ -66,6 +67,7 @@
             <li class=""><a href="#/trackpost">Track Post</a></li>
             <li class=""><a href="#/trackuser">Track User</a></li>
             <li class=""><a href="#/wordcloud">Word Clouds</a></li>
+            <li class=""><a href="#/subredditcluster">Subreddit Cluster</a></li>
           </ul>
         </div>
       </div>
@@ -288,6 +290,10 @@
   </form>
 </script>
 
+<script id="subredditcluster-template" type="text/x-handlebars-template">
+  subredditcluster
+</script>
+
 <script src='/lib/jquery-2.0.2.js'></script>
 <script src='/lib/bootstrap.min.js'></script>
 <script src='/lib/underscore.js'></script>
@@ -307,6 +313,7 @@
 <script src='/models/trackuser_model.js'></script>
 <script src='/models/trackuserposts_model.js'></script>
 <script src='/models/wordcloud_model.js'></script>
+<script src='/models/subredditcluster_model.js'></script>
 
 <script src='/collections/trackpost_posts_collection.js'></script>
 <script src='/collections/trackuser_posts_collection.js'></script>
