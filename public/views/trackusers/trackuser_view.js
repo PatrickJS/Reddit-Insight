@@ -26,7 +26,7 @@ Redd.Views.TrackUser = Backbone.View.extend({
   },
   enterUsername: function(e) {
     $('.loader').fadeIn();
-    $('.submit-another').hide();
+    $('.submit-another').show();
     $('#trackuser form').slideUp('slow');
     var username = $('#tracking-username').val();
     console.log('username submitted', username);
