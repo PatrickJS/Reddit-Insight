@@ -170,39 +170,11 @@
 </script>
 
 <script id="trackuser-data-template" type="text/x-handlebars-template">
-  {{#if name }}
-    <span class="stats-title">Name: </span>{{ name }} <br>
-    {{#if created }}
-    <span class="stats-title">Created: </span>{{ created }} <br>
+  {{#each this}}
+    {{#if this}}
+    <span class="stats-title">{{@key}}: </span>{{ this }} <br>
     {{/if}}
-    {{#if created_utc }}
-    <span class="stats-title">Created_utc: </span>{{ created_utc }} <br>
-    {{/if}}
-    {{#if link_karama }}
-    <span class="stats-title">Link karma </span>{{ link_karama }} <br>
-    {{/if}}
-    {{#if comment_karma}}
-    <span class="stats-title">Comment karma </span>{{ comment_karma }} <br>
-    {{/if}}
-    {{#if over_18 }}
-    <span class="stats-title">Over 18?: </span>{{ over_18 }} <br>
-    {{/if}}
-    {{#if is_gold }}
-    <span class="stats-title">Is gold?: </span>{{ is_gold }} <br>
-    {{/if}}
-    {{#if is_mod }}
-    <span class="stats-title">Is mod?: </span>{{ is_mod }} <br>
-    {{/if}}
-    {{#if has_verified_email }}
-    <span class="stats-title">Has verified email?: </span>{{ has_verified_email }} <br>
-    {{/if}}
-    {{#if id}}
-    <span class="stats-title">ID: </span>{{ id }} <br>
-    {{/if}}
-    {{#if has_mod_mail }}
-    <span class="stats-title">Has mod mail: </span>{{ has_mod_mail }} <br>
-    {{/if}}
-  {{/if}}
+  {{/each}}
 </script>
 
 <!-- TODO: filter out posts/comments
@@ -213,44 +185,45 @@
     <li><a href="#comments">Comments</a></li>
   </ul>
   <div class="tab-content">
-  {{debug}}
-  {{#each this}}
-  {{#compare kind "t3"}}
-      <div class="tab-pane active" id="posts">
-          <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
-          <h4>{{ data.title }}</h4>
-          </a>
-        <a href="{{ data.url }}" target="_blank">
-          <img src="{{ data.thumbnail }}">
-        </a>
-        <br>
-        <span class="stats-title">Author: </span>{{ data.author }}<br>
-        <span class="stats-title">Score: </span>{{ data.score }}<br>
-        <span class="stats-title"><i class="icon-arrow-up"></i>: </span>{{ data.ups }}</br>
-        <span class="stats-title"><i class="icon-arrow-down"></i>: </span>{{ data.downs }}<br>
-        <span class="stats-title">Comments: </span>{{ data.num_comments }}<br>
-        <hr>
-      </div>
-  {{/compare}}
-  {{#compare kind "t1"}}
-      <div class="tab-pane" id="comments">
-        <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
-          <h4>{{ data.title }}</h4>
-          </a>
-        <a href="{{ data.url }}" target="_blank">
-          <img src="{{ data.thumbnail }}">
-        </a>
-        <br>
-        <span class="stats-title">Author: </span>{{ data.author }}<br>
-        <span class="stats-title">Score: </span>{{ data.score }}<br>
-        <span class="stats-title"><i class="icon-arrow-up"></i>: </span>{{ data.ups }}</br>
-        <span class="stats-title"><i class="icon-arrow-down"></i>: </span>{{ dat.downs }}<br>
-        <span class="stats-title">Comments: </span>{{ data.num_comments }}<br>
-        <hr>
-      </div>
-  {{/compare}}
-  {{/each}}
-  </div>
+ {{debug}}
+ <div class="tab-pane active" id="posts">
+ {{#each this}}
+   {{#compare kind "t3"}}
+           <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
+           <h4>{{ data.title }}</h4>
+           </a>
+         <a href="{{ data.url }}" target="_blank">
+           <img src="{{ data.thumbnail }}">
+         </a>
+         <br>
+         <span class="stats-title">Author: </span>{{ data.author }}<br>
+         <span class="stats-title">Score: </span>{{ data.score }}<br>
+         <span class="stats-title"><i class="icon-arrow-up"></i>: </span>{{ data.ups }}</br>
+         <span class="stats-title"><i class="icon-arrow-down"></i>: </span>{{ data.downs }}<br>
+         <span class="stats-title">Comments: </span>{{ data.num_comments }}<br>
+         <hr>
+   {{/compare}}
+ {{/each}}
+ </div>
+ <div class="tab-pane" id="comments">
+ {{#each this}}
+   {{#compare kind "t1"}}
+         <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
+           <h4>{{ data.title }}</h4>
+           </a>
+         <a href="{{ data.url }}" target="_blank">
+           <img src="{{ data.thumbnail }}">
+         </a>
+         <br>
+         <span class="stats-title">Author: </span>{{ data.author }}<br>
+         <span class="stats-title">Score: </span>{{ data.score }}<br>
+         <span class="stats-title"><i class="icon-arrow-up"></i>: </span>{{ data.ups }}</br>
+         <span class="stats-title"><i class="icon-arrow-down"></i>: </span>{{ dat.downs }}<br>
+         <span class="stats-title">Comments: </span>{{ data.num_comments }}<br>
+         <hr>
+   {{/compare}}
+ {{/each}}
+ </div>
 </script>
 
 <script id="wordcloud-template" type="text/x-handlebars-template">
