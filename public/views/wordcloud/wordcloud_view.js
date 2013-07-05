@@ -29,6 +29,8 @@ Redd.Views.WordCloud = Backbone.View.extend({
       obj.GamingNoun = 'GamingNoun';
     } else if (this.model.get('selectedSubreddit') === 'FunnyNoun') {
       obj.FunnyNoun = 'FunnyNoun';
+    } else if (this.model.get('selectedSubreddit') === 'AdviceAnimalsNoun') {
+      obj.AdviceAnimalsNoun = 'AdviceAnimalsNoun';
     }
     if (this.model.get('wordArray') ) {
       this.$el.html(this.template(obj));
