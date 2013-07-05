@@ -46,8 +46,9 @@ promises.dataBase.once('open', function(){
   app.get('/', routes.index);
 
   app.get('/api/wordClouds/:collectionName', function(req, res, next) {
+    console.log(req.params.collectionName);
     var model = mongoose.model(req.params.collectionName);
-    console.log(req.query.limit);
+    console.log('requested limit:', req.query.limit);
     model.find({}, 'noun frequency', {lean: true, limit: req.query.limit }, function (err, docs) {
       if(err){
         console.log('from find error: ', JSON.stringify(err));
