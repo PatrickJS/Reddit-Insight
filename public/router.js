@@ -6,7 +6,8 @@ Redd.Router = Backbone.Router.extend({
     'prediction':'prediction',
     'trackpost':'trackpost',
     'trackuser':'trackuser',
-    'wordcloud':'wordcloud'
+    'wordcloud':'wordcloud',
+    'subredditcluster': 'subredditcluster'
   },
   dashboard: function(){
     this.controller.hide();
@@ -27,5 +28,9 @@ Redd.Router = Backbone.Router.extend({
   wordcloud: function(url){
     this.controller.hide();
     this.controller.show('wordcloud');
+  },
+  subredditcluster: function(url){
+    this.controller.hide();
+    this.controller.show('subredditcluster');
   }
 });
