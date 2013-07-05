@@ -21,7 +21,7 @@
 <body>
 
 <nav></nav>
-<header><h1>Reddit Insight</h1></header>
+<header></header>
 
 <div class="container-fluid">
   <section id="index"></section>
@@ -73,6 +73,10 @@
       </div>
     </div>
   </div>
+</script>
+
+<script id="header-template" type="text/x-handlebars-template">
+  <h1 class="header-text">Reddit Insight</h1>
 </script>
 
 <script id="footer-template" type="text/x-handlebars-template">
@@ -274,6 +278,7 @@
 <script src='/lib/d3.min.js'></script>
 <script src='/lib/d3.layout.cloud.js'></script>
 <script src='/lib/rickshaw.js'></script>
+<script src='/lib/jquery.fittext.js'></script>
 
 <script src='/redd.js'></script>
 
@@ -294,6 +299,7 @@
 
 <script src='/views/partials/navbar_view.js'></script>
 <script src='/views/partials/footer_view.js'></script>
+<script src='/views/partials/header_view.js'></script>
 
 <script src='/views/trackusers/trackuser_view.js'></script>
 <script src='/views/trackusers/trackuser-data_view.js'></script>
@@ -314,7 +320,5 @@
 <script>
     Redd.initialize();
 </script>
-
-
 
 </html>
