@@ -66,6 +66,7 @@
             <li class=""><a href="#/trackpost">Track Post</a></li>
             <li class=""><a href="#/trackuser">Track User</a></li>
             <li class=""><a href="#/wordcloud">Word Clouds</a></li>
+            <li class=""><a href="#/subredditcluster">Subreddit Cluster</a></li>
           </ul>
         </div>
       </div>
@@ -282,6 +283,10 @@
     <input type='radio' name='viewType' {{#if _rotate180continuous}} checked {{/if}} value='_rotate180continuous'> All Angles
     <input class='btn' type='submit' value='submit'>
   </form>
+</script>
+
+<script id="subredditcluster-template" type="text/x-handlebars-template">
+  subredditcluster
 </script>
 
 <script src='/lib/jquery-2.0.2.js'></script>

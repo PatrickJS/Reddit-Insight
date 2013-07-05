@@ -1,4 +1,4 @@
-Redd.Views.SubRedditCluster = Backbone.View.extend({
+Redd.Views.SubredditCluster = Backbone.View.extend({
   initialize: function() {
   },
   el: '#subredditcluster',
