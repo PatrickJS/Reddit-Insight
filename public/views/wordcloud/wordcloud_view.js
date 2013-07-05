@@ -1,5 +1,4 @@
 Redd.Views.WordCloud = Backbone.View.extend({
-  //ADD ABILITY TO INTERACT WITH COUNTER, SIZE, AND ROTATOR TYPE - ALEX
   // can test with "Debug.Controller.wordcloud.model.attributes.switchRotateFuncChoice.call(Debug.Controller.wordcloud.model)"
   initialize: function() {
     console.log('in WordCloud view');
@@ -28,6 +27,8 @@ Redd.Views.WordCloud = Backbone.View.extend({
       obj.TechnologyNoun = 'TechnologyNoun';
     } else if (this.model.get('selectedSubreddit') === 'GamingNoun') {
       obj.GamingNoun = 'GamingNoun';
+    } else if (this.model.get('selectedSubreddit') === 'FunnyNoun') {
+      obj.FunnyNoun = 'FunnyNoun';
     }
     if (this.model.get('wordArray') ) {
       this.$el.html(this.template(obj));
