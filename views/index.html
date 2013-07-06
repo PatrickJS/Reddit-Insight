@@ -40,9 +40,11 @@
 <script id="dashboard-template" type="text/x-handlebars-template">
   <div class="inner-container">
     <h2>Data Nuggets</h2>
-    <section>
-      <p class="cat">"Dogs" occurs more times in titles in r/aww than "cats" or "kittens"</p>
-      <p class="cat small">Despite their internet popularity cats are not subbmitted nearly as many times on this cuddly subreddit.</p>
+    <section id="infograph-cats">
+      <p class="cat-text">"Dogs" occurs more times in titles in r/aww than "cats" or "kittens"</p>
+      <p class="cat-text small">Despite their internet popularity cats are not subbmitted nearly as many times on this cuddly subreddit.</p>
+    </section>
+    <section id="infograph-cats-img">
       <img class="cat-img" src="/img/Cat_5.png" alt="cat">
     </section>
     <section>
@@ -181,8 +183,6 @@
   {{/each}}
 </script>
 
-<!-- TODO: filter out posts/comments
--->
 <script id="trackuser-posts-template" type="text/x-handlebars-template">
   <ul class="nav nav-tabs" id="myTab">
     <li class="active"><a href="#posts">Posts</a></li>
@@ -193,12 +193,14 @@
  <div class="tab-pane active" id="posts">
  {{#each this}}
    {{#compare kind "t3"}}
-           <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
+         <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
            <h4>{{ data.title }}</h4>
-           </a>
+         </a>
+         {{#compare data.thumbnail '!==' 'default'}}
          <a href="{{ data.url }}" target="_blank">
            <img src="{{ data.thumbnail }}">
          </a>
+         {{/compare}}
          <br>
          <span class="stats-title">Author: </span>{{ data.author }}<br>
          <span class="stats-title">Score: </span>{{ data.score }}<br>
@@ -212,18 +214,16 @@
  <div class="tab-pane" id="comments">
  {{#each this}}
    {{#compare kind "t1"}}
-         <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
-           <h4>{{ data.title }}</h4>
-           </a>
-         <a href="{{ data.url }}" target="_blank">
-           <img src="{{ data.thumbnail }}">
-         </a>
-         <br>
+         {{debug data.downs}}
+         <span class="stats-title">Link Title: </span>{{ data.link_title }}<br>
          <span class="stats-title">Author: </span>{{ data.author }}<br>
          <span class="stats-title">Score: </span>{{ data.score }}<br>
          <span class="stats-title"><i class="icon-arrow-up"></i>: </span>{{ data.ups }}</br>
-         <span class="stats-title"><i class="icon-arrow-down"></i>: </span>{{ dat.downs }}<br>
-         <span class="stats-title">Comments: </span>{{ data.num_comments }}<br>
+         <span class="stats-title"><i class="icon-arrow-down"></i>: </span>{{ data.downs }}<br>
+         <span class="stats-title">Sub Reddit: </span>{{ data.subreddit }}<br>
+         <span class="stats-title">Created: </span>{{ data.created }}<br>
+         <span class="stats-title">Created UTC: </span>{{ data.created_utc }}<br>
+         <span class="stats-title">Comment: </span><h4>{{ data.body }}</h4><br>
          <hr>
    {{/compare}}
  {{/each}}
@@ -286,6 +286,8 @@
 <script src='/lib/d3.layout.cloud.js'></script>
 <script src='/lib/rickshaw.js'></script>
 <script src='/lib/jquery.fittext.js'></script>
+<script src='/lib/TweenMax.min.js'></script>
+<script src='/lib/jquery.superscrollorama.js'></script>
 
 <script src='/redd.js'></script>
 
