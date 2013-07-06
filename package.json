@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development nodemon server.js",
-    "test": "NODE_ENV=reddit nodemon server.js"
+    "test": "jasmine-node tests/spec/"
   },
   "repository" : {
     "type" : "git",

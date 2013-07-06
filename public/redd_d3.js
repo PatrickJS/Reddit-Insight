@@ -1,11 +1,11 @@
 /*
 namespace Redd.d3
 */
-Redd.d3.on('initPostChart', function() {
+Redd.d3.on('initPostChart', function(collection) {
   Redd.d3.tv = 4100;
   //inject these values into the graph, with arguments (see below)
-  var bottomRange = Debug.Controller.trackpost.collection.last().attributes.score - 50;
-  var topRange = Debug.Controller.trackpost.collection.last().attributes.score + 50;
+  var bottomRange = collection.last().attributes.score - 50;
+  var topRange = collection.last().attributes.score + 50;
   Redd.d3.scaleRange = [bottomRange,topRange];
 
   Redd.d3.scale = [d3.scale.linear().domain(Redd.d3.scaleRange).nice()];
@@ -58,7 +58,7 @@ Redd.d3.on('initPostChart', function() {
   Redd.d3.graph.series.dropData();
 
   Redd.d3.iv = setInterval( function() {
-    Redd.d3.score = Debug.Controller.trackpost.collection.last().attributes.score;
+    Redd.d3.score = collection.last().attributes.score;
 
     //updated data pushed to this variable:
     Redd.d3.data = { Karma: Redd.d3.score};
