@@ -20,17 +20,19 @@ Redd.Views.TrackPost = Backbone.View.extend({
   },
   // TODO: refactor rendering of subview
   enterURL: function(e) {
-    this.slideUp();
-    if(this.model.urlSubmit) {
-      this.trackpost_chart.render();
+    if ($('#tracking-url').val() !== '') {
+      this.slideUp();
+      if(this.model.urlSubmit) {
+        this.trackpost_chart.render();
+      }
+      this.collection.reset();
+      var url = $('#tracking-url').val();
+      console.log('url submitted', url);
+      this.model.urlSubmit = url;
+      this.model.trigger('urlSubmitChange');
+      $('#tracking-url').val('');
     }
-    this.collection.reset();
-    var url = $('#tracking-url').val();
-    console.log('url submitted', url);
-    this.model.urlSubmit = url;
-    this.model.trigger('urlSubmitChange');
-    $('#tracking-url').val('');
-    return false;
+      return false;
   },
   slideUp: function() {
     $('.loader').fadeIn();

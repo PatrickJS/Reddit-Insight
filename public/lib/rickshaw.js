@@ -389,7 +389,7 @@ Rickshaw.Graph = function(args) {
 	this.defaults = {
 		interpolation: 'cardinal',
 		offset: 'zero',
-    //TO DO inject these into graph
+    //TO DO inject these into
     min: Debug.Controller.trackpost.collection.first().attributes.score - 50,
     max: Debug.Controller.trackpost.collection.first().attributes.score + 50,
 		preserve: false
@@ -3014,7 +3014,7 @@ Rickshaw.Series.ExpandingDuration = Rickshaw.Class.create(Rickshaw.Series, {
     if ((typeof(this.maxDataPoints) !== 'undefined') && (this.currentSize < this.maxDataPoints)) {
       for (var i = this.maxDataPoints - this.currentSize - 1; i > 0; i--) {
         this.currentSize  += 1;
-        this.currentIndex += 1;
+        this.currentIndex = 0;
         this.forEach( function (item) {
           item.data.unshift({ x: ((i-1) * this.timeInterval || 1) + this.timeBase, y: 0, i: i });
         }, this );
@@ -3036,14 +3036,14 @@ Rickshaw.Series.ExpandingDuration = Rickshaw.Class.create(Rickshaw.Series, {
     // }
   },
 
-  // dropData: function() {
+  dropData: function() {
 
-  //   this.forEach(function(item) {
-  //     item.data.splice(0, 1);
-  //   } );
+    this.forEach(function(item) {
+      item.data.splice(0, 1);
+    } );
 
-  //   this.currentSize -= 1;
-  // },
+    this.currentSize -= 1;
+  },
 
   getIndex: function () {
     return this.currentIndex;
