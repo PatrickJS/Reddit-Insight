@@ -2,10 +2,10 @@
 namespace Redd.d3
 */
 Redd.d3.on('initPostChart', function() {
-  Redd.d3.tv = 1000;
+  Redd.d3.tv = 4100;
   //inject these values into the graph, with arguments (see below)
-  var bottomRange = Debug.Controller.trackpost.collection.first().attributes.score - 50;
-  var topRange = Debug.Controller.trackpost.collection.first().attributes.score + 50;
+  var bottomRange = Debug.Controller.trackpost.collection.last().attributes.score - 50;
+  var topRange = Debug.Controller.trackpost.collection.last().attributes.score + 50;
   Redd.d3.scaleRange = [bottomRange,topRange];
 
   Redd.d3.scale = [d3.scale.linear().domain(Redd.d3.scaleRange).nice()];
@@ -21,9 +21,8 @@ Redd.d3.on('initPostChart', function() {
             timeInterval: Redd.d3.tv,
             maxDataPoints: 0,
             timeBase: new Date().getTime() / 1000
-          })
-          // min:'auto'
-          // max:'auto'
+          }),
+          min:'auto'
   });
 
   Redd.d3.legend = new Rickshaw.Graph.Legend( {
