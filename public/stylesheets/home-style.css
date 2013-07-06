@@ -22,39 +22,25 @@ header h1{
 
 }
 
-.cat-img{
-  height:500px;
-  opacity:.8;
-  position:relative;
-  top:30px;
-  z-index:0;
-  left:-500px;
-}
-section .cat, section .nsfw{
-  width:100%;
+
+#dashboard section {
   text-align: left;
   color: rgba(239,97,36,1);
   font-weight: bold;
-  font-size:1.8em;
-  position:relative;
-  top:270px;
-  left:220px;
-  z-index:1;
 }
-section .small{
+#dashboard p {
+  width: 65%;
   font-size:1.4em;
-  font-weight:normal;
+}
+#dashboard section .small{
+  font-size: 1.2em;
+}
+.cat-img{
+  height:200px;
+  opacity:.8;
 }
 .nsfw-img{
-  height:500px;
+  height:300px;
   opacity:.8;
-  position:relative;
-  top:-150px;
-  z-index:0;
-  right:-500px;
-}
-section .nsfw{
-  top:0;
-  text-align: right;
-  left:-200px;
+
 }

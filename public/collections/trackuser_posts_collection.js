@@ -1,4 +1,11 @@
 Redd.Collections.TrackUserPosts = Backbone.Collection.extend({
+  defaults: {
+    data: {
+      ups: 0,
+      downss: 0
+    },
+    yolo: 'hi'
+  },
   model: Redd.Models.TrackUserPosts,
   initialize: function() {
     this.on('usernameSubmitChange', function(data) {
