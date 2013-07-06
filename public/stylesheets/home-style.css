@@ -64,7 +64,7 @@ header h1{
   text-align: center;
 }
 .arrow-down {
-  margin: 80px auto;
+  margin: 50px auto;
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
@@ -100,4 +100,12 @@ header h1{
 .nsfw-img{
   height:200px;
   opacity:.8;
+}
+#dashboard #infograph-cluster {
+  text-align: center;
+  font-size: 1.6em;
+  margin: 500px auto 0;
+}
+#infograph-cluster p {
+  padding-top: 20px;
 }
