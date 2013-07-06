@@ -1,3 +1,9 @@
+.full-width-container {
+  max-width: 100%;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
 header{
   height: 230px;
   background-position: 50% 20%;
@@ -34,17 +40,33 @@ header h1{
 #dashboard section .small{
   font-size: 1.2em;
 }
-.nugget-nav {
+#dashboard h2 {
+  top: 0;
+  text-align: center;
+}
+.downloaded {
   margin-top: 100px;
+}
+.nugget-nav {
+  color: #777;
+  font-weight: 700;
+  font-size: 4em;
+  letter-spacing: -.1em;
+  text-shadow:
+     -1px -1px 0 #fff,  
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+       1px 1px 0 #fff;
+  margin-top: 50px;
   text-align: center;
 }
 .arrow-down {
-  margin: 0 auto;
+  margin: 80px auto;
   width: 0;
   height: 0;
-  border-left: 40px solid transparent;
-  border-right: 40px solid transparent;
-  border-top: 40px solid rgba(95,153,207,1);
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid rgba(95,153,207,1);
 }
 #infograph-cats{
   margin: 400px 0 0 215px;

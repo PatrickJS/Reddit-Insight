@@ -13,26 +13,38 @@ Redd.Router = Backbone.Router.extend({
   },
   dashboard: function(){
     this.controller.hide();
+    this.controller.hidePages();
+    this.controller.showFull();
     this.controller.show('dashboard');
   },
   prediction: function(){
     this.controller.hide();
+    this.controller.hideFull();
+    this.controller.showPages();
     this.controller.show('prediction');
   },
   trackpost: function(url){
     this.controller.hide();
+    this.controller.hideFull();
+    this.controller.showPages();
     this.controller.show('trackpost');
   },
   trackuser: function(url){
     this.controller.hide();
+    this.controller.hideFull();
+    this.controller.showPages();
     this.controller.show('trackuser');
   },
   wordcloud: function(url){
     this.controller.hide();
+    this.controller.hidePages();
+    this.controller.showFull();
     this.controller.show('wordcloud');
   },
   topiccluster: function(url){
     this.controller.hide();
+    this.controller.hideFull();
+    this.controller.showPages();
     this.controller.show('topiccluster');
   }
 });

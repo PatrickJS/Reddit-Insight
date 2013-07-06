@@ -16,12 +16,12 @@ Redd.Views.Dashboard = Backbone.View.extend({
   nuggetNav: function(e) {
     e.preventDefault();
     var $anchor = $(e.currentTarget);
-    console.log($anchor, e);
     $('html, body').stop().animate({
       scrollTop: $($anchor.attr('href')).offset().top
     }, 1000);
   },
   render: function() {
+    $('.main-container').hide();
     this.$el.html(this.template());
     return this;
   }

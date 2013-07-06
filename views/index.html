@@ -20,27 +20,28 @@
 </head>
 <body>
 
-<nav></nav>
-<header></header>
+  <nav></nav>
+  <header></header>
 
-<div class="container-fluid">
-  <section id="index"></section>
-  <section id="trackpost"></section>
-  <section id="trackuser"></section>
-  <section id="wordcloud"></section>
-  <section id="login"></section>
-  <section id="dashboard"></section>
-  <section id="index"></section>
-  <section id="topiccluster"></section>
-</div>
+  <div class="container-fluid full-width-container">
+    <section id="dashboard"></section>
+    <section id="wordcloud"></section>
+  </div>
 
-<footer></footer>
+  <div class="container-fluid main-container">
+    <section id="trackpost"></section>
+    <section id="trackuser"></section>
+    <section id="login"></section>
+    <section id="topiccluster"></section>
+  </div>
+
+  <footer></footer>
 
 </body>
 <script id="dashboard-template" type="text/x-handlebars-template">
   <div class="inner-container">
-    <h2>Data Nuggets</h2>
-    <h1 class="nugget-nav">Get those nuggets!</h1>
+    <h2 class="downloaded">We Downloaded The Reddit</h2>
+    <h4 class="nugget-nav">What we found will suprise you.</h4>
     <a href="#infograph-cats" id="nugget-arrow-nav"><div class="arrow-down"></div></a>
     <section id="infograph-cats">
       <p class="cat-text">"Dogs" occurs more times in titles in r/aww than "cats" or "kittens"</p>
@@ -55,6 +56,10 @@
     </section>
     <section id="infograph-nsfw-img">
        <img class="nsfw-img" src="/img/Woman_silhouette.png" alt="lady">
+    </section>
+    <section id="infograph-technology">
+      <p></p>
+      <p class="small"></p>
     </section>
 </script>
 
