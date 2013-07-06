@@ -22,25 +22,35 @@ header h1{
 
 }
 
-
 #dashboard section {
   text-align: left;
   color: rgba(239,97,36,1);
   font-weight: bold;
+  overflow: hidden;
 }
 #dashboard p {
-  width: 65%;
   font-size:1.4em;
 }
 #dashboard section .small{
   font-size: 1.2em;
 }
+#infograph-cats{
+  position: relative;
+  margin: 400px 0 0 300px;
+}
+#infograph-cats p{
+  width: 74%;
+}
+#infograph-cats-img {
+  position: relative;
+  margin: -166px 0 140px 197px;
+}
 .cat-img{
   height:200px;
   opacity:.8;
 }
+
 .nsfw-img{
   height:300px;
   opacity:.8;
-
 }
