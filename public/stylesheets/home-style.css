@@ -21,12 +21,12 @@ header h1{
   text-shadow: 0 0 1px rgba(95,153,207,1);
 
 }
-
 #dashboard section {
   text-align: left;
   color: rgba(239,97,36,1);
   font-weight: bold;
   overflow: hidden;
+  position: relative;
 }
 #dashboard p {
   font-size:1.4em;
@@ -34,22 +34,38 @@ header h1{
 #dashboard section .small{
   font-size: 1.2em;
 }
+.nugget-nav {
+  margin-top: 100px;
+  text-align: center;
+}
+.arrow-down {
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 40px solid rgba(95,153,207,1);
+}
 #infograph-cats{
-  position: relative;
-  margin: 400px 0 0 300px;
+  margin: 400px 0 0 215px;
 }
 #infograph-cats p{
   width: 74%;
 }
 #infograph-cats-img {
-  position: relative;
-  margin: -166px 0 140px 197px;
+  width: 50%;
+  margin: -166px 0 60px 104px;
 }
 .cat-img{
   height:200px;
   opacity:.8;
 }
-
+#infograph-nsfw{
+  margin: 0
+}
+#infograph-nsfw p {
+  width: 50%;
+}
 .nsfw-img{
   height:300px;
   opacity:.8;
