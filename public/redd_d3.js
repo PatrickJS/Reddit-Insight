@@ -2,7 +2,7 @@
 namespace Redd.d3
 */
 Redd.d3.on('initPostChart', function() {
-  Redd.d3.tv = 3500;
+  Redd.d3.tv = 1000;
   //inject these values into the graph, with arguments (see below)
   var bottomRange = Debug.Controller.trackpost.collection.first().attributes.score - 50;
   var topRange = Debug.Controller.trackpost.collection.first().attributes.score + 50;
@@ -19,9 +19,11 @@ Redd.d3.on('initPostChart', function() {
           renderer: 'line',
           series: new Rickshaw.Series.ExpandingDuration([{ name: 'Karma' }], undefined, {
             timeInterval: Redd.d3.tv,
-            maxDataPoints: 100,
+            maxDataPoints: 0,
             timeBase: new Date().getTime() / 1000
           })
+          // min:'auto'
+          // max:'auto'
   });
 
   Redd.d3.legend = new Rickshaw.Graph.Legend( {
@@ -53,19 +55,20 @@ Redd.d3.on('initPostChart', function() {
 
   var offsetForm = document.getElementById('offset_form');
 
+  //drop initial 0 value
+  Redd.d3.graph.series.dropData();
 
-  Redd.d3.graph.render();
-
-  // var i = 0;
   Redd.d3.iv = setInterval( function() {
     Redd.d3.score = Debug.Controller.trackpost.collection.last().attributes.score;
 
     //updated data pushed to this variable:
     Redd.d3.data = { Karma: Redd.d3.score};
     //additional data set dilineated by .two .three ...
+    console.log(Redd.d3.data);
 
     //add the data to the series
     Redd.d3.graph.series.addData(Redd.d3.data);
+
     //re render
     Redd.d3.graph.render();
 
