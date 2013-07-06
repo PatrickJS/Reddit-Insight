@@ -39,11 +39,12 @@ Redd.Views.TopicCluster = Backbone.View.extend({
     var dynWidth = document.body.clientWidth * 0.9;
     var dynHeight = dynWidth * 2;
 
-    var width = 960, //dynWeight
-    height = 2200;  //dynHeight
+    console.log('hello');
+    var width = 900, //dynWeight
+    height = 650;  //dynHeight
 
     var cluster = d3.layout.cluster()
-        .size([height, width - 160]);
+        .size([height, width - 400]);
 
     var diagonal = d3.svg.diagonal()
         .projection(function(d) { return [d.y, d.x]; });
@@ -52,7 +53,7 @@ Redd.Views.TopicCluster = Backbone.View.extend({
         .attr("width", width)
         .attr("height", height)
       .append("g")
-        .attr("transform", "translate(40,0)");
+        .attr("transform", "translate(150,0)");
 
     d3.json('TopicClusterData/TechnologyCluster.json', function(error, root) {
       var nodes = cluster.nodes(root),
