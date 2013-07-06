@@ -1,4 +1,4 @@
-(function(){
+;(function(){
   Redd = _.extend({
     Views: {},
     Models: {},
@@ -18,4 +18,4 @@
       Backbone.history.start(/*{pushState: true}*/);
     }
   }, Backbone.Events);
-})();
+}());
