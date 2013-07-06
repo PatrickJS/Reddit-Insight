@@ -16,8 +16,8 @@ Redd.Controller = Backbone.View.extend({
     this.wordcloud = new Redd.Views.WordCloud({
       model:         new Redd.Models.WordCloud()
     });
-    this.subredditcluster = new Redd.Views.SubredditCluster({
-      model:                new Redd.Models.SubredditCluster()
+    this.topiccluster = new Redd.Views.TopicCluster({
+      model:                new Redd.Models.TopicCluster()
     });
     this.dashboard = new Redd.Views.Dashboard();
   },
