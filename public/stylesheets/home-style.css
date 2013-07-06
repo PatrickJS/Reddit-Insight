@@ -64,12 +64,15 @@ header h1{
   text-align: center;
 }
 .arrow-down {
-  margin: 50px auto;
+  margin: 50px auto 20px;
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-top: 20px solid rgba(95,153,207,1);
+}
+.dot-nav {
+  margin: 25px auto;
 }
 #infograph-start {
   margin-top:200px;
