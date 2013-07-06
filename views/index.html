@@ -31,7 +31,7 @@
   <section id="login"></section>
   <section id="dashboard"></section>
   <section id="index"></section>
-  <section id="subredditcluster"></section>
+  <section id="topiccluster"></section>
 </div>
 
 <footer></footer>
@@ -40,15 +40,21 @@
 <script id="dashboard-template" type="text/x-handlebars-template">
   <div class="inner-container">
     <h2>Data Nuggets</h2>
-    <section>
-      <p class="cat">"Dogs" occurs more times in titles in r/aww then "cats" or "kittens"</p>
-      <p class="cat small">Despite their internet popularity cats are not subbmitted nearly as many times on this cuddly subreddit.</p>
+    <h1 class="nugget-nav">Get those nuggets!</h1>
+    <a href="#infograph-cats" id="nugget-arrow-nav"><div class="arrow-down"></div></a>
+    <section id="infograph-cats">
+      <p class="cat-text">"Dogs" occurs more times in titles in r/aww than "cats" or "kittens"</p>
+      <p class="cat-text small">Despite their internet popularity cats are not subbmitted nearly as many times on this cuddly subreddit.</p>
+    </section>
+    <section id="infograph-cats-img">
       <img class="cat-img" src="/img/Cat_5.png" alt="cat">
     </section>
-    <section>
+    <section id="infograph-nsfw">
       <p class="nsfw">"Perfect" occurs most frequently in the nsfw subreddit titles</p>
       <p class="nsfw small">This adjective is suprisingly in the lead for all words used in titles in this not safe for work subreddit</p>
-      <img class="nsfw-img" src="/img/Woman_silhouette.png" alt="lady">
+    </section>
+    <section id="infograph-nsfw-img">
+       <img class="nsfw-img" src="/img/Woman_silhouette.png" alt="lady">
     </section>
 </script>
 
@@ -67,7 +73,7 @@
             <li class=""><a href="#/trackpost">Track Post</a></li>
             <li class=""><a href="#/trackuser">Track User</a></li>
             <li class=""><a href="#/wordcloud">Word Clouds</a></li>
-            <li class=""><a href="#/subredditcluster">Subreddit Cluster</a></li>
+            <li class=""><a href="#/topiccluster">Topic Cluster</a></li>
           </ul>
         </div>
       </div>
@@ -232,7 +238,7 @@
 <h2>Word Clouds</h2>
   <form id='wordCloudForm'>
     <span for='subreddit'>Subreddit:</span>
-    <select name="subreddit" id="selectSubreddit">
+    <select name="subreddit">
       <option value='GamingNoun' {{#if GamingNoun}} selected {{/if}}>Gaming</option>
       <option value='TechnologyNoun' {{#if TechnologyNoun}} selected {{/if}}>Technology</option>
       <option value='FunnyNoun' {{#if FunnyNoun}} selected {{/if}}>Funny</option>
@@ -261,8 +267,15 @@
   </form>
 </script>
 
-<script id="subredditcluster-template" type="text/x-handlebars-template">
-  subredditcluster
+<script id="topiccluster-template" type="text/x-handlebars-template">
+  <h2>Topic Cluster</h2>
+    <form id='topicCluster'>
+    <span for='subreddit'>Subreddit:</span>
+    <select name="subreddit">
+      <option value='FunnyCluster' {{#if FunnyCluster}} selected {{/if}}>Funny</option>
+    </select>
+    <input class='btn' type='submit' value='submit'>
+  </form>
 </script>
 
 <script src='/lib/jquery-2.0.2.js'></script>
@@ -277,6 +290,8 @@
 <script src='/lib/d3.layout.cloud.js'></script>
 <script src='/lib/rickshaw.js'></script>
 <script src='/lib/jquery.fittext.js'></script>
+<script src='/lib/TweenMax.min.js'></script>
+<script src='/lib/jquery.superscrollorama.js'></script>
 
 <script src='/redd.js'></script>
 
@@ -284,7 +299,7 @@
 <script src='/models/trackuser_model.js'></script>
 <script src='/models/trackuserposts_model.js'></script>
 <script src='/models/wordcloud_model.js'></script>
-<script src='/models/subredditcluster_model.js'></script>
+<script src='/models/topiccluster_model.js'></script>
 
 <script src='/collections/trackpost_posts_collection.js'></script>
 <script src='/collections/trackuser_posts_collection.js'></script>
@@ -307,13 +322,15 @@
 <script src='/views/trackpost/trackpost-stats_view.js'></script>
 <script src='/views/trackpost/trackpost-chart_view.js'></script>
 
-<script src='/views/subredditcluster/subredditcluster_view.js'></script>
+<script src='/views/topiccluster/topiccluster_view.js'></script>
 
 <script src='/views/wordcloud/wordcloud_view.js'></script>
 
 <script src='/redd_d3.js'></script>
 <script src='/redd_controller.js'></script>
 <script src='/router.js'></script>
+
+<script src='/TopicClusterData/TechnologyCluster.json'></script>
 
 <script>
     Redd.initialize();

@@ -7,14 +7,6 @@ html, body {
 body{
   background-color: rgba(239,97,36,1);
 }
-.container-fluid{
-  margin:0 10%;
-  background-color: rgba(255,255,255,0.8);
-  border: 20px solid #fff;
-  padding: 1%;
-  min-height: 70%;
-  position: relative;
-}
 header{
   height:150px;
   margin-top: 0;
@@ -32,11 +24,13 @@ nav{
 }
 .container-fluid{
   text-align: center;
-  margin:0 auto;
   max-width: 960px;
-  border:none;
-  border-top:10px solid #fff;
-  padding-left:3%;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.8);
+  border: 20px solid #fff;
+  padding: 1%;
+  min-height: 70%;
+  position: relative;
 }
 .container-fluid h2{
   text-align: left;
@@ -175,4 +169,20 @@ footer li a:hover{
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node {
+  font: 17px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 5px;
 }

@@ -1,9 +1,9 @@
-Redd.Models.SubredditCluster = Backbone.Model.extend({
+Redd.Models.TopicCluster = Backbone.Model.extend({
   initialize: function() {
   },
   defaults: {
   },
-  url: '/api/subredditcluster',
+  url: '/api/topiccluster',
   parse: function(data) {
     return data;
   }
