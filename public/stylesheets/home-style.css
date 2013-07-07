@@ -73,6 +73,7 @@ header h1{
 }
 .dot-nav {
   margin: 25px auto;
+  text-align: center;
 }
 #infograph-start {
   margin-top:200px;
@@ -104,10 +105,24 @@ header h1{
   height:200px;
   opacity:.8;
 }
+#dashboard #infograph-karma {
+  margin: 200px auto 0;
+}
+#infograph-karma p {
+  margin: 40px 0 0 250px;
+  font-size: 2.2em;
+}
+#infograph-karma ul {
+  margin: 15px 0 0 291px;
+  font-size: 1.6em;
+}
+#infograph-karma li {
+  line-height: 1.4em;
+}
 #dashboard #infograph-cluster, #dashboard #infograph-bubble {
   text-align: center;
   font-size: 1.6em;
-  margin: 500px auto 0;
+  margin: 200px auto 0;
 }
 #infograph-cluster p, #infograph-bubble p {
   padding-top: 20px;
