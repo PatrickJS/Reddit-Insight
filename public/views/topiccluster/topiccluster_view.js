@@ -1,6 +1,6 @@
 Redd.Views.TopicCluster = Backbone.View.extend({
   initialize: function() {
-    console.log('in WordCloud view');
+    console.log('in TopicCluster view');
     this.model.on('sync', this.render, this);
     this.model.on('change', this.render, this);
   },
@@ -18,44 +18,36 @@ Redd.Views.TopicCluster = Backbone.View.extend({
         obj.subreddit = $(data).val();
       };
     });
+    debugger
     this.model.update(obj);
   },
   render: function(){
-    if (this.model.get('selectedSubreddit') === 'TechnologyNoun') {
-      obj.TechnologyNoun = 'TechnologyNoun';
-    } else if (this.model.get('selectedSubreddit') === 'GamingNoun') {
-      obj.GamingNoun = 'GamingNoun';
-    } else if (this.model.get('selectedSubreddit') === 'FunnyNoun') {
-      obj.FunnyNoun = 'FunnyNoun';
-    }
-
-    this.$el.html(this.template({FunnyCluster: 'FunnyCluster'}));
+    // this.$el.html(this.template({this.model.get('selectedSubreddit'): this.model.get('selectedSubreddit')}));
+    obj = {};
+    obj[this.model.get('selectedSubreddit')] = this.model.get('selectedSubreddit');
+    this.$el.html(this.template(obj));
     this.d3Stuff('#topiccluster');
     console.log('Topic Cluster has been rendered ' + (this.model.renderCounter += 1) + " times");
 
     return this;
   },
   d3Stuff: function(parentEl){
-    var dynWidth = document.body.clientWidth * 0.9;
-    var dynHeight = dynWidth * 2;
-
-    console.log('hello');
-    var width = 900, //dynWeight
-    height = 650;  //dynHeight
-
+    var width = $('.container-fluid').width(); //dynWeight
+    var height = this.model.get('height');  //dynHeight
     var cluster = d3.layout.cluster()
-        .size([height, width - 400]);
+        // 100 each for ousdie words
+        // one cluster is horizontal distance from nodes
+        .size([height, ( width - 250) ]); 
 
     var diagonal = d3.svg.diagonal()
         .projection(function(d) { return [d.y, d.x]; });
-
     var svg = d3.select(parentEl).append("svg")
         .attr("width", width)
         .attr("height", height)
       .append("g")
-        .attr("transform", "translate(150,0)");
+        .attr("transform", "translate(100,0)");
 
-    d3.json('TopicClusterData/TechnologyCluster.json', function(error, root) {
+    d3.json(this.model.get('path'), function(error, root) {
       var nodes = cluster.nodes(root),
           links = cluster.links(nodes);
 

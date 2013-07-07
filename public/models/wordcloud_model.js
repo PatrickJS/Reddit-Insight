@@ -7,7 +7,7 @@ Redd.Models.WordCloud = Backbone.Model.extend({
   },
   defaults: {
     'baseUrl': null,
-    'limit': 550,
+    'limit': 250,
     'sizeMultiple': 2,
     'rotateFunc': null,
     'selectedSubreddit': 'GamingNoun',

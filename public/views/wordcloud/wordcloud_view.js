@@ -91,7 +91,7 @@ Redd.Views.WordCloud = Backbone.View.extend({
       var self = this;
       var fill = d3.scale.category20();
 
-      var dynWidth = document.body.clientWidth * 0.9;
+      var dynWidth = $('#wordcloud').innerWidth();
       var dynHeight = dynWidth * 0.5;
       d3.layout.cloud().size([dynWidth, dynHeight])
           .words(this.model.get('wordArray').map(function(d) {  //change wordArray should have list of words

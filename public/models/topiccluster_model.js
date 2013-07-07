@@ -1,12 +1,15 @@
 Redd.Models.TopicCluster = Backbone.Model.extend({
   initialize: function() {
   },
+  renderCounter: 0,
   defaults: {
+    height: null,
+    selectedSubreddit: 'PoliticsCluster',
+    height: 36 * 20,
+    path: 'TopicClusterData/PoliticsCluster.json'
   },
-  url: '/api/topiccluster',
-  parse: function(data) {
-    return data;
+  update: function(obj){
+    this.set('selectedSubreddit', obj.subreddit, {silent: true});
+    this.set('path', 'TopicClusterData/' + obj.subreddit+ '.json');
   }
-
 });
-

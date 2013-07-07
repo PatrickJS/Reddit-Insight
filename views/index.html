@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href='http://fonts.googleapis.com/css?family=Oxygen+Mono|Montserrat+Alternates|Walter+Turncoat|Satisfy|Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Oxygen+Mono|Montserrat+Alternates|Walter+Turncoat|Satisfy|Shadows+Into+Light+Two' rel='stylesheet' type='text/css'> -->
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link href='/stylesheets/bootstrap.min.css' rel='stylesheet' type="text/css">
   <link href='/stylesheets/bootstrap-responsive.min.css' rel='stylesheet' type="text/css">
@@ -269,10 +269,13 @@
 
 <script id="topiccluster-template" type="text/x-handlebars-template">
   <h2>Topic Cluster</h2>
-    <form id='topicCluster'>
+    <form id='formtopicCluster'>
     <span for='subreddit'>Subreddit:</span>
     <select name="subreddit">
-      <option value='FunnyCluster' {{#if FunnyCluster}} selected {{/if}}>Funny</option>
+      <option value='PoliticsCluster' {{#if PoliticsCluster}} selected {{/if}}>Politics</option>
+      <option value='ScienceCluster' {{#if ScienceCluster}} selected {{/if}}>Science</option>
+      <option value='TechnologyCluster' {{#if TechnologyCluster}} selected {{/if}}>Technology</option>
+      <option value='WorldNewsCluster' {{#if WorldNewsCluster}} selected {{/if}}>World News</option>
     </select>
     <input class='btn' type='submit' value='submit'>
   </form>
@@ -329,8 +332,6 @@
 <script src='/redd_d3.js'></script>
 <script src='/redd_controller.js'></script>
 <script src='/router.js'></script>
-
-<script src='/TopicClusterData/TechnologyCluster.json'></script>
 
 <script>
     Redd.initialize();

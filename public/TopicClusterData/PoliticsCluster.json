@@ -1,0 +1,63 @@
+{
+  "name": "Politics",
+  "children": [
+  {
+	  "name": "NSA Backlash",
+	  "children": [
+	  {"name": "americans", "size": 1},
+	  {"name": "obama", "size": 1},
+	  {"name": "nsa", "size": 1},
+	  {"name": "poll", "size": 1},
+	  {"name": "percent", "size": 1},
+	  {"name": "millions", "size": 1},
+	  {"name": "want", "size": 1},
+	  {"name": "govenment", "size": 1},
+	  {"name": "u.s.", "size": 1},
+	  {"name": "think", "size": 1}
+	  ]
+  },
+  {
+	  "name": "2012 Election Coverage",
+	  "children": [
+	  {"name": "obama", "size": 1},
+	  {"name": "president", "size": 1},
+	  {"name": "barack", "size": 1},
+	  {"name": "romney", "size": 1},
+	  {"name": "republicans", "size": 1},
+	  {"name": "administration", "size": 10},
+	  {"name": "tax", "size": 1},
+	  {"name": "gop", "size": 1},
+	  {"name": "vote", "size": 1},
+	  {"name": "people", "size": 1},
+	  {"name": "campaign", "size": 1}  
+	  ]
+  },
+  {
+	  "name": "Marijuana Legalization",
+	  "children": [
+	  {"name": "law", "size": 1},
+	  {"name": "state", "size": 1},
+	  {"name": "marijuana", "size": 1},
+	  {"name": "enforcement", "size": 1},
+	  {"name": "bill", "size": 1},
+	  {"name": "prison", "size": 1},
+	  {"name": "act", "size": 1},
+	  {"name": "congress", "size": 1}	  ]
+  },
+    {
+	  "name": "Supreme Court Rullings",
+	  "children": [
+	  {"name": "police", "size": 1},
+	  {"name": "court", "size": 1},
+	  {"name": "supreme", "size": 1},
+	  {"name": "man", "size": 1},
+	  {"name": "officer", "size": 1},
+	  {"name": "rights", "size": 1},
+	  {"name": "cops", "size": 1},
+	  {"name": "rules", "size": 1},
+	  {"name": "death", "size": 1},
+	  {"name": "act", "size": 1}
+	  ]
+  }
+  ]
+}
