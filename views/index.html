@@ -20,41 +20,60 @@
 </head>
 <body>
 
-<nav></nav>
-<header></header>
+  <nav></nav>
+  <header></header>
 
-<div class="container-fluid">
-  <section id="index"></section>
-  <section id="trackpost"></section>
-  <section id="trackuser"></section>
-  <section id="wordcloud"></section>
-  <section id="login"></section>
-  <section id="dashboard"></section>
-  <section id="index"></section>
-  <section id="topiccluster"></section>
-</div>
+  <div class="container-fluid full-width-container">
+    <section id="dashboard"></section>
+    <section id="wordcloud"></section>
+  </div>
 
-<footer></footer>
+  <div class="container-fluid main-container">
+    <section id="trackpost"></section>
+    <section id="trackuser"></section>
+    <section id="login"></section>
+    <section id="topiccluster"></section>
+  </div>
+
+  <footer></footer>
 
 </body>
 <script id="dashboard-template" type="text/x-handlebars-template">
   <div class="inner-container">
-    <h2>Data Nuggets</h2>
-    <h1 class="nugget-nav">Get those nuggets!</h1>
-    <a href="#infograph-cats" id="nugget-arrow-nav"><div class="arrow-down"></div></a>
+    <h2 class="downloaded">We Downloaded The Reddit</h2>
+    <h4 class="nugget-nav">What we found will suprise you.</h4>
+    <a href="#infograph-start" id="nugget-arrow-nav"><div class="arrow-down"></div></a>
+    <div class="dot-nav"><img src="/img/dots-nav.png" /></div>
+    <section id="infograph-start"></section>
     <section id="infograph-cats">
-      <p class="cat-text">"Dogs" occurs more times in titles in r/aww than "cats" or "kittens"</p>
-      <p class="cat-text small">Despite their internet popularity cats are not subbmitted nearly as many times on this cuddly subreddit.</p>
+      <p>"Dogs" occurs more times in titles in r/aww than "cats" or "kittens"</p>
+      <p class="small">Despite their internet popularity cats are not subbmitted nearly as many times on this cuddly subreddit.</p>
     </section>
     <section id="infograph-cats-img">
-      <img class="cat-img" src="/img/Cat_5.png" alt="cat">
+      <img class="cat-img" src="/img/Cat_5.png" alt="cat" />
     </section>
     <section id="infograph-nsfw">
-      <p class="nsfw">"Perfect" occurs most frequently in the nsfw subreddit titles</p>
-      <p class="nsfw small">This adjective is suprisingly in the lead for all words used in titles in this not safe for work subreddit</p>
+      <p>"Perfect" occurs most frequently in the nsfw subreddit titles</p>
+      <p class="small">This adjective is suprisingly in the lead for all words used in titles in this not safe for work subreddit</p>
     </section>
     <section id="infograph-nsfw-img">
-       <img class="nsfw-img" src="/img/Woman_silhouette.png" alt="lady">
+       <img class="nsfw-img" src="/img/Woman_silhouette.png" alt="lady" />
+    </section>
+    <a href="#infograph-cluster" id="nugget-arrow-nav"><div class="arrow-down"></div></a>
+    <div class="dot-nav"><img src="/img/dots-nav.png" /></div>
+    <section id="infograph-cluster">
+      <p>Topic Clusters</p>
+      <p>The most popular words in the most popular topics.</p>
+      <img class="cluster-img" src="/img/allClusters.png" alt="reddit word cluster" />
+      <a href="#infograph-bubble" id="nugget-arrow-nav"><div class="arrow-down"></div></a>
+      <div class="dot-nav"><img src="/img/dots-nav.png" /></div>
+    </section>
+    <section id="infograph-bubble">
+      <p>SubReddit Noun Frequency Analysis</p>
+      <p>Can you guess which colors belong to which SubReddit?</p>
+      <img class="cluster-img" src="/img/allReddit.png" alt="reddit frequency" />
+      <a href="#infograph-bubble" id="nugget-arrow-nav"><div class="arrow-down"></div></a>
+      <div class="dot-nav"><img src="/img/dots-nav.png" /></div>
     </section>
 </script>
 
@@ -288,7 +307,6 @@
 <script src='/lib/backbone.js'></script>
 <script src='/lib/backbone-oauth.js'></script>
 <script src='/lib/backbone-jsonp.js'></script>
-<script arc='/lib/jquery.ui.slider.js'></script>
 <script src='/lib/d3.min.js'></script>
 <script src='/lib/d3.layout.cloud.js'></script>
 <script src='/lib/rickshaw.js'></script>
