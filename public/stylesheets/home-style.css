@@ -104,11 +104,11 @@ header h1{
   height:200px;
   opacity:.8;
 }
-#dashboard #infograph-cluster {
+#dashboard #infograph-cluster, #dashboard #infograph-bubble {
   text-align: center;
   font-size: 1.6em;
   margin: 500px auto 0;
 }
-#infograph-cluster p {
+#infograph-cluster p, #infograph-bubble p {
   padding-top: 20px;
 }
