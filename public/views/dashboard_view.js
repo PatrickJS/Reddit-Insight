@@ -11,6 +11,7 @@ Redd.Views.Dashboard = Backbone.View.extend({
       controller.addTween('#infograph-nsfw-img', TweenMax.from( $('#infograph-nsfw-img'), .5, {css:{right:'1500px'}, ease:Quad.easeInOut}));
 
       controller.addTween('#infograph-karma', TweenMax.from( $('#infograph-karma'), .5, {css:{right:'1500px'}, ease:Quad.easeInOut}));
+      controller.addTween('#karma-post', TweenMax.from( $('#karma-post'), .5, {css:{right:'1500px'}, ease:Quad.easeInOut}));
 
       controller.addTween('#infograph-cluster', TweenMax.fromTo( $('#infograph-cluster'), .5, {css:{opacity:0, fontSize:'0em', width:0}, immediateRender:true, ease:Quad.easeInOut}, {css:{opacity:1, fontSize:'1.6em', width:'100%'}, ease:Quad.easeInOut}));
 
