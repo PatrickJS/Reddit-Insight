@@ -3,6 +3,7 @@ Redd.Views.TopicCluster = Backbone.View.extend({
     console.log('in TopicCluster view');
     this.model.on('sync', this.render, this);
     this.model.on('change', this.render, this);
+    $('.topiccluster-template select').on('change', this.formHandler);
   },
   el: '#topiccluster',
   template: Redd.Templates('topiccluster'),
@@ -18,11 +19,9 @@ Redd.Views.TopicCluster = Backbone.View.extend({
         obj.subreddit = $(data).val();
       };
     });
-    debugger
     this.model.update(obj);
   },
   render: function(){
-    // this.$el.html(this.template({this.model.get('selectedSubreddit'): this.model.get('selectedSubreddit')}));
     obj = {};
     obj[this.model.get('selectedSubreddit')] = this.model.get('selectedSubreddit');
     this.$el.html(this.template(obj));
@@ -32,7 +31,7 @@ Redd.Views.TopicCluster = Backbone.View.extend({
     return this;
   },
   d3Stuff: function(parentEl){
-    var width = $('.container-fluid').width(); //dynWeight
+    var width = $('.main-container').width(); //dynWeight
     var height = this.model.get('height');  //dynHeight
     var cluster = d3.layout.cluster()
         // 100 each for ousdie words
@@ -46,7 +45,6 @@ Redd.Views.TopicCluster = Backbone.View.extend({
         .attr("height", height)
       .append("g")
         .attr("transform", "translate(100,0)");
-
     d3.json(this.model.get('path'), function(error, root) {
       var nodes = cluster.nodes(root),
           links = cluster.links(nodes);
