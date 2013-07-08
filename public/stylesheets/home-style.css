@@ -79,7 +79,7 @@ header h1{
   margin-top:200px;
 }
 #infograph-cats{
-  margin: 400px 0 0 215px;
+  margin: 300px 0 0 215px;
 }
 #infograph-cats p{
   width: 74%;
@@ -104,6 +104,15 @@ header h1{
 .nsfw-img{
   height:200px;
   opacity:.8;
+}
+body #karma-post {
+  width: 580px;
+  line-height: 1.7em;
+  font-size: 2.6em;
+  margin: 38px 0 0 580px;
+}
+#karma-post span {
+  color: rgba(95,153,207,1);
 }
 #dashboard #infograph-karma {
   margin: 200px auto 0;
