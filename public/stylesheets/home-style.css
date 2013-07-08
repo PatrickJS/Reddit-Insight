@@ -27,6 +27,9 @@ header h1{
   text-shadow: 0 0 1px rgba(95,153,207,1);
 
 }
+#dashboard {
+  padding-bottom: 1000px;
+}
 #dashboard section {
   text-align: left;
   color: rgba(239,97,36,1);
@@ -61,12 +64,19 @@ header h1{
   text-align: center;
 }
 .arrow-down {
-  margin: 80px auto;
+  margin: 50px auto 20px;
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-top: 20px solid rgba(95,153,207,1);
+}
+.dot-nav {
+  margin: 25px auto;
+  text-align: center;
+}
+#infograph-start {
+  margin-top:200px;
 }
 #infograph-cats{
   margin: 400px 0 0 215px;
@@ -83,12 +93,37 @@ header h1{
   opacity:.8;
 }
 #infograph-nsfw{
-  margin: 0
+  margin: -15px 0 0 40%;
 }
 #infograph-nsfw p {
   width: 50%;
 }
+#infograph-nsfw-img { 
+  margin: -169px 0 0 400px;
+}
 .nsfw-img{
-  height:300px;
+  height:200px;
   opacity:.8;
+}
+#dashboard #infograph-karma {
+  margin: 200px auto 0;
+}
+#infograph-karma p {
+  margin: 40px 0 0 250px;
+  font-size: 2.2em;
+}
+#infograph-karma ul {
+  margin: 15px 0 0 291px;
+  font-size: 1.6em;
+}
+#infograph-karma li {
+  line-height: 1.4em;
+}
+#dashboard #infograph-cluster, #dashboard #infograph-bubble {
+  text-align: center;
+  font-size: 1.6em;
+  margin: 200px auto 0;
+}
+#infograph-cluster p, #infograph-bubble p {
+  padding-top: 20px;
 }
