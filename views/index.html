@@ -190,6 +190,7 @@
     <span class="stats-title">{{@key}}: </span>{{ this }} <br>
     {{/if}}
   {{/each}}
+  <div id="user-chart"></div>
 </script>
 
 <script id="trackuser-posts-template" type="text/x-handlebars-template">
@@ -330,7 +331,10 @@
 
 <script src='/views/wordcloud/wordcloud_view.js'></script>
 
+<script src='/d3/createpostchart.js'></script>
+<script src='/d3/createuserchart.js'></script>
 <script src='/redd_d3.js'></script>
+
 <script src='/redd_controller.js'></script>
 <script src='/router.js'></script>
 

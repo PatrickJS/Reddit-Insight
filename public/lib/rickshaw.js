@@ -390,8 +390,11 @@ Rickshaw.Graph = function(args) {
 		interpolation: 'cardinal',
 		offset: 'zero',
     //TO DO inject these into
-    min: Debug.Controller.trackpost.collection.first().attributes.score - 50,
-    max: Debug.Controller.trackpost.collection.first().attributes.score + 50,
+    // Done! @gdi2290
+    // min: Debug.Controller.trackpost.collection.first().attributes.score - 50,
+    // max: Debug.Controller.trackpost.collection.first().attributes.score + 50,
+    min: undefined,
+    max: undefined,
 		preserve: false
 	};
 
