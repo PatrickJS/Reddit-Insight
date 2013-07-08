@@ -45,7 +45,7 @@ Redd.Views.TopicCluster = Backbone.View.extend({
         .attr("height", height)
       .append("g")
         .attr("transform", "translate(100,0)");
-    d3.json(this.model.get('path'), function(error, root) {
+    d3.json(this.model.get('path')(), function(error, root) {
       var nodes = cluster.nodes(root),
           links = cluster.links(nodes);
 

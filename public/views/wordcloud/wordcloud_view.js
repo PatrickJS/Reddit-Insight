@@ -2,16 +2,23 @@ Redd.Views.WordCloud = Backbone.View.extend({
   // can test with "Debug.Controller.wordcloud.model.attributes.switchRotateFuncChoice.call(Debug.Controller.wordcloud.model)"
   initialize: function() {
     console.log('in WordCloud view');
+
     // render on change
-    this.model.on('sync', this.render, this);
-    this.model.on('change', this.render, this);
+    this.model.on('sync', this._render, this);
+    this.model.on('change', this._render, this);
   },
   el: '#wordcloud',
   template: Redd.Templates('wordcloud'),
   events: {
     'submit': 'formHandler'
   },
-  render: function(){
+
+  render: function() {
+    // Fetch a fresh model
+    this.model.pull();
+  },
+
+  _render: function(){
     //quick hack, refactor to fit structure
     var obj = {
       limit: this.model.get('limit'),
@@ -93,6 +100,12 @@ Redd.Views.WordCloud = Backbone.View.extend({
 
       var dynWidth = $('#wordcloud').innerWidth();
       var dynHeight = dynWidth * 0.5;
+
+      if (dynWidth === 0) {
+        console.error('Attempted to render d3 portion of wordcloud into element with zero width! (causes crash in d3)');
+        return;
+      }
+
       d3.layout.cloud().size([dynWidth, dynHeight])
           .words(this.model.get('wordArray').map(function(d) {  //change wordArray should have list of words
             return {text: d, size: self.model.get('frequency')[d]}; // changed d should be name of word
