@@ -57,7 +57,9 @@ Redd.d3.CreatePostChart = function(collection) {
   //drop initial 0 value
   graph.series.dropData();
 
-  var iv = setInterval( function() {
+
+  collection.on('add', function() {
+    console.log('yolo add');
     var score = collection.last().attributes.score;
 
     //updated data pushed to this variable:
@@ -70,8 +72,26 @@ Redd.d3.CreatePostChart = function(collection) {
     //re render
     graph.render();
 
-  //time offset:
-  }, timeInt);
+
+  });
+
+
+  // var iv = setInterval( function() {
+  //     var score = collection.last().attributes.score;
+
+  //     //updated data pushed to this variable:
+  //     var data = { Karma: score };
+  //     //additional data set dilineated by .two .three ...
+
+  //     //add the data to the series
+  //     graph.series.addData(data);
+
+  //     //re render
+  //     graph.render();
+
+
+  // //time offset:
+  // }, timeInt);
 
   //add toggles
   offsetForm.addEventListener('change', function(e) {
