@@ -18,10 +18,10 @@ var app = express();
 
 require('./config/db')(app);
 
-
-mongoose.connect("mongodb://localhost/WordClouds");
+var connectionString = process.env.MONGOLAB_URI || "mongodb://localhost/WordClouds";
+mongoose.connect(connectionString);
 promises.dataBase = mongoose.connection;
-promises.dataBase.on('err', console.error.bind(console,'Could not connect to database: "'+promises.dataBase.db.databaseName+'".'));  
+promises.dataBase.on('err', console.error.bind(console,'Could not connect to database: "'+promises.dataBase.db.databaseName+'".'));
 promises.dataBase.once('open', function(){
   console.log('Connected to database: "'+promises.dataBase.db.databaseName+'"');
 
