@@ -9,7 +9,8 @@ Redd.Router = Backbone.Router.extend({
     'trackpost':'trackpost',
     'trackuser':'trackuser',
     'wordcloud':'wordcloud',
-    'topiccluster': 'topiccluster'
+    'topiccluster': 'topiccluster',
+    'circlecluster': 'circlecluster'
   },
   dashboard: function(){
     this.controller.hide();
@@ -46,5 +47,11 @@ Redd.Router = Backbone.Router.extend({
     this.controller.hideFull();
     this.controller.showPages();
     this.controller.show('topiccluster');
+  },
+  circlecluster: function(){
+    this.controller.hide();
+    this.controller.hidePages();
+    this.controller.showFull();
+    this.controller.show('circlecluster');
   }
 });

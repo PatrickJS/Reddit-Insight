@@ -19,6 +19,7 @@ Redd.Controller = Backbone.View.extend({
     this.topiccluster = new Redd.Views.TopicCluster({
       model:                new Redd.Models.TopicCluster()
     });
+    this.circlecluster = new Redd.Views.CircleCluster();
     this.dashboard = new Redd.Views.Dashboard();
   },
   el: 'html',
