@@ -11,7 +11,6 @@ var express = require('express'),
     _ = require('underscore'),
     mongoose = require('mongoose'),
     ejs = require('ejs'),
-    sass = require('node-sass'),
     hbsPrecompiler = require('handlebars-precompiler'),
     allPostsCollection = require('./dbLibrary.js');
 
