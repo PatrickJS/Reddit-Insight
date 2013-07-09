@@ -1,3 +1,4 @@
+// {{debug}} helper
 Handlebars.registerHelper("debug", function(optionalValue) {
   console.log("=====-Current-Context-=====");
   console.log(this);
@@ -10,15 +11,7 @@ Handlebars.registerHelper("debug", function(optionalValue) {
     console.log("===========================");
   }
 });
-Handlebars.registerHelper('equal', function(lvalue, rvalue, options) {
-    if (arguments.length < 3)
-        throw new Error("Handlebars Helper equal needs 2 parameters");
-    if( lvalue!=rvalue ) {
-        return options.inverse(this);
-    } else {
-        return options.fn(this);
-    }
-});
+// {{#compare}} helper
 Handlebars.registerHelper('compare', function (lvalue, operator, rvalue, options) {
 
     var operators, result;
@@ -58,6 +51,8 @@ Handlebars.registerHelper('compare', function (lvalue, operator, rvalue, options
     }
 
 });
+
+// jQuery handlebars helper
 (function($) {
   var compiled = {};
   $.fn.handlebars = function(template, data) {

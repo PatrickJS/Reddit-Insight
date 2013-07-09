@@ -1,6 +1,3 @@
-/*
-namespace Redd.d3
-*/
 Redd.d3.CreatePostChart = function(collection) {
   var timeInt = 4100,
       bottomRange = collection.last().attributes.score - 50,
