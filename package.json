@@ -15,6 +15,7 @@
     "underscore": "*",
     "mongoose": "*",
     "ejs": "*",
+    "request": "*",
     "nodetime": "*"
   },
   "engines": {

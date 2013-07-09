@@ -17,7 +17,7 @@ module.exports = {
       'Content-Type': 'application/json'
     }
   },
-  _createSubsSchema: function(){
+  _createSubsSchema: function() {
     return new mongoose.Schema({
       header_img: String,
       header_title: String,
@@ -38,7 +38,7 @@ module.exports = {
     }, { autoIndex: true });
   },
 
-  _createPostsSchema: function(){
+  _createPostsSchema: function() {
     return new mongoose.Schema({
       domain:String,
       banned_by:String,
@@ -77,7 +77,7 @@ module.exports = {
       distinguished: Schema.Types.Mixed
     }, { autoIndex: true });
   },
-  start: function(interval, path, schema){
+  start: function(interval, path, schema) {
     //schema posts, subs
     this._throttledPullData = _.throttle(lib.getJSON, 2000);
 
@@ -101,20 +101,20 @@ module.exports = {
       }
 
       self._options.path = path;
-      var intervalId = setInterval( function(intervalId){
+      var intervalId = setInterval(function(intervalId) {
         self.pullData(intervalId);
       }, interval);
     });
   },
   pullData: function(intervalId){
     var self = this;
-    this._moodel.count({},function(err, count){
+    this._moodel.count({}, function(err, count) {
       if(err){
         console.log('from count error: ', JSON.stringify(err));
         clearInterval(intervalId);
         console.log('Stopped intervalId: ', intervalId);
         throw JSON.stringify(err);
-      } else if(count){
+      } else if (count) {
         self._moodel.findOne({}, {name: 1}, {sort:{_id : -1}}, function (err, doc) {
           if(err){
             console.log('from find error: ', JSON.stringify(err));
@@ -128,18 +128,19 @@ module.exports = {
           console.log('total count is ' + count  + ', name is ' + doc.name + ', using url: ', editedOptions.path);
           self._throttledPullData(editedOptions, self._saveResult, self);
         });
-      } else if(count === 0){
+      } else if (count === 0) {
         console.log('first time access with no data, using url: ', self._options.path);
         self._throttledPullData(self._options, self._saveResult, self);
       }
     });
   },
   _saveResult: function(statusCode, result, self){
-    for(var i = 0; i < result.data.children.length; i++){
-      var data = result.data.children[i].data;
-      new self._moodel(data).save(function(err, docs){
+    var errorCallback = function(err, docs){
         if(err) {console.log("\n\nerror saving: ", data, "error: ", err);}
-      });
+    }, data;
+    for(var i = 0; i < result.data.children.length; i++){
+      data = result.data.children[i].data;
+      new self._moodel(data).save(errorCallback);
     }
   }
 };
