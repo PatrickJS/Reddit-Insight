@@ -8,6 +8,7 @@ Redd.Views.CircleCluster = Backbone.View.extend({
     this.d3();
     return this;
   },
+
   d3: function(){
     var diameter = $('#circlecluster').width();
 
