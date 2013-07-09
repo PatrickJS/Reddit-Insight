@@ -11,6 +11,12 @@ Handlebars.registerHelper("debug", function(optionalValue) {
     console.log("===========================");
   }
 });
+// {{utc}} helper
+Handlebars.registerHelper("epoch", function(epoch) {
+    var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
+    d.setUTCSeconds(epoch);
+    return d;
+});
 // {{#compare}} helper
 Handlebars.registerHelper('compare', function (lvalue, operator, rvalue, options) {
 
