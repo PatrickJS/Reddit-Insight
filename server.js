@@ -23,7 +23,14 @@ promises.dataBase = mongoose.connection;
 promises.dataBase.on('err', console.error.bind(console,'Could not connect to database: "'+promises.dataBase.db.databaseName+'".'));
 promises.dataBase.once('open', function(){
   console.log('Connected to database: "'+promises.dataBase.db.databaseName+'"');
-
+  app.configure('development', function(){
+    hbsPrecompiler = require('handlebars-precompiler');
+    hbsPrecompiler.watchDir(
+      __dirname + "/public/templates",
+      __dirname + "/public/templates/compiled/templates.js",
+      ['handlebars', 'hbs']
+    );
+  });
 
   // all environments
   app.set('port', process.env.PORT || 3000);

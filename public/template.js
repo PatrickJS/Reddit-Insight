@@ -1,3 +1,3 @@
 Redd.Templates = function(id) {
-  return Handlebars.templates[id+'.hbs'];
+  return Handlebars.templates[id];
 };
