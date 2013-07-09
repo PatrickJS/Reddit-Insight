@@ -56,7 +56,6 @@ promises.dataBase.once('open', function(){
     model.find({}, 'noun frequency', {lean: true, limit: req.query.limit }, function (err, docs) {
       if(err){
         console.log('from find error: ', JSON.stringify(err));
-        throw err;
       }
       res.send(docs);
     });
