@@ -1,9 +1,7 @@
 Reddit Insight - Reddit Analytics [![Build Status](https://travis-ci.org/gdi2290/RedditInsight.png?branch=master)](https://travis-ci.org/gdi2290/RedditInsight)
 =============
 TODO:
-* better d3 charts
-* refactor design and UX
-* refactor Trackuser/Trackposts
+* better code reuse for trackuser/trackposts
 * add Users
 * allow Users to save data
 * keep history of charts for Users
