@@ -186,3 +186,13 @@ footer li a:hover{
   stroke: #ccc;
   stroke-width: 5px;
 }
+
+#circlecluster .node {
+  font: 10px sans-serif;
+}
+
+#circlecluster .link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
