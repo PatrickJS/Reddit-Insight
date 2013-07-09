@@ -14,7 +14,7 @@ Redd.Views.TrackUserPosts = Backbone.View.extend({
 
   hideLoader: function() {
     $('.loader').hide();
-    this.d3(this.collection);
+    Redd.d3.CreateUserChart(this.collection);
     this.render();
   }
 });

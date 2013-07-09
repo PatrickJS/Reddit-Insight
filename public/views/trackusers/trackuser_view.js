@@ -5,7 +5,6 @@ Redd.Views.TrackUser = Backbone.View.extend({
     });
     this.trackuser_posts = new Redd.Views.TrackUserPosts({
       collection: this.collection,
-      d3:         Redd.d3.CreateUserChart
     });
   },
   el: '#trackuser',

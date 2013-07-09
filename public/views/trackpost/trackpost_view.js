@@ -6,8 +6,7 @@ Redd.Views.TrackPost = Backbone.View.extend({
     });
     this.trackpost_chart = new Redd.Views.TrackPostChart({
       model:      this.model,
-      collection: this.collection,
-      d3:         Redd.d3.CreatePostChart
+      collection: this.collection
     });
   },
   el: '#trackpost',
