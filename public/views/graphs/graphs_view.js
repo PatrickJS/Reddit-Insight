@@ -59,7 +59,6 @@ Redd.Views.Graphs = Backbone.View.extend({
           .attr("y", 6)
           .attr("dy", ".71em")
           .style("text-anchor", "end")
-          .text("Frequency");
 
       svg.selectAll(".bar")
           .data(data)

@@ -67,9 +67,20 @@ header h1{
   margin: 50px auto 20px;
   width: 0;
   height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 20px solid rgba(95,153,207,1);
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 50px solid rgba(95,153,207,1);
+}
+.arrow-down:hover {
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-top: 60px solid rgba(239,97,36,1);
+}
+.arrow-down {
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 .dot-nav {
   margin: 25px auto;
