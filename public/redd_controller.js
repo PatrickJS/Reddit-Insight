@@ -19,6 +19,7 @@ Redd.Controller = Backbone.Controller.extend({
       model:                new Redd.Models.TopicCluster()
     });
     this.circlecluster = new Redd.Views.CircleCluster();
+    this.frequency = new Redd.Views.Frequency();
     this.dashboard = new Redd.Views.Dashboard();
   },
   hidePages: function() {

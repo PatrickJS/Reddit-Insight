@@ -63,11 +63,6 @@ promises.dataBase.once('open', function(){
     });
   });
 
-  app.use(function(req, res) {
-    var newUrl = req.protocol + '://' + req.get('Host') + '/#' + req.url;
-    return res.redirect(newUrl);
-  });
-
     //start server
   http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
