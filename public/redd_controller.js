@@ -20,5 +20,17 @@ Redd.Controller = Backbone.Controller.extend({
     });
     this.circlecluster = new Redd.Views.CircleCluster();
     this.dashboard = new Redd.Views.Dashboard();
+  },
+  hidePages: function() {
+    $('.main-container').hide();
+  },
+  showPages: function() {
+    $('.main-container').show();
+  },
+  hideFull: function() {
+    $('.full-width-container').hide();
+  },
+  showFull: function() {
+    $('.full-width-container').show();
   }
 });

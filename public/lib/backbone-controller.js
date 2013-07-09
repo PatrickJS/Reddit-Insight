@@ -8,17 +8,5 @@ Backbone.Controller = Backbone.View.extend({
   hide: function() {
     $('section').hide();
     return this;
-  },
-  hidePages: function() {
-    $('.main-container').hide();
-  },
-  showPages: function() {
-    $('.main-container').show();
-  },
-  hideFull: function() {
-    $('.full-width-container').hide();
-  },
-  showFull: function() {
-    $('.full-width-container').show();
   }
 });
