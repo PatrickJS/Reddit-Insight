@@ -11,10 +11,10 @@ header{
 header h1{
   margin:1% auto 0 auto;
   width:100%;
-  
+
   position: relative;
   top:10%;
-  
+
   text-align: center;
   color:#fff;
   font-weight: 700;
@@ -23,7 +23,7 @@ header h1{
   line-height: 1.1em;
   letter-spacing: -.05em;
   word-spacing: 1.2em;
-  
+
   text-shadow: 0 0 1px rgba(95,153,207,1);
 
 }
@@ -56,7 +56,7 @@ header h1{
   font-size: 4em;
   letter-spacing: -.1em;
   text-shadow:
-     -1px -1px 0 #fff,  
+     -1px -1px 0 #fff,
       1px -1px 0 #fff,
       -1px 1px 0 #fff,
        1px 1px 0 #fff;
@@ -67,9 +67,20 @@ header h1{
   margin: 50px auto 20px;
   width: 0;
   height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 20px solid rgba(95,153,207,1);
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 50px solid rgba(95,153,207,1);
+}
+.arrow-down:hover {
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-top: 60px solid rgba(239,97,36,1);
+}
+.arrow-down {
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 .dot-nav {
   margin: 25px auto;
@@ -98,7 +109,7 @@ header h1{
 #infograph-nsfw p {
   width: 50%;
 }
-#infograph-nsfw-img { 
+#infograph-nsfw-img {
   margin: -169px 0 0 400px;
 }
 .nsfw-img{
@@ -121,7 +132,7 @@ body #karma-post {
   margin: 40px 0 0 250px;
   font-size: 2.2em;
 }
-#infograph-karma ul {
+#infograph-karma ol {
   margin: 15px 0 0 291px;
   font-size: 1.6em;
 }

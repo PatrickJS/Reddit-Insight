@@ -174,23 +174,24 @@ footer li a:hover{
     to { transform: rotate(360deg); }
 }
 
+/**************************
+  * D3 Data Visualiztions *
+ **************************/
+
 .node circle {
   fill: #fff;
   stroke: steelblue;
   stroke-width: 1.5px;
 }
-
 .node {
   font: 17px sans-serif;
 }
-
 .link {
   fill: none;
   stroke: #ccc;
   stroke-width: 5px;
 }
-
-#circlecluster {
+#circlecluster, #frequency, #graphs {
   width: 100%;
 }
 #circlecluster .node {
@@ -207,4 +208,40 @@ footer li a:hover{
       -ms-animation: spin 60s linear infinite;
        -o-animation: spin 60s linear infinite;
           animation: spin 60s linear infinite;
+}
+#frequency h3 {
+  text-align: center;
+  font-size: 2.3em;
+  margin: 74px 0 0 0;
+}
+#frequency .node {
+  font: 13px sans-serif;
+}
+#graphs {
+  font: 10px sans-serif;
+}
+#graphs .axis path,
+#graphs .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+#graphs .bar {
+  fill: steelblue;
+}
+#graphs .x.axis path {
+  display: none;
+}
+#graphs h3 {
+  text-align: center;
+  font-size: 2.3em;
+  padding-top: 130px;
+  top: 0;
+}
+#graphs .first-graph {
+  padding-top: 0;
+}
+#graphs .
+#graphs div {
+  margin: -65px 0 40px;
 }

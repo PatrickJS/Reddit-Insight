@@ -6,6 +6,7 @@ Backbone.Controller = Backbone.View.extend({
     return this;
   },
   hide: function() {
+    Redd.trigger('navchange');
     $('section').hide();
     return this;
   }

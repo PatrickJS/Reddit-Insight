@@ -18,7 +18,6 @@ var promises = {};
 var app = express();
 
 require('./config/db')(app);
-
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/WordClouds');
 promises.dataBase = mongoose.connection;
 promises.dataBase.on('err', console.error.bind(console,'Could not connect to database: "'+promises.dataBase.db.databaseName+'".'));
@@ -62,11 +61,6 @@ promises.dataBase.once('open', function(){
       }
       res.send(docs);
     });
-  });
-
-  app.use(function(req, res) {
-    var newUrl = req.protocol + '://' + req.get('Host') + '/#' + req.url;
-    return res.redirect(newUrl);
   });
 
     //start server
