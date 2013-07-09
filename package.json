@@ -1,6 +1,6 @@
 {
   "name": "RedditInsight",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development nodemon server.js",
@@ -16,7 +16,8 @@
     "mongoose": "*",
     "ejs": "*",
     "request": "*",
-    "nodetime": "*"
+    "nodetime": "*",
+    "handlebars-precompiler": "*"
   },
   "engines": {
     "node": "0.10.x",

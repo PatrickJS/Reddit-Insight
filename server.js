@@ -11,6 +11,8 @@ var express = require('express'),
     _ = require('underscore'),
     mongoose = require('mongoose'),
     ejs = require('ejs'),
+    sass = require('node-sass'),
+    hbsPrecompiler = require('handlebars-precompiler'),
     allPostsCollection = require('./dbLibrary.js');
 
 var promises = {};
@@ -23,30 +25,29 @@ promises.dataBase = mongoose.connection;
 promises.dataBase.on('err', console.error.bind(console,'Could not connect to database: "'+promises.dataBase.db.databaseName+'".'));
 promises.dataBase.once('open', function(){
   console.log('Connected to database: "'+promises.dataBase.db.databaseName+'"');
+
+  // all environments
+  app.configure(function(){
+    app.set('port', process.env.PORT || 3000);
+    app.set('views', __dirname + '/views');
+    app.engine('html', ejs.renderFile);
+    app.use(express.favicon());
+    app.use(express.logger('dev'));
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    app.use(app.router);
+    app.use(express.static(path.join(__dirname, '/public')));
+  });
+
+  // development compile Handlebars and show errors
   app.configure('development', function(){
-    hbsPrecompiler = require('handlebars-precompiler');
     hbsPrecompiler.watchDir(
       __dirname + "/public/templates",
       __dirname + "/public/templates/compiled/templates.js",
       ['handlebars', 'hbs']
     );
-  });
-
-  // all environments
-  app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
-  app.engine('html', ejs.renderFile);
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(express.static(path.join(__dirname, '/public')));
-
-  // development only
-  if ('development' == app.get('env')) {
     app.use(express.errorHandler());
-  }
+  });
 
   //routes
   app.get('/', routes.index);
