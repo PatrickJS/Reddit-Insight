@@ -1,13 +1,12 @@
 Redd.Models.WordCloud = Backbone.Model.extend({
   initialize: function() {
     this.set('rotateFunc', this.get(this.get('_rotateFuncChoice')),{silent: true});
-    console.log('initializing');
     this.base = this.url;
-    this.pull(this);
+    // this.pull(); // weird things can happen, such as views rendering that aren't shown yet triggering D3 stuff on elements that have no width
   },
   defaults: {
     'baseUrl': null,
-    'limit': 550,
+    'limit': 250,
     'sizeMultiple': 2,
     'rotateFunc': null,
     'selectedSubreddit': 'GamingNoun',
@@ -29,9 +28,9 @@ Redd.Models.WordCloud = Backbone.Model.extend({
   },
 
   renderCounter: 0,
-  pull: function(self){
-    self.url = self.base + "/"+this.get('selectedSubreddit')+"?limit="+ self.get('limit');
-    self.fetch({
+  pull: function(){
+    this.url = this.base + "/"+this.get('selectedSubreddit')+"?limit="+ this.get('limit');
+    this.fetch({
       success: function(model, res, options){
         console.log('fetch success - res: ', res);
       },
@@ -55,7 +54,7 @@ Redd.Models.WordCloud = Backbone.Model.extend({
         throw "internal error: unexpected rotation functino selected";
       }
     }
-    this.pull(this);
+    this.pull();
   }
 });
 

@@ -41,7 +41,7 @@ nav{
   position:relative;
   top:-50px;
   text-shadow:
-     -1px -1px 0 #fff,  
+     -1px -1px 0 #fff,
       1px -1px 0 #fff,
       -1px 1px 0 #fff,
        1px 1px 0 #fff;
@@ -75,6 +75,9 @@ nav{
 }
 #tracking-url{
   min-width: 25%;
+}
+.main-container {
+  margin-bottom: 3%;
 }
 
 /************
@@ -185,4 +188,23 @@ footer li a:hover{
   fill: none;
   stroke: #ccc;
   stroke-width: 5px;
+}
+
+#circlecluster {
+  width: 100%;
+}
+#circlecluster .node {
+  font: 10px sans-serif;
+}
+#circlecluster .link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+#circlecluster svg {
+  -webkit-animation: spin 60s linear infinite;
+     -moz-animation: spin 60s linear infinite;
+      -ms-animation: spin 60s linear infinite;
+       -o-animation: spin 60s linear infinite;
+          animation: spin 60s linear infinite;
 }

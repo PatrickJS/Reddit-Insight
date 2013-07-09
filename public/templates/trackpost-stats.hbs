@@ -1,0 +1,23 @@
+<a href="{{ url }}" target="_blank">
+  <h4>{{ title }}  <small>  {{ domain }}</small></h4>
+</a>
+  Created at: {{epoch created_utc}}<br>
+<div class="post-info">
+  <a href="{{ data.url }}" target="_blank">
+    <img src="{{ thumbnail }}">
+  </a>
+  <br>
+  Author: <h4 style="display:inline">{{ author }}</h4><br>
+  Subreddit: <h4 style="display:inline">{{ subreddit }}</h4>
+  <br>
+  Score: <h4 style="display:inline">{{ score }}</h4>
+  <br>
+  <i class="icon-arrow-up"></i>: <h4 style="display:inline">{{ ups }}</h4>
+  <br>
+  <i class="icon-arrow-down"></i>: <h4 style="display:inline">{{ downs }}</h4>
+  <br>
+  <a href="http://www.reddit.com{{ permalink }}" target="_blank">
+    Comments: <h4 style="display:inline">{{ num_comments }}</h4>
+  </a>
+
+</div>

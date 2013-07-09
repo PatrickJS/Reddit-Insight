@@ -1,0 +1,58 @@
+{
+  "name": "World News",
+  "children": [
+  {
+	  "name": "Protests in Turkey",
+	  "children": [
+	  {"name": "police", "size": 1},
+	  {"name": "people", "size": 1},
+	  {"name": "turkey", "size": 1},
+	  {"name": "protests", "size": 1},
+	  {"name": "protestors", "size": 1},
+	  {"name": "arrest", "size": 1},
+	  {"name": "shot", "size": 1}
+	  ]
+  },
+  {
+	  "name": "Edward Snowden",
+	  "children": [
+	  {"name": "snowden", "size": 1},
+	  {"name": "edward", "size": 1},
+	  {"name": "asylum", "size": 1},
+	  {"name": "ecuador", "size": 1},
+	  {"name": "russia", "size": 1},
+	  {"name": "nsa", "size": 10},
+	  {"name": "u.s.", "size": 1},
+	  {"name": "rights", "size": 1}
+	  ]
+  },
+  {
+	  "name": "North Korea Tension",
+	  "children": [
+	  {"name": "korea", "size": 1},
+	  {"name": "north", "size": 1},
+	  {"name": "south", "size": 1},
+	  {"name": "china", "size": 1},
+	  {"name": "u.s.", "size": 1},
+	  {"name": "attack", "size": 1},
+	  {"name": "war", "size": 1},
+	  {"name": "kim", "size": 1},
+	  {"name": "missiles", "size": 1}
+	  ]
+  },
+    {
+	  "name": "Little Girl Shot by Taliban",
+	  "children": [
+	  {"name": "stop", "size": 1},
+	  {"name": "school", "size": 1},
+	  {"name": "girls", "size": 1},
+	  {"name": "pakistani", "size": 1},
+	  {"name": "taliban", "size": 1},
+	  {"name": "shot", "size": 1},
+	  {"name": "children", "size": 1},
+	  {"name": "students", "size": 1},
+	  {"name": "girl", "size": 1}
+	  ]
+  }
+  ]
+}

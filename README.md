@@ -1,9 +1,7 @@
 Reddit Insight - Reddit Analytics [![Build Status](https://travis-ci.org/gdi2290/RedditInsight.png?branch=master)](https://travis-ci.org/gdi2290/RedditInsight)
 =============
 TODO:
-* better d3 charts
-* refactor design and UX
-* refactor Trackuser/Trackposts
+* better code reuse for trackuser/trackposts
 * add Users
 * allow Users to save data
 * keep history of charts for Users
@@ -16,6 +14,16 @@ TODO:
 </pre>
 
 ===
+####Handlebars epoch
+
+<pre>
+Handlebars.registerHelper("epoch", function(epoch) {
+    var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
+    d.setUTCSeconds(epoch);
+    return d;
+});
+</pre>
+
 ####Handlebars debugger
 
 <pre>
@@ -59,23 +67,6 @@ Alan
 </pre>
 
 ===
-Handlebars Equal
-<pre>
-{{#equal}}
-</pre>
-
-```javascript
-  Handlebars.registerHelper('equal', function(lvalue, rvalue, options) {
-      if (arguments.length < 3)
-          throw new Error("Handlebars Helper equal needs 2 parameters");
-      if( lvalue!=rvalue ) {
-          return options.inverse(this);
-      } else {
-          return options.fn(this);
-      }
-  });
-```
-
 Handlebars Compare
 <pre>
 {{#compare}}

@@ -1,10 +1,7 @@
-/*
-namespace Redd.d3
-*/
 Redd.d3.CreatePostChart = function(collection) {
-  var timeInt = 4100,
-      bottomRange = collection.last().attributes.score - 50,
-      topRange = collection.last().attributes.score + 50;
+  var bottomRange = collection.last().attributes.score,
+      topRange = collection.last().attributes.score,
+      timeInt = 4100;
 
   var scaleRange = [bottomRange,topRange];
 
@@ -59,11 +56,8 @@ Redd.d3.CreatePostChart = function(collection) {
 
 
   collection.on('add', function() {
-    console.log('yolo add');
-    var score = collection.last().attributes.score;
-
     //updated data pushed to this variable:
-    var data = { Karma: score };
+    var data = { Karma: collection.last().attributes.score };
     //additional data set dilineated by .two .three ...
 
     //add the data to the series
@@ -74,38 +68,5 @@ Redd.d3.CreatePostChart = function(collection) {
 
 
   });
-
-
-  // var iv = setInterval( function() {
-  //     var score = collection.last().attributes.score;
-
-  //     //updated data pushed to this variable:
-  //     var data = { Karma: score };
-  //     //additional data set dilineated by .two .three ...
-
-  //     //add the data to the series
-  //     graph.series.addData(data);
-
-  //     //re render
-  //     graph.render();
-
-
-  // //time offset:
-  // }, timeInt);
-
-  //add toggles
-  offsetForm.addEventListener('change', function(e) {
-        var offsetMode = e.target.value;
-
-        if (offsetMode == 'lines') {
-                graph.setRenderer('line');
-                graph.offset = 'zero';
-        } else {
-                graph.setRenderer('stack');
-                graph.offset = offsetMode;
-        }
-        graph.render();
-
-  }, false);
 
 };

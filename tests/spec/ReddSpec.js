@@ -1,10 +1,11 @@
 describe("Redd global namespace", function() {
-
   beforeEach(function() {
+
   });
 
-  it("should have Backbone", function() {
+  it("should have Backbone", function(done) {
     expect(1).toBe(1);
+    done();
   });
 
   describe("when trackuser button has been pressed", function() {

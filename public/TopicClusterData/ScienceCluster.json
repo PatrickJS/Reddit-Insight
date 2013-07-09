@@ -1,0 +1,74 @@
+{
+  "name": "Science",
+  "children": [
+  {
+	  "name": "Genomic Research",
+	  "children": [
+	  {"name": "human", "size": 1},
+	  {"name": "researchers", "size": 1},
+	  {"name": "cell", "size": 1},
+	  {"name": "dna", "size": 1},
+	  {"name": "genome", "size": 1},
+	  {"name": "discovered", "size": 1},
+	  {"name": "humans", "size": 1},
+	  {"name": "body", "size": 1},
+	  {"name": "years", "size": 1},
+	  {"name": "death", "size": 1}
+	  ]
+  },
+  {
+	  "name": "Evolution of the Earth",
+	  "children": [
+	  {"name": "years", "size": 1},
+	  {"name": "million", "size": 1},
+	  {"name": "scientists", "size": 1},
+	  {"name": "earth", "size": 1},
+	  {"name": "light", "size": 1},
+	  {"name": "billion", "size": 10},
+	  {"name": "ice", "size": 1},
+	  {"name": "life", "size": 1},
+	  {"name": "lake", "size": 1},
+	  {"name": "water", "size": 1},
+	  {"name": "tempratures", "size": 1},
+	  {"name": "star", "size": 1}   
+	  ]
+  },
+  {
+	  "name": "Health Research Findings",
+	  "children": [
+	  {"name": "study", "size": 1},
+	  {"name": "finds", "size": 1},
+	  {"name": "shows", "size": 1},
+	  {"name": "brain", "size": 1},
+	  {"name": "suggests", "size": 1},
+	  {"name": "sleep", "size": 1},
+	  {"name": "children", "size": 1},
+	  {"name": "memory", "size": 1},
+	  {"name": "research", "size": 1},
+	  {"name": "people", "size": 1},
+	  {"name": "disease", "size": 1},
+	  {"name": "genes", "size": 1},
+	  {"name": "ability", "size": 1},
+	  {"name": "cancer", "size": 1},
+	  {"name": "food", "size": 1},
+	  {"name": "percent", "size": 1},
+	  {"name": "risk", "size": 1}	  ]
+  },
+    {
+	  "name": "Stem Cell Research",
+	  "children": [
+	  {"name": "cells", "size": 1},
+	  {"name": "stem", "size": 1},
+	  {"name": "researchers", "size": 1},
+	  {"name": "brain", "size": 1},
+	  {"name": "cancer", "size": 1},
+	  {"name": "skin", "size": 1},
+	  {"name": "diseases", "size": 1},
+	  {"name": "time", "size": 1},
+	  {"name": "help", "size": 1},
+	  {"name": "human", "size": 1},
+	  {"name": "organ", "size": 1}
+	  ]
+  }
+  ]
+}

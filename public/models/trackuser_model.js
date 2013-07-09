@@ -1,4 +1,4 @@
-Redd.Models.TrackUser = Backbone.Model.extend({
+Redd.Models.TrackUser = Backbone.Model.JSONP.extend({
   initialize: function() {
     this.on('usernameSubmitChange', this.usernameSubmit, this);
   },

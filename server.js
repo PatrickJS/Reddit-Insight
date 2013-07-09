@@ -9,38 +9,45 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     _ = require('underscore'),
-    allPostsCollection = require('./dbLibrary.js'),
     mongoose = require('mongoose'),
-    ejs = require('ejs');
+    ejs = require('ejs'),
+    sass = require('node-sass'),
+    hbsPrecompiler = require('handlebars-precompiler'),
+    allPostsCollection = require('./dbLibrary.js');
 
 var promises = {};
 var app = express();
 
 require('./config/db')(app);
 
-var connectionString = process.env.MONGOLAB_URI || "mongodb://localhost/WordClouds";
-mongoose.connect(connectionString);
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/WordClouds');
 promises.dataBase = mongoose.connection;
 promises.dataBase.on('err', console.error.bind(console,'Could not connect to database: "'+promises.dataBase.db.databaseName+'".'));
 promises.dataBase.once('open', function(){
   console.log('Connected to database: "'+promises.dataBase.db.databaseName+'"');
 
-
   // all environments
-  app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
-  app.engine('html', ejs.renderFile);
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(express.static(path.join(__dirname, '/public')));
+  app.configure(function(){
+    app.set('port', process.env.PORT || 3000);
+    app.set('views', __dirname + '/views');
+    app.engine('html', ejs.renderFile);
+    app.use(express.favicon());
+    app.use(express.logger('dev'));
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    app.use(app.router);
+    app.use(express.static(path.join(__dirname, '/public')));
+  });
 
-  // development only
-  if ('development' == app.get('env')) {
+  // development compile Handlebars and show errors
+  app.configure('development', function(){
+    hbsPrecompiler.watchDir(
+      __dirname + "/public/templates",
+      __dirname + "/public/templates/compiled/templates.js",
+      ['handlebars', 'hbs']
+    );
     app.use(express.errorHandler());
-  }
+  });
 
   //routes
   app.get('/', routes.index);
@@ -56,6 +63,11 @@ promises.dataBase.once('open', function(){
       }
       res.send(docs);
     });
+  });
+
+  app.use(function(req, res) {
+    var newUrl = req.protocol + '://' + req.get('Host') + '/#' + req.url;
+    return res.redirect(newUrl);
   });
 
     //start server
