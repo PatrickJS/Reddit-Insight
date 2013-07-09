@@ -1,7 +1,6 @@
 Redd.Models.WordCloud = Backbone.Model.extend({
   initialize: function() {
     this.set('rotateFunc', this.get(this.get('_rotateFuncChoice')),{silent: true});
-    console.log('initializing');
     this.base = this.url;
     // this.pull(); // weird things can happen, such as views rendering that aren't shown yet triggering D3 stuff on elements that have no width
   },

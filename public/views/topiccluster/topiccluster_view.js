@@ -1,6 +1,5 @@
 Redd.Views.TopicCluster = Backbone.View.extend({
   initialize: function() {
-    console.log('in TopicCluster view');
     this.model.on('sync', this.render, this);
     this.model.on('change', this.render, this);
     $('.topiccluster-template select').on('change', this.formHandler);
@@ -12,12 +11,11 @@ Redd.Views.TopicCluster = Backbone.View.extend({
   },
   formHandler: function(e) {
     e.preventDefault();
-    console.log('handling cluster form');
     var obj ={};
     $('#topiccluster').find('option').each(function(index, data){
       if ( $(data).is(':selected') ) {
         obj.subreddit = $(data).val();
-      };
+      }
     });
     this.model.update(obj);
   },
@@ -36,7 +34,7 @@ Redd.Views.TopicCluster = Backbone.View.extend({
     var cluster = d3.layout.cluster()
         // 100 each for ousdie words
         // one cluster is horizontal distance from nodes
-        .size([height, ( width - 250) ]); 
+        .size([height, ( width - 250) ]);
 
     var diagonal = d3.svg.diagonal()
         .projection(function(d) { return [d.y, d.x]; });
@@ -59,7 +57,7 @@ Redd.Views.TopicCluster = Backbone.View.extend({
           .data(nodes)
         .enter().append("g")
           .attr("class", "node")
-          .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+          .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
       node.append("circle")
           .attr("r", 4.5);

@@ -1,6 +1,5 @@
 Redd.Views.CircleCluster = Backbone.View.extend({
   initialize: function() {
-    console.log('in CircleCluster view');
   },
   el: '#circlecluster',
   template: Redd.Templates('circlecluster'),

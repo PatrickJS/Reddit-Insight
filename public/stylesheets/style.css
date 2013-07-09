@@ -41,7 +41,7 @@ nav{
   position:relative;
   top:-50px;
   text-shadow:
-     -1px -1px 0 #fff,  
+     -1px -1px 0 #fff,
       1px -1px 0 #fff,
       -1px 1px 0 #fff,
        1px 1px 0 #fff;
@@ -75,6 +75,9 @@ nav{
 }
 #tracking-url{
   min-width: 25%;
+}
+.main-container {
+  margin-bottom: 3%;
 }
 
 /************

@@ -223,7 +223,6 @@
     <li><a href="#comments">Comments</a></li>
   </ul>
   <div class="tab-content">
- {{debug}}
  <div class="tab-pane active" id="posts">
  {{#each this}}
    {{#compare kind "t3"}}
@@ -248,7 +247,6 @@
  <div class="tab-pane" id="comments">
  {{#each this}}
    {{#compare kind "t1"}}
-         {{debug data.downs}}
          <span class="stats-title">Link Title: </span>{{ data.link_title }}<br>
          <span class="stats-title">Author: </span>{{ data.author }}<br>
          <span class="stats-title">Score: </span>{{ data.score }}<br>
@@ -366,7 +364,6 @@
 
 <script src='/d3/createpostchart.js'></script>
 <script src='/d3/createuserchart.js'></script>
-<script src='/redd_d3.js'></script>
 
 <script src='/redd_controller.js'></script>
 <script src='/router.js'></script>
