@@ -214,3 +214,6 @@ footer li a:hover{
   font-size: 2.3em;
   margin: 74px 0 0 0;
 }
+#frequency .node {
+  font: 13px sans-serif;
+}

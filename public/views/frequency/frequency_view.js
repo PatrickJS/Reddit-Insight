@@ -10,7 +10,7 @@ Redd.Views.Frequency = Backbone.View.extend({
   },
 
   d3: function(){
-    var diameter = $('#frequency').width(),
+    var diameter = ($('#frequency').width()) * 0.9,
         format = d3.format(",d"),
         color = d3.scale.category20();
 
