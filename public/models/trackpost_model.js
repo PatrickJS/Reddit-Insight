@@ -1,6 +1,7 @@
 Redd.Models.TrackPost = Backbone.Model.extend({
   initialize: function() {
     this.pollingLimit = 4000;
+    this.urlLimit = 100;
   },
   url: function() { // TODO: better Regular-Expression
     return this.urlSubmit.replace('www.', 'pay.').replace('http://', 'https://') +'.json?limit='+this.urlLimit+'';
@@ -11,11 +12,16 @@ Redd.Models.TrackPost = Backbone.Model.extend({
   },
 
   poll: function() {
+    this.fetch();
+    this.stopPolling();
+    this.startPolling();
+  },
+  stopPolling: function() {
+    clearInterval(this.timer);
+    this.urlLimit = 100;
+  },
+  startPolling: function() {
     var self = this;
-    self.fetch();
-    // TODO: refactor to setTimeout
-    clearInterval(self.timer);
-    self.urlLimit = 100;
     self.timer = setInterval(function(){
       self.urlLimit = 1;
       self.fetch();
