@@ -113,9 +113,11 @@ function Type(o) {
 function isUndefined(object) {
   return typeof object === "undefined";
 }
+
 /* ------------------------------------ */
 /* Import from Function.js              */
 /* ------------------------------------ */
+
 var slice = Array.prototype.slice;
 function argumentNames(fn) {
   var names = fn.toString().match(/^[\s\(]*function[^(]*\(([^)]*)\)/)[1]
@@ -128,7 +130,7 @@ function wrap(fn, wrapper) {
   return function() {
     var a = update([bind(__method, this)], arguments);
     return wrapper.apply(this, a);
-  }
+  };
 }
 function update(array, args) {
   var arrayLength = array.length, length = args.length;
@@ -1306,7 +1308,7 @@ Rickshaw.Graph.Axis.X = function(args) {
 	this.initialize = function(args) {
 
 		this.graph = args.graph;
-		this.orientation = args.orientation || 'top';
+		this.orientation = args.orientation || 'bottom';
 
 		var pixelsPerTick = args.pixelsPerTick || 75;
 		this.ticks = args.ticks || Math.floor(this.graph.width / pixelsPerTick);
