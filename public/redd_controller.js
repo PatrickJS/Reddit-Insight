@@ -1,4 +1,4 @@
-Redd.Controller = Backbone.View.extend({
+Redd.Controller = Backbone.Controller.extend({
   initialize: function() {
     // this.navBar.setElement(this.$('.navBar'));
     this.navbar    = new Redd.Views.Navbar();
@@ -20,27 +20,5 @@ Redd.Controller = Backbone.View.extend({
     });
     this.circlecluster = new Redd.Views.CircleCluster();
     this.dashboard = new Redd.Views.Dashboard();
-  },
-  el: 'html',
-  show: function(action) {
-    this[action].render();
-    $('#'+action).show();
-    return this;
-  },
-  hide: function() {
-    $('section').hide();
-    return this;
-  },
-  hidePages: function() {
-    $('.main-container').hide();
-  },
-  showPages: function() {
-    $('.main-container').show();
-  },
-  hideFull: function() {
-    $('.full-width-container').hide();
-  },
-  showFull: function() {
-    $('.full-width-container').show();
   }
 });

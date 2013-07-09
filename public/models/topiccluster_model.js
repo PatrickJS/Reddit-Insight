@@ -3,7 +3,6 @@ Redd.Models.TopicCluster = Backbone.Model.extend({
   },
   renderCounter: 0,
   defaults: {
-    height: null,
     selectedSubreddit: 'PoliticsCluster',
     height: 36 * 20,
     path: function(){

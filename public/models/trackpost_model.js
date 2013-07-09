@@ -1,4 +1,4 @@
-Redd.Models.TrackPost = Backbone.Model.extend({
+Redd.Models.TrackPost = Backbone.Model.JSONP.extend({
   initialize: function() {
     this.pollingLimit = 4000;
     this.urlLimit = 100;
@@ -6,7 +6,6 @@ Redd.Models.TrackPost = Backbone.Model.extend({
   url: function() { // TODO: better Regular-Expression
     return this.urlSubmit.replace('www.', 'pay.').replace('http://', 'https://') +'.json?limit='+this.urlLimit+'';
   },
-  sync: Backbone.JSONP.Sync,
   parse: function(data) {
     return data[0].data.children[0].data;
   },
