@@ -6,7 +6,7 @@ Redd.Views.TrackPostChart = Backbone.View.extend({
   template: Redd.Templates('trackpost-chart'),
   render: function(){
     $('#trackpost-chart').html(this.template());
-    Redd.d3.trigger('initPostChart', this.collection);
+    this.d3(this.collection);
     return this;
   }
 });
