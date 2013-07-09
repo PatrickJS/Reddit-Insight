@@ -2,26 +2,32 @@ Redd.d3.CreateUserChart = function(collection) {
   var bottomRange = 0,
       topRange = 200,
       scaleRange = [bottomRange,topRange],
-      scale = [d3.scale.linear().domain(scaleRange).nice()];
-
+      scale = [d3.scale.linear().domain(scaleRange).nice()],
+      count = 0;
   var dataParse = function(){
-    var allPostData = [],
-        dataCount = 0;
-        _(collection.toJSON()).map(function(model){
-          if(model.kind === "t3"){
-            dataCount++;
-            var objectData = {
-              x : dataCount,
-              y : model.data.score
-            };
-            //model.data.title
-            //model.data.score
-            //model.data.created_utc
-            allPostData.push(objectData);
-          }
-        });
-        return allPostData;
-      };
+    var allPostData = [];
+        window.yolo = collection;
+    collection.each(function(model){
+      model = model.attributes;
+
+      if(model.kind === "t3"){
+        var utcSeconds = model.data.created;
+        var d = new Date(0);
+        var utcDate = d.setUTCSeconds(utcSeconds);
+
+        var objectData = {
+          x : count+=1,
+          y : model.data.score,
+          title : model.data.title
+        };
+        //model.data.title
+        //model.data.score
+        // model.data.created;
+        allPostData.push(objectData);
+      }
+    });
+    return allPostData;
+  };
 
   var postData = dataParse();
 
@@ -41,9 +47,8 @@ Redd.d3.CreateUserChart = function(collection) {
 
   var ticksTreatment = 'glow';
 
-  xAxis = new Rickshaw.Graph.Axis.Time( {
-    graph: graph,
-    ticksTreatment: ticksTreatment
+  xAxis = new Rickshaw.Graph.Axis.X( {
+    graph: graph
   } );
 
   xAxis.render();

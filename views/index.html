@@ -265,33 +265,43 @@
 <script id="wordcloud-template" type="text/x-handlebars-template">
 <h2>Word Clouds</h2>
   <form id='wordCloudForm'>
-    <span for='subreddit'>Subreddit:</span>
-    <select name="subreddit">
-      <option value='GamingNoun' {{#if GamingNoun}} selected {{/if}}>Gaming</option>
-      <option value='TechnologyNoun' {{#if TechnologyNoun}} selected {{/if}}>Technology</option>
-      <option value='FunnyNoun' {{#if FunnyNoun}} selected {{/if}}>Funny</option>
-      <option value='AdviceAnimalsNoun' {{#if AdviceAnimalsNoun}} selected {{/if}}>Advice Animals</option>
-      <option value='MineCraftNoun' {{#if MineCraftNoun}} selected {{/if}}>Mine Craft</option>
-      <option value='WTFNoun' {{#if WTFNoun}} selected {{/if}}>WTF</option>
-      <option value='AwwNoun' {{#if AwwNoun}} selected {{/if}}>Aww</option>
-      <option value='GIFNoun' {{#if GIFNoun}} selected {{/if}}>GIF</option>
-      <option value='LeageOfLegendsNoun' {{#if LeageOfLegendsNoun}} selected {{/if}}>Leage Of Legends</option>
-      <option value='PicsNoun' {{#if PicsNoun}} selected {{/if}}>Pics</option>
-      <option value='PoliticsNoun' {{#if PoliticsNoun}} selected {{/if}}>Politics</option>
-      <option value='ScienceNoun' {{#if ScienceNoun}} selected {{/if}}>Science</option>
-      <option value='TodayILearnedNoun' {{#if TodayILearnedNoun}} selected {{/if}}>Today I Learned</option>
-      <option value='TreesNoun' {{#if TreesNoun}} selected {{/if}}>Trees</option>
-      <option value='VideosNoun' {{#if VideosNoun}} selected {{/if}}>Videos</option>
-      <option value='WorldNewsNoun' {{#if WorldNewsNoun}} selected {{/if}}>World News</option>
-      <option value='NSFWNoun' {{#if NSFWNoun}} selected {{/if}}>NSFW</option>
-    </select>
-    <span>Number of Items pulled:</span>
-    <input type='input' name='limit' value="{{ limit }}">
-    <span for='sizeMultiple'>Size Multiplyer</span>
-    <input type='input' name='sizeMultiple' value="{{ sizeMultiple }}">
-    <input type='radio' name='viewType' {{#if _rotate90discrete}} checked {{/if}} value="_rotate90discrete"> Horizontal and Vertical
-    <input type='radio' name='viewType' {{#if _rotate180continuous}} checked {{/if}} value='_rotate180continuous'> All Angles
-    <input class='btn' type='submit' value='submit'>
+    <div class="row-fluid">
+      <span class="span2" for='subreddit'>Subreddit:</span>
+      <select class="span2" name="subreddit">
+        <option value='GamingNoun' {{#if GamingNoun}} selected {{/if}}>Gaming</option>
+        <option value='TechnologyNoun' {{#if TechnologyNoun}} selected {{/if}}>Technology</option>
+        <option value='FunnyNoun' {{#if FunnyNoun}} selected {{/if}}>Funny</option>
+        <option value='AdviceAnimalsNoun' {{#if AdviceAnimalsNoun}} selected {{/if}}>Advice Animals</option>
+        <option value='MineCraftNoun' {{#if MineCraftNoun}} selected {{/if}}>Mine Craft</option>
+        <option value='WTFNoun' {{#if WTFNoun}} selected {{/if}}>WTF</option>
+        <option value='AwwNoun' {{#if AwwNoun}} selected {{/if}}>Aww</option>
+        <option value='GIFNoun' {{#if GIFNoun}} selected {{/if}}>GIF</option>
+        <option value='LeageOfLegendsNoun' {{#if LeageOfLegendsNoun}} selected {{/if}}>Leage Of Legends</option>
+        <option value='PicsNoun' {{#if PicsNoun}} selected {{/if}}>Pics</option>
+        <option value='PoliticsNoun' {{#if PoliticsNoun}} selected {{/if}}>Politics</option>
+        <option value='ScienceNoun' {{#if ScienceNoun}} selected {{/if}}>Science</option>
+        <option value='TodayILearnedNoun' {{#if TodayILearnedNoun}} selected {{/if}}>Today I Learned</option>
+        <option value='TreesNoun' {{#if TreesNoun}} selected {{/if}}>Trees</option>
+        <option value='VideosNoun' {{#if VideosNoun}} selected {{/if}}>Videos</option>
+        <option value='WorldNewsNoun' {{#if WorldNewsNoun}} selected {{/if}}>World News</option>
+        <option value='NSFWNoun' {{#if NSFWNoun}} selected {{/if}}>NSFW</option>
+      </select>
+    </div>
+    <div class="row-fluid">
+      <span class="span2" >Number of Items pulled:</span>
+      <input class="span2" type='input' name='limit' value="{{ limit }}">
+    </div>
+    <div class="row-fluid">
+      <span class="span2" for='sizeMultiple'>Size Multiplyer</span>
+      <input class="span2" type='input' name='sizeMultiple' value="{{ sizeMultiple }}">
+    </div>
+    <div class="row-fluid">
+      <input type='radio' name='viewType' {{#if _rotate90discrete}} checked {{/if}} value="_rotate90discrete"> Horizontal and Vertical
+      <input type='radio' name='viewType' {{#if _rotate180continuous}} checked {{/if}} value='_rotate180continuous'> All Angles
+    </div>
+    <div class="row-fluid">
+      <button class='btn'>Submit</button>
+    </div>
   </form>
 </script>
 
