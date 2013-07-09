@@ -154,8 +154,8 @@ function bind(fn, context) {
 var emptyFunction = function(){};
 
 var Class = (function() {
-  
-  // Some versions of JScript fail to enumerate over properties, names of which 
+
+  // Some versions of JScript fail to enumerate over properties, names of which
   // correspond to non-enumerable properties in the prototype chain
   var IS_DONTENUM_BUGGY = (function(){
     for (var p in { toString: 1 }) {
@@ -164,7 +164,7 @@ var Class = (function() {
     }
     return true;
   })();
-  
+
   function subclass() {};
   function create() {
     var parent = null, properties = [].slice.apply(arguments);
@@ -1112,7 +1112,7 @@ Rickshaw.Graph.Annotate = function(args) {
 
 	var graph = this.graph = args.graph;
 	this.elements = { timeline: args.element };
-	
+
 	var self = this;
 
 	this.data = {};
@@ -1155,7 +1155,7 @@ Rickshaw.Graph.Annotate = function(args) {
 						if ( box.rangeElement ) box.rangeElement.classList.toggle('active');
 					});
 				}, false);
-					
+
 			}
 
 			annotation.element.style.left = left + 'px';
@@ -1274,9 +1274,9 @@ Rickshaw.Graph.Axis.Time = function(args) {
 		var offsets = this.tickOffsets();
 
 		offsets.forEach( function(o) {
-			
+
 			if (self.graph.x(o.value) > self.graph.x.range()[1]) return;
-	
+
 			var element = document.createElement('div');
 			element.style.left = self.graph.x(o.value) + 'px';
 			element.classList.add('x_tick');
@@ -1645,7 +1645,7 @@ Rickshaw.Graph.Behavior.Series.Order = function(args) {
 	}
 
 	$(function() {
-		$(self.legend.list).sortable( { 
+		$(self.legend.list).sortable( {
 			containment: 'parent',
 			tolerance: 'pointer',
 			update: function( event, ui ) {
@@ -1666,7 +1666,7 @@ Rickshaw.Graph.Behavior.Series.Order = function(args) {
 	});
 
 	//hack to make jquery-ui sortable behave
-	this.graph.onUpdate( function() { 
+	this.graph.onUpdate( function() {
 		var h = window.getComputedStyle(self.legend.element).height;
 		self.legend.element.style.height = h;
 	} );
@@ -1690,12 +1690,12 @@ Rickshaw.Graph.Behavior.Series.Toggle = function(args) {
 			if (line.series.disabled) {
 				line.series.enable();
 				line.element.classList.remove('disabled');
-			} else { 
+			} else {
 				line.series.disable();
 				line.element.classList.add('disabled');
 			}
 		};
-		
+
                 var label = line.element.getElementsByTagName('span')[0];
                 label.onclick = function(e){
 
@@ -1771,13 +1771,13 @@ Rickshaw.Graph.Behavior.Series.Toggle = function(args) {
 	this._addBehavior = function() {
 
 		this.graph.series.forEach( function(s) {
-			
+
 			s.disable = function() {
 
 				if (self.graph.series.length <= 1) {
 					throw('only one series left');
 				}
-				
+
 				s.disabled = true;
 				self.graph.update();
 			};
@@ -2120,7 +2120,7 @@ Rickshaw.Graph.RangeSlider = Rickshaw.Class.create({
 				range: true,
 				min: graph.dataDomain()[0],
 				max: graph.dataDomain()[1],
-				values: [ 
+				values: [
 					graph.dataDomain()[0],
 					graph.dataDomain()[1]
 				],
@@ -2412,7 +2412,7 @@ Rickshaw.Graph.Renderer.Bar = Rickshaw.Class.create( Rickshaw.Graph.Renderer, {
 		var data = stackedData.slice(-1).shift();
 
 		var frequentInterval = this._frequentInterval();
-		var barWidth = this.graph.x(data[0].x + frequentInterval.magnitude * (1 - this.gapSize)); 
+		var barWidth = this.graph.x(data[0].x + frequentInterval.magnitude * (1 - this.gapSize));
 
 		return barWidth;
 	},
@@ -2442,7 +2442,7 @@ Rickshaw.Graph.Renderer.Bar = Rickshaw.Class.create( Rickshaw.Graph.Renderer, {
 			var nodes = graph.vis.selectAll("path")
 				.data(series.stack.filter( function(d) { return d.y !== null } ))
 				.enter().append("svg:rect")
-				.attr("x", function(d) { return graph.x(d.x) + barXOffset })
+				.attr("x", function(d) { return graph.x(d.x) + barXOffset})
 				.attr("y", function(d) { return (graph.y(d.y0 + Math.abs(d.y))) * (d.y < 0 ? -1 : 1 ) })
 				.attr("width", seriesBarWidth)
 				.attr("height", function(d) { return graph.y.magnitude(Math.abs(d.y)) })
@@ -2738,8 +2738,8 @@ Rickshaw.Series = Rickshaw.Class.create( Array, {
 
 		this.palette = new Rickshaw.Color.Palette(palette);
 
-		this.timeBase = typeof(options.timeBase) === 'undefined' ? 
-			Math.floor(new Date().getTime() / 1000) : 
+		this.timeBase = typeof(options.timeBase) === 'undefined' ?
+			Math.floor(new Date().getTime() / 1000) :
 			options.timeBase;
 
 		var timeInterval = typeof(options.timeInterval) == 'undefined' ?
@@ -2769,7 +2769,7 @@ Rickshaw.Series = Rickshaw.Class.create( Array, {
 			} );
 		} else if (item.data.length === 0) {
 			item.data.push({ x: this.timeBase - (this.timeInterval || 0), y: 0 });
-		} 
+		}
 
 		this.push(item);
 
@@ -2789,9 +2789,9 @@ Rickshaw.Series = Rickshaw.Class.create( Array, {
 		}, this );
 
 		this.forEach( function(item) {
-			item.data.push({ 
-				x: (index * this.timeInterval || 1) + this.timeBase, 
-				y: (data[item.name] || 0) 
+			item.data.push({
+				x: (index * this.timeInterval || 1) + this.timeBase,
+				y: (data[item.name] || 0)
 			});
 		}, this );
 	},
@@ -2877,7 +2877,7 @@ Rickshaw.Series.fill = function(series, fill) {
 
 	while ( i < Math.max.apply(null, data.map( function(d) { return d.length } )) ) {
 
-		x = Math.min.apply( null, 
+		x = Math.min.apply( null,
 			data
 				.filter(function(d) { return d[i] })
 				.map(function(d) { return d[i].x })
