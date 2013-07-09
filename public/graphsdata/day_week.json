@@ -1,0 +1,30 @@
+[
+{
+"letter": "Monday",
+"frequency": 135103
+},
+{
+"letter": "Tuesday",
+"frequency": 19744
+},
+{
+"letter": "Wendesday",
+"frequency": 19805
+},
+{
+"letter": "Thursday",
+"frequency": 19331
+},
+{
+"letter": "Friday",
+"frequency": 17794
+},
+{
+"letter": "Saturday",
+"frequency": 16531
+},
+{
+"letter": "Sunday",
+"frequency": 18163
+}
+]

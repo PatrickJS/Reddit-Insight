@@ -191,7 +191,7 @@ footer li a:hover{
   stroke: #ccc;
   stroke-width: 5px;
 }
-#circlecluster, #frequency {
+#circlecluster, #frequency, #graphs {
   width: 100%;
 }
 #circlecluster .node {
@@ -216,4 +216,32 @@ footer li a:hover{
 }
 #frequency .node {
   font: 13px sans-serif;
+}
+#graphs {
+  font: 10px sans-serif;
+}
+#graphs .axis path,
+#graphs .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+#graphs .bar {
+  fill: steelblue;
+}
+#graphs .x.axis path {
+  display: none;
+}
+#graphs h3 {
+  text-align: center;
+  font-size: 2.3em;
+  padding-top: 130px;
+  top: 0;
+}
+#graphs .first-graph {
+  padding-top: 0;
+}
+#graphs .
+#graphs div {
+  margin: -65px 0 40px;
 }
