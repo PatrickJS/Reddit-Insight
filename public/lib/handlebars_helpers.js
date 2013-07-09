@@ -1,9 +1,12 @@
 // {{debug}} helper
 Handlebars.registerHelper("debug", function(optionalValue) {
+  window.Debug = window.Debug || {};
   console.log("=====-Current-Context-=====");
   console.log(this);
+  window.Debug.hbs.context = this;
 
   if (optionalValue) {
+    window.Debug.hbs.val = this;
     console.log("==========-Value-==========");
     console.log(optionalValue);
     console.log("===========================");
@@ -11,7 +14,7 @@ Handlebars.registerHelper("debug", function(optionalValue) {
     console.log("===========================");
   }
 });
-// {{utc}} helper
+// {{epoch to utc}} helper
 Handlebars.registerHelper("epoch", function(epoch) {
     var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
     d.setUTCSeconds(epoch);

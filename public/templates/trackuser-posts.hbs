@@ -1,0 +1,42 @@
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#posts">Posts</a></li>
+  <li><a href="#comments">Comments</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="posts">
+{{#each this}}
+ {{#compare kind "t3"}}
+       <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
+         <h4>{{ data.title }}</h4>
+       </a>
+       {{#compare data.thumbnail '!==' 'default'}}
+       <a href="{{ data.url }}" target="_blank">
+         <img src="{{ data.thumbnail }}">
+       </a>
+       {{/compare}}
+       <br>
+       <span class="stats-title">Author: </span>{{ data.author }}<br>
+       <span class="stats-title">Score: </span>{{ data.score }}<br>
+       <span class="stats-title"><i class="icon-arrow-up"></i>: </span>{{ data.ups }}</br>
+       <span class="stats-title"><i class="icon-arrow-down"></i>: </span>{{ data.downs }}<br>
+      <span class="stats-title">Created at: </span>{{epoch data.created_utc}}<br>
+       <span class="stats-title">Comments: </span>{{ data.num_comments }}<br>
+       <hr>
+ {{/compare}}
+{{/each}}
+</div>
+<div class="tab-pane" id="comments">
+{{#each this}}
+ {{#compare kind "t1"}}
+       <span class="stats-title">Link Title: </span>{{ data.link_title }}<br>
+       <span class="stats-title">Author: </span>{{ data.author }}<br>
+       <span class="stats-title">Score: </span>{{ data.score }}<br>
+       <span class="stats-title"><i class="icon-arrow-up"></i>: </span>{{ data.ups }}</br>
+       <span class="stats-title"><i class="icon-arrow-down"></i>: </span>{{ data.downs }}<br>
+       <span class="stats-title">Sub Reddit: </span>{{ data.subreddit }}<br>
+       <span class="stats-title">Created at: </span>{{epoch data.created_utc}}<br>
+       <span class="stats-title">Comment: </span>{{ data.body }}<br>
+       <hr>
+ {{/compare}}
+{{/each}}
+</div>

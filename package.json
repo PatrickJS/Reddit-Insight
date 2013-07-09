@@ -1,6 +1,6 @@
 {
   "name": "RedditInsight",
-  "version": "0.0.2",
+  "version": "0.1.5",
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development nodemon server.js",
