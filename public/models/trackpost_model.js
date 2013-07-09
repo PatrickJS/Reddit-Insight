@@ -16,9 +16,9 @@ Redd.Models.TrackPost = Backbone.Model.extend({
     this.stopPolling();
     this.startPolling();
   },
-  stopPolling: function() {
+  stopPolling: function(limit) {
     clearInterval(this.timer);
-    this.urlLimit = 100;
+    this.urlLimit = limit || 100;
   },
   startPolling: function() {
     var self = this;
