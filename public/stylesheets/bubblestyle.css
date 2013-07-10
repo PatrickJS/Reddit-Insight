@@ -1,27 +1,27 @@
-.axis path,
-.axis line {
+#interaction .axis path,
+#interaction .axis line {
 	fill: none;
 	stroke: #000;
 	shape-rendering: crispEdges;
 	opacity: 1;
 }
 
-.axis text { font-size:10px; }
+#interaction .axis text { font-size:10px; }
 
-.circles { opacity: .5; }
+#interaction .circles { opacity: .5; }
 
-.tool{font-size: 15px; margin: 2px 0 2px 0;}
+#interaction .tool{font-size: 15px; margin: 2px 0 2px 0;}
 
-.guide line {
+#interaction .guide line {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
   opacity: 0;
 }
 
-.SubredditSelector{margin-right: auto; margin-left: auto; text-align: center;}
+#interaction .SubredditSelector{margin-right: auto; margin-left: auto; text-align: center;}
 
-#chart{position: relative; width: 900px; margin-right: auto; margin-left: auto; float: none; }
+#interaction #chart{position: relative; width: 900px; margin-right: auto; margin-left: auto; float: none; }
 
 .tipsy { padding: 5px; font-size: 20px; position: absolute; z-index: 100000; margin-top:-10px; padding: 5px }
 .tipsy-inner { padding: 5px 8px 4px 8px; background-color: black; color: white; max-width: 200px; text-align: center; }

@@ -103,12 +103,12 @@ nav{
 /************
   * Charts *
  ************/
-.y-axis{
+#chart_container .y-axis{
   margin:100px 10px 10px 10px;
   float:left;
 }
 
-.x-axis{
+#chart_container .x-axis{
   float:left;
   position:relative;
   left:300px;
