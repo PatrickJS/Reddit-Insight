@@ -1,6 +1,4 @@
 Redd.Views.Header = Backbone.View.extend({
-  initialize: function() {
-  },
   el: 'header',
   template: Redd.Templates('header'),
   render: function(){

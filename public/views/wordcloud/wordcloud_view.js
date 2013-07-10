@@ -23,60 +23,35 @@ Redd.Views.WordCloud = Backbone.View.extend({
       limit: this.model.get('limit'),
       sizeMultiple: this.model.get('sizeMultiple')
     };
+
+    var _rotateFuncChoice = this.model.get('_rotateFuncChoice');
+    var selectedSubreddit = this.model.get('selectedSubreddit');
+
     //no comparison operators in handlebars!!
-    if (this.model.get('_rotateFuncChoice') === '_rotate90discrete') {
+    if (_rotateFuncChoice === '_rotate90discrete') {
       obj._rotate90discrete = '_rotate90discrete';
-    } else if (this.model.get('_rotateFuncChoice') === '_rotate180continuous') {
+    }
+    else if (_rotateFuncChoice === '_rotate180continuous') {
       obj._rotate180continuous = '_rotate180continuous';
     }
-    if (this.model.get('selectedSubreddit') === 'TechnologyNoun') {
-      obj.TechnologyNoun = 'TechnologyNoun';
-    } else if (this.model.get('selectedSubreddit') === 'GamingNoun') {
-      obj.GamingNoun = 'GamingNoun';
-    } else if (this.model.get('selectedSubreddit') === 'FunnyNoun') {
-      obj.FunnyNoun = 'FunnyNoun';
-    } else if (this.model.get('selectedSubreddit') === 'AdviceAnimalsNoun') {
-      obj.AdviceAnimalsNoun = 'AdviceAnimalsNoun';
-    }else if (this.model.get('selectedSubreddit') === 'MineCraftNoun') {
-      obj.MineCraftNoun = 'MineCraftNoun';
-    }else if (this.model.get('selectedSubreddit') === 'WTFNoun') {
-      obj.WTFNoun = 'WTFNoun';
-    }else if (this.model.get('selectedSubreddit') === 'AwwNoun') {
-      obj.AwwNoun = 'AwwNoun';
-    }else if (this.model.get('selectedSubreddit') === 'GIFNoun') {
-      obj.GIFNoun = 'GIFNoun';
-    }else if (this.model.get('selectedSubreddit') === 'LeageOfLegendsNoun') {
-      obj.LeageOfLegendsNoun = 'LeageOfLegendsNoun';
-    }else if (this.model.get('selectedSubreddit') === 'PicsNoun') {
-      obj.PicsNoun = 'PicsNoun';
-    }else if (this.model.get('selectedSubreddit') === 'PoliticsNoun') {
-      obj.PoliticsNoun = 'PoliticsNoun';
-    }else if (this.model.get('selectedSubreddit') === 'ScienceNoun') {
-      obj.ScienceNoun = 'ScienceNoun';
-    }else if (this.model.get('selectedSubreddit') === 'TodayILearnedNoun') {
-      obj.TodayILearnedNoun = 'TodayILearnedNoun';
-    }else if (this.model.get('selectedSubreddit') === 'TreesNoun') {
-      obj.TreesNoun = 'TreesNoun';
-    }else if (this.model.get('selectedSubreddit') === 'VideosNoun') {
-      obj.VideosNoun = 'VideosNoun';
-    }else if (this.model.get('selectedSubreddit') === 'WorldNewsNoun') {
-      obj.WorldNewsNoun = 'WorldNewsNoun';
-    }else if (this.model.get('selectedSubreddit') === 'NSFWNoun') {
-      obj.NSFWNoun = 'NSFWNoun';
-    }
-    if (this.model.get('wordArray') ) {
+
+    obj[selectedSubreddit] = selectedSubreddit;
+
+    var wordArray = this.model.get('wordArray');
+    if (wordArray) {
       this.$el.html(this.template(obj));
       this.d3Stuff('#wordcloud');
       // this.$('svg').css('background-color', 'black');
       this.$('svg').addClass('word-cloud');
       console.log('WordCloudView has been rendered ' + (this.model.renderCounter += 1) + " times");
     }
+
     return this;
   },
   formHandler: function(e) {
     e.preventDefault();
-    console.log('handling form');
     var obj ={};
+
     $('#wordCloudForm').find('input').each(function(index, data){
       var dataType    = $(data).attr('type'),
           dataName    = $(data).attr('name'),
@@ -86,11 +61,13 @@ Redd.Views.WordCloud = Backbone.View.extend({
         obj[dataName] = $(data).val();
       }
     });
+
     $('#wordCloudForm').find('option').each(function(index, data){
       if ( $(data).is(':selected') ) {
         obj.subreddit = $(data).val();
-      };
+      }
     });
+
     this.model.update(obj);
   },
   d3Stuff: function(parentEl){

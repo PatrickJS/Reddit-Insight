@@ -34,5 +34,10 @@ Redd.Controller = Backbone.Controller.extend({
   },
   showFull: function() {
     $('.full-width-container').show();
+  },
+  show: function(name) {
+    Backbone.Controller.prototype.show.apply(this, arguments);
+    $('.navbar li').removeClass("active");
+    $("a[href$='"+name+"']").parent().addClass("active");
   }
 });
