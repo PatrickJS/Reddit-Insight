@@ -30,13 +30,8 @@ Redd.Models.WordCloud = Backbone.Model.extend({
   renderCounter: 0,
   pull: function(){
     this.url = this.base + "/"+this.get('selectedSubreddit')+"?limit="+ this.get('limit');
-    this.fetch({
-      success: function(model, res, options){
-        console.log('fetch success - res: ', res);
-      },
-      error: function(model, res, options){
+    $.when(this.fetch()).fail(function(model, res, options) {
         console.log('fetch error - res: ', res);
-      }
     });
   },
   update: function(obj) {

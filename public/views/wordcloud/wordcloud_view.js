@@ -43,7 +43,6 @@ Redd.Views.WordCloud = Backbone.View.extend({
       this.d3Stuff('#wordcloud');
       // this.$('svg').css('background-color', 'black');
       this.$('svg').addClass('word-cloud');
-      console.log('WordCloudView has been rendered ' + (this.model.renderCounter += 1) + " times");
     }
 
     return this;

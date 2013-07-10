@@ -10,7 +10,6 @@ Redd.Views.TrackPostStats = Backbone.View.extend({
   },
 
   newPost: function() {
-    console.log('trackpost sync');
     $('.loader').hide();
     this.render();
     this.collection.addModel(this.model.attributes);
