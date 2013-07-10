@@ -250,7 +250,7 @@ Redd.d3.BubblePie = function(collection) {
             .attr({
               cx: function(d) { return x(+d.total_karma);},
               cy: function(d) { return y(+d.comments);},
-              r:  function(d) { return Math.abs(Math.log(+d.likes / +d.dislikes)) *10;},
+              r:  function(d) { return Math.abs(Math.log(+d.likes / +d.dislikes)) *10 +10;},
               id: function(d) { return d.subreddit;}
             })
             .style("fill", function(d) { return color(d.subreddit); });
