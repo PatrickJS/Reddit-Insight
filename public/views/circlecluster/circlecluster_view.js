@@ -1,8 +1,7 @@
 Redd.Views.CircleCluster = Backbone.View.extend({
-  initialize: function() {
-  },
   el: '#circlecluster',
   template: Redd.Templates('circlecluster'),
+  
   render: function(){
     this.$el.html(this.template());
     this.d3();
@@ -12,7 +11,7 @@ Redd.Views.CircleCluster = Backbone.View.extend({
   d3: function(){
     var diameter = $('#circlecluster').width();
 
-    //error check on 0 width to avoid crashing
+    // Error check on 0 width to avoid crashing
     if (diameter === 0) {
       return;
     }

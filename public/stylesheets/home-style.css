@@ -4,32 +4,33 @@
   border-right: none;
   border-bottom: none;
 }
+
 header{
   height: 230px;
   background-position: 50% 20%;
 }
-header h1{
-  margin:1% auto 0 auto;
-  width:100%;
+
+header h1 {
+  margin: 1% auto 0 auto;
+  width: 100%;
 
   position: relative;
-  top:10%;
+  top: 10%;
 
-  text-align: center;
-  color:#fff;
+  color: white;
   font-weight: 700;
   font-size: 14em;
-
   line-height: 1.1em;
-  letter-spacing: -.05em;
+  letter-spacing: -0.05em;
   word-spacing: 1.2em;
-
+  text-align: center;
   text-shadow: 0 0 1px rgba(95,153,207,1);
-
 }
+
 #dashboard {
   padding-bottom: 1000px;
 }
+
 #dashboard section {
   text-align: left;
   color: rgba(239,97,36,1);
@@ -37,113 +38,144 @@ header h1{
   overflow: hidden;
   position: relative;
 }
+
 #dashboard p {
   font-size:1.4em;
 }
-#dashboard section .small{
+
+#dashboard section .small {
   font-size: 1.2em;
 }
+
 #dashboard h2 {
   top: 0;
   text-align: center;
 }
+
 .downloaded {
   margin-top: 100px;
 }
+
 .nugget-nav {
+  margin-top: 50px;
+
   color: #777;
   font-weight: 700;
   font-size: 4em;
   letter-spacing: -.1em;
   text-shadow:
-     -1px -1px 0 #fff,
-      1px -1px 0 #fff,
-      -1px 1px 0 #fff,
-       1px 1px 0 #fff;
-  margin-top: 50px;
+     -1px -1px 0 white,
+      1px -1px 0 white,
+      -1px 1px 0 white,
+       1px 1px 0 white;
   text-align: center;
 }
+
 .arrow-down {
   margin: 50px auto 20px;
   width: 0;
   height: 0;
+
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
   border-top: 50px solid rgba(95,153,207,1);
 }
+
 .arrow-down:hover {
   border-left: 60px solid transparent;
   border-right: 60px solid transparent;
   border-top: 60px solid rgba(239,97,36,1);
 }
+
 .arrow-down {
   -webkit-transition: all 0.15s ease-in-out;
   -moz-transition: all 0.15s ease-in-out;
   -o-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
 }
+
 .dot-nav {
   margin: 25px auto;
+
   text-align: center;
 }
+
 #infograph-start {
   margin-top:200px;
 }
+
 #infograph-cats{
   margin: 300px 0 0 215px;
 }
+
 #infograph-cats p{
   width: 74%;
 }
+
 #infograph-cats-img {
   width: 50%;
   margin: -166px 0 60px 104px;
 }
-.cat-img{
+
+.cat-img {
   height:200px;
   opacity:.8;
 }
-#infograph-nsfw{
+
+#infograph-nsfw {
   margin: -15px 0 0 40%;
 }
+
 #infograph-nsfw p {
   width: 50%;
 }
+
 #infograph-nsfw-img {
   margin: -169px 0 0 400px;
 }
+
 .nsfw-img{
   height:200px;
   opacity:.8;
 }
+
 body #karma-post {
   width: 580px;
+  margin: 38px 0 0 580px;
+
   line-height: 1.7em;
   font-size: 2.6em;
-  margin: 38px 0 0 580px;
 }
+
 #karma-post span {
   color: rgba(95,153,207,1);
 }
+
 #dashboard #infograph-karma {
   margin: 200px auto 0;
 }
+
 #infograph-karma p {
   margin: 40px 0 0 250px;
   font-size: 2.2em;
 }
+
 #infograph-karma ol {
   margin: 15px 0 0 291px;
   font-size: 1.6em;
 }
+
 #infograph-karma li {
   line-height: 1.4em;
 }
+
 #dashboard #infograph-cluster, #dashboard #infograph-bubble {
+  margin: 200px auto 0;
+
   text-align: center;
   font-size: 1.6em;
-  margin: 200px auto 0;
 }
+
 #infograph-cluster p, #infograph-bubble p {
   padding-top: 20px;
 }

@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 
-module.exports = new mongoose.Schema({
+var Noun = new mongoose.Schema({
   noun: String,
   frequency: Number
 });
+
+module.exports = Noun;

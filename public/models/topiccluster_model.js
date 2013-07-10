@@ -1,6 +1,4 @@
 Redd.Models.TopicCluster = Backbone.Model.extend({
-  initialize: function() {
-  },
   renderCounter: 0,
   defaults: {
     selectedSubreddit: 'PoliticsCluster',
