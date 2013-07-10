@@ -286,7 +286,7 @@ footer li a:hover{
 
 #graphs h3 {
   top: 0;
-  padding-top: 130px;
+  padding-top: 60px;
 
   text-align: center;
   font-size: 2.3em;
@@ -297,7 +297,7 @@ footer li a:hover{
 }
 
 #graphs div {
-  margin: -65px 0 40px;
+  margin: -5px 0 40px;
 }
 
 .node circle:hover{
