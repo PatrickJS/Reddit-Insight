@@ -32,7 +32,7 @@ Redd.Views.TrackPost = Backbone.View.extend({
       this.model.poll();
       $('#tracking-url').val('');
     }
-      return false;
+    return false;
   },
   slideUp: function() {
     $('.loader').fadeIn();
