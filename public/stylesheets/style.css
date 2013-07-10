@@ -233,7 +233,7 @@ footer li a:hover{
   stroke-width: 5px;
 }
 
-#circlecluster, #frequency, #graphs {
+#circlecluster, #frequency, #graphs, #interaction {
   width: 100%;
 }
 

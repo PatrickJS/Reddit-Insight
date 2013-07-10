@@ -5,7 +5,6 @@ Redd.Views.Graphs = Backbone.View.extend({
     this.$el.html(this.template());
     this.d3('comments');
     this.d3('karma_subreddit');
-    this.d3('day_week');
     return this;
   },
 
