@@ -3,7 +3,7 @@
   "version": "0.1.6",
   "private": true,
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "NODE_ENV=development nodemon server.js",
     "test": "jasmine-node tests/spec/"
   },
   "repository" : {
