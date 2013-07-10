@@ -13,6 +13,7 @@
   <link href='/lib/css/ladda.min.css' rel='stylesheet'>
   <link href='/stylesheets/style.css' rel='stylesheet'>
   <link href='/stylesheets/home-style.css' rel='stylesheet'>
+  <link href='/stylesheets/bubblestyle.css' rel='stylesheet'>
 
   <title>Reddit Insight</title>
 
@@ -27,6 +28,7 @@
     <section id="wordcloud"></section>
     <section id="circlecluster"></section>
     <section id="frequency"></section>
+    <section id="interaction"></section>
   </div>
 
   <div class="container-fluid main-container">
@@ -59,6 +61,7 @@
 <script src='/lib/js/TweenMax.min.js'></script>
 <script src='/lib/js/jquery.superscrollorama.js'></script>
 <script src='/lib/handlebars_helpers.js'></script>
+<script src="/lib/js/jquery.tipsy.js"></script>
 
 <script src='/templates/compiled/templates.js'></script>
 
@@ -92,11 +95,13 @@
 <script src='/views/circlecluster/circlecluster_view.js'></script>
 <script src='/views/frequency/frequency_view.js'></script>
 <script src='/views/graphs/graphs_view.js'></script>
+<script src='/views/interaction_view.js'></script>
 
 <script src='/views/wordcloud/wordcloud_view.js'></script>
 
 <script src='/d3/createpostchart.js'></script>
 <script src='/d3/createuserchart.js'></script>
+<script src="/d3/bubblepie.js"></script>
 
 <script src='/redd_controller.js'></script>
 <script src='/router.js'></script>

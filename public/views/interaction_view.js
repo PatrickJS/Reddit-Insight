@@ -5,10 +5,7 @@ Redd.Views.Interaction = Backbone.View.extend({
 
   render: function(){
     this.$el.html(this.template());
-    this.d3();
+    Redd.d3.BubblePie();
     return this;
-  },
-
-  d3: function(){
   }
 });
