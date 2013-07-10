@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-    nounSchema = require('./schemas/noun.js');
+    nounSchema = require('../db/schemas/noun.js');
 
 module.exports = function(app) {
   // Create a connection

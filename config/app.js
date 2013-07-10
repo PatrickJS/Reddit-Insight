@@ -22,7 +22,7 @@ module.exports = function() {
   require('./environments')(app);
 
   // Database configuration
-  require('../db/db')(app);
+  require('./database')(app);
 
   // Routes
   require('./routes')(app);
