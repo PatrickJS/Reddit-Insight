@@ -90,13 +90,15 @@ module.exports = {
 
     dataBase.once('open', function(){
       console.log('connected to dataBase: ', dataBase.db.databaseName);
-      if(schema === 'posts'){
+      if (schema === 'posts') {
         self._postsSchema = self._createPostsSchema();
         self._moodel = mongoose.model('AllTopPosts', self._postsSchema);
-      } else if(schema === 'subs'){
+      }
+      else if (schema === 'subs') {
         self._subsSchema = self._createSubsSchema();
         self._moodel = mongoose.model('allsubs', self._subsSchema);
-      } else {
+      }
+      else {
         throw "Unknown schema!: '"+ schema + "', should be posts or subs";
       }
 
@@ -109,12 +111,13 @@ module.exports = {
   pullData: function(intervalId){
     var self = this;
     this._moodel.count({}, function(err, count) {
-      if(err){
+      if (err) {
         console.log('from count error: ', JSON.stringify(err));
         clearInterval(intervalId);
         console.log('Stopped intervalId: ', intervalId);
         throw JSON.stringify(err);
-      } else if (count) {
+      }
+      else if (count) {
         self._moodel.findOne({}, {name: 1}, {sort:{_id : -1}}, function (err, doc) {
           if(err){
             console.log('from find error: ', JSON.stringify(err));
@@ -128,17 +131,20 @@ module.exports = {
           console.log('total count is ' + count  + ', name is ' + doc.name + ', using url: ', editedOptions.path);
           self._throttledPullData(editedOptions, self._saveResult, self);
         });
-      } else if (count === 0) {
+      }
+      else if (count === 0) {
         console.log('first time access with no data, using url: ', self._options.path);
         self._throttledPullData(self._options, self._saveResult, self);
       }
     });
   },
   _saveResult: function(statusCode, result, self){
-    var errorCallback = function(err, docs){
-        if(err) {console.log("\n\nerror saving: ", data, "error: ", err);}
-    }, data;
-    for(var i = 0; i < result.data.children.length; i++){
+    var data, errorCallback = function(err, docs){
+        if (err) {
+          console.log("\n\nerror saving: ", data, "error: ", err);
+        }
+    };
+    for (var i = 0; i < result.data.children.length; i++) {
       data = result.data.children[i].data;
       new self._moodel(data).save(errorCallback);
     }

@@ -16,11 +16,10 @@ Redd.d3.BubblePie = function(collection) {
 
   var pieGroups = d3.selectAll('.pie-graph');
 
-  d3.selectAll(".subredditselector").on("change", function(){
+  d3.selectAll(".subredditselector").on("change", function() {
     var node = this.value;
     d3.csv("/graphsdata/final_reddit_updated.csv", function(data) {
-      filtered_data = data.filter(function(d){return d.subreddit === node;});
-      console.log(filtered_data);
+      filtered_data = data.filter(function(d) { return d.subreddit === node; });
       plotBubble(filtered_data);
     });
   });
@@ -35,9 +34,9 @@ Redd.d3.BubblePie = function(collection) {
         .attr("id", function(d){return d.subreddit;})
         .text(function(d){return d.subreddit;});
 
-  //Globals 
-  x_entent = d3.extent(data, function(d){return +d.total_karma;});
-  y_entent = d3.extent(data, function(d){return +d.comments;});
+  //Globals
+  x_entent = d3.extent(data, function(d) { return +d.total_karma; });
+  y_entent = d3.extent(data, function(d) { return +d.comments; });
 
   x = d3.scale.log()
     .range([0, w])
@@ -51,8 +50,9 @@ Redd.d3.BubblePie = function(collection) {
     .scale(x)
     .orient("bottom")
     .tickFormat(function(d) {
-    if (d=== 0 || d === 250000 || d === 1000000 || d === 2500000 || d === 5000000 || d=== 100000000)
+    if (d=== 0 || d === 250000 || d === 1000000 || d === 2500000 || d === 5000000 || d=== 100000000) {
       return String(d);
+    }
     return "";
     })
     .ticks(5);
@@ -61,14 +61,15 @@ Redd.d3.BubblePie = function(collection) {
     .scale(y)
     .orient("right")
     .tickFormat(function(d) {
-    if (d=== 0 || d === 250000 || d === 1000000 || d === 2500000 || d === 5000000 || d=== 100000000)
+    if (d=== 0 || d === 250000 || d === 1000000 || d === 2500000 || d === 5000000 || d=== 100000000) {
       return String(d);
+    }
     return "";
     })
     .ticks(5);
 
     var lowKarma = function(data){
-    var filtered_data = data.filter(function(d){return d.total_karma < 50000;});
+    var filtered_data = data.filter(function(d) { return d.total_karma < 50000; });
     return filtered_data;
   };
 
@@ -309,7 +310,7 @@ Redd.d3.BubblePie = function(collection) {
       };
 
       var mouseOn = function() {
-      
+
         var circle = d3.select(this);
         var currentRadius = parseInt(circle.attr("r"));
 

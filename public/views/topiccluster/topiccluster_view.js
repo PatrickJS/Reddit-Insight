@@ -24,7 +24,6 @@ Redd.Views.TopicCluster = Backbone.View.extend({
     obj[this.model.get('selectedSubreddit')] = this.model.get('selectedSubreddit');
     this.$el.html(this.template(obj));
     this.d3Stuff('#topiccluster');
-    console.log('Topic Cluster has been rendered ' + (this.model.renderCounter += 1) + " times");
 
     return this;
   },
