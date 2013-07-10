@@ -6,8 +6,9 @@ Redd.Views.TrackPost = Backbone.View.extend({
   events: {
     'submit form': 'enterURL',
     'click .submit-another': 'slideDown',
-    'mouseenter a.preview': 'imagePreviewHover',
-    'mouseleave a.preview': 'imagePreviewLeave'
+    'mouseenter a.preview': 'toolTipHover',
+    'mouseleave a.preview': 'toolTipLeave',
+    'click a.preview': 'toolTipClick'
   },
 
   initialize: function() {
@@ -54,7 +55,7 @@ Redd.Views.TrackPost = Backbone.View.extend({
     $('#trackpost form').slideDown('slow');
   },
 
-  imagePreviewHover: function(e) {
+  toolTipHover: function(e) {
     e.preventDefault();
     $("body").append("<p id='preview'><img src='"+ e.currentTarget.href +"' alt='Image preview' /></p>");
     $("#preview")
@@ -62,8 +63,11 @@ Redd.Views.TrackPost = Backbone.View.extend({
       .css("left",(e.pageX + 20) + "px")
       .fadeIn("fast");
   },
-  imagePreviewLeave: function(e) {
+  toolTipLeave: function(e) {
     e.preventDefault();
     $("#preview").remove();
+  },
+  toolTipClick: function (e) {
+    e.preventDefault();
   }
 });
