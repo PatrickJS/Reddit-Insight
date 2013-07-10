@@ -1,6 +1,6 @@
 // Module dependencies.
 var http = require('http');
-var allPostsCollection = require('./dbLibrary.js');
+var allPostsCollection = require('./db/pullReddit');
 
 var app = require('./config/app')();
 

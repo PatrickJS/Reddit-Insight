@@ -1,6 +1,6 @@
-var express = require('express');
-var hbsPrecompiler = require('handlebars-precompiler');
-var path = require('path');
+var express = require('express'),
+    hbsPrecompiler = require('handlebars-precompiler'),
+    path = require('path');
 
 module.exports = function(app) {
   // development compile Handlebars and show errors

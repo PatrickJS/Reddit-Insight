@@ -3,13 +3,14 @@ Redd.Router = Backbone.Router.extend({
     this.controller = control;
   },
   handleRoute: function(routeName) {
-    console.log('Should go to ', routeName);
     this.controller.hide();
 
-    if (!routeName)
+    if (!routeName) {
       routeName = 'dashboard';
+    }
 
-    if (routeName === 'trackuser' || routeName === 'trackpost') {
+    console.log('Should go to ', routeName);
+    if (routeName === 'trackuser' || routeName === 'trackpost' || routeName === 'topiccluster' || routeName === 'graphs') {
       this.controller.hideFull();
       this.controller.showPages();
     }
