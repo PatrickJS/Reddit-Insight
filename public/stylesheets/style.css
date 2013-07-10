@@ -11,7 +11,7 @@ body{
 
 header{
   height:150px;
-  margin-top: 0;
+  margin-top: 60px;
   background: rgba(239,97,36,1) url("../img/reddit-logo.gif") 50% 0 no-repeat;
 }
 
@@ -112,7 +112,7 @@ nav{
   float:left;
   position:relative;
   left:300px;
-  margin-top:265px;
+  margin-top:285px;
 }
 
 /****************

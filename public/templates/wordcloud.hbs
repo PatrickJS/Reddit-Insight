@@ -1,6 +1,6 @@
 <h2>Word Clouds</h2>
-  <form id='wordCloudForm'>
-    <span for='subreddit'>Subreddit:</span>
+  <form id='wordCloudForm' class="form-inline">
+    <label for='subreddit'>Subreddit:</label>
     <select name="subreddit">
       <option value='GamingNoun' {{#if GamingNoun}} selected {{/if}}>Gaming</option>
       <option value='TechnologyNoun' {{#if TechnologyNoun}} selected {{/if}}>Technology</option>
@@ -20,11 +20,19 @@
       <option value='WorldNewsNoun' {{#if WorldNewsNoun}} selected {{/if}}>World News</option>
       <option value='NSFWNoun' {{#if NSFWNoun}} selected {{/if}}>NSFW</option>
     </select>
-    <span>Number of Items pulled:</span>
-    <input type='input' name='limit' value="{{ limit }}">
-    <span for='sizeMultiple'>Size Multiplyer</span>
-    <input type='input' name='sizeMultiple' value="{{ sizeMultiple }}">
-    <input type='radio' name='viewType' {{#if _rotate90discrete}} checked {{/if}} value="_rotate90discrete"> Horizontal and Vertical
-    <input type='radio' name='viewType' {{#if _rotate180continuous}} checked {{/if}} value='_rotate180continuous'> All Angles
-    <input class='btn' type='submit' value='submit'>
+    <label>Word Count:</label>
+    <input class="input-small" type='text' name='limit' value="{{ limit }}">
+    <label for='sizeMultiple'>Size Multiplyer:</label>
+    <input class="input-small" type='text' name='sizeMultiple' value="{{ sizeMultiple }}">
+    <label class="radio inline">
+      <input class="radio" type='radio' name='viewType' {{#if _rotate90discrete}} checked {{/if}} value="_rotate90discrete">
+      Horizontal and Vertical
+    </label>
+    <label class="radio inline">
+      <input type='radio' name='viewType' {{#if _rotate180continuous}} checked {{/if}} value='_rotate180continuous'> All Angles
+    </label>
+    <button class="ladda-button">
+      <span class="ladda-label">Submit</span>
+    </button>
+    {{! <input class='btn ladda-button' type='submit' value='submit'>   if submit button breaks uncomment this one}}
   </form>
