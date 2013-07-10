@@ -10,7 +10,7 @@ module.exports = function() {
   app.set('port', process.env.PORT || 3000);
 
   // Basic configuration
-  app.configure(function(){
+  app.configure(function() {
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
@@ -22,7 +22,10 @@ module.exports = function() {
   require('./environments')(app);
 
   // Database configuration
-  require('./db')(app);
+  require('../db/db')(app);
+
+  // Routes
+  require('./routes')(app);
 
   return app;
 };

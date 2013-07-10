@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-    lib = require('./myLibrary'),
+    getJSON = require('./getJSON'),
     _ = require('underscore'),
     Schema = mongoose.Schema;
 
@@ -79,7 +79,7 @@ module.exports = {
   },
   start: function(interval, path, schema) {
     //schema posts, subs
-    this._throttledPullData = _.throttle(lib.getJSON, 2000);
+    this._throttledPullData = _.throttle(getJSON, 2000);
 
     mongoose.connect("mongodb://localhost/RedditInsight");
 
