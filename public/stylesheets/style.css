@@ -4,48 +4,60 @@
 html, body {
   height: 100%;
 }
+
 body{
   background-color: rgba(239,97,36,1);
 }
+
 header{
   height:150px;
   margin-top: 0;
   background: rgba(239,97,36,1) url("../img/reddit-logo.gif") 50% 0 no-repeat;
 }
+
 nav{
   border-radius: 0;
-  background: #fff;
+  background: white;
 }
+
 .navbar .brand{
   color:rgba(95,153,207,1);
 }
+
 .navbar .nav>.active>a, .navbar .nav>.active>a:hover, .navbar .nav>.active>a:focus{
   color:rgba(95,153,207,1);
 }
+
 .container-fluid{
-  text-align: center;
-  max-width: 960px;
-  margin: 0 auto;
-  background-color: rgba(255,255,255,0.8);
-  border: 20px solid #fff;
-  padding: 1%;
-  min-height: 70%;
   position: relative;
+  max-width: 960px;
+  min-height: 70%;
+  margin: 0 auto;
+  padding: 1%;
+
+  background-color: rgba(255,255,255,0.8);
+
+  border: 20px solid white;
+
+  text-align: center;
 }
+
 .container-fluid h2{
+  position:relative;
+  top:-50px;
+
   text-align: left;
   color:rgba(95,153,207,1);
   font-weight: 700;
   font-size: 6em;
   letter-spacing: -.1em;
-  position:relative;
-  top:-50px;
   text-shadow:
-     -1px -1px 0 #fff,
-      1px -1px 0 #fff,
-      -1px 1px 0 #fff,
-       1px 1px 0 #fff;
+     -1px -1px 0 white,
+      1px -1px 0 white,
+      -1px 1px 0 white,
+       1px 1px 0 white;
 }
+
 .container-fluid h3{
   text-align:left;
   color:rgba(50,50,50,0.8);
@@ -54,28 +66,36 @@ nav{
   position: relative;
   top:-75px;
 }
+
 .container-fluid form, #trackpost{
   text-align:left;
 }
+
 #trackpost-chart{
   float:right;
   margin-top:-100px;
 }
+
 #trackuser-data, #trackuser-posts{
   text-align: left;
 }
+
 .stats-title{
   font-weight: bold;
 }
+
 #trackuser-posts{
   margin-top: 30px;
 }
+
 #trackuser-data{
   margin-bottom: 20px;
 }
+
 #tracking-url{
   min-width: 25%;
 }
+
 .main-container {
   margin-bottom: 3%;
 }
@@ -87,24 +107,26 @@ nav{
   margin:100px 10px 10px 10px;
   float:left;
 }
+
 .x-axis{
-  margin-top:265px;
   float:left;
   position:relative;
   left:300px;
+  margin-top:265px;
 }
 
 /****************
   * Word Cloud *
  ***************/
- .wordcloud-form{
+.wordcloud-form{
   margin:100px;
- }
+}
 
 .wordcloud-form p, .wordcloud-form select, .wordcloud-form input{
   display:inline;
-  margin:10px;
+  margin:10px; /* only affects left and right */
 }
+
 /************
   * Footer *
  ************/
@@ -113,18 +135,22 @@ footer{
   background-color: #fafafa;
   position: relative;
 }
+
 .footer-inner{
   margin: 0 10%;
   padding: 5px 20px 0;
 }
+
 footer .footer-inner .nav{
   margin: 0;
 }
+
 footer li a {
   color: #777;
   text-decoration: none;
-  text-shadow: 0 1px 0 #fff;
+  text-shadow: 0 1px 0 white;
 }
+
 footer li a:hover{
   color: #333;
 }
@@ -136,10 +162,12 @@ footer li a:hover{
   background-color: rgba(239,97,36,1);
   margin: -10px 0 0 10px;;
 }
+
 .submit-another{
   display: none;
   margin: 15px 0 20px 0;
 }
+
 .loader {
   width: 50px;
   height: 50px;
@@ -153,25 +181,36 @@ footer li a:hover{
        -o-animation: spin 1s linear infinite;
           animation: spin 1s linear infinite;
 }
+
 @-webkit-keyframes spin {
     from { -webkit-transform: rotate(0deg); }
+
     to { -webkit-transform: rotate(360deg); }
+
 }
 @-moz-keyframes spin {
     from { -moz-transform: rotate(0deg); }
+
     to { -moz-transform: rotate(360deg); }
+
 }
 @-ms-keyframes spin {
     from { -ms-transform: rotate(0deg); }
+
     to { -ms-transform: rotate(360deg); }
+
 }
 @-o-keyframes spin {
     from { -o-transform: rotate(0deg); }
+
     to { -o-transform: rotate(360deg); }
+
 }
 @keyframes spin {
     from { transform: rotate(0deg); }
+
     to { transform: rotate(360deg); }
+
 }
 
 /**************************
@@ -179,29 +218,35 @@ footer li a:hover{
  **************************/
 
 .node circle {
-  fill: #fff;
+  fill: white;
   stroke: steelblue;
   stroke-width: 1.5px;
 }
+
 .node {
   font: 17px sans-serif;
 }
+
 .link {
   fill: none;
   stroke: #ccc;
   stroke-width: 5px;
 }
+
 #circlecluster, #frequency, #graphs {
   width: 100%;
 }
+
 #circlecluster .node {
   font: 10px sans-serif;
 }
+
 #circlecluster .link {
   fill: none;
   stroke: #ccc;
   stroke-width: 1.5px;
 }
+
 #circlecluster svg {
   -webkit-animation: spin 60s linear infinite;
      -moz-animation: spin 60s linear infinite;
@@ -209,42 +254,52 @@ footer li a:hover{
        -o-animation: spin 60s linear infinite;
           animation: spin 60s linear infinite;
 }
+
 #frequency h3 {
   text-align: center;
   font-size: 2.3em;
   margin: 74px 0 0 0;
 }
+
 #frequency .node {
   font: 13px sans-serif;
 }
+
 #graphs {
   font: 10px sans-serif;
 }
+
 #graphs .axis path,
 #graphs .axis line {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
 }
+
 #graphs .bar {
   fill: steelblue;
 }
+
 #graphs .x.axis path {
   display: none;
 }
+
 #graphs h3 {
+  top: 0;
+  padding-top: 130px;
+
   text-align: center;
   font-size: 2.3em;
-  padding-top: 130px;
-  top: 0;
 }
+
 #graphs .first-graph {
   padding-top: 0;
 }
-#graphs .
+
 #graphs div {
   margin: -65px 0 40px;
 }
+
 .node circle:hover{
   -webkit-transform: scale(1.5);
      -moz-transform: scale(1.5);
