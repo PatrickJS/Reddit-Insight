@@ -1,8 +1,7 @@
 Redd.Views.Frequency = Backbone.View.extend({
-  initialize: function() {
-  },
   el: '#frequency',
   template: Redd.Templates('frequency'),
+
   render: function(){
     this.$el.html(this.template());
     this.d3();
