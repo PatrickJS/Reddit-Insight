@@ -99,6 +99,15 @@ nav{
 .main-container {
   margin-bottom: 3%;
 }
+#preview{
+  position:absolute;
+  border:1px solid #ccc;
+  background:#333;
+  padding:5px;
+  display:none;
+  color:#fff;
+  z-index: 100;
+}
 
 /************
   * Charts *
