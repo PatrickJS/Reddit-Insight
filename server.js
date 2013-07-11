@@ -1,8 +1,7 @@
 // Module dependencies.
-var http = require('http');
-var allPostsCollection = require('./db/pullReddit');
-
-var app = require('./config/app')();
+var http = require('http'),
+    allPostsCollection = require('./db/pullReddit'),
+    app = require('./config/app')();
 
 // Start server
 http.createServer(app).listen(app.get('port'), function(){

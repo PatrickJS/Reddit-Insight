@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="An interactive analytics suite for Reddit.com using their public API, combined with real-time data analysis and d3 visualizations.">
+  <meta name="description"content="An interactive analytics suite for Reddit.com using their public API, combined with real-time data analysis and d3 visualizations.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico'>
   <link href='/lib/css/bootstrap.min.css' rel='stylesheet'>
@@ -24,7 +24,6 @@
 
     ga('create', 'UA-42369373-1', 'redditinsight.com');
     ga('send', 'pageview');
-    console.log('hello');
   </script>
 </head>
 <body>
@@ -37,7 +36,6 @@
     <section id="wordcloud"></section>
     <section id="circlecluster"></section>
     <section id="frequency"></section>
-    <section id="interaction"></section>
   </div>
 
   <div class="container-fluid main-container">
@@ -46,6 +44,7 @@
     <section id="login"></section>
     <section id="topiccluster"></section>
     <section id="graphs"></section>
+    <section id="interaction"></section>
   </div>
 
   <footer></footer>
@@ -54,23 +53,21 @@
 
 
 <script src='/lib/js/jquery-2.0.2.js'></script>
+<script src='/lib/js/jquery.fittext.js'></script>
+<script src="/lib/js/jquery.tipsy.js"></script>
 <script src='/lib/js/bootstrap.min.js'></script>
 <script src='/lib/js/underscore.js'></script>
 <script src='/lib/js/handlebars.js'></script>
 <script src='/lib/js/backbone.js'></script>
-<script src='/lib/js/backbone-oauth.js'></script>
-
 <script src='/lib/backbone-jsonp.js'></script>
 <script src='/lib/backbone-controller.js'></script>
+<script src='/lib/js/TweenMax.min.js'></script>
 <script src='/lib/js/d3.min.js'></script>
 <!-- <script src='/lib/js/d3Full/d3.js'></script> -->
 <script src='/lib/js/d3.layout.cloud.js'></script>
 <script src='/lib/js/rickshaw.js'></script>
-<script src='/lib/js/jquery.fittext.js'></script>
-<script src='/lib/js/TweenMax.min.js'></script>
 <script src='/lib/js/jquery.superscrollorama.js'></script>
 <script src='/lib/handlebars_helpers.js'></script>
-<script src="/lib/js/jquery.tipsy.js"></script>
 
 <script src='/templates/compiled/templates.js'></script>
 
@@ -118,9 +115,7 @@
 
 
 <script>
-$(function(){
   Redd.initialize();
-});
 </script>
 
 </html>

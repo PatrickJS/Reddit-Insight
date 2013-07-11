@@ -17,11 +17,10 @@ Redd.d3.BubblePie = function(collection) {
 
   var pieGroups = d3.selectAll('.pie-graph');
 
-  d3.selectAll(".subredditselector").on("change", function(){
+  d3.selectAll(".subredditselector").on("change", function() {
     var node = this.value;
     d3.csv("/graphsdata/final_reddit_updated.csv", function(data) {
-      filtered_data = data.filter(function(d){return d.subreddit === node;});
-      console.log(filtered_data);
+      filtered_data = data.filter(function(d) { return d.subreddit === node; });
       plotBubble(filtered_data);
     });
   });
@@ -61,7 +60,6 @@ Redd.d3.BubblePie = function(collection) {
     .scale(y)
     .orient("right")
     .ticks(5);
-
   var circles = groups.selectAll("circle")
     .data(data)
     .enter()
@@ -304,7 +302,7 @@ Redd.d3.BubblePie = function(collection) {
       };
 
       var mouseOn = function() {
-      
+
         var circle = d3.select(this);
         var currentRadius = parseInt(circle.attr("r"));
 

@@ -1,28 +1,34 @@
 Redd.d3.CreateUserChart = function(collection) {
+
+  var scoreMax = function(){
+    scoreArray = [];
+    collection.each(function(model){
+      if(model.attributes.data.score){scoreArray.push(model.attributes.data.score);}
+    });
+    console.log(scoreArray);
+    return _.max(scoreArray);
+  };
   var bottomRange = 0,
-      topRange = 200,
+      topRange = scoreMax() + 20,
       scaleRange = [bottomRange,topRange],
       scale = [d3.scale.linear().domain(scaleRange).nice()],
       count = 0;
+
+//console.log(scoreMax());
+
   var dataParse = function(){
     var allPostData = [];
-        window.yolo = collection;
     collection.each(function(model){
       model = model.attributes;
 
       if(model.kind === "t3"){
-        var utcSeconds = model.data.created;
-        var d = new Date(0);
-        var utcDate = d.setUTCSeconds(utcSeconds);
 
         var objectData = {
           x : count+=1,
           y : model.data.score,
-          title : model.data.title
+          name : model.data.title
         };
         //model.data.title
-        //model.data.score
-        // model.data.created;
         allPostData.push(objectData);
       }
     });
@@ -34,7 +40,10 @@ Redd.d3.CreateUserChart = function(collection) {
   var graph = new Rickshaw.Graph({
     element: document.querySelector("#user-chart"),
     renderer: 'bar',
+    width: 800,
+    height: 240,
     series: [{
+      name: "Karma",
       data: postData,
       color: 'steelblue'
     }]
@@ -48,7 +57,9 @@ Redd.d3.CreateUserChart = function(collection) {
   var ticksTreatment = 'glow';
 
   xAxis = new Rickshaw.Graph.Axis.X( {
-    graph: graph
+    graph: graph,
+    tickFormat: " ",
+    orientation: "top"
   } );
 
   xAxis.render();

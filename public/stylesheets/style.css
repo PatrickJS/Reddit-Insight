@@ -21,11 +21,19 @@ nav{
 }
 
 .navbar .brand{
+  margin: 0 20px;
   color:rgba(95,153,207,1);
 }
-
-.navbar .nav>.active>a, .navbar .nav>.active>a:hover, .navbar .nav>.active>a:focus{
-  color:rgba(95,153,207,1);
+.navbar-inner{
+  box-shadow: none;
+  -webkit-box-shadow:none;
+  -moz-box-shadow:none;
+  background-color: #fff;
+  background-image: none;
+}
+.nav>.active>a, .navbar .nav>.active>a:hover, .navbar .nav>.active>a:focus{
+  text-shadow: none;
+  color: rgba(0,0,0,1);
 }
 
 .container-fluid{
@@ -99,6 +107,22 @@ nav{
 .main-container {
   margin-bottom: 3%;
 }
+a.preview {
+  text-decoration: none;
+  color: black;
+}
+a.preview:hover {
+  color: black;
+}
+#preview{
+  position:absolute;
+  border:1px solid #ccc;
+  background:#333;
+  padding:5px;
+  display:none;
+  color:#fff;
+  z-index: 100;
+}
 
 /************
   * Charts *
@@ -113,6 +137,9 @@ nav{
   position:relative;
   left:300px;
   margin-top:285px;
+}
+#user-chart{
+  float: left;
 }
 
 /****************
@@ -286,7 +313,7 @@ footer li a:hover{
 
 #graphs h3 {
   top: 0;
-  padding-top: 130px;
+  padding-top: 60px;
 
   text-align: center;
   font-size: 2.3em;
@@ -297,7 +324,7 @@ footer li a:hover{
 }
 
 #graphs div {
-  margin: -65px 0 40px;
+  margin: -5px 0 40px;
 }
 
 .node circle:hover{
