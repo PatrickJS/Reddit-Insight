@@ -56,19 +56,6 @@ Redd.d3.CreateUserChart = function(collection) {
 
   var ticksTreatment = 'glow';
 
-  var format = function(n) {
-
-    var map = {
-      0: 'zero',
-      1: 'first',
-      2: 'second',
-      3: 'third',
-      4: 'fourth'
-    };
-
-    return map[n];
-  };
-
   xAxis = new Rickshaw.Graph.Axis.X( {
     graph: graph,
     tickFormat: " ",
