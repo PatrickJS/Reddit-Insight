@@ -1308,7 +1308,7 @@ Rickshaw.Graph.Axis.X = function(args) {
 	this.initialize = function(args) {
 
 		this.graph = args.graph;
-		this.orientation = args.orientation || 'bottom';
+		this.orientation = args.orientation || 'top';
 
 		var pixelsPerTick = args.pixelsPerTick || 75;
 		this.ticks = args.ticks || Math.floor(this.graph.width / pixelsPerTick);
