@@ -99,6 +99,22 @@ nav{
 .main-container {
   margin-bottom: 3%;
 }
+a.preview {
+  text-decoration: none;
+  color: black;
+}
+a.preview:hover {
+  color: black;
+}
+#preview{
+  position:absolute;
+  border:1px solid #ccc;
+  background:#333;
+  padding:5px;
+  display:none;
+  color:#fff;
+  z-index: 100;
+}
 
 /************
   * Charts *
