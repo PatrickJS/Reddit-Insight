@@ -27,6 +27,14 @@ Redd.d3.BubblePie = function(collection) {
   });
 
   d3.csv("/graphsdata/final_reddit_updated.csv", function(data) {
+    var subreddit_selections = d3.select(".subredditselector")
+      .selectAll("div")
+      .data(data)
+      .enter()
+      .append("option")
+        .attr("class", "subreddit_select")
+        .attr("id", function(d){return d.subreddit;})
+        .text(function(d){return d.subreddit;});
 
   //Globals - min and max
   x_extent = d3.extent(data, function(d){return +d.dislikes / +d.likes;});
@@ -37,32 +45,37 @@ Redd.d3.BubblePie = function(collection) {
     .domain(x_extent).nice();
 
   y = d3.scale.log()
+    // .range([h-60, 0])
     .range([h, 0])
     .domain(y_extent).nice();
-
-  karmaScale = d3.scale.log()
-    .domain([
-      d3.min(data,
-      function(d) {
-        return +d.total_karma;
-      }),
-      d3.max(data,
-      function(d) {
-        return +d.total_karma;
-      })])
-    .range([2,55])
 
   xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom")
+    // .tickFormat(function(d) {
+    // if (d=== 0 || d === 250000 || d === 1000000 || d === 2500000 || d === 5000000 || d=== 100000000)
+    //   return String(d);
+    // return "";
+    // })
     .ticks(5);
 
   yAxis = d3.svg.axis()
     .scale(y)
     .orient("right")
+    // .tickFormat(function(d) {
+    // if (d=== 0 || d === 250000 || d === 1000000 || d === 2500000 || d === 5000000 || d=== 100000000)
+    //   return String(d);
+    // return "";
+    // })
     .ticks(5);
 
+    // var lowKarma = function(data){
+    //   var filtered_data = data.filter(function(d){return d.total_karma < 50000;});
+    //   return filtered_data;
+    // };
+
   var circles = groups.selectAll("circle")
+    // .data(lowKarma(data))
     .data(data)
     .enter()
     .append("circle")
@@ -70,7 +83,7 @@ Redd.d3.BubblePie = function(collection) {
     .attr({
       cx: function(d) { return x( +d.dislikes / +d.likes);},
       cy: function(d) { return y(+d.interaction);},
-      r:  function(d) { return karmaScale(d.total_karma);},
+      r:  function(d) { return Math.log(d.total_karma);},
       id: function(d) { return d.subreddit;}
     })
     .style("fill", function(d) { return color(d.subreddit); });
@@ -138,11 +151,11 @@ Redd.d3.BubblePie = function(collection) {
       svg.append("g")
         .attr("class", "guide")
         .append("line")
-        .attr("x1", +circle.attr("cx"))
-        .attr("x2", +circle.attr("cx"))
-        .attr("y1", +circle.attr("cy") + 10)
-        .attr("y2", h + 10)
-        .attr("transform", "translate("+margin.l+","+margin.b+")")
+        .attr("x1", circle.attr("cx"))
+        .attr("x2", circle.attr("cx"))
+        .attr("y1", +circle.attr("cy") + 26)
+        .attr("y2", h - margin.t - margin.b)
+        .attr("transform", "translate(40,20)")
         .style("stroke", circle.style("fill"))
         .transition().delay(200).duration(400).styleTween("opacity", function() {
           return d3.interpolate(0, 0.5);
@@ -151,7 +164,7 @@ Redd.d3.BubblePie = function(collection) {
       svg.append("g")
         .attr("class", "guide")
         .append("line")
-        .attr("x1", +circle.attr("cx"))
+        .attr("x1", +circle.attr("cx") - 16)
         .attr("x2", 0)
         .attr("y1", circle.attr("cy"))
         .attr("y2", circle.attr("cy"))
@@ -196,19 +209,14 @@ Redd.d3.BubblePie = function(collection) {
     // tooltips (using jQuery plugin tipsy)
     circles.append("title")
       .append("title")
-        .text(function(d) {return d.subreddit +
-          '<p>Interaction<p>'+'<span class="badge badge-important">' +
-          d.interaction +'</span>' + '<p class="tool">Controversy<p>'+
-          '<span class="badge badge-important">'+ 
-          Math.round(+d.dislikes / +d.likes * 1000) / 10
-          +'%</span>';});
+        .text(function(d) {return d.subreddit + '<p class="tool">Comments<p>'+'<span class="badge badge-important">'+ d.comments +'</span>' + '<p class="tool">Karma<p>'+ '<span class="badge badge-important">'+ d.total_karma +'</span>';});
 
     $(".circles").tipsy({ gravity: 's', html: true});
 
     // draw axes and axis labels
     svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(" + margin.l + "," + (h + margin.t) + ")")
+      .attr("transform", "translate(" + margin.l + "," + (h - 60+ margin.t) + ")")
       .call(xAxis);
 
     svg.append("g")
@@ -219,9 +227,9 @@ Redd.d3.BubblePie = function(collection) {
     svg.append("text")
       .attr("class", "x label")
       .attr("text-anchor", "end")
-      .attr("x", w + 40)
-      .attr("y", h + 20)
-      .text("Controversy");
+      .attr("x", w + 50)
+      .attr("y", h - margin.t - 5)
+      .text("Karma");
 
     svg.append("text")
       .attr("class", "y label")
@@ -230,7 +238,7 @@ Redd.d3.BubblePie = function(collection) {
       .attr("y", 20)
       .attr("dy", ".75em")
       .attr("transform", "rotate(-90)")
-      .text("Interaction (total count of upvotes and downvotes)");
+      .text("Comments");
 
   });
 
@@ -244,7 +252,7 @@ Redd.d3.BubblePie = function(collection) {
             .attr("class", "circles")
             .attr({
               cx: function(d) { return x(+d.total_karma);},
-              cy: function(d) { return y(+d.interaction);},
+              cy: function(d) { return y(+d.comments);},
               r:  function(d) { return Math.abs(Math.log(+d.likes / +d.dislikes)) *10 +10;},
               id: function(d) { return d.subreddit;}
             })
@@ -375,13 +383,11 @@ Redd.d3.BubblePie = function(collection) {
 
       // tooltips (using jQuery plugin tipsy)
       circles.append("title")
-      .append("title")
-        .text(function(d) {return d.subreddit +
-          '<p>Interaction<p>'+'<span class="badge badge-important">' +
-          d.interaction +'</span>' + '<p class="tool">Controversy<p>'+
-          '<span class="badge badge-important">'+ 
-          Math.round(+d.dislikes / +d.likes * 1000) / 10
-          +'%</span>';});
+        .append("title")
+        .text(function(d) {
+          return d.subreddit + '<p class="tool">Comments<p>' + '<span class="badge badge-important">' + d.comments + '</span>' + '<p class="tool">Karma<p>' + '<span class="badge badge-important">' + d.total_karma + '</span>';
+        });
+
 
       $(".circles").tipsy({ gravity: 's', html: true});
 
