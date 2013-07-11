@@ -1,10 +1,6 @@
 Reddit Insight - Reddit Analytics [![Build Status](https://travis-ci.org/gdi2290/RedditInsight.png?branch=master)](https://travis-ci.org/gdi2290/RedditInsight)
 =============
-TODO:
-* better code reuse for trackuser/trackposts
-* add Users
-* allow Users to save data
-* keep history of charts for Users
+An analytics suite for Reddit.com using their public API, combined with real-time data analysis and graphic visualizations. Technologies used include Backbone.js, Node.js, D3, Express, MongoDB, with Python scripts.
 
 #Debug Helpers
 
