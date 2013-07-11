@@ -6,7 +6,7 @@ Team:
 Patrick Stapleton - app architecture, front-end   
 Alex Gaputin - pulled all the data, back-end 
 Kevin Smith - front-end architecture, realtime data capture, front-end things  
-Elle Beal - d3 and visualizer  
+Elle Beal - d3, front-end and project management
 Bill Shelton - data munging, data visualization and machine learning with Python, D3 and R  
 Chris Sita - d3 Interaction scatter plot  
 
