@@ -2,6 +2,16 @@ Reddit Insight - Reddit Analytics [![Build Status](https://travis-ci.org/gdi2290
 =============
 An analytics suite for Reddit.com using their public API, combined with real-time data analysis and graphic visualizations. Technologies used include Backbone.js, Node.js, D3, Express, MongoDB, with Python scripts.
 
+Team:  
+Patrick Stapleton - app architecture, front-end   
+Alex Gaputin - pulled all the data, back-end 
+Kevin Smith - front-end architecture, realtime data capture, front-end things 
+Elle Beal - d3 and visualizer  
+Bill Shelton - data munging, data visualization and machine learning with Python, D3 and R  
+Chris Sita - d3 Interaction scatter plot  
+
+Logo - Alex Trimpe http://alextrimpe.com/
+
 #Debug Helpers
 
 ####Global Debug
