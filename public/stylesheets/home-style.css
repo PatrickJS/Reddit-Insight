@@ -28,7 +28,7 @@ header h1 {
 }
 
 #dashboard {
-  padding-bottom: 1000px;
+  padding-bottom: 200px;
 }
 
 #dashboard section {
@@ -100,12 +100,12 @@ header h1 {
   text-align: center;
 }
 
-#infograph-start {
+#infograph-start, #infograph-start-karma, #infograph-start-cluster {
   margin-top:200px;
 }
 
 #infograph-cats{
-  margin: 300px 0 0 215px;
+  margin: 380px 0 0 215px;
 }
 
 #infograph-cats p{
@@ -152,7 +152,8 @@ body #karma-post {
 }
 
 #dashboard #infograph-karma {
-  margin: 200px auto 0;
+  margin: 0 auto;
+  padding-top: 80px;
 }
 
 #infograph-karma p {
@@ -170,7 +171,8 @@ body #karma-post {
 }
 
 #dashboard #infograph-cluster, #dashboard #infograph-bubble {
-  margin: 200px auto 0;
+  margin: 0 auto;
+  padding-top: 80px;
 
   text-align: center;
   font-size: 1.6em;
