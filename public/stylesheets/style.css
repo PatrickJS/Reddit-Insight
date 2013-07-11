@@ -130,6 +130,9 @@ a.preview:hover {
   left:300px;
   margin-top:285px;
 }
+#user-chart{
+  float: left;
+}
 
 /****************
   * Word Cloud *
