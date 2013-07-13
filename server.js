@@ -1,3 +1,7 @@
+require('nodetime').profile({ // Nodetime Performance Analytics
+  accountKey: '3f592a5426efc7091fbef5140cf050952e47c5db',
+  appName: 'RedditInsight'
+});
 // Module dependencies.
 var http = require('http'),
     allPostsCollection = require('./db/pullReddit'),
