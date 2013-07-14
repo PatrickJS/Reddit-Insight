@@ -1,7 +1,10 @@
-require('nodetime').profile({ // Nodetime Performance Analytics
-  accountKey: '3f592a5426efc7091fbef5140cf050952e47c5db',
-  appName: 'RedditInsight'
-});
+// Nodetime Performance Analytics
+if(process.env.NODETIME_ACCOUNT_KEY) {
+  require('nodetime').profile({
+    accountKey: process.env.NODETIME_ACCOUNT_KEY,
+    appName: 'Reddit Insight'
+  });
+}
 // Module dependencies.
 var http = require('http'),
     allPostsCollection = require('./db/pullReddit'),
