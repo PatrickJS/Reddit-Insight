@@ -140,6 +140,7 @@ a.preview:hover {
 }
 #user-chart{
   float: left;
+  margin: 30px auto;
 }
 
 /****************

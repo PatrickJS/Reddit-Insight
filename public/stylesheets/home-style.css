@@ -28,23 +28,11 @@ header h1 {
 }
 
 #dashboard {
-  padding-bottom: 200px;
-}
-
-#dashboard section {
-  text-align: left;
-  color: rgba(239,97,36,1);
-  font-weight: bold;
-  overflow: hidden;
-  position: relative;
+  padding-bottom: 80px;
 }
 
 #dashboard p {
   font-size:1.4em;
-}
-
-#dashboard section .small {
-  font-size: 1.2em;
 }
 
 #dashboard h2 {
@@ -53,15 +41,15 @@ header h1 {
 }
 
 .downloaded {
-  margin-top: 100px;
+  margin-top: 50px;
+  line-height: 100%;
 }
 
-.nugget-nav {
-  margin-top: 50px;
+.index-small, .index-smaller {
+  margin-top: 10px;
 
   color: #777;
   font-weight: 700;
-  font-size: 4em;
   letter-spacing: -.1em;
   text-shadow:
      -1px -1px 0 white,
@@ -69,80 +57,69 @@ header h1 {
       -1px 1px 0 white,
        1px 1px 0 white;
   text-align: center;
+  line-height: 100%;
 }
 
-.arrow-down {
-  margin: 50px auto 20px;
-  width: 0;
-  height: 0;
-
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-top: 50px solid rgba(95,153,207,1);
+.index-small {
+  font-size: 4em;
 }
 
-.arrow-down:hover {
-  border-left: 60px solid transparent;
-  border-right: 60px solid transparent;
-  border-top: 60px solid rgba(239,97,36,1);
+.index-smaller {
+  font-size: 3em;
 }
 
-.arrow-down {
-  -webkit-transition: all 0.15s ease-in-out;
-  -moz-transition: all 0.15s ease-in-out;
-  -o-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
+.index-highlight p {
+  margin: 20px 0;
 }
 
-.dot-nav {
-  margin: 25px auto;
-
-  text-align: center;
+.index-highlight button {
+  margin-top: 20px;
 }
 
-#infograph-start, #infograph-start-karma, #infograph-start-cluster {
-  margin-top:200px;
+.index-highlight div.span6 {
+  margin-top: 50px;
 }
 
-#infograph-cats{
-  margin: 380px 0 0 215px;
+.index-highlight img {
+  margin: 30px auto;
 }
 
-#infograph-cats p{
-  width: 74%;
+#trackpost-nav, #trackuser-nav {
+  width: 150px;
 }
 
-#infograph-cats-img {
-  width: 50%;
-  margin: -166px 0 60px 104px;
+.reddit-stats {
+  padding-top: 20px
 }
 
-.cat-img {
+.reddit-stats .row {
+  padding-top: 20px;
+}
+
+.reddit-stats h5 {
+  padding-bottom: 20px;
+}
+
+#dashboard section {
+  text-align: left;
+  color: rgba(239,97,36,1);
+  font-weight: bold;
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+}
+
+#dashboard section .small {
+  font-size: 1.2em;
+}
+
+.cat-img, .nsfw-img {
   height:200px;
   opacity:.8;
-}
-
-#infograph-nsfw {
-  margin: -15px 0 0 40%;
-}
-
-#infograph-nsfw p {
-  width: 50%;
-}
-
-#infograph-nsfw-img {
-  margin: -169px 0 0 400px;
-}
-
-.nsfw-img{
-  height:200px;
-  opacity:.8;
+  float: right;
 }
 
 body #karma-post {
-  width: 580px;
-  margin: 38px 0 0 580px;
-
   line-height: 1.7em;
   font-size: 2.6em;
 }
@@ -151,33 +128,67 @@ body #karma-post {
   color: rgba(95,153,207,1);
 }
 
-#dashboard #infograph-karma {
+#dashboard #infograph-cats, #dashboard #infograph-nsfw, #dashboard #infograph-karma, #dashboard #karma-post {
   margin: 0 auto;
-  padding-top: 80px;
+  padding-top: 20px;
 }
 
 #infograph-karma p {
-  margin: 40px 0 0 250px;
   font-size: 2.2em;
+  line-height: 100%;
 }
 
 #infograph-karma ol {
-  margin: 15px 0 0 291px;
   font-size: 1.6em;
+  text-align: left;
+  padding: 0 0 0 50px;
 }
 
 #infograph-karma li {
   line-height: 1.4em;
 }
 
-#dashboard #infograph-cluster, #dashboard #infograph-bubble {
-  margin: 0 auto;
-  padding-top: 80px;
+/* Responsive fixes using Bootstrap's breakpoints */
 
-  text-align: center;
-  font-size: 1.6em;
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  body #karma-post {
+    line-height: 1.3em;
+    font-size: 1.3em;
+  }
 }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+  .container-fluid h2{
+    font-size: 4em;
+  }
+  .index-small {
+    font-size: 3.2em;
+  }
+  .index-smaller {
+    font-size: 2.9em;
+  }
+  .cat-img, .nsfw-img {
+    height: 150px;
+    opacity: .8;
+    float: none;
+  }
+  body #karma-post {
+    line-height: 1.7em;
+    font-size: 1.8em;
+  }
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 940px) {
 
-#infograph-cluster p, #infograph-bubble p {
-  padding-top: 20px;
+}
+ 
+/* Default: 940px and up  */
+
+ 
+/* Large desktop */
+@media (min-width: 1210px) {
+
 }
