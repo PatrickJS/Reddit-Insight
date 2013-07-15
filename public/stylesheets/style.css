@@ -156,6 +156,44 @@ a.preview:hover {
 }
 
 /************
+  * About *
+ ***********/
+ #about .about-us {
+  padding: 10px;
+ }
+
+#about .team p {
+  padding-left: 30px;
+  margin: 0 0 5px;
+}
+
+.about-us p, #about .about-us h4 {
+  text-align: left;
+}
+
+.index-smallest {
+  margin-top: 10px;
+  padding-left: 20px;
+
+  color: rgba(95,153,207,1);
+  font-weight: 700;
+  letter-spacing: -.05em;
+  text-shadow:
+     -1px -1px 0 white,
+      1px -1px 0 white,
+      -1px 1px 0 white,
+       1px 1px 0 white;
+  text-align: left;
+  line-height: 100%;
+  font-size: 2.3em;
+}
+
+#about .special-thanks p {
+  padding: 10px 0 0 20px;
+  font-size: 1.1em;
+}
+
+/************
   * Footer *
  ************/
 footer{

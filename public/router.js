@@ -12,6 +12,7 @@ Redd.Router = Backbone.Router.extend({
       case 'topiccluster':
       case 'graphs':
       case 'interaction':
+      case 'about':
         // Fixed width
         this.controller.hideFull();
         this.controller.showPages();

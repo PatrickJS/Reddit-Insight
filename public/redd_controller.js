@@ -23,6 +23,7 @@ Redd.Controller = Backbone.Controller.extend({
     this.graphs = new Redd.Views.Graphs();
     this.interaction = new Redd.Views.Interaction();
     this.dashboard = new Redd.Views.Dashboard();
+    this.about = new Redd.Views.About();
   },
   hidePages: function() {
     $('.main-container').hide();
