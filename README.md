@@ -2,7 +2,6 @@ Reddit Insight - Reddit Analytics [![Build Status](https://travis-ci.org/gdi2290
 =============
 An analytics suite for Reddit.com using their public API, combined with real-time data analysis and graphic visualizations of historical data. A five person team, with varying areas of expertise working together to build an analytics platform on top of the Firehose that is Reddit. Technologies used include JavaScript, Backbone.js, Node.js, Handlebars, d3, Express, MongoDB, Mongoose, and Python scripts.
 
-
 Team:  
 Patrick Stapleton [@gdi2290](https://twitter.com/gdi2290/) - app architecture, front-end<br>
 Alex Gaputin - pulled all the data, back-end<br>
@@ -12,6 +11,26 @@ Bill Shelton - data munging, data visualization and machine learning with Python
 Chris Sita - d3 Interaction scatter plot<br>
 
 Logo - Alex Trimpe http://alextrimpe.com/
+
+===
+Requirements:  
+```bash
+npm nodemon
+```
+
+Installing Reddit Insight:  
+
+```bash
+$ npm install -g nodemon
+$ npm start
+```
+
+```bash
+$ git clone https://github.com/gdi2290/RedditInsight.git
+$ cd RedditInsight
+$ npm install
+```
+===
 
 #Debug Helpers
 
