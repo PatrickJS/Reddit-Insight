@@ -11,7 +11,7 @@
 	  {"name": "percent", "size": 1},
 	  {"name": "millions", "size": 1},
 	  {"name": "want", "size": 1},
-	  {"name": "govenment", "size": 1},
+	  {"name": "government", "size": 1},
 	  {"name": "u.s.", "size": 1},
 	  {"name": "think", "size": 1}
 	  ]
@@ -45,7 +45,7 @@
 	  {"name": "congress", "size": 1}	  ]
   },
     {
-	  "name": "Supreme Court Rullings",
+	  "name": "Supreme Court Rulings",
 	  "children": [
 	  {"name": "police", "size": 1},
 	  {"name": "court", "size": 1},
