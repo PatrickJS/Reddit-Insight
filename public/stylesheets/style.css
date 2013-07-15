@@ -487,3 +487,17 @@ footer li a:hover{
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
+
+@media (max-width: 767px) {
+  body {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .inner-container {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .nav-collapse .nav {
+    padding-left: 15px
+  }
+}
