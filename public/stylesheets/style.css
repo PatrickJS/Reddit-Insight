@@ -5,6 +5,10 @@ html, body {
   height: 100%;
 }
 
+.collapse.in {
+  height: auto !important;
+}
+
 body{
   background-color: rgba(239,97,36,1);
 }
@@ -539,3 +543,4 @@ footer li a:hover{
     padding-left: 15px
   }
 }
+
