@@ -192,6 +192,10 @@ a.preview:hover {
   padding: 10px 0 0 20px;
   font-size: 1.1em;
 }
+.index-smallest img {
+  border-radius: 100%;
+  width: 10%;
+}
 
 /************
   * Footer *
