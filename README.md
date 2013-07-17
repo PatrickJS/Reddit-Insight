@@ -5,7 +5,7 @@ An analytics suite for Reddit.com using their public API, combined with real-tim
 Team:  
 Patrick Stapleton [@gdi2290](https://twitter.com/gdi2290/) - app architecture, front-end<br>
 Alex Gaputin - pulled all the data, back-end<br>
-Kevin Smith [@kevinhsmitty](https://twitter.com/kevinhsmitty/) - front-end architecture, realtime data capture, lauyout and styling<br>
+Kevin Smith [kevinhamiltonsmith.com](http://kevinhamiltonsmith.com/) - front-end architecture, realtime data capture, lauyout and styling<br>
 Elle Beal - d3, front-end and project management<br>
 Bill Shelton - data munging, data visualization and machine learning with Python, D3 and R<br>
 Chris Sita - d3 Interaction scatter plot<br>
