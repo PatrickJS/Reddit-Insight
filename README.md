@@ -8,7 +8,7 @@ Team:
 <b>Kevin Smith</b> [kevinhamiltonsmith.com](http://kevinhamiltonsmith.com/) - Front-side architecture (router, controller, views, and models), real-time data capture, front-end layout and styling, and user interface.<br>
 <b>Elle Beal</b> [ellebeal.com](http://ellebeal.com/) - Worked primarily on the front end integrating the data into the d3.js graphs, project management, as well as styling and user testing.<br>
 <b>Bill Shelton</b> [williamshelton.nodejitsu.com](http://williamshelton.nodejitsu.com/) - lead data scientist, data munging, data visualization and machine learning with Python, D3 and R.<br>
-<b>Chris Sita</b> - d3 Interaction scatter plot<br>
+<b>Chris Sita</b> [chrissita.com](http://chrissita.com/)- d3 Interaction scatter plot<br>
 
 Logo - Alex Trimpe http://alextrimpe.com/
 
