@@ -1,0 +1,10 @@
+{
+  // JSHint Default Configuration File (as on JSHint website)
+  // See http://jshint.com/docs/ for more details
+
+  "loopfunc" : true,  // true: Tolerate functions being defined in loops
+  "globals"  : {      // additional predefined global variables
+    "Redd": true,
+    "_"   : false
+  }
+}
