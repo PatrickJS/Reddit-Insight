@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang=en>
 <head>
+  <title>Reddit Insight</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description"content="An interactive analytics suite for Reddit.com using their public API, combined with real-time data analysis and d3 visualizations.">
@@ -14,8 +15,8 @@
   <link href='/stylesheets/style.css' rel='stylesheet'>
   <link href='/stylesheets/home-style.css' rel='stylesheet'>
   <link href='/stylesheets/bubblestyle.css' rel='stylesheet'>
+  <!-- <script data-main='scripts/main' src='/lib/js/require.js'></script> -->
 
-  <title>Reddit Insight</title>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -50,13 +51,11 @@
 
   <footer></footer>
     <div class="github-fork-ribbon-wrapper right" style="pointer-events: none;">
-        <div class="github-fork-ribbon">
-            <a href="http://s.gdi2290.com/Hack_Reactor" target="_blank" style="pointer-events: all;">Made at Hack Reactor</a>
-        </div>
+      <div class="github-fork-ribbon">
+        <a href="http://s.gdi2290.com/Hack_Reactor" target="_blank" style="pointer-events: all;">Made at Hack Reactor</a>
+      </div>
     </div>
 </body>
-
-
 <script src='/lib/js/jquery-2.0.2.js'></script>
 <script src='/lib/js/jquery.fittext.js'></script>
 <script src="/lib/js/jquery.tipsy.js"></script>
@@ -118,10 +117,7 @@
 <script src='/redd_controller.js'></script>
 <script src='/router.js'></script>
 
-
-
 <script>
   Redd.initialize();
 </script>
-
 </html>
