@@ -1,4 +1,4 @@
-var Redd = _.extend({
+Redd = _.extend({
   Views: {},
   Models: {},
   Collections: {},
