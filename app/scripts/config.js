@@ -34,7 +34,8 @@ angular.module('RedditInsightApp')
       })
 
       .when('/about', {
-        templateUrl: 'views/about.html'
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl'
       })
       .otherwise({
         redirectTo: '/'
