@@ -1,0 +1,73 @@
+<h2>Track a User</h2>
+  <form>
+    <label for="tracking-username"><h4>Track Username</h4></label>
+    <p>Copy and paste the username you're interested in below:</p>
+    <input id="tracking-username" type="text" placeholder="Username" autofocus>
+    <button id="trackuser-submit" class="ladda-button" data-style="contract" data-size="s">
+      <span class="ladda-label">Submit</span>
+    </button>
+  </form>
+  <button class="submit-another ladda-button" data-size="s">
+    <span class="ladda-label">Track Another User</span>
+  </button>
+  <div id="trackuser-data">
+    {{#each this}}
+      {{#if this}}
+        {{#compare @key '===' 'created_utc'}}
+          <span class="stats-title">created at: </span>{{epoch this }} <br>
+        {{else}}
+          <span class="stats-title">{{@key}}: </span>{{this }} <br>
+        {{/compare}}
+      {{/if}}
+    {{/each}}
+    <div id="chart_container">
+      <div id="y_axis"></div>
+      <span class="y-axis">Karma</span>
+      <div id="user-chart"></div>
+    </div>
+  </div>
+  <div class="loader"></div>
+  <div id="trackuser-posts">
+    <ul class="nav nav-tabs" id="myTab">
+      <li class="active"><a href="#posts">Posts</a></li>
+      <li><a href="#comments">Comments</a></li>
+    </ul>
+    <div class="tab-content">
+    <div class="tab-pane active" id="posts">
+    {{#each this}}
+     {{#compare kind "t3"}}
+           <a href="http://www.reddit.com{{ data.permalink }}" target="_blank">
+             <h4>{{ data.title }}</h4>
+           </a>
+           {{#compare data.thumbnail '!==' 'default'}}
+           <a href="{{ data.url }}" target="_blank">
+             <img src="{{ data.thumbnail }}">
+           </a>
+           {{/compare}}
+           <br>
+           <span class="stats-title">Author: </span>{{ data.author }}<br>
+           <span class="stats-title">Score: </span>{{ data.score }}<br>
+           <span class="stats-title"><i class="icon-arrow-up"></i>: </span>{{ data.ups }}</br>
+           <span class="stats-title"><i class="icon-arrow-down"></i>: </span>{{ data.downs }}<br>
+          <span class="stats-title">Created at: </span>{{epoch data.created_utc}}<br>
+           <span class="stats-title">Comments: </span>{{ data.num_comments }}<br>
+           <hr>
+     {{/compare}}
+    {{/each}}
+    </div>
+    <div class="tab-pane" id="comments">
+    {{#each this}}
+     {{#compare kind "t1"}}
+           <span class="stats-title">Link Title: </span>{{ data.link_title }}<br>
+           <span class="stats-title">Author: </span>{{ data.author }}<br>
+           <span class="stats-title">Score: </span>{{ data.score }}<br>
+           <span class="stats-title"><i class="icon-arrow-up"></i>: </span>{{ data.ups }}</br>
+           <span class="stats-title"><i class="icon-arrow-down"></i>: </span>{{ data.downs }}<br>
+           <span class="stats-title">Sub Reddit: </span>{{ data.subreddit }}<br>
+           <span class="stats-title">Created at: </span>{{epoch data.created_utc}}<br>
+           <span class="stats-title">Comment: </span>{{ data.body }}<br>
+           <hr>
+     {{/compare}}
+    {{/each}}
+    </div>
+  </div>
