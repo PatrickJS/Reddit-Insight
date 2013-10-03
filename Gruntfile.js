@@ -341,6 +341,19 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    complexity: {
+      generic: {
+        src: ['<%= yeoman.dist %>/scripts/*.js', '<%= yeoman.dist %>/scripts/**/*.js'],
+        options: {
+          jsLintXML: 'report.xml', // create XML JSLint-like report
+          checkstyleXML: 'checkstyle.xml', // create checkstyle report
+          errorsOnly: false, // show only maintainability errors
+          cyclomatic: 3,
+          halstead: 8,
+          maintainability: 100
+        }
+      }
     }
   });
 
@@ -364,6 +377,7 @@ module.exports = function (grunt) {
     'concurrent:test',
     'autoprefixer',
     'connect:test',
+    'complexity',
     'karma'
   ]);
 
