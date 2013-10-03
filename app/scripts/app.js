@@ -1,13 +1,28 @@
 'use strict';
 
-angular.module('RedditInsightApp', [])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+/* Reddit Insight */
+angular.module('RedditInsightApp', [
+  'filters',
+  'services',
+  'directives',
+  'controllers',
+  'modules'
+]);
+
+// Controllers
+angular.module('controllers', []);
+
+// Directives
+angular.module('directives', []);
+
+// Filters
+angular.module('filters', []);
+
+// Services
+angular.module('services', []);
+
+// Modules
+angular.module('modules', [
+  'ngAnimate',
+  'ngRoute'
+]);
