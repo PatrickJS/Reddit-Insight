@@ -8,40 +8,34 @@ angular.module('RedditInsightApp')
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'MainCtrl'
-      })      .when('/trackpost', {
-        templateUrl: 'views/trackpost.html',
-        controller: 'MainCtrl'
+      .when('/trackpost', {
+        templateUrl: 'views/trackpost.html'
       })
       .when('/trackuser', {
-        templateUrl: 'views/trackuser.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/trackuser.html'
       })
+
       .when('/wordcloud', {
-        templateUrl: 'views/visualizations/wordcloud.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/visualizations/wordcloud.html'
       })
       .when('/topiccluster', {
-        templateUrl: 'views/visualizations/topiccluster.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/visualizations/topiccluster.html'
       })
       .when('/circlecluster', {
-        templateUrl: 'views/visualizations/circlecluster.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/visualizations/circlecluster.html'
       })
       .when('/interaction', {
-        templateUrl: 'views/visualizations/interaction.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/visualizations/interaction.html'
       })
       .when('/frequency', {
-        templateUrl: 'views/visualizations/frequency.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/visualizations/frequency.html'
       })
       .when('/graphs', {
-        templateUrl: 'views/visualizations/graphs.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/visualizations/graphs.html'
+      })
+
+      .when('/about', {
+        templateUrl: 'views/about.html'
       })
       .otherwise({
         redirectTo: '/'
