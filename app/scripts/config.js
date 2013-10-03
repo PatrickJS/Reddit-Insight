@@ -5,8 +5,7 @@ angular.module('RedditInsightApp')
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/main.html'
       })
       .when('/trackpost', {
         templateUrl: 'views/trackpost.html'
