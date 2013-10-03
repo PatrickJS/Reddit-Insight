@@ -32,9 +32,51 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
+    <nav>
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container" style="width: auto;">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/" target="_self">Reddit Insight</a>
+            <div class="nav-collapse">
+              <ul class="nav">
+                <li><a href="/trackpost">Track Post</a></li>
+                <li><a href="/trackuser">Track User</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Visualizations<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/wordcloud">Word Clouds</a></li>
+                    <li><a href="/topiccluster">Topic Cluster</a></li>
+                    <li><a href="/circlecluster">All The Clusters</a></li>
+                    <li><a href="/interaction">Interaction</a></li>
+                    <li><a href="/frequency">Frequency Analysis</a></li>
+                    <li><a href="/graphs">Graphs</a></li>
+                  </ul>
+                </li>
+                <li><a href="#about">About Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header>
+      <h1 class="header-text">Reddit&nbsp;Insight</h1>
+    </header>
 
-    <div ng-view=""></div>
+    <div class="container-fluid full-width-container" ng-view=""></div>
+    <footer>
 
+    </footer>
+    <div class="github-fork-ribbon-wrapper right" style="pointer-events: none;">
+      <div class="github-fork-ribbon">
+        <a href="http://s.gdi2290.com/Hack_Reactor" target="_blank" style="pointer-events: all;">Made at Hack Reactor</a>
+      </div>
+    </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -42,7 +84,7 @@
        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
+       // ga('create', 'UA-42369373-1');
        ga('send', 'pageview');
     </script>
     <script src="bower_components/jquery/jquery.js"></script>
