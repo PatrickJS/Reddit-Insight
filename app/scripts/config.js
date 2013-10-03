@@ -8,6 +8,17 @@ angular.module('RedditInsightApp')
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'MainCtrl'
+      })      .when('/trackpost', {
+        templateUrl: 'views/trackpost.html',
+        controller: 'MainCtrl'
+      })
+      .when('/trackuser', {
+        templateUrl: 'views/trackuser.html',
+        controller: 'MainCtrl'
+      })
       .when('/wordcloud', {
         templateUrl: 'views/visualizations/wordcloud.html',
         controller: 'MainCtrl'
@@ -37,6 +48,6 @@ angular.module('RedditInsightApp')
       });
   })
   .config(function($locationProvider) {
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
   })
 ;
