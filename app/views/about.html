@@ -11,61 +11,44 @@
   <div class="span8">
     <h4 class="index-small">Team</h4>
 
-      <div ng-repeat="member in teammates">
-        <a href="{{ member.website }}" target="_blank">
-          <h5 class="index-smallest"><img src="images/{{ member.avatar }}.jpg"> {{ member.name }}</h5>
+    <div ng-repeat="member in aboutInfo.teammates">
+      <a href="http://{{ member.website }}/" target="_blank">
+        <h5 class="index-smallest"><img ng-src="images/{{ member.avatar }}.jpg"> {{ member.name }}</h5>
+      </a>
+      <p>
+        {{ member.about }}
+      </p>
+      <p>GitHub: <a target="_blank" href="https://github.com/{{ member.github }}">{{ member.github }}</a></p>
+      <p>Personal Site: <a target="_blank" href="httpL//{{ member.website }}/">{{ member.website }}</a></p>
+      <p>LinkedIn: <a target="_blank" href="http://www.linkedin.com/in/{{ member.linkedin }}">{{ member.linkedin }}</a></p>
+      <p>Twitter: <a target="_blank" href="https://twitter.com/{{ member.twitter }}">@{{ member.twitter }}</a>
+    </div>
+
+  </div>
+  <div class="row-fluid about-us special-thanks">
+    <div class="span8">
+      <h4 class="index-small">Special Thanks</h4>
+        <a href="http://{{ aboutInfo.specialThanks.website }}/" target="_blank">
+          <h5 class="index-smallest"><img ng-src="images/{{ aboutInfo.specialThanks.avatar }}.jpg"> {{ aboutInfo.specialThanks.name }}</h5>
         </a>
         <p>
-          {{ member.about }}
+          {{ aboutInfo.specialThanks.about }}
         </p>
-        <p>GitHub: <a target="_blank" href="https://github.com/{{ member.github }}">{{ member.github }}</a></p>
-        <p>Personal Site: <a target="_blank" href="httpL//{{ member.website }}/">{{ member.website }}</a></p>
-        <p>LinkedIn: <a target="_blank" href="http://www.linkedin.com/in/{{ member.linkedin }}">{{ member.linkedin }}</a></p>
-        <p>Twitter: <a target="_blank" href="https://twitter.com/{{ member.twitter }}">@{{ member.twitter }}</a>
-
+        <p>GitHub: <a target="_blank" href="https://github.com/{{ aboutInfo.specialThanks.github }}">{{ aboutInfo.specialThanks.github }}</a></p>
+        <p>Personal Site: <a target="_blank" href="httpL//{{ aboutInfo.specialThanks.website }}/">{{ aboutInfo.specialThanks.website }}</a></p>
+        <p>LinkedIn: <a target="_blank" href="http://www.linkedin.com/in/{{ aboutInfo.specialThanks.linkedin }}">{{ aboutInfo.specialThanks.linkedin }}</a></p>
       </div>
-
-    <a href="http://ellebeal.com/" target="_blank"><h5 class="index-smallest"><img src="images/0e8ddaf.jpg"> Elle Beal</h5></a>
-      <p>Responsibilities: worked primarily on the front end integrating the data into the d3.js graphs, project management, as well as styling and user testing.</p>
-      <p>Personal Site: <a target="_blank" href="http://ellebeal.com/">ElleBeal.com</a></p>
-      <p>LinkedIn: <a target="_blank" href="http://www.linkedin.com/pub/eleanor-beal/a/8bb/932">Elle Beal</a></p>
-      <p>GitHub: <a target="_blank" href="https://github.com/ebeal">ebeal</a></p>
-      <p>Twitter: <a target="_blank" href="https://twitter.com/elliebee">@elliebee</a></p>
-    <a href="http://kevinhamiltonsmith.com" target="_blank"><h5 class="index-smallest"><img src="images/16f16e9.jpg"> Kevin Smith</h5></a>
-      <p>Responsibilities: front-side architecture (router, controller, views, and models), real-time data capture, front-end layout and styling, and user interface.</p>
-      <p>Personal Site: <a target="_blank" href="http://kevinhamiltonsmith.com">KevinHamiltonSmith.com</a></p>
-      <p>LinkedIn: <a target="_blank" href="http://www.linkedin.com/in/kevinhsmith">Kevin Smith</a></p>
-      <p>GitHub: <a target="_blank" href="https://github.com/kevinhamiltonsmith">kevinhamiltonsmith</a></p>
-      <p>Twitter: <a target="_blank" href="https://twitter.com/kevinhsmitty">@kevinhsmitty</a></p>
-    <a href="http://williamshelton.nodejitsu.com/" target="_blank"><h5 class="index-smallest"><img src="images/32e1404.jpg"> Bill Shelton</h5></a>
-      <p>Responsibilities: lead data scientist, data munging, data visualization and machine learning with Python, D3 and R.</p>
-      <p>Personal Site: <a target="_blank" href="http://williamshelton.nodejitsu.com/">williamshelton</a></p>
-      <p>LinkedIn: <a target="_blank" href="http://www.linkedin.com/in/williamshelton">William Shelton</a></p>
-      <p>GitHub: <a target="_blank" href="https://github.com/sheltowt">sheltowt</a></p>
-      <p>Twitter: <a target="_blank" href="https://twitter.com/sheltowt">@sheltowt</a></p>
-
-</div>
-<div class="row-fluid about-us special-thanks">
-  <div class="span8">
-    <h4 class="index-small">Special Thanks</h4>
-       <a href="http://chrissita.com" target="_blank"><h5 class="index-smallest"><img src="images/chris.jpg"> Christopher Sita</h5></a>
-      <p>Responsibilities: built the d3 framework for the <a href="#interaction">Interaction scatter graph</a>.</p>
-      <p>Personal Site: <a target="_blank" href="http://chrissita.com">chrissita</a></p>
-      <p>LinkedIn: <a target="_blank" href="http://www.linkedin.com/in/chrissita">Chris Sita</a></p>
-      <p>GitHub: <a target="_blank" href="https://github.com/tooseata">tooseata</a></p>
-      <p><a target="_blank" href="http://alextrimpe.com/">Alex Trimpe</a>: created the animated Reddit Insight logo</p>
   </div>
-</div>
 
 <div class="row-fluid about-us special-thanks">
   <div class="span8">
-    <a target="_blank" href="http://s.gdi2290.com/Hack_Reactor">
-    <h4 class="index-small">About <img src="http://hackreactor.com/wp-content/uploads/2013/04/180px.png"></h4>
+    <a target="_blank" href="{{ aboutInfo.hackreactor.link }}">
+    <h4 class="index-small">About <img ng-src="{{ aboutInfo.hackreactor.image }}"></h4>
     </a>
-      <p>The CS Degree for the 21st Century.</p>
+      <p>{{ aboutInfo.hackreactor.header }}</p>
       <p>
-        Learn the skills needed to become a Software Engineer in a intensive course that runs 12 hours a day, 6 days per week, for 3 months. The course is based in JavaScript, with an emphasis on modern tools and frameworks such as Angular.js,  Backbone.js, Node.js, jQuery, Meteor, and more. We also study core computer science concepts like data structures, algorithms, and time complexities, along with other web languages like Ruby, Rails, HTML5, and CSS3.
+        {{ aboutInfo.hackreactor.about }}
       </p>
-      <img src="http://catalystsf.staging.wpengine.com/wp-content/uploads/2012/10/Logos.png">
+      <img ng-src="{{ aboutInfo.hackreactor.image2 }}">
   </div>
 </div>

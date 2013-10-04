@@ -2,8 +2,6 @@ $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 @import "bootstrap-sass/lib/bootstrap";
-@import "home-style";
-@import "bubblestyle";
 
 /************
   * General *
@@ -555,3 +553,7 @@ footer li a:hover{
   }
 }
 
+
+
+@import "home-style";
+@import "bubblestyle";
