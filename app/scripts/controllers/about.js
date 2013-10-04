@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('RedditInsightApp')
-  .controller('AboutCtrl', function($scope) {
-
+angular.module('controllers')
+  .controller('AboutCtrl', function($scope, AboutPageService) {
+    $scope.teammates = AboutPageService.teammates;
   });

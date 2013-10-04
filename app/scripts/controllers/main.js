@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('RedditInsightApp')
+ angular.module('controllers')
   .controller('MainCtrl', function($scope) {
 
   });

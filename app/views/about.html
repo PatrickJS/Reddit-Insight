@@ -10,18 +10,20 @@
 <div class="row-fluid about-us team">
   <div class="span8">
     <h4 class="index-small">Team</h4>
-    <a href="http://gdi2290.com/" target="_blank"><h5 class="index-smallest"><img src="images/3d2f120.jpg"> Patrick Stapleton</h5></a>
-      <p>Responsibilities: Overall MVC architecture, Full-Stack, code refactoring, debugging suite, integrating everything.</p>
-      <p>GitHub: <a target="_blank" href="https://github.com/gdi2290">gdi2290</a></p>
-      <p>Personal Site: <a target="_blank" href="http://gdi2290.com/">gdi2290.com</a></p>
-      <p>LinkedIn: <a target="_blank" href="http://www.linkedin.com/in/gdi2290">Patrick Stapleton</a></p>
-      <p>Twitter: <a target="_blank" href="https://twitter.com/gdi2290">@gdi2290</a></p>
-    <a href="http://googamanga.tumblr.com/" target="_blank"><h5 class="index-smallest"><img src="images/19ee9fb.jpg"> Alex Gaputin</h5></a>
-      <p>Responsibilities: initiated the idea, pulled all the data from Reddit.com, worked on Word Clouds and Interaction scatter plot, and sliced and diced the data for the "data nuggets", Interactions, and Graphs pages.</p>
-      <p>Personal Site: <a target="_blank" href="http://googamanga.tumblr.com/">Googamanga on Tubmblr</a></p>
-      <p>LinkedIn: <a target="_blank" href="http://www.linkedin.com/in/alexgaputin">Alex Gaputin</a></p>
-      <p>GitHub: <a target="_blank" href="https://github.com/googamanga">googamanga</a></p>
-      <p>Twitter: <a target="_blank" href="https://twitter.com/googamanga">@googamanga</a></p>
+
+      <div ng-repeat="member in teammates">
+        <a href="{{ member.website }}" target="_blank">
+          <h5 class="index-smallest"><img src="images/{{ member.avatar }}.jpg"> {{ member.name }}</h5>
+        </a>
+        <p>
+          {{ member.about }}
+        </p>
+        <p>GitHub: <a target="_blank" href="https://github.com/{{ member.github }}">{{ member.github }}</a></p>
+        <p>Personal Site: <a target="_blank" href="httpL//{{ member.website }}/">{{ member.website }}</a></p>
+        <p>LinkedIn: <a target="_blank" href="http://www.linkedin.com/in/{{ member.linkedin }}">{{ member.linkedin }}</a></p>
+        <p>Twitter: <a target="_blank" href="https://twitter.com/{{ member.twitter }}">@{{ member.twitter }}</a>
+
+      </div>
 
     <a href="http://ellebeal.com/" target="_blank"><h5 class="index-smallest"><img src="images/0e8ddaf.jpg"> Elle Beal</h5></a>
       <p>Responsibilities: worked primarily on the front end integrating the data into the d3.js graphs, project management, as well as styling and user testing.</p>
