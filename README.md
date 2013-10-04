@@ -32,5 +32,6 @@ $ git clone https://github.com/gdi2290/RedditInsight.git
 $ cd RedditInsight
 $ npm install
 $ bower install
+$ grunt server
 ```
 ===
