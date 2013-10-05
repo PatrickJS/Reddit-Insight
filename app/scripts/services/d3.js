@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('services')
-  .factory('d3Service', ['$document', '$q', '$rootScope', '$window',
+  .factory('$d3', ['$document', '$q', '$rootScope', '$window',
     function($document, $q, $rootScope, $window) {
       var d = $q.defer();
       function init() {
