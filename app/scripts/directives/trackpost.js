@@ -79,6 +79,7 @@ angular.module('services')
 
 
         });
-      }
-    }
-});
+      } // end link
+    }; //end return
+  }) // end directive
+; // end module

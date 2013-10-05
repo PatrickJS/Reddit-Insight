@@ -392,11 +392,11 @@ angular.module('services')
             $(".circles").tipsy({ gravity: 's', html: true});
 
         };
+      } // end link
+    }; //end return
+  }) // end directive
+; // end module
 
-
-
-    }
-});
 
 
 

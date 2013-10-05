@@ -2,7 +2,7 @@
 
 /* Config */
 angular.module('RedditInsightApp')
-  .config(function($routeProvider) {
+  .config( function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html'
@@ -41,7 +41,7 @@ angular.module('RedditInsightApp')
         redirectTo: '/'
       });
   })
-  .config(function($locationProvider) {
+  .config( function($locationProvider) {
     // $locationProvider.html5Mode(true).hashPrefix('!');;
   })
 ;
