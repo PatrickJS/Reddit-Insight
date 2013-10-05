@@ -55,7 +55,6 @@
     "mongoose": "*",
     "request": "*",
     "nodetime": "*",
-    "handlebars-precompiler": "*"
   },
   "devDependencies": {
     "connect-livereload": "~0.2.0",
