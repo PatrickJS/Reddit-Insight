@@ -54,7 +54,7 @@
     "underscore": "*",
     "mongoose": "*",
     "request": "*",
-    "nodetime": "*",
+    "nodetime": "*"
   },
   "devDependencies": {
     "connect-livereload": "~0.2.0",
