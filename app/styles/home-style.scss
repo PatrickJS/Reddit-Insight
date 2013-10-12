@@ -13,16 +13,13 @@ header{
 header h1 {
   margin: 1% auto 0 auto;
   width: 100%;
-
   position: relative;
-  top: 10%;
-
   color: white;
   font-weight: 700;
-  font-size: 14em;
+  font-size: 10rem;
   line-height: 1.1em;
   letter-spacing: -0.05em;
-  word-spacing: 1.2em;
+  word-spacing: 1.1em;
   text-align: center;
   text-shadow: 0 0 1px rgba(95,153,207,1);
 }
@@ -40,7 +37,9 @@ header h1 {
   text-align: center;
 }
 
-.downloaded {
+h2.downloaded {
+  top: 0;
+  text-align: center;
   margin-top: 50px;
   line-height: 100%;
 }
