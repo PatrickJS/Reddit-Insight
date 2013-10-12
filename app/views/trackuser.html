@@ -1,25 +1,33 @@
 <h2>Track a User</h2>
-  <form>
+  <form name="trackuser"
+        ng-submit="submitUser(username)">
     <label for="tracking-username"><h4>Track Username</h4></label>
     <p>Copy and paste the username you're interested in below:</p>
-    <input id="tracking-username" type="text" placeholder="Username" autofocus>
-    <button id="trackuser-submit" class="ladda-button" data-style="contract" data-size="s">
+    <input id="tracking-username" type="text" placeholder="Username"
+           ng-model="username"
+           autofocus required>
+    <button id="trackuser-submit" class="ladda-button"
+            data-style="contract" data-size="s"
+            ng-disabled="trackuser.$invalid">
       <span class="ladda-label">Submit</span>
     </button>
   </form>
-  <button class="submit-another ladda-button" data-size="s">
+
+  <button class="submit-another ladda-button" data-size="s"
+          ng-click="usernameState = !usernameState"
+          ng-show="usernameState">
     <span class="ladda-label">Track Another User</span>
   </button>
-  <div id="trackuser-data">
-    #each this
-      #if this
-        #compare @key '===' 'created_utc'
-          <span class="stats-title">created at: </span>epoch this <br>
-        else
-          <span class="stats-title">@key: </span>this<br>
-        /compare
-      /if
-    /each
+
+  <div id="trackuser-data"
+        ng-show="usernameState">
+        <pre>{{ redditData.user | json }}</pre>
+    <ul>
+      <li ng-repeat="(key, value) in redditData.user">
+        <span class="stats-title">{{ key }}</span> {{ value }} <br>
+      </li>
+    </ul>
+
     <div id="chart_container">
       <div id="y_axis"></div>
       <span class="y-axis">Karma</span>
