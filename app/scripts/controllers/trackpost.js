@@ -1,20 +1,28 @@
+;(function(app) {
 'use strict';
 
- angular.module('controllers')
-   .controller('TrackPostCtrl', function(Reddit) {
+app.controller('TrackPostCtrl', function($scope, Reddit) {
 
-    this.stats = false;
+  $scope.stats = false;
 
-    this.redditData = {}
+  $scope.redditData = {}
 
-    this.submitLink = function(url) {
-      console.log('link ', url);
-      $http
-      this.stats = true
-    };
+  $scope.submitLink = function(url) {
+    console.log('link ', url);
+    Reddit.trackPost(url).then(function(response) {
+      console.log(response);
+      $scope.$emit('trackpost', url);
+      $scope.redditData = response.data[0].data.children[0].data
+      $scope.stats = true;
+    })
+  };
 
-    this.trackingUrl = '';
+  $scope.trackingUrl = '';
 
-    this.url = 'lol';
+  $scope.url = 'lol';
 
-  });
+});
+
+
+
+}(angular.module('controllers')));
