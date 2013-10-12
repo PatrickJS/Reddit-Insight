@@ -14,22 +14,22 @@ app.factory('Reddit', function($http, Tracking) {
       fullUrl = postUrl + '.json?jsonp=JSON_CALLBACK&limit=' + this.limit;
 
       return $http.jsonp(fullUrl)
-        .success(Tracking.success('trackpost', fullUrl))
-        .error(Tracking.error('trackpost', fullUrl))
+        .success(Tracking.success('trackpost', postUrl, fullUrl, this.limit))
+        .error(Tracking.error('trackpost', postUrl, fullUrl, this.limit))
     },
     trackUser: function(username) {
       var fullUrl = 'https://pay.reddit.com/user/'+ username +'/about.json?jsonp=JSON_CALLBACK';
 
       return $http.jsonp(fullUrl)
-        .success(Tracking.success('trackuser', fullUrl))
-        .error(Tracking.error('trackuser', fullUrl))
+        .success(Tracking.success('trackuser', fullUrl, username))
+        .error(Tracking.error('trackuser', fullUrl, username))
     },
     userOverview: function(username) {
       var fullUrl = 'https://pay.reddit.com/user/' + username + '/overview.json?jsonp=JSON_CALLBACK&limit=' + this.limit;
 
       return $http.jsonp(fullUrl)
-        .success(Tracking.success('trackpost', fullUrl))
-        .error(Tracking.error('trackpost', fullUrl))
+        .success(Tracking.success('overview', fullUrl, username))
+        .error(Tracking.error('overview', fullUrl, username))
     }
 
 
