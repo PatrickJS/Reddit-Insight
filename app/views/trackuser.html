@@ -21,7 +21,7 @@
 
   <div id="trackuser-data"
         ng-show="usernameState">
-        <pre>{{ redditData.user | json }}</pre>
+        <!-- <pre>{{ redditData.user | json }}</pre> -->
     <ul>
       <li ng-repeat="(key, value) in redditData.user">
         <span class="stats-title">{{ key }}</span> {{ value }} <br>
@@ -35,10 +35,16 @@
     </div>
   </div>
   <div class="loader"></div>
-  <div id="trackuser-posts">
+
+  <div id="trackuser-posts"
+       ng-show="usernameState">
     <ul class="nav nav-tabs" id="myTab">
-      <li class="active"><a href="#posts">Posts</a></li>
-      <li><a href="#comments">Comments</a></li>
+      <li class="active">
+        <a href="#posts">Posts</a>
+      </li>
+      <li>
+        <a href="#comments">Comments</a>
+      </li>
     </ul>
     <div class="tab-content">
     <div class="tab-pane active" id="posts">
@@ -78,4 +84,6 @@
      /compare
     /each
     </div>
+
+
   </div>
