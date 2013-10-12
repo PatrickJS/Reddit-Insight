@@ -15,6 +15,7 @@ app.controller('TrackUserCtrl', function($scope, Reddit) {
       console.log('trackuserctrl: ', response);
       $scope.redditData.user = response.data.data;
       $scope.usernameState = true;
+      $scope.userOverview(username);
     });
   };
 
@@ -22,7 +23,7 @@ app.controller('TrackUserCtrl', function($scope, Reddit) {
     console.log('overview ', username);
     Reddit.userOverview(username).then(function(response) {
       console.log('trackuserctrl: ', response);
-      $scope.redditData.user = response.data.data;
+      $scope.redditData.overview = response.data.data.children;
       $scope.usernameState = true;
     });
   };

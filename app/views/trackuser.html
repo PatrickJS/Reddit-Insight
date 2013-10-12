@@ -1,5 +1,6 @@
 <h2>Track a User</h2>
   <form name="trackuser"
+        ng-hide="usernameState"
         ng-submit="submitUser(username)">
     <label for="tracking-username"><h4>Track Username</h4></label>
     <p>Copy and paste the username you're interested in below:</p>
@@ -34,6 +35,7 @@
       <div id="user-chart"></div>
     </div>
   </div>
+
   <div class="loader"></div>
 
   <div id="trackuser-posts"
@@ -47,42 +49,37 @@
       </li>
     </ul>
     <div class="tab-content">
-    <div class="tab-pane active" id="posts">
-    #each this
-     #compare kind "t3"
-           <a href="http://www.reddit.com data.permalink" target="_blank">
-             <h4>data.title</h4>
+      <div class="tab-pane active" id="posts">
+        <div ng-repeat="post in redditData.overview">
+           <a ng-href="http://www.reddit.com{{ post.data.permalink }}" target="_blank">
+             <h4>{{ post.data.title }}</h4>
            </a>
-           #compare data.thumbnail '!==' 'default'
-           <a href=" data.url " target="_blank">
-             <img src=" data.thumbnail ">
+           <a target="_blank"
+              ng-if="post.data.thumbnail != 'default'"
+              ng-href="{{ post.data.url }}">
+             <img ng-src="{{ post.data.thumbnail }}">
            </a>
-           /compare
            <br>
-           <span class="stats-title">Author: </span> data.author <br>
-           <span class="stats-title">Score: </span> data.score <br>
-           <span class="stats-title"><i class="icon-arrow-up"></i>: </span> data.ups </br>
-           <span class="stats-title"><i class="icon-arrow-down"></i>: </span> data.downs <br>
-          <span class="stats-title">Created at: </span> epoch data.created_utc <br>
-           <span class="stats-title">Comments: </span> data.num_comments <br>
+           <span class="stats-title">Author: </span>{{ post.data.author }}<br>
+           <span class="stats-title">Score: </span>{{ post.data.score }}<br>
+           <span class="stats-title"><i class="icon-arrow-up"></i>: </span>{{ post.data.ups }}</br>
+           <span class="stats-title"><i class="icon-arrow-down"></i>: </span>{{ post.data.downs }}<br>
+          <span class="stats-title">Created at: </span>{{ post.data.created_utc | date }}<br>
+           <span class="stats-title">Comments: </span>{{ post.data.num_comments }}<br>
            <hr>
-     /compare
-    /each
+        </div>
+      </div>
     </div>
     <div class="tab-pane" id="comments">
-    #each this
-     #compare kind "t1"
-           <span class="stats-title">Link Title: </span> data.link_title <br>
-           <span class="stats-title">Author: </span> data.author <br>
-           <span class="stats-title">Score: </span> data.score <br>
-           <span class="stats-title"><i class="icon-arrow-up"></i>: </span> data.ups </br>
-           <span class="stats-title"><i class="icon-arrow-down"></i>: </span> data.downs <br>
-           <span class="stats-title">Sub Reddit: </span> data.subreddit <br>
-           <span class="stats-title">Created at: </span> epoch data.created_utc <br>
-           <span class="stats-title">Comment: </span> data.body}<br>
-           <hr>
-     /compare
-    /each
+      <span class="stats-title">Link Title: </span> data.link_title <br>
+      <span class="stats-title">Author: </span> data.author <br>
+      <span class="stats-title">Score: </span> data.score <br>
+      <span class="stats-title"><i class="icon-arrow-up"></i>: </span> data.ups </br>
+      <span class="stats-title"><i class="icon-arrow-down"></i>: </span> data.downs <br>
+      <span class="stats-title">Sub Reddit: </span> data.subreddit <br>
+      <span class="stats-title">Created at: </span> epoch data.created_utc <br>
+      <span class="stats-title">Comment: </span> data.body}<br>
+      <hr>
     </div>
 
 
