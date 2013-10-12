@@ -8,7 +8,8 @@ angular.module('RedditInsightApp')
         templateUrl: 'views/main.html'
       })
       .when('/trackpost', {
-        templateUrl: 'views/trackpost.html'
+        templateUrl: 'views/trackpost.html',
+        controller: 'TrackPostCtrl as post'
       })
       .when('/trackuser', {
         templateUrl: 'views/trackuser.html'
