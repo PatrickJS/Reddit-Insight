@@ -2,11 +2,16 @@
   <h2>Track a Post</h2>
   <div class="row-fluid">
     <div class="span12">
-      <form>
+      <form name="trackpost"
+            ng-submit="post.submitLink(post.trackingUrl)">
         <label for="tracking-url"><h4>Track Post</h4></label>
         <p><a href="/img/track_post_tooltip.jpg" class="preview">Copy and paste the URL of the comments for the post you're interested in below <i class="icon-question-sign"></i></a></p>
-        <input id="tracking-url" type="text" placeholder="Link to comments" autofocus>
-        <button id="trackpost-submit" class="ladda-button" data-style="contract" data-size="s">
+        <input type="url" placeholder="Link to comments"
+               ng-model="post.trackingUrl"
+               ng-pattern="/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/"
+               autofocus required>
+        <button id="trackpost-submit" class="ladda-button" data-style="contract" data-size="s"
+                ng-disabled="trackpost.$invalid">
           <span class="ladda-label">Submit</span>
         </button>
       </form>
@@ -17,31 +22,33 @@
       <span class="ladda-label">Track Another Post</span>
     </button>
     <div class="loader"></div>
-    <article id="trackpost-stats">
+    <article id="trackpost-stats"
+             ng-show="post.stats">
       <a href=" url " target="_blank">
         <h4>title   <small>  domain</small></h4>
       </a>
         Created at: epoch created_utc<br>
       <div class="post-info">
-        <a href="data.url" target="_blank">
-          <img src="thumbnail">
+        <a ng-href="{{ post.redditData.url }}" target="_blank">
+          <img ng-src="{{ post.redditData.thumbnail }}">
         </a>
         <br>
-        Author: <h4 style="display:inline"> author </h4><br>
-        Subreddit: <h4 style="display:inline">  subreddit  </h4>
+        Author: <h4 style="display:inline">{{ post.redditData.author }}</h4><br>
+        Subreddit: <h4 style="display:inline">{{ post.redditData.subreddit }}</h4>
         <br>
-        Score: <h4 style="display:inline"> score </h4>
+        Score: <h4 style="display:inline">{{ post.redditData.score }}</h4>
         <br>
-        <i class="icon-arrow-up"></i>: <h4 style="display:inline"> ups </h4>
+        <i class="icon-arrow-up"></i>: <h4 style="display:inline"> {{ post.redditData.ups }}</h4>
         <br>
-        <i class="icon-arrow-down"></i>: <h4 style="display:inline"> downs </h4>
+        <i class="icon-arrow-down"></i>: <h4 style="display:inline">{{ post.redditData.downs }}</h4>
         <br>
-        <a href="http://www.reddit.com" target="_blank">
-          Comments: <h4 style="display:inline"> num_comments </h4>
+        <a ng-href="http://www.reddit.com" target="_blank">
+          Comments: <h4 style="display:inline">{{ post.redditData.num_comments }}</h4>
         </a>
       </div>
     </article>
-    <article id="trackpost-chart">
+    <article id="trackpost-chart"
+             ng-show="track.stats">
       <div id="chart_container">
         <div id="y_axis"></div>
         <span class="y-axis">Karma</span>
