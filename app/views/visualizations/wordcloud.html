@@ -1,0 +1,38 @@
+<h2>Word Clouds</h2>
+  <form id='wordCloudForm' class="form-inline">
+    <label for='subreddit'>Subreddit:</label>
+    <select name="subreddit">
+      <option value='GamingNoun' selected>Gaming</option>
+      <option value='TechnologyNoun' selected>Technology</option>
+      <option value='FunnyNoun' selected>Funny</option>
+      <option value='AdviceAnimalsNoun' selected>Advice Animals</option>
+      <option value='MineCraftNoun' selected>Minecraft</option>
+      <option value='WTFNoun' selected>WTF</option>
+      <option value='AwwNoun' selected>Aww</option>
+      <option value='GIFNoun' selected>GIF</option>
+      <option value='LeageOfLegendsNoun' selected>Leage Of Legends</option>
+      <option value='PicsNoun' selected>Pics</option>
+      <option value='PoliticsNoun' selected>Politics</option>
+      <option value='ScienceNoun' selected>Science</option>
+      <option value='TodayILearnedNoun' selected>Today I Learned</option>
+      <option value='TreesNoun' selected>Trees</option>
+      <option value='VideosNoun' selected>Videos</option>
+      <option value='WorldNewsNoun' selected>World News</option>
+      <option value='NSFWNoun' selected>NSFW</option>
+    </select>
+    <label>Word Count:</label>
+    <input class="input-small" type='text' name='limit' value=" limit ">
+    <label for='sizeMultiple'>Size Multiplyer:</label>
+    <input class="input-small" type='text' name='sizeMultiple' value=" sizeMultiple ">
+    <label class="radio inline">
+      <input class="radio" type='radio' name='viewType' checked value="_rotate90discrete">
+      Horizontal and Vertical
+    </label>
+    <label class="radio inline">
+      <input type='radio' name='viewType' checked value='_rotate180continuous'> All Angles
+    </label>
+    <button class="ladda-button">
+      <span class="ladda-label">Submit</span>
+    </button>
+    ! <input class='btn ladda-button' type='submit' value='submit'>   if submit button breaks uncomment this one
+  </form>
