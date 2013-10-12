@@ -1,32 +1,55 @@
 <div class="post">
   <h2>Track a Post</h2>
   <div class="row-fluid">
-    <div class="span12">
+    <div class="span6"
+         ng-hide="urlState">
       <form name="trackpost"
             ng-submit="submitLink(trackingUrl)">
         <label for="tracking-url"><h4>Track Post</h4></label>
-        <p><a href="/img/track_post_tooltip.jpg" class="preview">Copy and paste the URL of the comments for the post you're interested in below <i class="icon-question-sign"></i></a></p>
+        <p>
+          <a href="/img/track_post_tooltip.jpg" class="preview">Copy and paste the URL of the comments for the post you're interested in below <i class="icon-question-sign"></i>
+          </a>
+        </p>
         <input type="url" placeholder="Link to comments"
                ng-model="trackingUrl"
                ng-pattern="/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/"
                autofocus required>
-        <button id="trackpost-submit" class="ladda-button" data-style="contract" data-size="s"
-                ng-disabled="track$invalid">
+        <button id="trackpost-submit" class="ladda-button"
+                data-style="contract" data-size="s"
+                ng-disabled="trackpost.$invalid">
           <span class="ladda-label">Submit</span>
         </button>
       </form>
     </div>
   </div>
+
   <div class="row-fluid">
-    <button class="submit-another ladda-button" data-size="s">
+    <button class="submit-another ladda-button" data-size="s"
+            ng-click="urlState=!urlState"
+            ng-show="urlState">
       <span class="ladda-label">Track Another Post</span>
     </button>
-    <div class="loader"></div>
-    <article id="trackpost-stats"
-             ng-show="stats">
+    <button class="submit-another ladda-button" data-size="s"
+            ng-click="submitLink(trackingUrl)"
+            ng-click="urlState=!urlState"
+            ng-show="urlState">
+      <span class="ladda-label">Reload Post</span>
+    </button>
 
-      <h4><a ng-href="{{ redditData.url }}" target="_blank">{{ redditData.title }}</a>
-      <small><a ng-href="http://{{ redditData.domain }}" target="_blank">{{ redditData.domain }}</small></a></h4>
+    <div class="loader"></div>
+
+    <article id="trackpost-urlState"
+             ng-show="urlState">
+      <h4>
+        <a target="_blank"
+           ng-href="{{ redditData.url }}">{{ redditData.title }}
+        </a>
+        <small>
+        <a target="_blank"
+           ng-href="http://{{ redditData.domain }}">{{ redditData.domain }}
+        </a>
+        </small>
+      </h4>
 
         Created at: {{ redditData.created_utc | date:'medium'}}<br>
       <div class="post-info">
@@ -43,13 +66,15 @@
         <br>
         <i class="icon-arrow-down"></i>: <h4 style="display:inline" ng-bind="redditData.downs"></h4>
         <br>
-        <a ng-href="http://www.reddit.com{{ redditData.permalink }}" target="_blank">
+        <a target="_blank"
+           ng-href="http://www.reddit.com{{ redditData.permalink }}">
           Comments: <h4 style="display:inline" ng-bind="redditData.num_comments"></h4>
         </a>
       </div>
     </article>
+
     <article id="trackpost-chart"
-             ng-show="track.stats">
+             ng-show="urlState">
       <div id="chart_container">
         <div id="y_axis"></div>
         <span class="y-axis">Karma</span>
@@ -58,6 +83,8 @@
         <div id="legend"></div>
       </div>
     </article>
+
   </div>
 </div>
-      <pre>{{ redditData | json }}</pre>
+
+<pre>{{ redditData | json }}</pre>
