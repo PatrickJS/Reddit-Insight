@@ -139,6 +139,7 @@
         <script src="scripts/services/D3.js"></script>
         <script src="scripts/services/Reddit.js"></script>
         <script src="scripts/services/AboutPage.js"></script>
+        <script src="scripts/services/Tracking.js"></script>
 
         <script src="scripts/directives/trackpost.js"></script>
         <script src="scripts/directives/trackuser.js"></script>
@@ -147,7 +148,10 @@
         <script src="scripts/services/AboutPage.js"></script>
         <!-- endbuild -->
     <script type="text/javascript">
-      angular.bootstrap(document.getElementById('ng-app'), ['RedditInsightApp']);
+      angular.bootstrap(
+        document.getElementById('ng-app'),
+        ['RedditInsightApp']
+      );
     </script>
 </body>
 </html>
