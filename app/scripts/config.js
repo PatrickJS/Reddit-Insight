@@ -7,12 +7,13 @@ app.config(function($routeProvider) {
     .when('/', {
       templateUrl: 'views/main.html'
     })
-    .when('/trackpost', {
+    .when('/trackpost/:post', {
       templateUrl: 'views/trackpost.html',
       controller: 'TrackPostCtrl as post'
     })
-    .when('/trackuser', {
-      templateUrl: 'views/trackuser.html'
+    .when('/trackuser/:username', {
+      templateUrl: 'views/trackuser.html',
+      controller: 'TrackUserCtrl as user'
     })
     .when('/wordcloud', {
       templateUrl: 'views/visualizations/wordcloud.html'
