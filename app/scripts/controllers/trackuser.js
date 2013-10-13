@@ -1,37 +1,39 @@
 ;(function(app) {
 'use strict';
 
-app.controller('TrackUserCtrl', function($scope, Reddit) {
+app.controller('TrackUserCtrl', function($scope, $location, Reddit) {
 
-  $scope.usernameState = false;
+  $scope.username = $scope.$routeParams.username;
 
-  $scope.username = '';
+  $scope.redditData = {};
 
-  $scope.redditData = {}
-
-  $scope.submitUser = function(username) {
-    console.log('username ', username);
-    updateUser(username);
+  $scope.trackUser = function() {
+    $location.path('/trackuser');
   };
 
   $scope.userOverview = function(username) {
     console.log('overview ', username);
-    Reddit.userOverview(username).then(function(response) {
-      console.log('trackuserctrl: ', response);
-      $scope.redditData.overview = response.data.data.children;
-      $scope.usernameState = true;
-    });
+    updateOverview(username);
   };
 
   function updateUser(username) {
     Reddit.trackUser(username).then(function(response) {
       console.log('trackuserctrl: ', response);
       $scope.redditData.user = response.data.data;
-      $scope.usernameState = true;
       $scope.userOverview(username);
     });
-  }
+  };
 
+  function updateOverview(username) {
+    Reddit.userOverview(username).then(function(response) {
+      console.log('trackuserctrl: ', response);
+      $scope.redditData.overview = response.data.data.children;
+      $scope.loadingOverview = true;
+    });
+  };
+
+  console.log('username ', $scope.username);
+  updateUser($scope.username);
 
 });
 
