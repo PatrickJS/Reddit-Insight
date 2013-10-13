@@ -11,12 +11,7 @@ app.controller('TrackUserCtrl', function($scope, Reddit) {
 
   $scope.submitUser = function(username) {
     console.log('username ', username);
-    Reddit.trackUser(username).then(function(response) {
-      console.log('trackuserctrl: ', response);
-      $scope.redditData.user = response.data.data;
-      $scope.usernameState = true;
-      $scope.userOverview(username);
-    });
+    updateUser(username);
   };
 
   $scope.userOverview = function(username) {
@@ -27,6 +22,15 @@ app.controller('TrackUserCtrl', function($scope, Reddit) {
       $scope.usernameState = true;
     });
   };
+
+  function updateUser(username) {
+    Reddit.trackUser(username).then(function(response) {
+      console.log('trackuserctrl: ', response);
+      $scope.redditData.user = response.data.data;
+      $scope.usernameState = true;
+      $scope.userOverview(username);
+    });
+  }
 
 
 });
