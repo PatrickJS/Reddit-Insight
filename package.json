@@ -1,6 +1,6 @@
 {
   "name": "Reddit-Insight",
-  "version": "1.0.0",
+  "version": "0.5.0",
   "private": true,
   "description": "An analytics suite for Reddit.com using their public API, combined with real-time data analysis and graphic visualizations of historical data.",
   "keywords": [
