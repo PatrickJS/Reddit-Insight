@@ -16,7 +16,7 @@
                autofocus required>
         <button id="trackpost-submit" class="ladda-button"
                 data-style="contract" data-size="s"
-                ng-disabled="trackpost.$invalid">
+                ng-disabled="trackpost.$invalid || !urlState">
           <span class="ladda-label">Submit</span>
         </button>
       </form>
@@ -25,14 +25,15 @@
 
   <div class="row-fluid">
     <button class="submit-another ladda-button" data-size="s"
-            ng-click="urlState=!urlState"
+            ng-click="submitLink(urlState)"
             ng-show="urlState">
       <span class="ladda-label">Track Another Post</span>
     </button>
     <button class="submit-another ladda-button" data-size="s"
             ng-click="submitLink(trackingUrl)"
             ng-click="urlState=!urlState"
-            ng-show="urlState">
+            ng-show="urlState"
+            ng-disabled="!urlState">
       <span class="ladda-label">Reload Post</span>
     </button>
 
