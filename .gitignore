@@ -1,5 +1,8 @@
-node_modules
-dist
+.DS_Store
+.ruby-version
 .tmp
 .sass-cache
+npm-debug.log
+dist
+node_modules
 app/bower_components
