@@ -1,7 +1,7 @@
 ;(function(app) {
 'use strict';
 
-app.factory('D3',function($q, $rootScope, $window) {
+app.factory('D3',function($q, $timeout, $window) {
 
   if ($window.d3) {
     var _d3 = $window.d3;
@@ -14,7 +14,7 @@ app.factory('D3',function($q, $rootScope, $window) {
   function init() {
     function onScriptLoad() {
       // Load client in the browser
-      $rootScope.$apply(function() {
+      $timeout(function() {
         _d3 = $window.d3;
         deferred.resolve($window.d3);
       });
