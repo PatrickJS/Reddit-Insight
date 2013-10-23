@@ -11,11 +11,14 @@ app.config(function($routeProvider) {
       templateUrl: 'views/post.html',
       controller: 'PostCtrl as post'
     })
-    .when('/trackpost/:post', {
+    .when('/trackpost/:post/:title', {
       templateUrl: 'views/trackpost.html',
       controller: 'TrackPostCtrl as post'
     })
-    .when('/trackuser', {
+    .when('/trackpost/:post', {
+      templateUrl: 'views/trackpost.html',
+      controller: 'TrackPostCtrl as post'
+    })    .when('/trackuser', {
       templateUrl: 'views/user.html',
       controller: 'UserCtrl as user'
     })
@@ -52,9 +55,10 @@ app.config(function($routeProvider) {
 .config(function($locationProvider) {
   // $locationProvider.html5Mode(true).hashPrefix('!');;
 })
-.run(function($rootScope, $routeParams, $log) {
+.run(function($rootScope, $route, $routeParams, $log) {
   $rootScope.$routeParams = $routeParams;
   $rootScope.$log = $log;
+  $rootScope.$route = $route;
 })
 
 }(angular.module('RedditInsightApp')));
