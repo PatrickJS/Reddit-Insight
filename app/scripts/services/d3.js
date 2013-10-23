@@ -1,48 +1,57 @@
 ;(function(app) {
 'use strict';
 
-app.factory('D3',function($q, $rootScope, $window) {
+app.provider('D3', function() {
+  var _asyncLoading = false;
+  var _scriptUrl = '//cdnjs.cloudflare.com/ajax/libs/d3/3.3.3/d3.min.js';
 
-  if ($window.d3) {
-    var _d3 = $window.d3;
-  } else {
-    var deferred = $q.defer()
-    var $document = $window.document;
-    init();
-  }
-
-  function init() {
-    function onScriptLoad() {
-      // Load client in the browser
-      $rootScope.$apply(function() {
-        _d3 = $window.d3;
-        deferred.resolve($window.d3);
-      });
-    }
-    // Create a script tag with d3 as the source
-    // and call our onScriptLoad callback when it
-    // has been loaded
-    var scriptTag = $document[0].createElement('script');
-    scriptTag.type = 'text/javascript';
-    scriptTag.async = true;
-    scriptTag.src = 'http://d3js.org/d3.v3.min.js';
-    scriptTag.onreadystatechange = function() {
-      if (this.readyState == 'complete') {
-        onScriptLoad();
-      }
-    }
-    scriptTag.onload = onScriptLoad;
-
-    var s = $document[0].getElementsByTagName('body')[0];
-    s.appendChild(scriptTag);
-
-    return deferred.promise;
-  }
-  _d3.load = function() {
-    return $window.d3 || init();
+  this.asyncLoading = function(config) {
+    _asyncLoading = config || _asyncLoading;
+    return this;
   };
 
-  return _d3;
+  this.scriptUrl = function(url) {
+    _scriptUrl = url || _scriptUrl;
+    return this;
+  };
+
+  // Create a script tag with moment as the source
+  // and call our onScriptLoad callback when it
+  // has been loaded
+  function createScript($document, callback) {
+    var scriptTag = $document.createElement('script');
+    scriptTag.type = 'text/javascript';
+    scriptTag.async = true;
+    scriptTag.src = _scriptUrl;
+    scriptTag.onreadystatechange = function () {
+      if (this.readyState == 'complete') {
+        callback();
+      }
+    }
+    scriptTag.onload = callback;
+    var s = $document.getElementsByTagName('body')[0];
+        s.appendChild(scriptTag);
+  }
+
+  this.$get = function($q, $rootScope, $window) {
+    var deferred = $q.defer();
+      var _d3 = $window.d3;
+
+      deferred.isPromise = true;
+      _d3.isPromise = false;
+
+      if (_asyncLoading) {
+        // Load client in the browser
+        var onScriptLoad = function(callback) {
+          $timeout(function() {
+            deferred.resolve($window.d3);
+          });
+        };
+        createScript($document[0], onScriptLoad);
+      }
+
+      return (_asyncLoading) ? deferred.promise: _d3;
+  }
 });
 
 }(angular.module('services')));
