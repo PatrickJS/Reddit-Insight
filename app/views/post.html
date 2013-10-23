@@ -1,0 +1,20 @@
+<div class="post">
+  <h2>Track a Post</h2>
+  <form name="trackpost"
+        ng-submit="submitLink(trackingUrl)">
+    <label for="tracking-url"><h4>Track Post</h4></label>
+    <p>
+      <a href="/img/track_post_tooltip.jpg" class="preview">Copy and paste the URL of the comments for the post you're interested in below <i class="icon-question-sign"></i>
+      </a>
+    </p>
+    <input type="url" placeholder="Link to comments"
+           ng-model="trackingUrl"
+           ng-pattern="/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/"
+           autofocus required>
+    <button id="trackpost-submit" class="ladda-button"
+            data-style="contract" data-size="s"
+            ng-disabled="trackpost.$invalid || !trackingUrl">
+      <span class="ladda-label">Submit</span>
+    </button>
+  </form>
+</div>
