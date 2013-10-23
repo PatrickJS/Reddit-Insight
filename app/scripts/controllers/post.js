@@ -1,16 +1,15 @@
 ;(function(app) {
 'use strict';
 
-app.controller('PostCtrl', function($scope) {
+app.controller('PostCtrl', function($scope, $location) {
 
-  $scope.urlState = false;
+  $scope.submitLink = function(url, index) {
+    url = url.split('/');
+    index = url.indexOf('comments');
+    url = url.slice(index+1).join('/');
 
-  $scope.trackingUrl = '';
-
-  $scope.redditData = {}
-
-  $scope.intervalTime = 3000;
-
+    $location.path('/trackpost/'+url);
+  };
 
 });
 
