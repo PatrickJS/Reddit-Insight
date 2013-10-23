@@ -23,9 +23,10 @@
 <div class="loader"></div>
 
 <div id="trackuser-posts">
+<div class="row-fluid">
   <div class="slide-down-fade-animate" ng-repeat="post in redditData.overview" ng-switch on="post.kind">
 
-    <div class="posts" ng-switch-when="t3">
+    <div class="posts span6" ng-switch-when="t3">
        <a ng-href="http://www.reddit.com{{ post.data.permalink }}" target="_blank">
          <h4>{{ post.data.title }}</h4>
        </a>
@@ -45,7 +46,7 @@
        <hr>
     </div>
 
-    <div class="comments" ng-switch-when="t1">
+    <div class="comments span6" ng-switch-when="t1">
       <span class="stats-title">Link Title: </span>{{ post.data.link_title }}<br>
       <span class="stats-title">Author: </span>{{ post.data.author }} <br>
       <span class="stats-title">Score: </span>{{ post.data.score }} <br>
@@ -56,5 +57,6 @@
       <span class="stats-title">Comment: </span>{{ post.data.body }}<br>
     </div>
 
+  </div>
   </div>
 </div>
