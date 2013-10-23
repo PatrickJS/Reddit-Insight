@@ -3,7 +3,7 @@
 
 app.controller('TrackPostCtrl', function($scope, $location, $timeout, Reddit) {
 
-  $scope.trackingUrl = 'http://www.reddit.com/r/javascript/comments/'+$scope.$routeParams.post+'/'+$scope.$routeParams.title;
+  $scope.trackingUrl = 'http://www.reddit.com/r/'+$scope.$routeParams.subreddit+'/comments/'+$scope.$routeParams.post+'/'+$scope.$routeParams.title;
 
   $scope.redditData = {}
 
