@@ -9,22 +9,28 @@ app.config(function($routeProvider) {
     })
     .when('/trackpost', {
       templateUrl: 'views/post.html',
-      controller: 'PostCtrl as post'
+      controller: 'PostCtrl as post',
+      activeTab: 'trackpost'
     })
     .when('/trackpost/:post/:title', {
       templateUrl: 'views/trackpost.html',
-      controller: 'TrackPostCtrl as post'
+      controller: 'TrackPostCtrl as post',
+      activeTab: 'trackpost'
     })
     .when('/trackpost/:post', {
       templateUrl: 'views/trackpost.html',
-      controller: 'TrackPostCtrl as post'
-    })    .when('/trackuser', {
+      controller: 'TrackPostCtrl as post',
+      activeTab: 'trackpost'
+    })
+    .when('/trackuser', {
       templateUrl: 'views/user.html',
-      controller: 'UserCtrl as user'
+      controller: 'UserCtrl as user',
+      activeTab: 'trackuser'
     })
     .when('/trackuser/:username', {
       templateUrl: 'views/trackuser.html',
-      controller: 'TrackUserCtrl as user'
+      controller: 'TrackUserCtrl as user',
+      activeTab: 'trackuser'
     })
     .when('/wordcloud', {
       templateUrl: 'views/visualizations/wordcloud.html'
@@ -46,7 +52,8 @@ app.config(function($routeProvider) {
     })
     .when('/about', {
       templateUrl: 'views/about.html',
-      controller: 'AboutCtrl'
+      controller: 'AboutCtrl',
+      activeTab: 'about'
     })
     .otherwise({
       redirectTo: '/'
