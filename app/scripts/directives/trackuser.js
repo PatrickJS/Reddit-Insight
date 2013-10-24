@@ -4,13 +4,17 @@ angular.module('directives')
   .directive('TrackUser', function(D3) {
     return {
       restrict: 'EA',
-      scope: {},
+      scope: {
+        score: '='
+      },
       link: function(scope, element, attrs) {
         // TODO: refactor collection to angular POJO
         var scoreMax = function(){
           scoreArray = [];
           collection.each(function(model){
-            if(model.attributes.data.score){scoreArray.push(model.attributes.data.score);}
+            if (scope.score) {
+              scoreArray.push(scope.score);
+            }
           });
           console.log(scoreArray);
           return _.max(scoreArray);
@@ -18,7 +22,7 @@ angular.module('directives')
         var bottomRange = 0,
             topRange = scoreMax() + 20,
             scaleRange = [bottomRange,topRange],
-            scale = [d3.scale.linear().domain(scaleRange).nice()],
+            scale = [D3.scale.linear().domain(scaleRange).nice()],
             count = 0;
 
       //console.log(scoreMax());
