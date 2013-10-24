@@ -4,17 +4,19 @@ angular.module('directives')
   .directive('TrackPost', function(D3) {
     return {
       restrict: 'EA',
-      scope: {},
+      scope: {
+        score: '='
+      },
       link: function(scope, element, attrs) {
         // TODO: refactor collection to angular POJO
 
-        var bottomRange = collection.last().attributes.score,
-            topRange = collection.last().attributes.score,
+        var bottomRange = scope.score,
+            topRange = scope.score,
             timeInt = 4100;
 
         var scaleRange = [bottomRange,topRange];
 
-        var scale = [d3.scale.linear().domain(scaleRange).nice()];
+        var scale = [D3.scale.linear().domain(scaleRange).nice()];
 
         var palette = new Rickshaw.Color.Palette();
 
@@ -67,7 +69,7 @@ angular.module('directives')
         scope.on('add', function() {
           //updated data pushed to this variable:
           var data = {
-            Karma: collection.last().attributes.score
+            Karma: scope.score
           };
           //additional data set dilineated by .two .three ...
 
