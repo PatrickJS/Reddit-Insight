@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('directives')
-  .directive('Scatterplot', function($d3) {
+  .directive('Scatterplot', function(D3) {
     return {
       restrict: 'EA',
       scope: {},

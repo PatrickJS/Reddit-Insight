@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('directives')
-  .directive('TrackUser', function($d3) {
+  .directive('TrackUser', function(D3) {
     return {
       restrict: 'EA',
       scope: {},
