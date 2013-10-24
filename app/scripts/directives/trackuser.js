@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('services')
+angular.module('directives')
   .directive('TrackUser', function($d3) {
     return {
       restrict: 'EA',
