@@ -11,60 +11,60 @@ angular.module('directives')
         var margin = {t:30, r:20, b:20, l:40 };
         var w = $('#chart').width() - margin.l - margin.r;
         var h = w * 0.5 - margin.t - margin.b;
-        var color = d3.scale.category10();
+        var color = D3.scale.category10();
 
-        var colors = d3.scale.ordinal()
+        var colors = D3.scale.ordinal()
             .range(["gray","orange"]);
 
-        var svg = d3.select("#chart").append("svg")
+        var svg = D3.select("#chart").append("svg")
           .attr("width", w + margin.l + margin.r)
           .attr("height", h + margin.t + margin.b);
 
         var groups = svg.append("g")
           .attr("transform", "translate(" + margin.l + "," + margin.t + ")");
 
-        var pieGroups = d3.selectAll('.pie-graph');
+        var pieGroups = D3.selectAll('.pie-graph');
 
-        d3.selectAll(".subredditselector").on("change", function() {
+        D3.selectAll(".subredditselector").on("change", function() {
           var node = this.value;
-          d3.csv("/graphsdata/final_reddit_updated.csv", function(data) {
+          D3.csv("/graphsdata/final_reddit_updated.csv", function(data) {
             filtered_data = data.filter(function(d) { return d.subreddit === node; });
             plotBubble(filtered_data);
           });
         });
 
-        d3.csv("/graphsdata/final_reddit_updated.csv", function(data) {
+        D3.csv("/graphsdata/final_reddit_updated.csv", function(data) {
 
         //Globals - min and max
-        x_extent = d3.extent(data, function(d){return +d.dislikes / +d.likes;});
-        y_extent = d3.extent(data, function(d){return +d.interaction;});
+        x_extent = D3.extent(data, function(d){return +d.dislikes / +d.likes;});
+        y_extent = D3.extent(data, function(d){return +d.interaction;});
 
-        x = d3.scale.linear()
+        x = D3.scale.linear()
           .range([0, w])
           .domain(x_extent).nice();
 
-        y = d3.scale.log()
+        y = D3.scale.log()
           .range([h, 0])
           .domain(y_extent).nice();
 
-        karmaScale = d3.scale.log()
+        karmaScale = D3.scale.log()
           .domain([
-            d3.min(data,
+            D3.min(data,
             function(d) {
               return +d.total_karma;
             }),
-            d3.max(data,
+            D3.max(data,
             function(d) {
               return +d.total_karma;
             })])
           .range([2,55])
 
-        xAxis = d3.svg.axis()
+        xAxis = D3.svg.axis()
           .scale(x)
           .orient("bottom")
           .ticks(5);
 
-        yAxis = d3.svg.axis()
+        yAxis = D3.svg.axis()
           .scale(y)
           .orient("right")
           .ticks(5);
@@ -82,8 +82,8 @@ angular.module('directives')
           .style("fill", function(d) { return color(d.subreddit); });
 
           var bubbleclick =  function(data) {
-            d3.selectAll('.pie-graph').remove();
-            var circle = d3.select(this);
+            D3.selectAll('.pie-graph').remove();
+            var circle = D3.select(this);
             var like_num = parseInt(circle.datum()['likes']);
             var dislike_num = parseInt(circle.datum()['dislikes']);
             var xVal = parseInt(circle.attr("cx"));
@@ -91,7 +91,7 @@ angular.module('directives')
             var pieData = [like_num, dislike_num];
             var pieDatatext = ["Likes","Dislikes"];
 
-            var pieChart = d3.select('#chart').append("svg:svg")
+            var pieChart = D3.select('#chart').append("svg:svg")
               .data(pieData)
                 .attr("width", 100)
                 .attr("height", 100)
@@ -103,11 +103,11 @@ angular.module('directives')
                 .append("svg:g")
                   .attr("transform", "translate(50, 50)");
 
-            var arc = d3.svg.arc()
+            var arc = D3.svg.arc()
                 .outerRadius(50)
                 .innerRadius(25);
 
-            var pie = d3.layout.pie()
+            var pie = D3.layout.pie()
                 .value(function(d) {return d; });
 
 
@@ -134,7 +134,7 @@ angular.module('directives')
 
           var mouseOn = function() {
 
-            var circle = d3.select(this);
+            var circle = D3.select(this);
             var currentRadius = parseInt(circle.attr("r"));
 
             circle.transition()
@@ -151,7 +151,7 @@ angular.module('directives')
               .attr("transform", "translate("+margin.l+","+margin.b+")")
               .style("stroke", circle.style("fill"))
               .transition().delay(200).duration(400).styleTween("opacity", function() {
-                return d3.interpolate(0, 0.5);
+                return D3.interpolate(0, 0.5);
               });
 
             svg.append("g")
@@ -164,10 +164,10 @@ angular.module('directives')
               .attr("transform", "translate(40,30)")
               .style("stroke", circle.style("fill"))
               .transition().delay(200).duration(400).styleTween("opacity", function() {
-                return d3.interpolate(0, 0.5);
+                return D3.interpolate(0, 0.5);
               });
 
-            d3.selection.prototype.moveToFront = function() {
+            D3.selection.prototype.moveToFront = function() {
               return this.each(function() {
                 this.parentNode.appendChild(this);
               });
@@ -180,17 +180,17 @@ angular.module('directives')
           };
 
           var mouseOff = function() {
-            var circle = d3.select(this);
+            var circle = D3.select(this);
             var currentRadius = parseInt(circle.attr("r"));
 
             circle.transition()
             .style("opacity", 0.5);
 
-            d3.selectAll(".guide")
+            D3.selectAll(".guide")
               .transition()
               .duration(100)
               .styleTween("opacity", function() {
-                return d3.interpolate(0.5, 0);
+                return D3.interpolate(0.5, 0);
               })
               .remove();
           };
@@ -258,8 +258,8 @@ angular.module('directives')
 
           var bubbleclick =  function(data) {
 
-            d3.selectAll('.pie-graph').remove();
-            var circle = d3.select(this);
+            D3.selectAll('.pie-graph').remove();
+            var circle = D3.select(this);
             var like_num = parseInt(circle.datum()['likes']);
             var dislike_num = parseInt(circle.datum()['dislikes']);
             var xVal = parseInt(circle.attr("cx"));
@@ -267,7 +267,7 @@ angular.module('directives')
             var pieData = [like_num, dislike_num];
             var pieDatatext = ["Likes","Dislikes"];
 
-            var pieChart = d3.select('#chart').append("svg:svg")
+            var pieChart = D3.select('#chart').append("svg:svg")
                 .data(pieData)
                 .attr("width", 100)
                 .attr("height", 100)
@@ -278,11 +278,11 @@ angular.module('directives')
                 .append("svg:g")
                 .attr("transform", "translate(50, 50)");
 
-            var arc = d3.svg.arc()
+            var arc = D3.svg.arc()
                 .outerRadius(50)
                 .innerRadius(25);
 
-            var pie = d3.layout.pie()
+            var pie = D3.layout.pie()
                 .value(function(d) {return d; });
 
 
@@ -311,7 +311,7 @@ angular.module('directives')
 
             var mouseOn = function() {
 
-              var circle = d3.select(this);
+              var circle = D3.select(this);
               var currentRadius = parseInt(circle.attr("r"));
 
               circle.transition()
@@ -329,7 +329,7 @@ angular.module('directives')
                 .attr("transform", "translate(40,20)")
                 .style("stroke", circle.style("fill"))
                 .transition().delay(200).duration(400).styleTween("opacity",
-                      function() { return d3.interpolate(0, 0.5);
+                      function() { return D3.interpolate(0, 0.5);
                 });
 
               svg.append("g")
@@ -342,11 +342,11 @@ angular.module('directives')
                 .attr("transform", "translate(40,30)")
                 .style("stroke", circle.style("fill"))
                 .transition().delay(200).duration(400).styleTween("opacity",
-                      function() { return d3.interpolate(0, 0.5);
+                      function() { return D3.interpolate(0, 0.5);
                 });
 
 
-              d3.selection.prototype.moveToFront = function() {
+              D3.selection.prototype.moveToFront = function() {
                 return this.each(function() {
                 this.parentNode.appendChild(this);
                 });
@@ -360,7 +360,7 @@ angular.module('directives')
 
             var mouseOff = function() {
 
-              var circle = d3.select(this);
+              var circle = D3.select(this);
               var currentRadius = parseInt(circle.attr("r"));
 
                 // go back to original size and opacity
@@ -368,8 +368,8 @@ angular.module('directives')
                 .style("opacity", 0.5);
 
                 // fade out guide lines, then remove them
-              d3.selectAll(".guide").transition().duration(100).styleTween("opacity",
-                  function() { return d3.interpolate(0.5, 0); })
+              D3.selectAll(".guide").transition().duration(100).styleTween("opacity",
+                  function() { return D3.interpolate(0.5, 0); })
               .remove();
 
             };
