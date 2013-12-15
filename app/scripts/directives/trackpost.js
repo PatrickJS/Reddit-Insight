@@ -1,20 +1,34 @@
 'use strict';
 
 angular.module('directives')
-  .directive('TrackPost', function(D3) {
+  .directive('trackPost', function(D3) {
     return {
       restrict: 'EA',
       scope: {
         score: '='
       },
       link: function(scope, element, attrs) {
-        // TODO: refactor collection to angular POJO
 
-        var bottomRange = scope.score,
-            topRange = scope.score,
-            timeInt = 4100;
+        var timeInt = 4100;
+        scope.bottomRange = 0;
+        scope.topRange = scope.score;
 
-        var scaleRange = [bottomRange,topRange];
+        var getRange = function(score) {
+          if (score < scope.bottomRange) {
+            scope.bottomRange = score;
+          } else if(score > scope.topRange){
+            scope.topRange = score;
+            console.log('in get range')
+          }
+        };
+
+        var updateYAxis = function(){
+          var scaleRange = [scope.bottomRange, scope.topRange];
+          var scale = [D3.scale.linear().domain(scaleRange).nice()];
+          yAxis.render();
+        };
+
+        var scaleRange = [scope.bottomRange, scope.topRange];
 
         var scale = [D3.scale.linear().domain(scaleRange).nice()];
 
@@ -65,18 +79,25 @@ angular.module('directives')
         //drop initial 0 value
         graph.series.dropData();
 
-
-        scope.on('add', function() {
+        // console.log('in directive');
+        scope.$watch('score', function() {
+          // console.log('rendering score');
           //updated data pushed to this variable:
           var data = {
             Karma: scope.score
           };
+          console.log(getRange)
           //additional data set dilineated by .two .three ...
-
+          getRange(scope.score)
+          updateYAxis();
           //add the data to the series
           graph.series.addData(data);
-
+          console.log("scope.score ", scope.score)
+          console.log("scope.top ", scope.topRange)
+          console.log("scope.bottom ", scope.bottomRange)
+          console.log("yAxis ", yAxis.scale(scale[0]))
           //re render
+          // yAxis.render();
           graph.render();
 
 
