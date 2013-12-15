@@ -1,0 +1,135 @@
+{
+ "name": "flare",
+ "children": [
+  {
+   "name": "subreddits",
+   "children": [
+    {
+     "name": "nsfw",
+     "children": [
+      {"name": "perfect", "size": 40},
+      {"name": "ass", "size": 38},
+      {"name": "nice", "size": 34},
+      {"name": "girl", "size": 32},
+      {"name": "blonde", "size": 26},
+      {"name": "pussy", "size": 22},
+      {"name": "look", "size": 22},
+      {"name": "boobs", "size": 21}
+     ]
+    }
+   ]
+  },
+    {
+   "name": "Minecraft",
+   "children": [
+    {"name": "minecraft", "size": 316},
+    {"name": "server", "size": 117},
+    {"name": "think", "size": 78},
+    {"name": "detail", "size": 76},
+    {"name": "world", "size": 73},
+    {"name": "house", "size": 59},
+    {"name": "texture", "size": 56},
+    {"name": "survival", "size": 53},
+    {"name": "friend", "size": 51},
+    {"name": "build", "size": 50},
+    {"name": "til", "size": 49}
+   ]
+  },
+  {
+   "name": "science",
+   "children": [
+    {"name": "scientists", "size": 115},
+    {"name": "study", "size": 100},
+    {"name": "researchers", "size": 83},
+    {"name": "brain", "size": 64},
+    {"name": "cells", "size": 63},
+    {"name": "new", "size": 58},
+    {"name": "research", "size": 46},
+    {"name": "years", "size": 46},
+    {"name": "human", "size": 43},
+    {"name": "people", "size": 42},
+    {"name": "cancer", "size": 37}
+   ]
+  },
+    {
+   "name": "technology",
+   "children": [
+    {"name": "google", "size": 214},
+    {"name": "internet", "size": 157},
+    {"name": "data", "size": 78},
+    {"name": "facebook", "size": 74},
+    {"name": "nsa", "size": 74},
+    {"name": "apple", "size": 65},
+    {"name": "cispa", "size": 56},
+    {"name": "government", "size": 55},
+    {"name": "microsoft", "size": 53},
+    {"name": "patent", "size": 53},
+    {"name": "u.s.", "size": 53}
+   ]
+  },
+    {
+   "name": "politics",
+   "children": [
+    {"name": "obama", "size": 455},
+    {"name": "bill", "size": 243},
+    {"name": "people", "size": 219},
+    {"name": "romney", "size": 209},
+    {"name": "nsa", "size": 178},
+    {"name": "president", "size": 175},
+    {"name": "republicans", "size": 174},
+    {"name": "tax", "size": 165},
+    {"name": "state", "size": 161},
+    {"name": "americans", "size": 160},
+    {"name": "america", "size": 159}
+   ]
+  },
+  {
+   "name": "aww",
+   "children": [
+    {"name": "dog", "size": 693},
+    {"name": "meet", "size": 418},
+    {"name": "puppy", "size": 399},
+    {"name": "baby", "size": 387},
+    {"name": "friend", "size": 380},
+    {"name": "day", "size": 349},
+    {"name": "guy", "size": 319},
+    {"name": "reddit", "size": 284},
+    {"name": "today", "size": 276},
+    {"name": "home", "size": 216},
+    {"name": "time", "size": 212}
+   ]
+  },
+  {
+   "name": "gaming",
+   "children": [
+    {"name": "game", "size": 799},
+    {"name": "xbox", "size": 395},
+    {"name": "games", "size": 352},
+    {"name": "time", "size": 277},
+    {"name": "think", "size": 277},
+    {"name": "ps4", "size": 197},
+    {"name": "guy", "size": 191},
+    {"name": "today", "size": 188},
+    {"name": "playing", "size": 182},
+    {"name": "video", "size": 181},
+    {"name": "play", "size": 175}
+   ]
+  },
+  {
+   "name": "AdviceAnimals",
+   "children": [
+    {"name": "guy", "size": 650},
+    {"name": "reddit", "size": 616},
+    {"name": "time", "size": 612},
+    {"name": "today", "size": 464},
+    {"name": "advice", "size": 436},
+    {"name": "feel", "size": 432},
+    {"name": "scumbag", "size": 427},
+    {"name": "day", "size": 418},
+    {"name": "people", "size": 393},
+    {"name": "friend", "size": 375},
+    {"name": "good", "size": 359}
+   ]
+  }
+ ]
+}
