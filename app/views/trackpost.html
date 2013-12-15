@@ -45,14 +45,13 @@
       </div>
     </article>
 
-    <article id="trackpost-chart"
-             ng-show="urlState">
+    <article id="trackpost-chart" track-post score="redditData.score">
       <div id="chart_container">
+        <div id="legend"></div>
         <div id="y_axis"></div>
         <span class="y-axis">Karma</span>
         <span class="x-axis">Time</span>
         <div id="chart"></div>
-        <div id="legend"></div>
       </div>
     </article>
 
