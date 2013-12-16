@@ -16,6 +16,12 @@ module.exports = function(SERVER_ROOT) {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
+    app.use(express.session());
+    app.use(function(req, res, next){
+      // Give Views/Layouts direct access to session data.
+      res.locals.session = req.session;
+      next();
+    });
     app.use(express.static(path.join(app.SERVER_ROOT, 'public')));
   });
 

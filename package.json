@@ -70,7 +70,8 @@
     "karma-phantomjs-launcher": "*",
     "karma-safari-launcher": "*",
     "karma-jasmine": "*",
-    "karma-ng-html2js-preprocessor": "*"
+    "karma-ng-html2js-preprocessor": "*",
+    "grunt-contrib-stylus": "~0.11.0"
   },
   "engines": {
     "node": "0.10.x",
