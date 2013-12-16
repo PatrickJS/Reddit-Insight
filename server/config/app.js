@@ -22,6 +22,7 @@ module.exports = function(SERVER_ROOT) {
     app.use(function(req, res, next){
       // Give Views/Layouts direct access to session data.
       res.locals.session = req.session;
+      res.locals.title = '';
       next();
     });
     app.use(express.static(path.join(app.SERVER_ROOT, 'public')));
@@ -31,7 +32,7 @@ module.exports = function(SERVER_ROOT) {
   require('./environments')(app);
 
   // Database configuration
-  // require('./database')(app);
+  require('./database')(app);
 
   // Routes
   require('./routes')(app);
