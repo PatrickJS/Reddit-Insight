@@ -1,7 +1,7 @@
 /*!
 * Author: Łukasz Holeczek
 * Template: SimpliQ - Flat & Responsive Bootstrap Admin Template
-* Version: 2.1.1 
+* Version: 2.1.1
 * Bootstrap version: 3.0.2
 * Copyright 2013 creativeLabs
 * www: http://bootstrapmaster.com
@@ -1565,7 +1565,7 @@ footer a {
   top: 15px;
   left: -20px;
   position: absolute;
-  background: url("../img/disc-arrow.png") no-repeat;
+  background: url("../images/disc-arrow.png") no-repeat;
   background-size: 20px 20px;
 }
 .discussions ul li .author {
@@ -4626,7 +4626,7 @@ ul.messagesList li span.date {
 /*
 * Author: Łukasz Holeczek
 * Template: SimpliQ - Flat & Responsive Bootstrap Admin Template
-* Version: 1.0.2 
+* Version: 1.0.2
 * Bootstrap version: 2.3.2
 * Copyright 2013 creativeLabs
 * www: http://bootstrapmaster.com
