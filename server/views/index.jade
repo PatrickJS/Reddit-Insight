@@ -1,442 +1,438 @@
 extends layouts
 
 block content
-  .container
+    //- start: Content
+    #content.col-lg-10.col-sm-11
       .row
-          //- start: Main Menu
-          include partials/sidebar
-          //- start: Content
-          #content.col-lg-10.col-sm-11
-            .row
-              .col-lg-3.col-sm-6.col-xs-6.col-xxs-12
-                .smallstat.box
-                  .boxchart-overlay.blue
-                    .boxchart 5,6,7,2,0,4,2,4,8,2,3,3,2
-                  span.title Clients
-                  span.value 4 589
-              //- end col
-              .col-lg-3.col-sm-6.col-xs-6.col-xxs-12
-                .smallstat.box
-                  .boxchart-overlay.red
-                    .boxchart 1,2,6,4,0,8,2,4,5,3,1,7,5
-                  span.title Transactions
-                  span.value 789
-              //- end col
-              .col-lg-3.col-sm-6.col-xs-6.col-xxs-12
-                .smallstat.box
-                  i.fa.fa-download.green
-                  span.title Income
-                  span.value $1 999,99
-              //- end col
-              .col-lg-3.col-sm-6.col-xs-6.col-xxs-12
-                .smallstat.box
-                  i.fa.fa-money.yellow
-                  span.title Account
-                  span.value $19 999,99
-              //- end col
-            //- end row
-            .row
-              .col-xs-12
-                .main-chart
-                  .bar
-                    .title JAN
-                    .value 80%
-                  .bar.simple
-                    .title FEB
-                    .value 60%
-                  .bar.simple
-                    .title MAR
-                    .value 50%
-                  .bar
-                    .title APR
-                    .value 40%
-                  .bar.simple
-                    .title MAY
-                    .value 10%
-                  .bar.simple
-                    .title JUN
-                    .value 30%
-                  .bar
-                    .title JUL
-                    .value 50%
-                  .bar.simple
-                    .title AUG
-                    .value 65%
-                  .bar.simple
-                    .title SEP
-                    .value 40%
-                  .bar
-                    .title OCT
-                    .value 32%
-                  .bar.simple
-                    .title NOV
-                    .value 20%
-                  .bar.simple
-                    .title DEC
-                    .value 10%
-                  .bar
-                    .title JAN
-                    .value 100%
-                  .bar.simple
-                    .title FEB
-                    .value 60%
-                  .bar.simple
-                    .title MAR
-                    .value 50%
-                  .bar
-                    .title APR
-                    .value 40%
-                  .bar.simple
-                    .title MAY
-                    .value 10%
-                  .bar.simple
-                    .title JUN
-                    .value 30%
-                  .bar
-                    .title JUL
-                    .value 50%
-                  .bar.simple
-                    .title AUG
-                    .value 65%
-              //- end col
-            //- end row
-            .row
-              .col-lg-6.col-md-6
-                .row
-                  .col-lg-12
-                    .multi-stat-box.box
-                      .header
-                        .left
-                          h2 Pageviews
-                          a.fa.fa-chevron-down
-                        .right
-                          h2 MAY 15 - MAY 22
-                          .percent
-                            i.fa.fa-double-angle-up
-                            | 22%
-                      .content
-                        .left
-                          ul
-                            li
-                              span.date Overall
-                              span.value 987,123
-                            li.active
-                              span.date This week
-                              span.value 9,873
-                            li
-                              span.date Yesterday
-                              span.value 851
-                            li
-                              span.date Today
-                              span.value 184
-                        .right
-                          .multi-stat-box-chart(style='height: 180px; width: 90%; padding: 10px;')
-                    .box.blue
-                      .box-header
-                        h2
-                          i.fa.fa-bar-chart-o
-                          | Weekly Stat
-                        .box-icon
-                          a.btn-minimize(href='index.html#')
-                            i.fa.fa-chevron-up
-                          a.btn-close(href='index.html#')
-                            i.fa.fa-times
-                      .box-content
-                        .chart-type1(style='height: 170px;')
-                    //- end span
-              //- end col
-              .col-lg-6.col-md-6
-                .box.blue
-                  .box-header
-                    h2 Revenue
-                  .box-content
-                    .chart-type2(style='height: 220px;')
-                    .verticalChart
-                      .singleBar
-                        .bar
-                          .value
-                            span 37%
-                        .title US
-                      .singleBar
-                        .bar
-                          .value
-                            span 16%
-                        .title PL
-                      .singleBar
-                        .bar
-                          .value
-                            span 12%
-                        .title GB
-                      .singleBar
-                        .bar
-                          .value
-                            span 9%
-                        .title DE
-                      .singleBar
-                        .bar
-                          .value
-                            span 7%
-                        .title NL
-                      .singleBar
-                        .bar
-                          .value
-                            span 6%
-                        .title CA
-                      .singleBar
-                        .bar
-                          .value
-                            span 5%
-                        .title FI
-                      .singleBar
-                        .bar
-                          .value
-                            span 4%
-                        .title RU
-                      .singleBar
-                        .bar
-                          .value
-                            span 3%
-                        .title AU
-                      .singleBar
-                        .bar
-                          .value
-                            span 1%
-                        .title N/A
-                    .clearfix
-              //- end col
-            //- end row
-            .row
-              .col-lg-7.col-md-7
-                .row
-                  .col-lg-12
-                    .box.calendar
-                      .calendar-details
-                        .day MONDAY
-                        .date MAY 22
-                        ul.events
-                          li MAY 22, 19:30 Meeting
-                          li MAY 22, 19:30 Meeting
-                        .add-event
-                          i.fa.fa-plus
-                          input.new.event(type='text', value='')
-                      .calendar-small
-                      .clearfix
-                  //- end col
-                //- end row
-                .row
-                  .col-lg-6.col-sm-6.col-xs-6.col-xxs-12
-                    .smallchart.blue.box
-                      .title Account balance
-                      .content
-                        .chart-stat
-                          .chart.white 7,3,2,6,6,3,9,0,1,4
-                      .value $19 999,99
-                  //- end col
-                  .col-lg-6.col-sm-6.col-xs-6.col-xxs-12
-                    .smallchart.red.box
-                      .title Weekly revenue
-                      .content
-                        .chart-stat
-                          .chart.white 5,8,3,9,2,5,6,2,2,5
-                      .value $1 849,99
-                  //- end col
-                //- end row
-              //- end col
-              .col-lg-5.col-md-5
-                .box.noOverflow.chat.alt
-                  .contacts
-                    ul.list
-                      li
-                        img.avatar(src='images/avatar.jpg', alt='avatar')
-                        span.name Łukasz Holeczek
-                        span.status.online
-                        span.important 4
-                      li
-                        img.avatar(src='images/avatar2.jpg', alt='avatar')
-                        span.name Łukasz Holeczek
-                        span.status.offline
-                      li
-                        img.avatar(src='images/avatar3.jpg', alt='avatar')
-                        span.name Łukasz Holeczek
-                        span.status.busy
-                  .conversation
-                    .actions
-                      img.avatar(src='images/avatar.jpg', alt='avatar')
-                      img.avatar(src='images/avatar3.jpg', alt='avatar')
-                      img.avatar(src='images/avatar4.jpg', alt='avatar')
-                    ul.talk
-                      li
-                        img.avatar(src='images/avatar3.jpg', alt='avatar')
-                        span.name Ann Kovalsky
-                        span.time 1:32PM
-                        .message
-                          | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                      li
-                        img.avatar(src='images/avatar4.jpg', alt='avatar')
-                        span.name Megan Abbott
-                        span.time 1:32PM
-                        .message
-                          | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                      li
-                        img.avatar(src='images/avatar3.jpg', alt='avatar')
-                        span.name Ann Kovalsky
-                        span.time 1:32PM
-                        .message
-                          | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                      li
-                        img.avatar(src='images/avatar.jpg', alt='avatar')
-                        span.name Łukasz Holeczek
-                        span.time 1:32PM
-                        .message
-                          | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                      li
-                        img.avatar(src='images/avatar4.jpg', alt='avatar')
-                        span.name Megan Abbott
-                        span.time 1:32PM
-                        .message
-                          | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                    .form
-                      input.write-message(type='text', placeholder='Write Message')
-              //- end col
-            //- end row
-            .row
-              .col-lg-8.col-md-8
-                .box
-                  .box-header
-                    h2 tickets
-                  .box-content(style='height: 304px;')
-                    #stats-chart2.col-lg-12(style='height: 290px;')
-              //- end col
-              .col-lg-4.col-md-4
-                .box
-                  .box-header
-                    h2
-                      i.fa.fa-check
-                      | To Do List
-                    .box-icon
-                      a.btn-setting(href='index.html#')
-                        i.fa.fa-wrench
-                      a.btn-minimize(href='index.html#')
-                        i.fa.fa-chevron-up
-                      a.btn-close(href='index.html#')
-                        i.fa.fa-times
-                  .box-content
-                    .todo
-                      ul.todo-list
-                        li
-                          span.todo-actions
-                            a(href='index.html#')
-                              i.fa.fa-square-o
-                          span.desc Windows Phone 8 App
-                          span.label.label-important today
-                        li
-                          span.todo-actions
-                            a(href='index.html#')
-                              i.fa.fa-square-o
-                          span.desc New frontend layout
-                          span.label.label-important today
-                        li
-                          span.todo-actions
-                            a(href='index.html#')
-                              i.fa.fa-square-o
-                          span.desc Hire developers
-                          span.label.label-warning tommorow
-                        li
-                          span.todo-actions
-                            a(href='index.html#')
-                              i.fa.fa-square-o
-                          span.desc Windows Phone 8 App
-                          span.label.label-warning tommorow
-                        li
-                          span.todo-actions
-                            a(href='index.html#')
-                              i.fa.fa-square-o
-                          span.desc New frontend layout
-                          span.label.label-success this week
-                        li
-                          span.todo-actions
-                            a(href='index.html#')
-                              i.fa.fa-square-o
-                          span.desc Hire developers
-                          span.label.label-success this week
-                        li
-                          span.todo-actions
-                            a(href='index.html#')
-                              i.fa.fa-square-o
-                          span.desc New frontend layout
-                          span.label.label-info this month
-                        li
-                          span.todo-actions
-                            a(href='index.html#')
-                              i.fa.fa-square-o
-                          span.desc Hire developers
-                          span.label.label-info this month
-              //- end col
-            //- end row
-            .row
-              .col-lg-12.discussions
-                ul
-                  li
-                    .author
-                      img(src='images/avatar.jpg', alt='avatar')
-                    .name Łukasz Holeczek
-                    .date Today, 1:08 PM
-                    .delete
-                      i.fa.fa-times
-                    .message
-                      | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+        .col-lg-3.col-sm-6.col-xs-6.col-xxs-12
+          .smallstat.box
+            .boxchart-overlay.blue
+              .boxchart 5,6,7,2,0,4,2,4,8,2,3,3,2
+            span.title Clients
+            span.value 4 589
+        //- end col
+        .col-lg-3.col-sm-6.col-xs-6.col-xxs-12
+          .smallstat.box
+            .boxchart-overlay.red
+              .boxchart 1,2,6,4,0,8,2,4,5,3,1,7,5
+            span.title Transactions
+            span.value 789
+        //- end col
+        .col-lg-3.col-sm-6.col-xs-6.col-xxs-12
+          .smallstat.box
+            i.fa.fa-download.green
+            span.title Income
+            span.value $1 999,99
+        //- end col
+        .col-lg-3.col-sm-6.col-xs-6.col-xxs-12
+          .smallstat.box
+            i.fa.fa-money.yellow
+            span.title Account
+            span.value $19 999,99
+        //- end col
+      //- end row
+      .row
+        .col-xs-12
+          .main-chart
+            .bar
+              .title JAN
+              .value 80%
+            .bar.simple
+              .title FEB
+              .value 60%
+            .bar.simple
+              .title MAR
+              .value 50%
+            .bar
+              .title APR
+              .value 40%
+            .bar.simple
+              .title MAY
+              .value 10%
+            .bar.simple
+              .title JUN
+              .value 30%
+            .bar
+              .title JUL
+              .value 50%
+            .bar.simple
+              .title AUG
+              .value 65%
+            .bar.simple
+              .title SEP
+              .value 40%
+            .bar
+              .title OCT
+              .value 32%
+            .bar.simple
+              .title NOV
+              .value 20%
+            .bar.simple
+              .title DEC
+              .value 10%
+            .bar
+              .title JAN
+              .value 100%
+            .bar.simple
+              .title FEB
+              .value 60%
+            .bar.simple
+              .title MAR
+              .value 50%
+            .bar
+              .title APR
+              .value 40%
+            .bar.simple
+              .title MAY
+              .value 10%
+            .bar.simple
+              .title JUN
+              .value 30%
+            .bar
+              .title JUL
+              .value 50%
+            .bar.simple
+              .title AUG
+              .value 65%
+        //- end col
+      //- end row
+      .row
+        .col-lg-6.col-md-6
+          .row
+            .col-lg-12
+              .multi-stat-box.box
+                .header
+                  .left
+                    h2 Pageviews
+                    a.fa.fa-chevron-down
+                  .right
+                    h2 MAY 15 - MAY 22
+                    .percent
+                      i.fa.fa-double-angle-up
+                      | 22%
+                .content
+                  .left
                     ul
                       li
-                        .author
-                          img(src='images/avatar3.jpg', alt='avatar')
-                        .name Ann Kovalsky
-                        .date Today, 1:08 PM
-                        .delete
-                          i.fa.fa-times
-                        .message
-                          | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                        span.date Overall
+                        span.value 987,123
+                      li.active
+                        span.date This week
+                        span.value 9,873
                       li
-                        .author
-                          img(src='images/avatar6.jpg', alt='avatar')
-                        .name Megan Abbott
-                        .date Today, 1:08 PM
-                        .delete
-                          i.fa.fa-times
-                        .message
-                          | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                        span.date Yesterday
+                        span.value 851
                       li
-                        .author
-                          img(src='images/avatar.jpg', alt='avatar')
-                        textarea.diss-form(placeholder='Write comment')
-                  li
-                    .author
-                      img(src='images/avatar9.jpg', alt='avatar')
-                    .name Tom Allen
-                    .date Today, 1:08 PM
-                    .delete
+                        span.date Today
+                        span.value 184
+                  .right
+                    .multi-stat-box-chart(style='height: 180px; width: 90%; padding: 10px;')
+              .box.blue
+                .box-header
+                  h2
+                    i.fa.fa-bar-chart-o
+                    | Weekly Stat
+                  .box-icon
+                    a.btn-minimize(href='index.html#')
+                      i.fa.fa-chevron-up
+                    a.btn-close(href='index.html#')
                       i.fa.fa-times
-                    .message
-                      | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                    ul
-                      li
-                        .author
-                          img(src='images/avatar2.jpg', alt='avatar')
-                        .name Katie Moss
-                        .date Today, 1:08 PM
-                        .delete
-                          i.fa.fa-times
-                        .message
-                          | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                      li
-                        .author
-                          img(src='images/avatar4.jpg', alt='avatar')
-                        .name Anna Holn
-                        .date Today, 1:08 PM
-                        .delete
-                          i.fa.fa-times
-                        .message
-                          | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                      li
-                        .author
-                          img(src='images/avatar9.jpg', alt='avatar')
-                        textarea.diss-form(placeholder='Write comment')
+                .box-content
+                  .chart-type1(style='height: 170px;')
+              //- end span
+        //- end col
+        .col-lg-6.col-md-6
+          .box.blue
+            .box-header
+              h2 Revenue
+            .box-content
+              .chart-type2(style='height: 220px;')
+              .verticalChart
+                .singleBar
+                  .bar
+                    .value
+                      span 37%
+                  .title US
+                .singleBar
+                  .bar
+                    .value
+                      span 16%
+                  .title PL
+                .singleBar
+                  .bar
+                    .value
+                      span 12%
+                  .title GB
+                .singleBar
+                  .bar
+                    .value
+                      span 9%
+                  .title DE
+                .singleBar
+                  .bar
+                    .value
+                      span 7%
+                  .title NL
+                .singleBar
+                  .bar
+                    .value
+                      span 6%
+                  .title CA
+                .singleBar
+                  .bar
+                    .value
+                      span 5%
+                  .title FI
+                .singleBar
+                  .bar
+                    .value
+                      span 4%
+                  .title RU
+                .singleBar
+                  .bar
+                    .value
+                      span 3%
+                  .title AU
+                .singleBar
+                  .bar
+                    .value
+                      span 1%
+                  .title N/A
+              .clearfix
+        //- end col
+      //- end row
+      .row
+        .col-lg-7.col-md-7
+          .row
+            .col-lg-12
+              .box.calendar
+                .calendar-details
+                  .day MONDAY
+                  .date MAY 22
+                  ul.events
+                    li MAY 22, 19:30 Meeting
+                    li MAY 22, 19:30 Meeting
+                  .add-event
+                    i.fa.fa-plus
+                    input.new.event(type='text', value='')
+                .calendar-small
+                .clearfix
+            //- end col
+          //- end row
+          .row
+            .col-lg-6.col-sm-6.col-xs-6.col-xxs-12
+              .smallchart.blue.box
+                .title Account balance
+                .content
+                  .chart-stat
+                    .chart.white 7,3,2,6,6,3,9,0,1,4
+                .value $19 999,99
+            //- end col
+            .col-lg-6.col-sm-6.col-xs-6.col-xxs-12
+              .smallchart.red.box
+                .title Weekly revenue
+                .content
+                  .chart-stat
+                    .chart.white 5,8,3,9,2,5,6,2,2,5
+                .value $1 849,99
+            //- end col
+          //- end row
+        //- end col
+        .col-lg-5.col-md-5
+          .box.noOverflow.chat.alt
+            .contacts
+              ul.list
+                li
+                  img.avatar(src='images/avatar.jpg', alt='avatar')
+                  span.name Łukasz Holeczek
+                  span.status.online
+                  span.important 4
+                li
+                  img.avatar(src='images/avatar2.jpg', alt='avatar')
+                  span.name Łukasz Holeczek
+                  span.status.offline
+                li
+                  img.avatar(src='images/avatar3.jpg', alt='avatar')
+                  span.name Łukasz Holeczek
+                  span.status.busy
+            .conversation
+              .actions
+                img.avatar(src='images/avatar.jpg', alt='avatar')
+                img.avatar(src='images/avatar3.jpg', alt='avatar')
+                img.avatar(src='images/avatar4.jpg', alt='avatar')
+              ul.talk
+                li
+                  img.avatar(src='images/avatar3.jpg', alt='avatar')
+                  span.name Ann Kovalsky
+                  span.time 1:32PM
+                  .message
+                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                li
+                  img.avatar(src='images/avatar4.jpg', alt='avatar')
+                  span.name Megan Abbott
+                  span.time 1:32PM
+                  .message
+                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                li
+                  img.avatar(src='images/avatar3.jpg', alt='avatar')
+                  span.name Ann Kovalsky
+                  span.time 1:32PM
+                  .message
+                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                li
+                  img.avatar(src='images/avatar.jpg', alt='avatar')
+                  span.name Łukasz Holeczek
+                  span.time 1:32PM
+                  .message
+                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                li
+                  img.avatar(src='images/avatar4.jpg', alt='avatar')
+                  span.name Megan Abbott
+                  span.time 1:32PM
+                  .message
+                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+              .form
+                input.write-message(type='text', placeholder='Write Message')
+        //- end col
+      //- end row
+      .row
+        .col-lg-8.col-md-8
+          .box
+            .box-header
+              h2 tickets
+            .box-content(style='height: 304px;')
+              #stats-chart2.col-lg-12(style='height: 290px;')
+        //- end col
+        .col-lg-4.col-md-4
+          .box
+            .box-header
+              h2
+                i.fa.fa-check
+                | To Do List
+              .box-icon
+                a.btn-setting(href='index.html#')
+                  i.fa.fa-wrench
+                a.btn-minimize(href='index.html#')
+                  i.fa.fa-chevron-up
+                a.btn-close(href='index.html#')
+                  i.fa.fa-times
+            .box-content
+              .todo
+                ul.todo-list
+                  li
+                    span.todo-actions
+                      a(href='index.html#')
+                        i.fa.fa-square-o
+                    span.desc Windows Phone 8 App
+                    span.label.label-important today
+                  li
+                    span.todo-actions
+                      a(href='index.html#')
+                        i.fa.fa-square-o
+                    span.desc New frontend layout
+                    span.label.label-important today
+                  li
+                    span.todo-actions
+                      a(href='index.html#')
+                        i.fa.fa-square-o
+                    span.desc Hire developers
+                    span.label.label-warning tommorow
+                  li
+                    span.todo-actions
+                      a(href='index.html#')
+                        i.fa.fa-square-o
+                    span.desc Windows Phone 8 App
+                    span.label.label-warning tommorow
+                  li
+                    span.todo-actions
+                      a(href='index.html#')
+                        i.fa.fa-square-o
+                    span.desc New frontend layout
+                    span.label.label-success this week
+                  li
+                    span.todo-actions
+                      a(href='index.html#')
+                        i.fa.fa-square-o
+                    span.desc Hire developers
+                    span.label.label-success this week
+                  li
+                    span.todo-actions
+                      a(href='index.html#')
+                        i.fa.fa-square-o
+                    span.desc New frontend layout
+                    span.label.label-info this month
+                  li
+                    span.todo-actions
+                      a(href='index.html#')
+                        i.fa.fa-square-o
+                    span.desc Hire developers
+                    span.label.label-info this month
+        //- end col
+      //- end row
+      .row
+        .col-lg-12.discussions
+          ul
+            li
+              .author
+                img(src='images/avatar.jpg', alt='avatar')
+              .name Łukasz Holeczek
+              .date Today, 1:08 PM
+              .delete
+                i.fa.fa-times
+              .message
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+              ul
+                li
+                  .author
+                    img(src='images/avatar3.jpg', alt='avatar')
+                  .name Ann Kovalsky
+                  .date Today, 1:08 PM
+                  .delete
+                    i.fa.fa-times
+                  .message
+                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                li
+                  .author
+                    img(src='images/avatar6.jpg', alt='avatar')
+                  .name Megan Abbott
+                  .date Today, 1:08 PM
+                  .delete
+                    i.fa.fa-times
+                  .message
+                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                li
+                  .author
+                    img(src='images/avatar.jpg', alt='avatar')
+                  textarea.diss-form(placeholder='Write comment')
+            li
+              .author
+                img(src='images/avatar9.jpg', alt='avatar')
+              .name Tom Allen
+              .date Today, 1:08 PM
+              .delete
+                i.fa.fa-times
+              .message
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+              ul
+                li
+                  .author
+                    img(src='images/avatar2.jpg', alt='avatar')
+                  .name Katie Moss
+                  .date Today, 1:08 PM
+                  .delete
+                    i.fa.fa-times
+                  .message
+                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                li
+                  .author
+                    img(src='images/avatar4.jpg', alt='avatar')
+                  .name Anna Holn
+                  .date Today, 1:08 PM
+                  .delete
+                    i.fa.fa-times
+                  .message
+                    | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                li
+                  .author
+                    img(src='images/avatar9.jpg', alt='avatar')
+                  textarea.diss-form(placeholder='Write comment')

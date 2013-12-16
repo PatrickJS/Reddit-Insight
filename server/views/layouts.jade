@@ -23,7 +23,10 @@ html.no-js(lang="en")
     include partials/header
     block header
 
-    block content
+    .container
+      .row
+        include partials/sidebar
+        block content
 
     block footer
     include partials/footer
