@@ -1,25 +1,25 @@
 {
-  "name": "RedditInsight",
-  "version": "0.5.0",
+  "name": "Reddit-Insight",
+  "version": "2.0.0",
   "dependencies": {
-    "angular": "~1.2.0-rc.2",
-    "angular-animate": "~1.2.0-rc.2",
-    "angular-route": "~1.2.0-rc.2",
-    "jquery": "~2.0.0",
-    "bootstrap-sass": "~2.3.1",
-    "json3": "~3.2.4",
-    "es5-shim": "~2.0.8",
-    "angular-ui-utils": "~0.0.4",
-    "d3": "~3.3.6",
-    "rickshaw": "~1.4.3",
-    "angular-bindonce": "~0.2.1",
-    "lodash": "~2.2.1"
+    "json3": "*",
+    "es5-shim": "*",
+    "lodash": "*",
+    "jquery": "*",
+    "bootstrap-sass": "~3.0.0-rc1",
+    "d3": "*",
+    "angular": "1.2.5",
+    "angular-animate": "1.2.5",
+    "angular-route": "1.2.5",
+    "angular-ui-utils": "*",
+    "angular-bindonce": "*",
+    "angular-lodash": "*"
   },
   "devDependencies": {
-    "angular-mocks": "~1.0.7",
-    "angular-scenario": "~1.0.7"
+    "angular-mocks": "~1.2.5",
+    "angular-scenario": "~1.2.5"
   },
   "resolutions": {
-    "angular": "1.2.0-rc.2"
+    "angular": "1.2.5"
   }
 }
