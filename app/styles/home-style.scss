@@ -1,0 +1,194 @@
+.full-width-container {
+  max-width: 100%;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+header{
+  height: 230px;
+  background-position: 50% 20%;
+}
+
+header h1 {
+  margin: 1% auto 0 auto;
+  width: 100%;
+  position: relative;
+  color: white;
+  font-weight: 700;
+  font-size: 10rem;
+  line-height: 1.1em;
+  letter-spacing: -0.05em;
+  word-spacing: 1.1em;
+  text-align: center;
+  text-shadow: 0 0 1px rgba(95,153,207,1);
+}
+
+#dashboard {
+  padding-bottom: 80px;
+}
+
+#dashboard p {
+  font-size:1.4em;
+}
+
+#dashboard h2 {
+  top: 0;
+  text-align: center;
+}
+
+h2.downloaded {
+  top: 0;
+  text-align: center;
+  margin-top: 50px;
+  line-height: 100%;
+}
+
+.index-small, .index-smaller {
+  margin-top: 10px;
+
+  color: #777;
+  font-weight: 700;
+  letter-spacing: -.1em;
+  text-shadow:
+     -1px -1px 0 white,
+      1px -1px 0 white,
+      -1px 1px 0 white,
+       1px 1px 0 white;
+  text-align: center;
+  line-height: 100%;
+}
+
+.index-small {
+  font-size: 4em;
+}
+
+.index-smaller {
+  font-size: 3em;
+}
+
+.index-highlight p {
+  margin: 20px 0;
+}
+
+.index-highlight button {
+  margin-top: 20px;
+}
+
+.index-highlight div.span6 {
+  margin-top: 50px;
+}
+
+.index-highlight img {
+  margin: 30px auto;
+  display: block;
+}
+
+#trackpost-nav, #trackuser-nav {
+  width: 150px;
+}
+
+.reddit-stats {
+  padding-top: 20px
+}
+
+.reddit-stats .row {
+  padding-top: 20px;
+}
+
+.reddit-stats h5 {
+  padding-bottom: 20px;
+}
+
+#dashboard section {
+  text-align: left;
+  color: rgba(239,97,36,1);
+  font-weight: bold;
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+}
+
+#dashboard section .small {
+  font-size: 1.2em;
+}
+
+.cat-img, .nsfw-img {
+  height:200px;
+  opacity:.8;
+  float: right;
+}
+
+body #karma-post {
+  line-height: 1.7em;
+  font-size: 2.6em;
+}
+
+#karma-post span {
+  color: rgba(95,153,207,1);
+}
+
+#dashboard #infograph-cats, #dashboard #infograph-nsfw, #dashboard #infograph-karma, #dashboard #karma-post {
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+#infograph-karma p {
+  font-size: 2.2em;
+  line-height: 100%;
+}
+
+#infograph-karma ol {
+  font-size: 1.6em;
+  text-align: left;
+  padding: 0 0 0 50px;
+}
+
+#infograph-karma li {
+  line-height: 1.4em;
+}
+
+/* Responsive fixes using Bootstrap's breakpoints */
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  body #karma-post {
+    line-height: 1.3em;
+    font-size: 1.3em;
+  }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+  .container-fluid h2{
+    font-size: 4em;
+  }
+  .index-small {
+    font-size: 3.2em;
+  }
+  .index-smaller {
+    font-size: 2.9em;
+  }
+  .cat-img, .nsfw-img {
+    height: 150px;
+    opacity: .8;
+    float: none;
+  }
+  body #karma-post {
+    line-height: 1.7em;
+    font-size: 1.8em;
+  }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 940px) {
+
+}
+
+/* Default: 940px and up  */
+
+
+/* Large desktop */
+@media (min-width: 1210px) {
+
+}

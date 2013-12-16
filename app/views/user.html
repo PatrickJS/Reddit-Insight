@@ -1,0 +1,14 @@
+<h2>Track a User</h2>
+<form name="trackuser"
+      ng-submit="submitUser(username)">
+  <label for="tracking-username"><h4>Track Username</h4></label>
+  <p>Copy and paste the username you're interested in below:</p>
+  <input id="tracking-username" type="text" placeholder="Username"
+         ng-model="username"
+         autofocus required>
+  <button id="trackuser-submit" class="ladda-button"
+          data-style="contract" data-size="s"
+          ng-disabled="trackuser.$invalid">
+    <span class="ladda-label">Submit</span>
+  </button>
+</form>
