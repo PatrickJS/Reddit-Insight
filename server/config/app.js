@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var cors = require('cors');
 
 module.exports = function(SERVER_ROOT) {
   var app = express();
@@ -12,6 +13,7 @@ module.exports = function(SERVER_ROOT) {
 
   // Basic configuration
   app.configure(function() {
+    app.use(cors());
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
