@@ -19,9 +19,14 @@ html.no-js(lang="en")
       script(src="stylesheets/ie6-8.css")
     block head
   body
+
+    include partials/header
     block header
+
     block content
+
     block footer
+    include partials/footer
 
     include partials/scripts
     block scripts

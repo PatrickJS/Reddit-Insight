@@ -1,0 +1,215 @@
+header.navbar
+  .container
+    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.sidebar-nav.nav-collapse')
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a#main-menu-toggle.hidden-xs.open
+      i.fa.fa-bars
+    a.navbar-brand.col-lg-2.col-sm-1.col-xs-12(href='index.html')
+      span SimpliQ
+    //- start: Header Menu
+    .nav-no-collapse.header-nav
+      ul.nav.navbar-nav.pull-right
+        li.dropdown.hidden-xs
+          a.btn.dropdown-toggle(data-toggle='dropdown', href='index.html#')
+            i.fa.fa-warning
+          ul.dropdown-menu.notifications
+            li.dropdown-menu-title
+              span You have 11 notifications
+            li
+              a(href='index.html#')
+                span.icon.blue
+                  i.fa.fa-user
+                span.message New user registration
+                span.time 1 min
+            li
+              a(href='index.html#')
+                span.icon.green
+                  i.fa.fa-comment
+                span.message New comment
+                span.time 7 min
+            li
+              a(href='index.html#')
+                span.icon.green
+                  i.fa.fa-comment
+                span.message New comment
+                span.time 8 min
+            li
+              a(href='index.html#')
+                span.icon.green
+                  i.fa.fa-comment
+                span.message New comment
+                span.time 16 min
+            li
+              a(href='index.html#')
+                span.icon.blue
+                  i.fa.fa-user
+                span.message New user registration
+                span.time 36 min
+            li
+              a(href='index.html#')
+                span.icon.yellow
+                  i.fa.fa-shopping-cart
+                span.message 2 items sold
+                span.time 1 hour
+            li.warning
+              a(href='index.html#')
+                span.icon.red
+                  i.fa.fa-user
+                span.message User deleted account
+                span.time 2 hour
+            li.warning
+              a(href='index.html#')
+                span.icon.red
+                  i.fa.fa-shopping-cart
+                span.message Transaction was canceled
+                span.time 6 hour
+            li
+              a(href='index.html#')
+                span.icon.green
+                  i.fa.fa-comment
+                span.message New comment
+                span.time yesterday
+            li
+              a(href='index.html#')
+                span.icon.blue
+                  i.fa.fa-user
+                span.message New user registration
+                span.time yesterday
+            li.dropdown-menu-sub-footer
+              a View all notifications
+        //- start: Notifications Dropdown
+        li.dropdown.hidden-xs
+          a.btn.dropdown-toggle(data-toggle='dropdown', href='index.html#')
+            i.fa.fa-tasks
+          ul.dropdown-menu.tasks
+            li
+              span.dropdown-menu-title You have 17 tasks in progress
+            li
+              a(href='index.html#')
+                span.header
+                  span.title iOS Development
+                  span.percent
+                .taskProgress.progressSlim.progressBlue 80
+            li
+              a(href='index.html#')
+                span.header
+                  span.title Android Development
+                  span.percent
+                .taskProgress.progressSlim.progressYellow 47
+            li
+              a(href='index.html#')
+                span.header
+                  span.title Django Project For Google
+                  span.percent
+                .taskProgress.progressSlim.progressRed 32
+            li
+              a(href='index.html#')
+                span.header
+                  span.title SEO for new sites
+                  span.percent
+                .taskProgress.progressSlim.progressGreen 63
+            li
+              a(href='index.html#')
+                span.header
+                  span.title New blog posts
+                  span.percent
+                .taskProgress.progressSlim.progressPink 80
+            li
+              a.dropdown-menu-sub-footer View all tasks
+        //- end: Notifications Dropdown
+        //- start: Message Dropdown
+        li.dropdown.hidden-xs
+          a.btn.dropdown-toggle(data-toggle='dropdown', href='index.html#')
+            i.fa.fa-envelope
+          ul.dropdown-menu.messages
+            li
+              span.dropdown-menu-title You have 9 messages
+            li
+              a(href='index.html#')
+                span.avatar
+                  img(src='images/avatar.jpg', alt='Avatar')
+                span.header
+                  span.from
+                    | Łukasz Holeczek
+                  span.time
+                    | 6 min
+                span.message
+                  | Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+            li
+              a(href='index.html#')
+                span.avatar
+                  img(src='images/avatar2.jpg', alt='Avatar')
+                span.header
+                  span.from
+                    | Megan Abott
+                  span.time
+                    | 56 min
+                span.message
+                  | Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+            li
+              a(href='index.html#')
+                span.avatar
+                  img(src='images/avatar3.jpg', alt='Avatar')
+                span.header
+                  span.from
+                    | Kate Ross
+                  span.time
+                    | 3 hours
+                span.message
+                  | Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+            li
+              a(href='index.html#')
+                span.avatar
+                  img(src='images/avatar4.jpg', alt='Avatar')
+                span.header
+                  span.from
+                    | Julie Blank
+                  span.time
+                    | yesterday
+                span.message
+                  | Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+            li
+              a(href='index.html#')
+                span.avatar
+                  img(src='images/avatar5.jpg', alt='Avatar')
+                span.header
+                  span.from
+                    | Jane Sanders
+                  span.time
+                    | Jul 25, 2012
+                span.message
+                  | Lorem ipsum dolor sit amet consectetur adipiscing elit, et al commore
+            li
+              a.dropdown-menu-sub-footer View all messages
+        //- end: Message Dropdown
+        li
+          a.btn(href='index.html#')
+            i.fa.fa-wrench
+        //- start: User Dropdown
+        li.dropdown
+          a.btn.account.dropdown-toggle(data-toggle='dropdown', href='index.html#')
+            .avatar
+              img(src='images/avatar.jpg', alt='Avatar')
+            .user
+              span.hello Welcome!
+              span.name Łukasz Holeczek
+          ul.dropdown-menu
+            li.dropdown-menu-title
+            li
+              a(href='index.html#')
+                i.fa.fa-user
+                | Profile
+            li
+              a(href='index.html#')
+                i.fa.fa-cog
+                | Settings
+            li
+              a(href='index.html#')
+                i.fa.fa-envelope
+                | Messages
+            li
+              a(href='login.html')
+                i.fa.fa-off
+                | Logout
