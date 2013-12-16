@@ -1,0 +1,258 @@
+{
+ "name": "Reddit",
+ "children": [
+  {
+   "name": "World News",
+   "children": [
+    {
+     "name": "Protests in Turkey",
+     "children": [
+      {"name": "police", "size": 3938},
+      {"name": "people", "size": 3812},
+      {"name": "turkey", "size": 6714},
+      {"name": "protests", "size": 743},
+      {"name": "protestors", "size": 3812},
+      {"name": "arrest", "size": 6714},
+      {"name": "shot", "size": 743}
+     ]
+    },
+    {
+     "name": "Edward Snowden",
+     "children": [
+      {"name": "snowden", "size": 3534},
+      {"name": "edward", "size": 5731},
+      {"name": "asylum", "size": 7840},
+      {"name": "ecuador", "size": 5914},
+      {"name": "russia", "size": 3416},
+      {"name": "nsa", "size": 7840},
+      {"name": "u.s.", "size": 5914},
+      {"name": "rights", "size": 3416}
+     ]
+    },
+    {
+     "name": "North Korea Tension",
+     "children": [
+      {"name": "korea", "size": 3534},
+      {"name": "north", "size": 5731},
+      {"name": "south", "size": 7840},
+      {"name": "china", "size": 5914},
+      {"name": "u.s.", "size": 3416},
+      {"name": "attack", "size": 7840},
+      {"name": "war", "size": 5914},
+      {"name": "kim", "size": 3416},
+      {"name": "missiles", "size": 3416}
+     ]
+    },
+        {
+     "name": "Little Girl Shot by Taliban",
+     "children": [
+      {"name": "stop", "size": 3534},
+      {"name": "school", "size": 5731},
+      {"name": "girls", "size": 7840},
+      {"name": "pakistani", "size": 5914},
+      {"name": "taliban", "size": 3416},
+      {"name": "shot", "size": 7840},
+      {"name": "children", "size": 5914},
+      {"name": "students", "size": 3416},
+      {"name": "girl", "size": 3416}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Technology",
+   "children": [
+       {
+     "name": "Google",
+     "children": [
+      {"name": "google", "size": 3938},
+      {"name": "internet", "size": 3812},
+      {"name": "government", "size": 6714},
+      {"name": "search", "size": 743},
+      {"name": "glass", "size": 3812},
+      {"name": "web", "size": 6714},
+      {"name": "time", "size": 743},
+      {"name": "access", "size": 743}
+     ]
+    },
+    {
+     "name": "Pirate Bay",
+     "children": [
+      {"name": "pirate", "size": 3534},
+      {"name": "bay", "size": 5731},
+      {"name": "nsa", "size": 7840},
+      {"name": "copyright", "size": 5914},
+      {"name": "amp", "size": 3416},
+      {"name": "patent", "size": 7840},
+      {"name": "online", "size": 5914}
+     ]
+    },
+    {
+     "name": "Microsoft",
+     "children": [
+      {"name": "microsoft", "size": 3534},
+      {"name": "windows", "size": 5731},
+      {"name": "xbox", "size": 7840},
+      {"name": "google", "size": 5914},
+      {"name": "skype", "size": 3416},
+      {"name": "software", "size": 7840},
+      {"name": "phone", "size": 5914},
+      {"name": "surface", "size": 3416},
+      {"name": "people", "size": 3416},
+      {"name": "messages", "size": 3416}
+     ]
+    },
+        {
+     "name": "Tech Companies vs. NSA",
+     "children": [
+      {"name": "facebook", "size": 3534},
+      {"name": "google", "size": 5731},
+      {"name": "privacy", "size": 7840},
+      {"name": "users", "size": 5914},
+      {"name": "employees", "size": 3416},
+      {"name": "twitter", "size": 7840},
+      {"name": "data", "size": 5914},
+      {"name": "reddit", "size": 3416},
+      {"name": "security", "size": 3416},
+      {"name": "cispa", "size": 3416},
+      {"name": "law", "size": 3416}
+     ]
+    }
+   ]
+  },
+    {
+   "name": "Science",
+   "children": [
+       {
+     "name": "Genomic Research",
+     "children": [
+      {"name": "human", "size": 3938},
+      {"name": "researchers", "size": 3812},
+      {"name": "cell", "size": 6714},
+      {"name": "dna", "size": 743},
+      {"name": "genome", "size": 3812},
+      {"name": "discovered", "size": 6714},
+      {"name": "humans", "size": 743},
+      {"name": "body", "size": 743},
+      {"name": "years", "size": 743},
+      {"name": "death", "size": 743}
+     ]
+    },
+    {
+     "name": "Evolution of the Earth",
+     "children": [
+      {"name": "years", "size": 3534},
+      {"name": "million", "size": 5731},
+      {"name": "scientist", "size": 7840},
+      {"name": "earth", "size": 5914},
+      {"name": "light", "size": 3416},
+      {"name": "billion", "size": 7840},
+      {"name": "ice", "size": 5914},
+      {"name": "life", "size": 7840},
+      {"name": "lake", "size": 5914},
+      {"name": "water", "size": 3416},
+      {"name": "tempratures", "size": 7840},
+      {"name": "star", "size": 5914}
+     ]
+    },
+    {
+	  "name": "Health Research Findings",
+	  "children": [
+	  {"name": "study", "size": 1},
+	  {"name": "finds", "size": 1},
+	  {"name": "shows", "size": 1},
+	  {"name": "brain", "size": 1},
+	  {"name": "suggests", "size": 1},
+	  {"name": "sleep", "size": 1},
+	  {"name": "children", "size": 1},
+	  {"name": "memory", "size": 1},
+	  {"name": "research", "size": 1},
+	  {"name": "people", "size": 1},
+	  {"name": "disease", "size": 1},
+	  {"name": "genes", "size": 1},
+	  {"name": "ability", "size": 1}	  
+	 ]
+    },
+    {
+	  "name": "Stem Cell Research",
+	  "children": [
+	  {"name": "cells", "size": 1},
+	  {"name": "stem", "size": 1},
+	  {"name": "researchers", "size": 1},
+	  {"name": "brain", "size": 1},
+	  {"name": "cancer", "size": 1},
+	  {"name": "skin", "size": 1},
+	  {"name": "diseases", "size": 1},
+	  {"name": "time", "size": 1},
+	  {"name": "help", "size": 1},
+	  {"name": "human", "size": 1},
+	  {"name": "organ", "size": 1}
+	  ]
+    }
+   ]
+  },
+  {
+  "name": "Politics",
+  "children": [
+  {
+	  "name": "NSA Backlash",
+	  "children": [
+	  {"name": "americans", "size": 1},
+	  {"name": "obama", "size": 1},
+	  {"name": "nsa", "size": 1},
+	  {"name": "poll", "size": 1},
+	  {"name": "percent", "size": 1},
+	  {"name": "millions", "size": 1},
+	  {"name": "want", "size": 1},
+	  {"name": "govenment", "size": 1},
+	  {"name": "u.s.", "size": 1},
+	  {"name": "think", "size": 1}
+	  ]
+  },
+  {
+	  "name": "2012 Election Coverage",
+	  "children": [
+	  {"name": "obama", "size": 1},
+	  {"name": "president", "size": 1},
+	  {"name": "barack", "size": 1},
+	  {"name": "romney", "size": 1},
+	  {"name": "republicans", "size": 1},
+	  {"name": "administration", "size": 10},
+	  {"name": "tax", "size": 1},
+	  {"name": "gop", "size": 1},
+	  {"name": "vote", "size": 1},
+	  {"name": "people", "size": 1},
+	  {"name": "campaign", "size": 1}  
+	  ]
+  },
+  {
+	  "name": "Marijuana Legalization",
+	  "children": [
+	  {"name": "law", "size": 1},
+	  {"name": "state", "size": 1},
+	  {"name": "marijuana", "size": 1},
+	  {"name": "enforcement", "size": 1},
+	  {"name": "bill", "size": 1},
+	  {"name": "prison", "size": 1},
+	  {"name": "act", "size": 1},
+	  {"name": "congress", "size": 1}	  ]
+  },
+  {
+	  "name": "Supreme Court Rullings",
+	  "children": [
+	  {"name": "police", "size": 1},
+	  {"name": "court", "size": 1},
+	  {"name": "supreme", "size": 1},
+	  {"name": "man", "size": 1},
+	  {"name": "officer", "size": 1},
+	  {"name": "rights", "size": 1},
+	  {"name": "cops", "size": 1},
+	  {"name": "rules", "size": 1},
+	  {"name": "death", "size": 1},
+	  {"name": "act", "size": 1}
+	  ]
+  }
+  ]
+} 
+]
+}

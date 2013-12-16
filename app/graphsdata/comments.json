@@ -1,0 +1,50 @@
+[
+{
+"letter": "AskReddit",
+"frequency": 4968
+},
+{
+"letter": "IAmA",
+"frequency": 1885
+},
+{
+"letter": "worldnews",
+"frequency": 815
+},
+{
+"letter": "politics",
+"frequency": 794
+},
+{
+"letter": "technology",
+"frequency": 790
+},
+{
+"letter": "nfl",
+"frequency": 729
+},
+{
+"letter": "reddit.com",
+"frequency": 649
+},
+{
+"letter": "Music",
+"frequency": 636
+},
+{
+"letter": "movies",
+"frequency": 624
+},
+{
+"letter": "news",
+"frequency": 544
+},
+{
+"letter": "science",
+"frequency": 539
+},
+{
+"letter": "videos",
+"frequency": 539
+}
+]
