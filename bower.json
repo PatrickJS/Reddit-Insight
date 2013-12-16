@@ -6,7 +6,7 @@
     "es5-shim": "*",
     "lodash": "*",
     "jquery": "*",
-    "bootstrap-sass": "~3.0.0-rc1",
+    "bootstrap-stylus": "~3.0.0-rc1",
     "d3": "*",
     "angular": "1.2.5",
     "angular-animate": "1.2.5",

@@ -11,8 +11,8 @@ module.exports = function(app) {
     app.use('/stylesheets', express.static(path.join(app.SERVER_ROOT, 'client', 'styles')));
     app.use('/bower_components', express.static(path.join(app.SERVER_ROOT, 'client', 'bower_components')));
     app.use(stylus.middleware({
-      src: app.SERVER_ROOT + '/client',
-      dest: app.SERVER_ROOT + '/public',
+      src: app.SERVER_ROOT + '/client/styles',
+      dest: app.SERVER_ROOT + '/public/stylesheets',
       compile: function(str, path, fn) {
         stylus(str)
         .set('filename', path)
