@@ -1,6 +1,6 @@
 // Module dependencies.
 var http = require('http');
-var app = require('./server/config/app')();
+var app = require('./server/config/app')(__dirname);
 
 // Start server
 http.createServer(app).listen(app.get('port'), function(){
