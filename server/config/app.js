@@ -1,13 +1,14 @@
 var express = require('express');
 var path = require('path');
-var sass = require('node-sass');
 
-module.exports = function() {
+module.exports = function(SERVER_ROOT) {
   var app = express();
-  var publicDir = path.join(__dirname, '../app');
+  app.SERVER_ROOT = SERVER_ROOT;
 
   // Store all environment variables
   app.set('port', process.env.PORT || 3000);
+  app.set('env', process.env.NODE_ENV || 'production');
+
 
   // Basic configuration
   app.configure(function() {
@@ -15,18 +16,14 @@ module.exports = function() {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
-    app.use(express.static(publicDir));
-    app.use(sass.middleware({
-      src:  __dirname + '/app/styles',
-      dest: __dirname + '/app/styles',
-      debug: true
-    }));
+    app.use(express.static(path.join(app.SERVER_ROOT, 'public')));
   });
+
   // Environment specific configuration
   require('./environments')(app);
 
   // Database configuration
-  require('./database')(app);
+  // require('./database')(app);
 
   // Routes
   require('./routes')(app);
