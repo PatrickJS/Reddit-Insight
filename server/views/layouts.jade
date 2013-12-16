@@ -1,0 +1,27 @@
+doctype 5
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7(lang='en')
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7(lang='en')
+//if IE 7
+  html.no-js.lt-ie9.lt-ie8(lang='en')
+//if IE 8
+  html.no-js.lt-ie9.lt-ie8(lang='en')
+// [if gt IE 8] <!
+html.no-js(lang="en")
+  // <![endif]
+  head
+    include partials/head
+    //- The HTML5 shim, for IE6-8 support of HTML5 elements
+    //if lt IE 9
+      script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+      script(src="javascripts/respond.min.js")
+      script(src="stylesheets/ie6-8.css")
+    block head
+  body
+    block header
+    block content
+    block footer
+
+    include partials/scripts
+    block scripts
