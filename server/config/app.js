@@ -17,15 +17,16 @@ module.exports = function(SERVER_ROOT) {
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
-    app.use(app.router);
-    app.use(express.session());
+    // app.use(express.session());
     app.use(function(req, res, next){
       // Give Views/Layouts direct access to session data.
-      res.locals.session = req.session;
+      // res.locals.session = req.session;
       res.locals.title = '';
       next();
     });
+    app.use('/bower_components', express.static(path.join(app.SERVER_ROOT, 'client', 'bower_components')));
     app.use(express.static(path.join(app.SERVER_ROOT, 'public')));
+    app.use(app.router);
   });
 
   // Environment specific configuration

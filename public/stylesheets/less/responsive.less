@@ -1,0 +1,721 @@
+/*
+* Author: Łukasz Holeczek
+* Template: SimpliQ - Flat & Responsive Bootstrap Admin Template
+* Version: 1.0.2 
+* Bootstrap version: 2.3.2
+* Copyright 2013 creativeLabs
+* www: http://bootstrapmaster.com
+* mail: lukasz@bootstrapmaster.com
+* You can buy this theme on WrapBootstrap: https://wrapbootstrap.com/theme/simpliq-flat-responsive-admin-template-WB0N1X0T1
+* You can find our other themes on: https://bootstrapmaster.com
+*/
+
+/* Higher than 1200 (desktop devices)
+====================================================================== */
+@media (min-width: 1200px) {
+	
+	.hidden-xs,
+	.hidden-sm,
+	.hidden-md,
+	.hidden-lg {
+		display: inline-block !important;
+	}
+	
+	a#main-menu-toggle {
+		margin-left: 14.422%
+	}
+	
+	a.navbar-brand {
+		position: absolute;
+		width: 14.422%;
+	}
+	
+	.navbar-collapse {
+		max-height: 100%;
+	}
+	
+	.container {
+		width: 100% !important;	
+		
+		#content {
+			padding: 30px;
+			margin: 0;
+			height: 100%;
+			width: 85.578%;
+		}
+		
+		#sidebar-left {
+			width: 14.422%;
+		}
+		
+	}
+	
+}
+
+/* Higher than 992 (desktop devices)
+====================================================================== */
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+	
+	.hidden-xs,
+	.hidden-sm,
+	.hidden-md,
+	.hidden-lg {
+		display: inline-block !important;
+	}
+	
+	a#main-menu-toggle {
+		margin-left: 14.422%
+	}
+	
+	a.navbar-brand {
+		position: absolute;
+		width: 14.422%;
+	}
+	
+	.navbar-collapse {
+		max-height: 100%;
+	}
+	
+	.container {
+		width: 100% !important;	
+		
+		#content {
+			padding: 30px;
+			margin: 0;
+			height: 100%;
+			width: 85.578%;
+		}
+		
+		#sidebar-left {
+			width: 14.422%;
+		}
+		
+	}
+	
+	.sparkLineStats li .number {
+		font-size: 16px;
+		font-weight: 700; 
+		padding:0 5px; 
+		color: #FA5833;
+	}
+	
+	.calendar {
+
+		.fc td,
+		.fc th {
+			padding: 0.3em;
+		}
+
+		.fc-content {
+			margin: 50px 20px 20px 20px;
+		}	
+
+	}
+	
+	/* Page: Tasks
+	=================================================================== */
+	.task {
+		
+		.desc {
+			display: inline-block;
+			width: 70%;
+			padding: 10px 10px;
+			font-size: 12px;
+			
+			.title {
+				font-size: 16px;
+				margin-bottom: 5px;
+			}
+		}
+		
+		.time {
+			display: inline-block;
+			float: right;
+			width: 20%;
+			padding: 10px 10px;
+			font-size: 12px;
+			text-align: right;
+			
+			.date {
+				font-size: 16px;
+				margin-bottom: 5px;	
+			}
+		}
+		
+	}
+	
+	ul.messages-list {
+
+		li {
+
+			a {
+				
+				.date {
+					display: none
+
+				}
+
+			}
+		}	
+	}
+
+	footer {
+		position: relative;
+	}
+	
+}
+
+/* Tablet Portrait (devices and browsers)
+====================================================================== */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	
+	
+	a#main-menu-toggle {
+		margin-left: 8.334%;
+	}
+	
+	a.navbar-brand {
+		width: 8.334%;
+		padding: 8px 0px !important;
+		position: absolute;
+		
+		span {
+			font-size: 12px;
+		}
+	}
+	
+	.navbar-collapse {
+		max-height: 100%;
+	}
+	
+	.container {
+		width: 100% !important;	
+		
+		#content {
+			padding: 22px;
+			margin: 0px 0px;
+			overflow: hidden;
+		}
+		
+		#sidebar-left {
+			margin-left: 0px !important;
+			width: 8.334% !important;
+		}
+		
+	}
+	
+	.sidebar-nav {
+		
+		ul {
+			text-align: center;
+			width: 100% !important;
+			font-size: 20px;
+			margin: -10px 10px 0px 10px!important;
+			
+			li {
+				
+				a {
+					margin: 0;
+					padding: 0;
+
+				}
+				
+				ul > li {
+					margin: 0px 10px 0px 0px;
+					padding: 0;
+				}
+				
+			}
+		}
+		
+		.nav-tabs.nav-stacked > li > ul > li {
+			margin-left: -10px
+		}
+		
+		.nav-tabs.nav-stacked > li > a > i,
+		.nav-tabs.nav-stacked > li > ul > li > a > i {
+			margin-right: 0px;
+		}
+		
+	}
+	
+	.noMargin {
+		margin-left: 0px !important;
+	}
+	
+	.btn-navbar {
+		display: none !important;
+	}
+	
+	.nav-collapse,
+  	.nav-collapse.collapse {
+    	height: auto !important;
+    	overflow: visible !important;
+		margin-left: -20px !important;
+  	}
+	
+	.sidebar-nav{
+		padding:0;
+		margin-bottom:0;
+	}
+	
+	.stats-date .range {
+		font-size: 16px;
+		font-weight: 300;
+	}
+	
+	.sparkLineStats li .number {
+		font-size: 14px;
+		font-weight: 700; 
+		padding:0 5px; 
+		color: #FA5833;
+	}
+	
+	/* Page: Tasks
+	=================================================================== */
+	.task-list {
+		padding: 20px;
+		margin-top: -22px;
+		margin-left: -22px;
+		margin-bottom: -22px;
+	}
+	
+	.task {
+		border-bottom: 1px solid #f9f9f9;
+		margin-bottom: 1px;
+		
+		.desc {
+			display: inline-block;
+			width: 65%;
+			padding: 10px 10px;
+			font-size: 10px;
+			margin-right: -20px;
+			
+			.title{
+				font-size: 14px;
+				margin-bottom: 5px;
+			}
+		}
+		
+		.time {
+			display: inline-block;
+			float: right;
+			width: 25%;
+			padding: 10px 10px;
+			font-size: 10px;
+			text-align: right;
+			
+			.date {
+				font-size: 14px;
+				margin-bottom: 5px;	
+			}
+		}
+	}
+
+	.task.high {
+		border-left: 2px solid rgba(250,96,61,1);
+	}
+
+	.task.medium {
+		border-left: 2px solid rgba(250,187,61,1);
+	}
+
+	.task.low {
+		border-left: 2px solid rgba(120,205,81,1);
+	}
+	
+	.timeslot {
+		
+		.task {
+			
+			span {
+				border: 2px solid rgba(103, 194, 239, 1);
+				background: rgba(103, 194, 239, .1);
+				padding: 5px;
+				display: block;
+				font-size: 10px;
+				
+					span {
+						border: 0px;
+						background: transparent;
+						padding: 0px;
+					}
+					
+					span.details{
+						font-size: 14px;
+						margin-bottom: 0px;
+					}
+
+					span.remaining{
+						font-size: 12px;
+					}
+						
+			}
+			
+		}
+		
+	}
+	
+	/* Page: Messages
+	=================================================================== */
+	.message-view {
+		background: white;
+		padding: 20px;
+		.box-sizing(content-box);
+		margin-top: -22px;
+		margin-right: -23px;
+	}
+	
+	footer {
+		margin: 20px -20px 0px -20px;
+		padding: 10px 20px;
+		position: relative;
+		z-index: 2;
+	}
+	
+}
+
+/* All Mobile Sizes (devices and browser)
+====================================================================== */
+@media only screen and (max-width: 767px) {
+		
+	a.navbar-brand {
+		margin-bottom: 0px;
+	}
+	
+	.hidden-sm {
+		display: inline-block !important;
+	}
+	
+	.navbar-toggle {
+		position: absolute;
+		top: 45px;
+		right: 30px;
+		z-index: 100;
+		background: transparent !important;
+		text-shadow: none !important;
+		border: none !important;
+		
+		.icon-bar {
+			background: white;
+		}
+	}
+	
+	.navbar-collapse {
+		max-height: 300px;
+	  	margin-right: -10px;
+	  	margin-left: -10px;
+	  	border-top: none;
+	  	box-shadow: none;
+	}
+	
+	
+	.header-nav {
+		
+		li {
+			float: left;
+		}
+		
+	}
+	
+	#content {
+		overflow: hidden;
+	}
+	
+	.sidebar-nav > ul {
+		margin: 0 -15px;
+	}
+	
+	.nav-tabs.nav-stacked > li {
+	  	margin: 0px !important;
+	}
+	
+	.nav-tabs.nav-stacked > li > a {
+	  	margin: 0px !important;
+		font-size: 14px;
+		padding: 12px 10px;
+	}
+	
+	.nav-tabs.nav-stacked > li > ul > li > a {
+		font-size: 12px;
+	}
+
+	.nav-tabs.nav-stacked > li > a > i {
+		display: inline;
+		margin-right: 10px;
+	}
+	
+	.nav-tabs.nav-stacked > li > ul > li > a > i {
+		display: inline;
+		margin-right: 10px;
+	}
+	
+	.nav-tabs.nav-stacked  > li.active > a {
+	  	border: 0px;
+	}
+	
+	.nav-tabs.nav-stacked  > li.active > ul {
+	  	border: 0px;
+	}
+	
+	/* Page: Tasks
+	=================================================================== */
+	.task-list {
+		position: relative;
+		margin: 0px !important;
+	}
+	
+	.graph {
+		position: relative;
+		margin: 0px !important;
+	}
+	
+	.task {
+		border-bottom: 1px solid #f9f9f9;
+		margin-bottom: 1px;
+		
+		.desc {
+			display: inline-block;
+			width: 65%;
+			padding: 10px 10px;
+			font-size: 10px;
+			margin-right: -20px;
+			
+			.title{
+				font-size: 14px;
+				margin-bottom: 5px;
+			}
+		}
+		
+		.time {
+			display: inline-block;
+			float: right;
+			width: 25%;
+			padding: 10px 10px;
+			font-size: 10px;
+			text-align: right;
+			
+			.date {
+				font-size: 14px;
+				margin-bottom: 5px;	
+			}
+		}
+	}
+	
+	.timeslot {
+		
+		.task {
+			
+			span {
+				padding: 5px;
+				display: block;
+				font-size: 10px;
+				
+				span {
+					border: 0px;
+					background: transparent;
+					padding: 0px;
+				}
+				
+				span.details {
+					font-size: 14px;
+					margin-bottom: 0px;
+				}
+
+				span.remaining {
+					font-size: 12px;
+				}
+
+			}
+			
+		}
+		
+	}
+	
+	/* Page: Messages
+	=================================================================== */
+	.message-view {
+		margin: 0;
+	}
+	
+	/* Main Chart
+	=================================================================== */
+	.main-chart {
+
+		.bar {	
+			
+			.title {
+				left: -4px;
+			}	
+
+		}
+
+		.bar.simple {
+
+			.title {
+				display: none; 
+			}
+
+		}
+
+	}
+	
+	.discussions {
+
+		ul {
+
+			li {
+
+				.name {
+					display: none;
+				}
+			}
+		}
+	}
+	
+	/* Support tickets
+	=================================================================== */
+	ul.tickets {
+
+	    li {
+
+			&.ticket {
+				.left {
+					display: inline-block;
+					width: 100%;
+				}
+
+				.right {
+					display: inline-block;
+					width: 100%;
+					text-align: right;
+				}
+
+				.status {
+					width: 80px;
+					display: inline-block;
+					text-align: center;
+				}
+
+				.date {
+					width: 150px;
+					display: inline-block;
+					text-align: center;
+				}
+
+			}
+
+	    }
+
+	}				
+	
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers)
+====================================================================== */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+	.col-12 {
+		width: 100%;
+	}
+	
+	body {
+		padding: 0px;
+	}
+	
+	#content {
+		padding: 5px;
+	}
+	
+	.mobileHalf {
+		width: 48% !important;
+		float: left !important;
+		margin: 1% !important;
+	}
+		
+	.quick-button,
+	.quick-button-small {
+		margin-bottom: 20px;
+	}
+	
+	.pull-right {
+		width: 100%;
+		margin: 10px auto;
+		text-align: center;
+	}
+	
+	.fc-button-today,
+	.fc-button-month,
+	.fc-button-agendaWeek,
+	.fc-button-agendaDay {
+		display: none;
+	}
+	
+	footer {
+		position: relative;
+	}
+	
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers)
+=================================================================== */
+@media only screen and (max-width: 479px) {
+	
+	body {
+		padding: 0px;
+	}
+	
+	.col-xxs-12 {
+		width: 100%;
+	}
+	
+	#content {
+		padding: 5px;
+	}
+	
+	.calendar {
+
+		.fc td,
+		.fc th {
+			padding: 0.1em 0.2em;
+			font-size: 10px;
+		}
+
+		.fc-content {
+			margin: 70px 5px 20px 5px;
+		}	
+
+	}
+		
+	.quick-button,
+	.quick-button-small {
+		margin-bottom: 20px;
+	}
+	
+	.pull-right {
+		width: 100%;
+		margin: 10px auto;
+		text-align: center;
+	}
+	
+	.fc-button-today,
+	.fc-button-month,
+	.fc-button-agendaWeek,
+	.fc-button-agendaDay {
+		display: none;
+	}
+	
+	table,
+	.pagination {
+		font-size: 10px;
+	}
+	
+	.pagination {
+		padding: 5px;
+	}
+	
+	footer {
+		padding: 10px 20px;
+	}
+	
+}

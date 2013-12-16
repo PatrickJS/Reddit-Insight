@@ -1,0 +1,403 @@
+/* Main Chart
+=================================================================== */
+.main-chart {
+	height: 300px;
+	margin-top: 40px;
+	margin-bottom: 58px;
+	border-top: 1px dashed @grey;
+	
+	.bar {	
+		height: 100%;
+		position: relative;
+		width: 3%;
+		margin: 20px 1%;
+		float: left;
+		text-align: center;
+		.border-radius(2px);
+		z-index: 10;
+		
+		&:before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			margin-top: -24px;
+			left: 50%;
+			margin-left: -4px;
+			height: 8px;
+			width: 8px;
+			background: @grey;
+		}
+		
+		&:after {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			margin-top: -10px;
+			left: 50%;
+			margin-left: -1px;
+			height: 100%;
+			width: 2px;
+			background: @grey;
+		}
+		
+		
+		.title {
+			position: absolute;
+			top: -50px;
+			width: 100%;
+			text-align: center;
+		}
+			
+		.value {
+			position: absolute;
+			bottom: 0px;
+			background: @grey;
+			color: @grey;
+			width: 100%;
+			.border-radius(2px);
+			.transition(all 0.3s ease);
+			
+			&:before {
+				border-top: 5px solid @bodyBackground;
+				position: absolute;
+				content: '';
+				width: 100%;
+				height: 100%;
+				top: -5px;
+				left: 0px;
+			}
+			
+			&:hover {
+				background: @mainColor;
+				color: white;
+			}
+		}	
+		
+	}
+	
+	.bar.simple {
+		
+		&:before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			margin-top: -23px;
+			left: 50%;
+			margin-left: -2px;
+			height: 5px;
+			width: 5px;
+			background: @grey;
+		}
+		
+		&:after {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			margin-top: -10px;
+			left: 50%;
+			margin-left: 0px;
+			height: 100%;
+			width: 1px;
+			background: transparent;
+			border-left: 1px dashed lighten(@grey, 5%);
+		}
+		
+		.title {
+			top: -46px;
+			font-size: 10px; 
+		}
+		
+	}
+	
+}
+
+/* Vertical Bar Chart
+=================================================================== */
+.verticalChart {
+	
+	margin: 10px;
+	
+    .singleBar {
+        width: 6%;
+        display:block;
+        margin:0 2% 0% 2%;
+        float: left;
+
+        .bar {
+            position: relative;
+            height: 120px;
+            background: #f9f9f9;
+            overflow: hidden;
+            .border-radius(2px);
+
+            .value {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                background: @green;
+                color: white;
+                .border-radius(2px);
+
+                span {
+                    position: absolute;
+                    font-size: 12px;
+                    bottom: 0;
+                    width: 100%;
+                    height: 20px;
+                    color: white;
+                    text-shadow: 0px -1px 0px @green, 0px 1px 0px @green, 1px 0px 0px @green, -1px 0px 0px @green, -1px -1px 0px @green,-1px 1px 0px @green, 1px 1px 0px @green, 1px -1px 0px @green;
+                    display: none;
+                    text-align: center;
+                }
+            }
+        }
+
+        .title {
+            margin-top: 5px;
+            text-align: center;
+			color: @darkGrey;
+        }
+    }
+}
+
+/* Chart Type2
+=================================================================== */
+.chart-type2 {
+	position: relative;
+	z-index: 2;
+	background: @mainColor;
+	margin: 10px 10px 40px 10px;
+	
+	&:before {
+		position: absolute;
+		z-index: -1;
+		content: '';
+		background: @mainColor;
+		height: 100%;
+		width: 100%;
+		padding: 20px;
+		top: -20px;
+		left: -20px;
+		.box-sizing(content-box);
+		
+	}
+}
+
+/* Browsers Stats
+=================================================================== */
+.browserStat.big {
+	display:inline-block;
+	width: 49%;
+	text-align: center;
+	margin-bottom: 20px;
+	padding: 0px;
+}
+
+.browserStat {
+	display:inline-block;
+	width: 32%;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	
+	span {
+		display:block;
+		text-align: center;
+		margin-top: 10px;
+	}	
+}
+
+/* Multi Stat Box
+=================================================================== */
+.multi-stat-box {
+	.border-radius(2px);
+	.box-shadow(0px 1px 0px 1px lighten(@grey, 10%));
+	overflow: hidden;
+	
+	.left {
+		width: 40%;
+		float: left;
+	}
+	
+	.right {
+		width: 60%;
+		float: right;
+	}
+	
+	.header {
+		font-size: 16px;
+		
+		.left {
+			position: relative;
+			background: darken(@mainColor,10%);
+			color: white;
+			border-bottom: 1px solid @mainColor;
+			
+			h2 {
+				padding: 10px 10px;
+				margin: 0px;
+			}
+			
+			a {
+				text-decoration: none;
+				color: white;
+				position: absolute;
+				top: 10px;
+				right: 10px;				
+				cursor: pointer;
+				
+				&:hover {
+					opacity: 0.9;
+				}
+			}
+		}
+		
+		.right {
+			position: relative;
+			border-bottom: 1px solid lighten(@grey, 10%);
+			background: white;
+			
+			h2 {
+				padding: 10px 10px;
+				margin: 0px;
+			}
+			
+			.percent {
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				padding: 8px;
+				border-left: 1px solid lighten(@grey, 10%);
+				
+				i.icon-double-angle-up {
+					color: @green
+				}
+				
+				i.icon-double-angle-down {
+					color: @red
+				}
+			}
+		}
+	}
+	
+	.content {
+		
+		.left {
+			background: @mainColor;
+			color: white;
+			height: 180px;
+			
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				
+				li {
+					padding: 10px 10px;
+					height: 40px;
+					
+					.date {
+						float: left;
+					}
+					
+					.value {
+						float: right;
+						font-weight: bold;
+					}
+					
+					&:hover,
+					&.active {
+						background: darken(@mainColor,5%);
+						cursor: pointer;
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+		.right {
+			background: white;
+			height: 180px;
+		}
+		
+	}
+	
+}
+
+/* Small Chart
+=================================================================== */
+.smallchart {
+	background: white;
+	text-align: center;
+	overflow: hidden;
+	
+	.title {
+		padding: 10px;
+		color: white;
+		background: lighten(@grey, 12%);
+	}
+	
+	.content {
+		padding: 40px 0px;
+		background: lighten(@grey, 10%);
+		
+		i {
+			font-size: 40px;
+			color: white;
+		}
+		
+	}
+	
+	.value {
+		color: @darkGrey;
+		padding: 10px;
+	}
+	
+	.backgroundColorTitle;
+
+}
+
+/* Sparkline stats
+=================================================================== */
+.sparkLineStats {
+	position: relative; 
+	margin-bottom: -4px;
+	
+	ul {
+		margin:0 0 0 -40px;
+		list-style: none;
+		
+		li {
+			margin-bottom: 0; 
+			line-height: 32px; 
+			padding-top:3px; 
+			font-size: 12px;
+			
+			div {
+				float: left;
+				
+				&:first-child {
+					margin-right: 5px;
+				}
+			}
+			
+			.number {
+				font-size: 17px;
+				font-weight: 700; 
+				padding:0px 0px 0px 2px; 
+				color: @orange;
+			}
+						
+			h4 {
+				position: relative;
+				border-bottom: 1px solid #c4c4c4; 
+				padding-bottom: 0px; 
+				margin-bottom: 10px; 
+				line-height: 37px;
+				.box-shadow(0 1px 0px rgba(255, 255, 255, 1));
+			}
+		}
+	}
+}

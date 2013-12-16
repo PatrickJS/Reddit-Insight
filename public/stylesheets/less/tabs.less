@@ -1,0 +1,41 @@
+/* Tabs
+=================================================================== */
+.tab-menu.nav-tabs {
+
+    margin-top: -48px;
+    border-bottom: none;
+
+    & > li {
+        float: right;
+        margin-bottom: -1px;
+
+        & > a {
+            padding-top: 11px;
+            padding-bottom: 11px;
+            line-height: 16px;
+            margin-left: -3px;
+            border: none;
+            .border-radius;
+			color: white;
+        }
+
+        & > a:hover {
+            background: darken(@mainColor, 10%);
+        }
+    }
+
+    & > .active {
+	
+        & > a {
+			border: none;
+            color: @blue;
+            cursor: default;
+            background: white;
+        }
+
+        & > a:hover {
+			border: none;
+            background: white;
+        }
+    }
+}

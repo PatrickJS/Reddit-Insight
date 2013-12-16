@@ -7,9 +7,6 @@ module.exports = function(app) {
   app.configure('development', function(){
     app.set('views', path.join(app.SERVER_ROOT, 'server', 'views'));
     app.set('view engine', 'jade');
-    app.use('/javascripts', express.static(path.join(app.SERVER_ROOT, 'client', 'scripts')));
-    app.use('/stylesheets', express.static(path.join(app.SERVER_ROOT, 'client', 'styles')));
-    app.use('/bower_components', express.static(path.join(app.SERVER_ROOT, 'client', 'bower_components')));
     app.use(stylus.middleware({
       src: app.SERVER_ROOT + '/client/styles',
       dest: app.SERVER_ROOT + '/public/stylesheets',

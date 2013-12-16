@@ -1,0 +1,147 @@
+/* Page: Messages
+=================================================================== */
+.message-view {
+	background: white;
+	padding: 20px;
+	.box-sizing(content-box);
+	margin-top: -30px;
+	margin-right: -32px;
+	margin-bottom: -30px;
+}
+
+ul.messagesList {
+	list-style: none;
+	margin: 0 0 0 -40px;
+	font-size: 12px;
+	
+	li {
+		.border-radius(4px);
+		padding: 5px 10px;
+		cursor: pointer;
+		
+		.glyphicons {
+			padding: 5px 0 5px 25px;
+			
+			&:before {
+				font-size: 14px !important;
+				margin: -2px 0px 0px 5px;
+				color: @darkGrey;
+			}
+			
+		}
+		
+		&:nth-child(odd) {
+			background: white !important;
+		}
+
+		&.odd {
+			background: white !important;
+		}
+		
+		span {
+			display: inline-block;
+		}
+		
+		span.from {
+			width: 25%;
+			white-space: nowrap;
+			overflow:hidden !important;
+			text-overflow: ellipsis;	
+		}
+
+		span.title {
+			width: 55%;
+			font-weight: 300;
+			white-space: nowrap;
+			overflow:hidden !important;
+			text-overflow: ellipsis;	
+		}
+
+		span.date {
+			width: 20%;
+			text-align: right;	
+		}	
+				
+	}
+	
+}
+
+.message {
+	
+	textarea {
+		color: @darkGrey !important;
+	}
+	
+	.header {
+		margin-bottom: 30px;
+		
+		h1 {
+			border-top: 1px solid darken(@blue, 10%);
+			background: @blue;
+			color: white;
+			margin: -20px -20px 10px -20px;
+			padding: 20px;
+		}
+		
+		i.halflings {
+			margin-top: -15px;
+		}
+		
+		.from {
+			display: inline-block;
+			width: 70%;
+			font-size: 12px;
+		}
+
+		.date {
+			display: inline-block;
+			width: 29%;
+			text-align: right;
+			float: right;
+			font-size: 12px;
+		}
+		
+	}
+	
+	.attachments {
+		border-top: 3px solid #f9f9f9;
+		border-bottom: 3px solid #f9f9f9;
+		padding: 10px 0px;
+		margin-bottom: 20px;
+		font-size: 12px;
+		
+		ul {
+			list-style: none;
+			margin: 0 0 0 -40px;
+			
+			li {
+				margin: 10px 0;
+				
+				span.label {
+					font-size: 12px !important;
+				}
+				
+				span.quickMenu {
+					float: right;
+					text-align: right;
+					
+					.glyphicons {
+						padding: 5px 0 5px 25px;
+						
+						&:before{
+							font-size: 14px;
+							margin: -2px 0px 0px 5px;
+							color: @darkGrey;
+						}
+						
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+}

@@ -1,0 +1,149 @@
+/* Calendar Widget
+=================================================================== */
+.calendar {
+	background: white;
+	
+	.calendar-details {
+		height: 400px;
+		width: 33%;
+		background: @mainColor;
+		float: left;
+		color: white;
+		font-weight: 300px;
+		position: relative;
+		
+		.day {
+			font-size: 20px;
+			margin: 150px 10px 0px 10px;
+			text-transform: uppercase;
+		}
+		
+		.date {
+			font-size: 20px;
+			margin: 5px 10px 0px 10px;
+			text-transform: uppercase;
+		}
+		
+		.events {
+			margin: 25px 10px 0px -30px;
+			
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+		}
+		
+		.add-event {
+			width: 90%;
+			margin: 0 5%;
+			position: absolute;
+			bottom: 10px;
+			border-bottom: 1px solid lighten(@mainColor,10%);
+			
+			i {
+				color: lighten(@mainColor,20%);
+			}
+			
+			input {
+				width: 80%;
+				color: white;
+				border: 0;
+				font-size: 12px;
+				margin: 0;
+				.box-shadow;
+				
+			}
+			
+		}
+	}
+	
+	.calendar-small {
+		width: 67%;
+		float: right;
+	}
+	
+	.fc td,
+	.fc th {
+		padding: 0.4em;
+		vertical-align: middle;
+		font-weight: normal;
+	}
+	
+	.fc-widget-header,    
+	.fc-widget-content {
+		border: 1px solid transparent;
+	}
+	
+	.fc-content {
+		margin: 50px 30px 30px 30px;
+		text-transform: uppercase;
+	}
+	
+	.fc-state-default {
+		background: white;
+		border: none;
+		color: @grey;
+		text-shadow: none;
+		.box-shadow;
+	}
+	
+	.fc-state-hover,
+	.fc-state-down,
+	.fc-state-active,
+	.fc-state-disabled {
+		color: @darkGrey;
+		background: white;
+	}
+	
+	.fc-day {
+		//display: none;
+	}
+	
+	.fc-day-number {
+		display: block;
+		width: 28px;
+		margin: -5px auto;
+		padding: 5px !important;
+	}
+	
+	.fc-state-highlight {
+		background: transparent;
+		
+		.fc-day-number {
+			background: @mainColor;
+			.border-radius(4px);
+			color: white;
+		}
+	}
+	
+	.event {
+			background: @mainColor;
+			.border-radius(4px);
+			color: white;
+	}
+	
+	.fc-grid .fc-day-number {
+		float: none;
+		padding: 0 2px;
+		text-align: center;
+	}
+	
+	.fc-grid .fc-other-month .fc-day-number {
+		opacity: 1;
+		filter: alpha(opacity=1);
+		color: @grey;
+	}
+	
+	.fc-event {
+		border: 0;
+		height: 1px;
+		background: @grey;
+		//display: none;
+		
+		.fc-event-inner {
+			display: none;
+		}
+	}
+	
+}

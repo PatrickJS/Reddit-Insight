@@ -1,0 +1,87 @@
+/* Forms
+=================================================================== */
+input[placeholder], [placeholder], *[placeholder] {
+   	color:white !important;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  	color: white;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  	color: white;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  	color: white;
+}
+
+.add-on,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+input[type="file"],
+.uneditable-input {
+  	border-color: lighten(@grey, 10%) !important;
+	.border-radius(2px);
+	.box-shadow;
+}
+
+textarea {
+	border: 1px solid lighten(@grey, 10%);
+}
+
+.input-group-addon {
+  	border-color: lighten(@grey, 10%) !important;
+}
+
+.limiterBox {
+	border: 1px solid @grey;
+	border-top: none;
+	background-color: @grey;
+	padding: 3px 6px;
+	font-size: 10px;
+	color: white;
+	opacity: .9;
+	.box-sizing(content-box);
+}
+
+.editor {
+	max-height: 250px;
+	height: 250px;
+	background-color: white;
+	border-collapse: separate; 
+	border: 1px solid lighten(@grey, 10%) !important;
+	padding: 4px; 
+	.box-sizing(content-box);
+	.border-radius(2px); 
+	overflow: scroll;
+	outline: none;
+	margin-top: 20px;
+}
+
+div[data-role="editor-toolbar"] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.dropdown-menu a {
+  cursor: pointer;
+}
