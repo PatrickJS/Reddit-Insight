@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var cors = require('cors');
+require('longjohn');
 
 module.exports = function(SERVER_ROOT) {
   var app = express();
