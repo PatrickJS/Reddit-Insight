@@ -10,41 +10,41 @@
 * You can find our other themes on: https://bootstrapmaster.com
 */
 
-@import "jquery-ui-1.10.3.custom.css";
+/*@import "jquery-ui-1.10.3.custom.css";*/
 
-@import "fullcalendar.css";
+/*@import "fullcalendar.css";*/
 
-@import "chosen.css";
+/*@import "chosen.css";*/
 
-@import "jquery.cleditor.css";
+/*@import "jquery.cleditor.css";*/
 
-@import "jquery.noty.css";
+/*@import "jquery.noty.css";*/
 
-@import "noty_theme_default.css";
+/*@import "noty_theme_default.css";*/
 
-@import "elfinder.min.css";
+/*@import "elfinder.min.css";*/
 
-@import "elfinder.theme.css";
+/*@import "elfinder.theme.css";*/
 
-@import "uploadify.css";
+/*@import "uploadify.css";*/
 
-@import "jquery.gritter.css";
+/*@import "jquery.gritter.css";*/
 
 @import "font-awesome.min.css";
 
 @import "glyphicons.css";
 
-@import "halflings.css";
+/*@import "halflings.css";*/
 
-@import "filetypes.css";
+/*@import "filetypes.css";*/
 
-@import "social.css";
+/*@import "social.css";*/
 
-@import "dropzone.css";
+/*@import "dropzone.css";*/
 
-@import "xcharts.min.css";
+/*@import "xcharts.min.css";*/
 
-@import "jquery.easy-pie-chart.css";
+/*@import "jquery.easy-pie-chart.css";*/
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300);
 
@@ -338,7 +338,6 @@ a.navbar-brand {
   padding: 9px 0 10px 0 !important;
 }
 a.navbar-brand span {
-  font-family: 'Kaushan Script', cursive;
   color: #fff;
   text-shadow: none;
 }
