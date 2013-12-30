@@ -1,0 +1,9 @@
+script
+  Error.stackTraceLimit = Infinity;
+script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js')
+script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-route.js')
+script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-animate.js')
+
+script
+  angular.module('RedditInsightApp', []);
+  angular.bootstrap(document.body, ['RedditInsightApp']);
