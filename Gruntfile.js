@@ -98,7 +98,7 @@ module.exports = function (grunt) {
     },
     open: {
       server: {
-        url: 'http://localhost:<%= redd.app %>'
+        url: 'http://localhost:<%= redd.port %>'
       }
     },
     clean: {
