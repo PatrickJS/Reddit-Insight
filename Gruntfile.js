@@ -1,3 +1,4 @@
+/* jshint camelcase: false */
 'use strict';
 
 var LIVERELOAD_PORT = 35729;
@@ -16,21 +17,23 @@ module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
 
-  // configurable paths
-  var yeomanConfig = {
+  var redd = {
     app: 'client',
-    dist: 'dist'
+    dist: 'dist',
+    server: 'server',
+    client: 'client',
+    public: 'public',
+    port: 9000
   };
 
-  try {
-    yeomanConfig.app = require('./bower.json').appPath || yeomanConfig.app;
-  } catch (e) {}
-
   grunt.initConfig({
-    yeoman: yeomanConfig,
+    pkg: grunt.file.readJSON('package.json'),
+    bwr: grunt.file.readJSON('bower.json'),
+    yeoman: redd,
+    redd: redd,
     watch: {
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
+        files: ['<%= redd.client %>/styles/{,*/}*.styl'],
         tasks: ['copy:styles', 'autoprefixer']
       },
       livereload: {
@@ -38,10 +41,10 @@ module.exports = function (grunt) {
           livereload: LIVERELOAD_PORT
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
+          '<%= redd.client %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
-          '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '{.tmp,<%= redd.client %>}/scripts/{,*/}*.js',
+          '<%= redd.client %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
@@ -58,7 +61,7 @@ module.exports = function (grunt) {
     },
     connect: {
       options: {
-        port: 9000,
+        port: '<%= redd.port %>',
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost'
       },
@@ -68,7 +71,7 @@ module.exports = function (grunt) {
             return [
               lrSnippet,
               mountFolder(connect, '.tmp'),
-              mountFolder(connect, yeomanConfig.app)
+              mountFolder(connect, redd.app)
             ];
           }
         }
@@ -87,7 +90,7 @@ module.exports = function (grunt) {
         options: {
           middleware: function (connect) {
             return [
-              mountFolder(connect, yeomanConfig.dist)
+              mountFolder(connect, redd.dist)
             ];
           }
         }
@@ -95,7 +98,7 @@ module.exports = function (grunt) {
     },
     open: {
       server: {
-        url: 'http://localhost:<%= connect.options.port %>'
+        url: 'http://localhost:<%= redd.app %>'
       }
     },
     clean: {
@@ -104,8 +107,9 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '.tmp',
-            '<%= yeoman.dist %>/*',
-            '!<%= yeoman.dist %>/.git*'
+            '<%= redd.dist %>/*',
+            '<%= redd.public %>/scripts/*',
+            '!<%= redd.dist %>/.git*'
           ]
         }]
       },
@@ -117,46 +121,59 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%= yeoman.app %>/scripts/{,*/}*.js'
+        '<%= redd.client %>/scripts/{,*/}*.js'
       ]
     },
     // not used since Uglify task does concat,
     // but still available if needed
-    /*concat: {
-      dist: {}
-    },*/
+    concat: {
+      // options: {
+      //   separator: '\n',
+      //   stripBanners: true,
+      //   banner: '/*\n  <%= pkg.name %> - v<%= pkg.version %> \n' +
+      //   '  <%= grunt.template.today("yyyy-mm-dd") %>\n */\n',
+      //   process: function(src, filepath) {
+      //     return src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
+      //   },
+      // },
+      // dist: {
+      //   src: ['<%= redd.client %>/config/intro.js', '<%= redd.public %>/scripts/*.js', '<%= redd.client %>/config/outro.js'],
+      //   dest: 'dist/scripts.js',
+      // }
+      dist:{}
+    },
     rev: {
       dist: {
         files: {
           src: [
-            '<%= yeoman.dist %>/scripts/{,*/}*.js',
-            '<%= yeoman.dist %>/styles/{,*/}*.css',
-            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yeoman.dist %>/styles/fonts/*'
+            '<%= redd.dist %>/scripts/{,*/}*.js',
+            '<%= redd.dist %>/styles/{,*/}*.css',
+            '<%= redd.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+            '<%= redd.dist %>/styles/fonts/*'
           ]
         }
       }
     },
     useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
+      html: '<%= redd.client %>/index.html',
       options: {
-        dest: '<%= yeoman.dist %>'
+        dest: '<%= redd.dist %>'
       }
     },
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+      html: ['<%= redd.dist %>/{,*/}*.html'],
+      css: ['<%= redd.dist %>/styles/{,*/}*.css'],
       options: {
-        dirs: ['<%= yeoman.dist %>']
+        dirs: ['<%= redd.dist %>']
       }
     },
     imagemin: {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>/images',
+          cwd: '<%= redd.client %>/images',
           src: '{,*/}*.{png,jpg,jpeg}',
-          dest: '<%= yeoman.dist %>/images'
+          dest: '<%= redd.dist %>/images'
         }]
       }
     },
@@ -164,10 +181,20 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>/images',
+          cwd: '<%= redd.client %>/images',
           src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
+          dest: '<%= redd.dist %>/images'
         }]
+      }
+    },
+    stylus: {
+      compile: {
+        options: {
+          paths: ['<%= redd.client %>/styles/']
+        },
+        files: {
+          '<%= redd.public %>/styles.css': ['<%= redd.client %>/styles/*.styl']
+        }
       }
     },
     cssmin: {
@@ -176,9 +203,9 @@ module.exports = function (grunt) {
       // Usemin blocks.
       // dist: {
       //   files: {
-      //     '<%= yeoman.dist %>/styles/main.css': [
+      //     '<%= redd.dist %>/styles/main.css': [
       //       '.tmp/styles/{,*/}*.css',
-      //       '<%= yeoman.app %>/styles/{,*/}*.css'
+      //       '<%= redd.client %>/styles/{,*/}*.css'
       //     ]
       //   }
       // }
@@ -187,7 +214,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           /*removeCommentsFromCDATA: true,
-          // https://github.com/yeoman/grunt-usemin/issues/44
+          // https://github.com/redd/grunt-usemin/issues/44
           //collapseWhitespace: true,
           collapseBooleanAttributes: true,
           removeAttributeQuotes: true,
@@ -198,9 +225,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>',
+          cwd: '<%= redd.client %>',
           src: ['*.html', 'views/*.html'],
-          dest: '<%= yeoman.dist %>'
+          dest: '<%= redd.dist %>'
         }]
       }
     },
@@ -210,8 +237,8 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           dot: true,
-          cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
+          cwd: '<%= redd.client %>',
+          dest: '<%= redd.dist %>',
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
@@ -222,7 +249,7 @@ module.exports = function (grunt) {
         }, {
           expand: true,
           cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
+          dest: '<%= redd.dist %>/images',
           src: [
             'generated/*'
           ]
@@ -230,7 +257,7 @@ module.exports = function (grunt) {
       },
       styles: {
         expand: true,
-        cwd: '<%= yeoman.app %>/styles',
+        cwd: '<%= redd.client %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
       }
@@ -259,41 +286,80 @@ module.exports = function (grunt) {
         singleRun: false
       }
     },
-    cdnify: {
-      dist: {
-        html: ['<%= yeoman.dist %>/*.html']
-      }
-    },
     ngmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.dist %>/scripts',
-          src: '*.js',
-          dest: '<%= yeoman.dist %>/scripts'
-        }]
+      controllers: {
+        expand: false,
+        src: ['<%= redd.client %>/controllers/{,*/}*.js'],
+        dest: '<%= redd.public %>/scripts/controllers.js'
+      },
+      directives: {
+        expand: false,
+        src: ['<%= redd.client %>/directives/{,*/}*.js'],
+        dest: '<%= redd.public %>/scripts/directives.js'
+      },
+      services: {
+        expand: false,
+        src: ['<%= redd.client %>/services/{,*/}*.js'],
+        dest: '<%= redd.public %>/scripts/services.js'
+      },
+      modules: {
+        expand: false,
+        src: ['<%= redd.client %>/modules/{,*/}*.js'],
+        dest: '<%= redd.public %>/scripts/modules.js'
+      },
+      config: {
+        expand: false,
+        src: ['<%= redd.client %>/config/app.js', '<%= redd.client %>/config/config.js'],
+        dest: '<%= redd.public %>/scripts/config.js'
       }
+      // dist: {
+      //   files: [{
+      //     expand: true,
+      //     cwd: '<%= redd.dist %>/scripts',
+      //     src: '*.js',
+      //     dest: '<%= redd.dist %>/scripts'
+      //   }]
+      // }
     },
     uglify: {
+      options: {
+        beautify: false,
+        enclose: {
+          'this': 'window',
+          'this.angular': 'angular'
+        },
+        banner: '/*\n  <%= pkg.name %> - v<%= pkg.version %> \n  ' +
+          '<%= grunt.template.today("yyyy-mm-dd") %>\n*/\n'+
+        '',
+        compress: {
+          global_defs: {
+            'DEBUG': false
+          },
+          dead_code: true
+        }
+      },
       dist: {
         files: {
-          '<%= yeoman.dist %>/scripts/scripts.js': [
-            '<%= yeoman.dist %>/scripts/scripts.js'
-          ]
+          '<%= redd.dist %>/scripts.js': '<%= redd.public %>/scripts/*.js'
         }
       }
     },
     complexity: {
       generic: {
-        src: ['<%= yeoman.dist %>/scripts/*.js', '<%= yeoman.dist %>/scripts/**/*.js'],
+        src: ['<%= redd.dist %>/scripts/*.js', '<%= redd.dist %>/scripts/**/*.js'],
         options: {
-          jsLintXML: 'report.xml', // create XML JSLint-like report
-          checkstyleXML: 'checkstyle.xml', // create checkstyle report
+          jsLintXML: '<%= redd.test %>/report.xml', // create XML JSLint-like report
+          checkstyleXML: '<%= redd.test %>/checkstyle.xml', // create checkstyle report
           errorsOnly: false, // show only maintainability errors
           cyclomatic: 3,
           halstead: 8,
           maintainability: 100
         }
+      }
+    },
+    nodemon: {
+      dev: {
+
       }
     }
   });
@@ -321,20 +387,18 @@ module.exports = function (grunt) {
     'complexity',
     'karma'
   ]);
-
   grunt.registerTask('build', [
     'clean:dist',
-    'useminPrepare',
-    'concurrent:dist',
-    'autoprefixer',
-    'concat',
-    'copy:dist',
-    'cdnify',
     'ngmin',
-    'cssmin',
-    'uglify',
-    'rev',
-    'usemin'
+    'concat',
+    'uglify'
+    // 'useminPrepare',
+    // 'concurrent:dist',
+    // 'autoprefixer',
+    // 'copy:dist',
+    // 'cssmin',
+    // 'rev',
+    // 'usemin'
   ]);
 
   grunt.registerTask('default', [
