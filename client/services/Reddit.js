@@ -1,7 +1,7 @@
-;(function(app) {
 'use strict';
 
-app.factory('Reddit', function($http, Tracking) {
+angular.module('services')
+.factory('Reddit', function($http, Tracking) {
 
   var reddit = {
     limit: 100,
@@ -54,4 +54,3 @@ app.factory('Reddit', function($http, Tracking) {
 });
 
 
-}(angular.module('services')));

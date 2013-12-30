@@ -1,7 +1,7 @@
-;(function(app) {
 'use strict';
 
-app.controller('TrackUserCtrl', function($scope, $location, Reddit) {
+angular.module('controllers')
+.controller('TrackUserCtrl', function($scope, $location, Reddit) {
 
   $scope.username = $scope.$routeParams.username;
 
@@ -39,4 +39,3 @@ app.controller('TrackUserCtrl', function($scope, $location, Reddit) {
 
 
 
-}(angular.module('controllers')));

@@ -1,7 +1,7 @@
-;(function(app) {
 'use strict';
 
-app.provider('$interval', function() {
+angular.module('services')
+.provider('$interval', function() {
   this.$get = ['$rootScope', '$window', '$q',
        function($rootScope,   $window,   $q) {
     var intervals = {};
@@ -53,5 +53,4 @@ app.provider('$interval', function() {
 });
 
 
-}(angular.module('services')));
 

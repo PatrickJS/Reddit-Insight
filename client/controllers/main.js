@@ -1,6 +1,6 @@
 'use strict';
 
- angular.module('controllers')
-  .controller('MainCtrl', function($scope, $location) {
+angular.module('controllers')
+.controller('MainCtrl', function($scope, $location) {
 
-  });
+});

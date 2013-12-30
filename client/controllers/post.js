@@ -1,7 +1,7 @@
-;(function(app) {
 'use strict';
 
-app.controller('PostCtrl', function($scope, $location) {
+angular.module('controllers')
+.controller('PostCtrl', function($scope, $location) {
 
   $scope.submitLink = function(url, index) {
     url = url.split('/');
@@ -14,4 +14,3 @@ app.controller('PostCtrl', function($scope, $location) {
 
 
 
-}(angular.module('controllers')));

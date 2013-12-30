@@ -1,7 +1,7 @@
-;(function(app) {
 'use strict';
 
-app.controller('UserCtrl', function($scope, $location) {
+angular.module('controllers')
+.controller('UserCtrl', function($scope, $location) {
 
   $scope.submitUser = function(username) {
     $location.path('/trackuser/'+username);
@@ -12,4 +12,3 @@ app.controller('UserCtrl', function($scope, $location) {
 
 
 
-}(angular.module('controllers')));

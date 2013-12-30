@@ -1,7 +1,7 @@
-;(function(app) {
 'use strict';
 
-app.controller('TrackPostCtrl', function($scope, $location, $timeout, Reddit) {
+angular.module('controllers')
+.controller('TrackPostCtrl', function($scope, $location, $timeout, Reddit) {
 
   $scope.trackingUrl = 'http://www.reddit.com/r/'+$scope.$routeParams.subreddit+'/comments/'+$scope.$routeParams.post+'/'+$scope.$routeParams.title;
 
@@ -46,5 +46,3 @@ app.controller('TrackPostCtrl', function($scope, $location, $timeout, Reddit) {
 });
 
 
-
-}(angular.module('controllers')));

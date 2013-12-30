@@ -1,7 +1,7 @@
-;(function(app) {
 'use strict';
 
-app.factory('Tracking', function($rootScope, $log) {
+angular.module('services')
+.factory('Tracking', function($rootScope, $log) {
   var _tracking = {};
 
   _tracking.success = function(event, args) {
@@ -28,4 +28,3 @@ function getArgs(args) {
   return Array.prototype.slice.call(args, 1);
 }
 
-}(angular.module('services')));
