@@ -6,3 +6,4 @@ npm-debug.log
 dist
 node_modules
 client/bower_components
+bower_components
