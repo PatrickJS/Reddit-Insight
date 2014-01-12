@@ -25,7 +25,7 @@ module.exports = function(SERVER_ROOT) {
       res.locals.title = '';
       next();
     });
-    app.use('/bower_components', express.static(path.join(app.SERVER_ROOT, 'client', 'bower_components')));
+    app.use('/bower_components', express.static(path.join(app.SERVER_ROOT, 'bower_components')));
     app.use(express.static(path.join(app.SERVER_ROOT, 'public')));
     app.use(app.router);
   });

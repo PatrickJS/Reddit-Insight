@@ -19,6 +19,8 @@ html.no-js(lang="en")
       script(src="stylesheets/ie6-8.css")
     block head
   body.ng-cloak
+    if development
+      script(src='//localhost:35729/livereload.js')
 
     include partials/header
     block header
