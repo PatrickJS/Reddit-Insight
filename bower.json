@@ -7,21 +7,22 @@
     "lodash": "*",
     "jquery": "*",
     "d3": "*",
-    "angular": "1.2.6",
-    "angular-animate": "1.2.6",
-    "angular-route": "1.2.6",
+    "angular": "1.2.7",
+    "angular-animate": "1.2.7",
+    "angular-route": "1.2.7",
     "angular-ui-utils": "*",
-    "angular-bootstrap": "~0.9.0",
+    "angular-ui-router": "*",
+    "angular-bootstrap": "*",
     "angular-ui-router": "*",
     "angular-bindonce": "*",
     "angular-lodash": "*",
     "bootstrap": "~3.0.3"
   },
   "devDependencies": {
-    "angular-mocks": "~1.2.6",
-    "angular-scenario": "~1.2.6"
+    "angular-mocks": "~1.2.7",
+    "angular-scenario": "~1.2.7"
   },
   "resolutions": {
-    "angular": "1.2.6"
+    "angular": "1.2.7"
   }
 }
