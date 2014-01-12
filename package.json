@@ -18,7 +18,7 @@
     }
   ],
   "scripts": {
-    "start": "grunt server",
+    "start": "nodemon --harmony server.js",
     "test": "grunt test"
   },
   "repository": {
