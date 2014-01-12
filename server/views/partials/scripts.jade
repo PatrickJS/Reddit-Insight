@@ -5,5 +5,14 @@ script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-route.
 script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-animate.js')
 
 script
-  angular.module('RedditInsightApp', []);
+  angular.module('RedditInsightApp', [])
+    .controller('MenuCtrl', function($scope) {
+       $scope.items = [
+         {
+           url: "/dashboard",
+           text: "Dashboard"
+         }
+       ];
+
+      })
   angular.bootstrap(document.body, ['RedditInsightApp']);

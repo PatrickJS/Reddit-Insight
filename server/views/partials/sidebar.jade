@@ -5,7 +5,7 @@
     placeholder='...'
   )
   .nav-collapse.sidebar-nav.collapse.navbar-collapse.bs-navbar-collapse
-    ul.nav.nav-tabs.nav-stacked.main-menu(ng-init='items = [{url:"/dashboard", text: "Dashboard"}]')
+    ul.nav.nav-tabs.nav-stacked.main-menu(ng-controller="MenuCtrl")
       li(ng-repeat='item in items | filter:searching')
         a(ng-href='{{ item.url }}')
           i.fa.fa-bar-chart-o
