@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/gdi2290/Reddit-Insight.png?label=ready)](https://waffle.io/gdi2290/Reddit-Insight)
 Refactor In Progress
 =============
 ### For updates contact [@gdi2290](https://twitter.com/gdi2290#yolo)
