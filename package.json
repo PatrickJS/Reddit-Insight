@@ -18,6 +18,16 @@
     }
   ],
   "scripts": {
+    "prepublish": "node npm-scripts prepublish",
+    "postpublish": "node npm-scripts postpublish",
+    "preinstall": "node npm-scripts preinstall",
+    "postinstall": "node npm-scripts postinstall",
+    "preuninstall": "node npm-scripts preuninstall",
+    "postuninstall": "node npm-scripts postuninstall",
+    "preupdate": "node npm-scripts preupdate",
+    "postupdate": "node npm-scripts postupdate",
+    "prestart": "node npm-scripts prestart",
+    "poststart": "node npm-scripts poststart",
     "start": "nodemon --harmony server.js",
     "test": "grunt test"
   },
