@@ -2,14 +2,14 @@ var express = require('express');
 var path = require('path');
 var stylus = require('stylus');
 
-module.exports = function(app) {
+module.exports = function(app, config) {
   // development compile Handlebars and show errors
   app.configure('development', function(){
-    app.set('views', path.join(app.SERVER_ROOT, 'server', 'views'));
+    app.set('views', path.join(app.rootPath, 'server', 'views'));
     app.set('view engine', 'jade');
     app.use(stylus.middleware({
-      src: app.SERVER_ROOT + '/client/styles',
-      dest: app.SERVER_ROOT + '/public/stylesheets',
+      src: app.rootPath + '/client/styles',
+      dest: app.rootPath + '/public/stylesheets',
       compile: function(str, path, fn) {
         stylus(str)
         .set('filename', path)

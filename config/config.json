@@ -1,0 +1,5 @@
+{
+  "serverLog": "server.log",
+  "staticPath": "public",
+  "bowerPath": "bower_components"
+}

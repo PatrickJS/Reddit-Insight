@@ -1,7 +1,7 @@
-// var mongoose = require('mongoose'),
-    // nounSchema = require('../db/schemas/noun.js');
+// var mongoose = require('mongoose');
+// var nounSchema = require('../db/schemas/noun.js');
 
-module.exports = function(app) {
+module.exports = function(app, config) {
   // Create a connection
   // mongoose.connect(app.get('db-uri'));
   // mongoose.connection.on('err', console.error.bind(console,'Could not connect to database: "'+mongoose.connection.db.databaseName+'".'));

@@ -1,11 +1,13 @@
 var express = require('express');
+var fs = require('fs');
 var path = require('path');
 var cors = require('cors');
 require('longjohn');
 
 module.exports = function(SERVER_ROOT) {
   var app = express();
-  app.SERVER_ROOT = SERVER_ROOT;
+  app.rootPath = SERVER_ROOT;
+  var config = require(app.rootPath+'/config/config.json');
 
   // Store all environment variables
   app.set('port', process.env.PORT || 3000);
@@ -21,6 +23,7 @@ module.exports = function(SERVER_ROOT) {
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
+    app.use(cors());
     // app.use(express.session());
     app.use(function(req, res, next){
       // Give Views/Layouts direct access to session data.
@@ -28,19 +31,19 @@ module.exports = function(SERVER_ROOT) {
       res.locals.title = '';
       next();
     });
-    app.use('/bower_components', express.static(path.join(app.SERVER_ROOT, 'bower_components')));
-    app.use(express.static(path.join(app.SERVER_ROOT, 'public')));
+    app.use('/bower_components', express.static(path.join(app.rootPath, config.bowerPath)));
+    app.use(express.static(path.join(app.rootPath, config.staticPath)));
     app.use(app.router);
   });
 
   // Environment specific configuration
-  require('./environments')(app);
+  require('./environments')(app, config);
 
   // Database configuration
-  require('./database')(app);
+  require('./database')(app, config);
 
   // Routes
-  require('./routes')(app);
+  require('./routes')(app, config);
 
   return app;
 };
