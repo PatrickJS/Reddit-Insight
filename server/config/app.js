@@ -11,10 +11,13 @@ module.exports = function(SERVER_ROOT) {
   app.set('port', process.env.PORT || 3000);
   app.set('env', process.env.NODE_ENV || 'production');
 
-
+  var serverLogPath = path.join(app.rootPath, 'log', config.serverLog);
+  console.log(serverLogPath);
+  var logfile = fs.createWriteStream(path.join(app.rootPath, 'log', config.serverLog), {flags: 'a'});
   // Basic configuration
   app.configure(function() {
-    app.use(cors());
+    // App middleware
+    app.use(express.logger({stream: logfile}));
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
