@@ -21,8 +21,8 @@ module.exports = function(SERVER_ROOT) {
     // App middleware
     app.use(express.logger({stream: logfile}));
     app.use(express.logger('dev'));
-    app.use(express.bodyParser());
-    app.use(express.methodOverride());
+    app.use(express.json());
+    app.use(express.urlencoded());
     app.use(cors());
     // app.use(express.session());
     app.use(function(req, res, next){
